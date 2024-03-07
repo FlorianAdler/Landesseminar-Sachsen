@@ -1,0 +1,100 @@
+\subsection*{Lösungen zu Kapitel~\ref{kapitel:LCF}: \emph{Die Jensensche Ungleichung für nicht-konvexe Funktionen}}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:KaramataSchieben}]
+	Betrachte die Funktion $f\colon \mathbb R_{>0}\rightarrow \mathbb R$, $f(x)=\frac1{x^2}-\frac{14}{5x}$. Die zweite Ableitung $f''(x)=\frac{6}{x^4}-\frac{28}{5x^3}$ hat eine Nullstelle bei $x=\frac{15}{14}$ und ist vorher negativ und nachher positiv. Folglich ist die Funktion $f$ auf dem Intervall $\bigl(0,\frac{15}{14}\bigr]$ konvex und auf dem Intervall $\bigl[\frac{15}{14},\infty\bigl)$ konkav. Mit der Karamata-Schiebemethode können wir die Ungleichung auf die beiden Spezialfälle reduzieren, dass $a=b=c=d=e=1$ gilt oder dass $a=b=c=d=x$, $e=5-4x$ gilt. Der erste Fall ist trivial. Der zweite Fall führt auf die Ungleichung
+	\begin{equation*}
+		\frac{4}{x^2}-\frac{56}{5x}+\frac{1}{(5-4x)^2}-\frac{14}{5(5-4x)}+9\geqslant 0\,.
+	\end{equation*}
+	Durch Ausmultiplizieren und quadratisches Ausklammern des Gleichheitsfalles $x=1$ erhalten wir $20(x-1)^2(36x^2-60x+25)\geqslant 0$. Den zweiten Faktor erkennen wr als $(6x-5)^2$. Insbesondere ist er stets nichtnegativ. Außerdem sehen wir, dass $a=b=c=d=\frac{5}{6}$ und $e=\frac53$ sowie alle Permutationen davon weitere Gleichheitsfälle sind.
+\end{proof}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:log3log2}]
+	Wir raten, dass es für das minimale $\kappa$ noch einen weiteren, \enquote{asymptotischen} Gleichheitsfall geben muss, der durch $a=0$, $b=c$ gegeben ist (die eigentliche Aufgabe verbietet $a=0$ natürlich). Diese Überlegung für auf $\kappa=\log_2\parens[\big]{\frac32}$. Für alle $\kappa'<\kappa$ ist die Ungleichung im Fall $a=0$, $b=c$ verletzt, also auch dann, wenn $a>0$ hinreichend klein gewählt wurde. Wenn die Ungleichung für $\kappa$ erfüllt ist, dann ist sie nach der allgemeinen Potenzmittel-Ungleichung auch für alle $\kappa'>\kappa$ erfüllt. Um zu zeigen, dass $\kappa=\log_2\parens[\big]{\frac32}$ tatsächlich minimal ist, müssen wir also nur zeigen, dass die Ungleichung in diesem Fall wirklich gilt.
+	
+	Weil die Ungleichung homogen in $a$, $b$ und $c$ ist, dürfen wir $a+b+c=1$ annehmen. Betrachte nun die Funktion $f\colon (0,1)\rightarrow \mathbb R$, $f(x)=\parens[\big]{\frac{2x}{1-x}}^\kappa$. Nach etwas anstrengender Rechnung folgt
+	\begin{equation*}
+		f''(x)=2\kappa\frac{(2x)^{\kappa-2}(1-x)^{\kappa}}{(1-x)^{2(\kappa+1)}}\parens[\big]{2(\kappa-1)(1-x)+(\kappa+1)x}\,.
+	\end{equation*}
+	Der Term in der Klammer hat eine Nullstelle bei $x=\frac{1-\kappa}{2}$ und ist vorher negativ und nachher positiv. Alle anderen Faktoren sind überall positiv. Folglich ist $f$ auf dem Intervall $\bigl(0,\frac{1-\kappa}{2}\bigr]$ konkav und auf dem Intervall $\bigl[\frac{1-\kappa}{2},1\bigr)$ konvex. Mit der Karamata-Schiebemethode können wir die Ungleichung auf vier Spezialfälle reduzieren. Zwei dieser Fälle lassen sich durch simples Einsetzen überprüfen. Die anderen beiden Fälle sind wie folgt:
+	
+	\emph{Fall~1: $a=0$, $b$ im Konkavitätsbereich, $c$ im Konvexitätsbereich.} Nach AM-GM und unserer Wahl von $\kappa=\log_2\parens[\big]{\frac32}$ gilt
+	\begin{equation*}
+		\parens*{\frac{2b}{c}}^\kappa+\parens*{\frac{2c}{b}}^\kappa\geqslant 2\cdot 2^\kappa=3\,.
+	\end{equation*}
+	
+	\emph{Fall~2: $a$ im Konkavitätsbereich, $b=c$ im Konvexitätsbereich.} In diesem Fall müssen wir die Ungleichung
+	\begin{equation*}
+		\parens*{\frac{2a}{2b}}^\kappa+2\parens*{\frac{2b}{a+b}}^\kappa\geqslant 3
+	\end{equation*}
+	zeigen. Setze $t=\frac ab$, sodass $\frac{2b}{a+b}=\frac{2}{t+1}$. Die Ungleichung, die wir zeigen müssen, wird also zu
+	\begin{equation*}
+		g(t)\coloneqq t^\kappa+\frac{3}{(t+1)^\kappa}\geqslant 3\,,
+	\end{equation*}
+	wobei $0\leqslant t<1$ (dadurch, dass $a$ im Konkavitätsbereich und $b$ im Konvexitätsbereich liegt, muss nämlich $a<b$ gelten). Damit haben wir die Ungleichung auf eine Variable reduziert. Da $\kappa$ irrational ist, haben wir es hier jedoch leider nicht mit einer polynomiellen Ungleichung zu tun. Stattdessen fassen wir die Ungleichung als Extremwertaufgabe auf. Für $t=0$ und $t=1$ ist die Ungleichung offenbar erfüllt, also müssen wir nur nach lokalen Minima Ausschau halten. Alle lokalen Extrema von $g$ sind Lösungen der Gleichung
+	\begin{equation*}
+		0=g'(t)=\kappa t^{\kappa-1}-\frac{3\kappa}{(t+1)^{\kappa+1}}\,,
+	\end{equation*}
+	also muss $t^{\kappa-1}(t+1)^{\kappa+1}=3$ gelten. Eine Lösung hiervon ist offensichtlich $t=1$. Um zu schauen, ob noch weitere Lösungen von $t^{\kappa-1}(t+1)^{\kappa+1}=3$ existieren können, leiten wir auch noch die Funktion $h(t)\coloneqq t^{\kappa-1} (t+1)^{\kappa+1}$ ab:
+	\begin{equation*}
+		h'(t)=t^{\kappa-2}(t+1)^\kappa\parens[\big]{(\kappa+1)t+(\kappa-1)(t+1)}\,.
+	\end{equation*}
+	Es folgt, dass $h'$ genau bei $t=\frac{\kappa-1}{2\kappa}$ eine Nullstelle hat. Folglich kann es außer $t=1$ höchstens eine weitere Lösung von $h(t)=3$ geben, denn zwischen je zwei Lösungen müsste $h'$ eine Nullstelle haben. Das bedeutet, dass $g'$ im Intervall $(0,1)$ höchstens eine Nullstelle $t_0$ haben kann. Für $t\rightarrow 0$ gilt $\kappa t^{\kappa-1}\rightarrow \infty$, also auch $g'(t)\rightarrow \infty$, während für $t=\frac12$ mit einer einfachen Rechnung $g'(t)<0$ gilt. Also muss $g'(t)$ bei seiner einzigen Nullstelle $t=t_0$ das Vorzeichen von $+$ zu $-$ wechseln. Es folgt, dass $g$ bei $t_0$ ein lokales Maximum hat. Unsere Suche nach lokalen Minima von $g$ im Intervall $(0,1)$ ist somit abgeschlossen: Es gibt keine. Damit ist die Aufgabe gelöst.
+\end{proof}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:51}]
+	Wir zeigen zuerst die Ungleichung $\frac{13-t}{600}\geqslant\frac1{51+t^2}$ für alle $0\leqslant t\leqslant7$ (die rechte Seite ist genau die Tangente an den Graphen von $f(t)=\frac{1}{51+t^2}$ in $t=3$). Diese Abschätzung folgt aus
+	\begin{equation*}
+		\frac{13-t}{600}-\frac1{51+t^2}=\frac{663-51t+13t^2-t^3-600}{600(51+t^2)}=\frac{(t-3)^2(7-t)}{600(51+t^2)}\geqslant0
+	\end{equation*}für $0\leqslant t\leqslant7$. Wenn $x,y,z\leqslant7$ gilt, können wir also
+	\begin{equation*}
+		\frac1{51+x^2}+\frac1{51+y^2}+\frac1{51+z^2}\leqslant\frac{13-x}{600}+\frac{13-y}{600}+\frac{13-z}{600}=\frac{39-(x+y+z)}{600}=\frac1{20}
+	\end{equation*}
+	abschätzen und sind fertig. Falls eine der Variablen größer als 7 ist, können wir sogar deutlich unschärfer abschätzen, und zwar $\sum\frac1{51+x^2}<\frac1{51+7^2}+\frac1{50}+\frac1{50}= \frac1{100}+\frac1{25}=\frac1{20}$. Auch hier sind wir fertig.\qed
+	
+	\textbf{Lösung zu Aufgabe~\ref{aufgabe:b+c-aUngleichung}.} Weil die Ungleichung homogen ist, dürfen wir $a+b+c=1$ annehmen. Dann gilt
+	\begin{equation*}
+		\frac{(b+c-a)^2}{(b+c)^2+a^2}=\frac{(1-2a)^2}{(1-a)^2+a^2}=2-\frac{1}{1-2a+2a^2}\,.
+	\end{equation*}
+	Die behauptete Ungleichung ist also äquivalent zu
+	\begin{equation*}
+		\frac{1}{1-2a+2a^2}+\frac{1}{1-2b+2b^2}+\frac{1}{1-2c+2c^2}\leqslant 6-\frac35=\frac{27}{5}\,.
+	\end{equation*}
+	Nun behaupten wir, dass $\frac{1}{1-2x+2x^2}\leqslant \frac{54}{27}x+\frac{27}{25}$ für alle $0\leqslant x\leqslant 1$ gilt (die rechte Seite ist genau die Tangente an den Graphen von $f(x)=\frac{1}{1-2x+2x^2}$ in $x=\frac13$). Diese Abschätzung folgt aus
+	\begin{equation*}
+		\frac{54x+27}{25}-\frac{1}{1-2x+2x^2}=\frac{108x^3-54x^2+2}{25\parens*{1-2x+2x^2}}=\frac{2(3x-1)^2(6x+1)}{25(1-2x+2x^2)}\geqslant 0\,.
+	\end{equation*}
+	Es folgt
+	\begin{equation*}
+		\frac{1}{1-2a+2a^2}+\frac{1}{1-2b+2b^2}+\frac{1}{1-2c+2c^2}\leqslant \frac{54(x+y+z)+3\cdot 27}{25}=\frac{105}{25}=\frac{27}{5}\,.\tag*{\qed}
+	\end{equation*}
+	
+	\textbf{Lösung zu Aufgabe~\ref{aufgabe:USAMO2017}.} Sei $T$ der betrachtete Ausdruck. Durch geschicktes Raten vermuten wir, dass das Minimum von $T$ nicht bei $a=b=c=d=1$ angenommen wird, was auf den Wert $T=\frac45$ führt, sondern bei $a=2$, $b=2$, $c=0$ und $d=0$ (sowie zyklischen Vertauschungen davon), was auf den Wert $T=\frac23$ führt. Das inspiriert uns dazu, die Tangente an $f(x)=\frac{1}{x^3+4}$ in $x=2$ zu betrachten. Wir behaupten dann, dass stets $ \frac{1}{x^3+4}\geqslant \frac14-\frac{x}{12}$ gilt, was aus
+	\begin{equation*}
+		\frac1{x^3+4}-\frac14-\frac{x}{12}=\frac {12-(3-b)(b^3+4)}{12(b^3+4)}=\frac{b(b+1)(b-2)^2}{12\parens*{b^3+4}}\geqslant 0
+	\end{equation*}
+	folgt. Mit dieser Abschätzung erhalten wir
+	\begin{equation*}
+		T\geqslant \frac{a+b+c+d}4-\frac{ab+bc+cd+da}{12}=1-\frac{(a+c)(b+d)}{12}
+	\end{equation*}
+	Nach AM-GM ist $(a+c)(b+d)\leqslant \frac14(a+b+c+d)^2=4$ und nach Einsetzen sind wir fertig.\qed
+	
+	\textbf{Lösung zu Aufgabe~\ref{aufgabe:MatBoj2015}.} Um die Nenner zu linearisieren, schätzen wir nach AM-GM wie folgt ab: $a^2+2=a^2+1+1\geqslant 2a+1$. Folglich genügt es, die Ungleichung
+	\begin{equation*}
+		\frac{a}{2a+1}+\frac{b}{2b+1}+\frac{c}{2c+1}\leqslant 1
+	\end{equation*}
+	zu beweisen. Nach Ausmultiplizieren, Vereinfachen und Einsetzen von $abc=1$ wird diese Ungleichung zu $3\leqslant a+b+c$, was direkt aus AM-GM folgt.\qed
+	
+	\textbf{Lösung zu Aufgabe~\ref{aufgabe:DEMO2013}.} Der Einfachheit halber schreiben wir $\beta\coloneqq \frac 1\alpha$, sodass $\beta<1$. Wir wollen die Wurzeln durch lineare Terme ersetzen. Dazu schätzen wir die Funktion $f(x)=\sqrt[\alpha]{x}=x^\beta$ durch ihre Tangente in $x=1$ ab und erhalten $x^\beta\leqslant 1+\beta(x-1)$. Diese Ungleichung ist für alle $x\geqslant 0$ gültig, denn $f$ ist konkav: Wegen $\beta<1$ gilt $f''(x)=\beta(\beta-1)x^{\beta-2}<0$ für alle $x>0$.
+	
+	Mit dieser Abschätzung folgt
+	\begin{align*}
+		\sqrt[\alpha]{1+\sqrt[\alpha]{2+\sqrt[\alpha]{\dotsb+\sqrt[\alpha]{n+\sqrt[\alpha]{n+1}}}}}&\leqslant 1+\beta\parens[\bigg]{1+\beta\parens[\Big]{2+\beta\parens[\big]{\dotsb+\beta(n+\beta n)}}}\\
+		&=1+\beta+2\beta^2+\dotsb+n\beta^n+n\beta^{n+1}\\
+		&<\frac1{(1-\beta)^2}\,.
+	\end{align*}
+	In der letzten Abschätzung haben wir die für $\abs{x}<1$ gültige Identität
+	\begin{equation*}
+		\sum_{i=0}^\infty ix^{i-1}=\frac1{(1-x)^2}
+	\end{equation*}
+	verwendet, welche aus der bekannten geometrischen Summenformel $\sum_{i=0}^\infty x^i=\frac1{1-x}$ durch Ableiten folgt.
+\end{proof}

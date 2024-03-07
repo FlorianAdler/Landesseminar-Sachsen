@@ -1,0 +1,68 @@
+% Eingabekodierung
+\usepackage[T1]{fontenc}
+% Seit 2018 ist utf8 Standard
+%\usepackage[utf8]{inputenc}
+
+% Seitenränder
+%\usepackage{typearea}
+%\areaset{16cm}{26cm}
+\usepackage{geometry}
+\geometry{text={16cm,26cm},top=1.5cm}
+
+% Einstellungen für Absätze und Abstände
+\setlength\parskip{\medskipamount}
+\setlength\parindent{0pt}
+
+\flushbottom
+
+% Deutsche Silbentrennung
+\usepackage[ngerman]{babel}
+
+% Typographiepakete/Font-Pakete, kann man auch weglassen
+\usepackage{times}
+\usepackage[slantedGreek]{mathptmx}
+\usepackage{microtype}
+
+% für Listen
+\usepackage[shortlabels]{enumitem}
+\setlist[enumerate]{label={$(\alph*)$}, ref={$(\alph*)$},topsep=0pt,itemsep=0pt,parsep=\parskip}
+\setlist[itemize]{topsep=0pt,itemsep=0pt,parsep=\parskip}
+\newlist{enumaufg}{enumerate}{2}
+\setlist[enumaufg]{label=(\textit{\alph*})}
+
+% für Tabellen
+\usepackage{tabularx}
+\usepackage{booktabs}
+
+% um Text um Bilder herumfließen zu lassen
+\usepackage{wrapfig}
+
+% Für Skizzen
+\usepackage{tikz-cd}
+\usetikzlibrary{positioning,calc,arrows.meta,shapes,,decorations.pathmorphing,decorations.markings,hobby}
+\tikzset{every picture/.style={line width=0.6, line cap=round,line join=round}}
+
+% Standard-Mathepakete
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{wasysym} % für das Winkel-Symbol
+\usepackage{yhmath} % für das Kreisbogen-Symbol
+\usepackage{exscale}% setzt (anscheinend) das Summenzeichen von Times New Roman zurück auf Latin Modern
+
+% Für Theorem-Umgebungen
+\usepackage{amsthm}
+
+% Tien: for quotations
+\usepackage{csquotes}
+
+% Tien: math definitions
+\NewDocumentCommand{\A}{}{\mathrm{A}}
+\NewDocumentCommand{\Pot}{}{\mathrm{Pot}}
+\RenewDocumentCommand{\i}{}{\mathrm{i}}
+
+% Für Hyperlinks im PDF
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=black]{hyperref}
+
+% Damit URLs automatisch umgebrochen werden (sonst bekommen wir over/underfull hboxes).
+\usepackage{xurl}

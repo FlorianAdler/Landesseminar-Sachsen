@@ -1,0 +1,24 @@
+\subsection*{Lösungen zu Kapitel~\ref{kapitel:Schuirhead}: \emph{Die Schuirhead-Ungleichung}}
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:IMO1984Schur}]
+	Diese Aufgabe haben wir schon im Heft für die Klasse~9 mit der Schiebemethode gelöst. Hier lösen wir sie noch einmal mit Schuirhead. Wegen $x+y+z=1$ ist die Ungleichung äquivalent zu
+	\begin{equation*}
+		0\leqslant (x+y+z)(xy+yz+zx)-2xyz\leqslant\frac{7}{27}(x+y+z)^3\,.
+	\end{equation*}
+	Diese Ungleichung ist invariant unter Skalierung der Variablen, also können wir die Nebenbedingung $x+y+z=1$ ab jetzt ignorieren (dieser Trick nennt sich \emph{Homogenisierung} und sollte fester Bestandteil eures Ungleichungs-Repertoires sein). Die linke Ungleichung wird nun zu $0\leqslant x^2y+xy^2+y^2z+yz^2+z^2x+zx^2+xyz$, was trivialerweise wahr ist. Durch Ausmultiplizieren und Vereinfachen wird die rechte Ungleichung zu
+	\begin{equation*}
+		6\parens*{x^2y+xy^2+y^2z+yz^2+z^2x+zx^2}\leqslant 7\parens*{x^3+y^3+z^3}+15xyz\,.
+	\end{equation*}
+	Aus der Schur-Ungleichung folgt $5\parens{x^2y+xy^2+y^2z+yz^2+z^2x+zx^2}\leqslant 5\parens{x^3+y^3+z^3}+15xyz$ und aus Muirhead folgt $x^2y+xy^2+y^2z+yz^2+z^2x+zx^2\leqslant 2\parens{x^3+y^3+z^3}$.
+\end{proof}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:SubstitutionSchur}]
+	ir multiplizieren die Schur-Ungleichung $x^3+y^3+z^3+3xyz\geqslant x^2y+xy^2+y^2z+yz^2+z^2x+zx^2$ mit $x+y+z$ und erhalten nach Vereinfachung die Ungleichung
+	\begin{equation*}
+		\parens*{x^4+y^4+z^4}+\parens*{x^2yz+y^2zx+z^2xy}\geqslant 2\parens*{x^2y^2+y^2z^2+z^2x^2}\,.
+	\end{equation*}
+	Die Muirhead-Ungleichungen $T_{(4,0,0)}(x,y,z)\geqslant T_{(2,2,0)}(x,y,z)$ und $T_{(3,1,0)}(x,y,z)\geqslant T_{(2,2,0)}(x,y,z)$ liefern
+	\begin{equation*}
+		2\parens*{x^4+y^4+z^4}+\parens*{x^3y+xy^3+y^3z+yz^3+z^3x+zx^3}\geqslant 2\parens*{x^2y^2+y^2z^2+z^2x^2}\,.
+	\end{equation*}
+	Wenn wir diese beiden Ungleichungen addieren, erhalten wir genau die ausmultiplizierte Form der Behauptung.
+\end{proof}

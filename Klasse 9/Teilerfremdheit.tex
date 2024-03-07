@@ -1,0 +1,170 @@
+\section{Teiler und Teilerfremdheit}\label{kapitel:Teilerfremdheit}
+In diesem Theoriekapitel werden wir die Grundlagen der für Olympiadezwecke relevanten Zahlentheorie besprechen, damit wir sie in späteren Kapiteln frei verwenden können. Euch wird sicherlich vieles (wenn nicht gar alles) in diesem Kapitel bereits bekannt sein.
+
+\subsection*{Der größte gemeinsame Teiler}
+\begin{definition}
+	Seien $a$ und $b$ ganze Zahlen, die nicht beide Null sind. Der \emph{größte gemeinsame Teiler von $a$ und $b$}, kurz $\operatorname{ggT}(a,b)$, ist genau das, was der Name sagt: nämlich die größte positive ganze Zahl, die sowohl~$a$ als auch~$b$ teilt.
+\end{definition}
+Wenn die Primfaktorzerlegungen\footnote{Indem wir auch $\alpha_i=0$ oder $\beta_j=0$ erlauben, können wir erreichen, dass in den Primfaktorzerlegungen von~$a$ und~$b$ die gleichen Primfaktoren vorkommen, wie es die Notation suggeriert.} $a=\pm p_1^{\alpha_1}p_2^{\alpha_2}\dotsm p_r^{\alpha_r}$ und $b=\pm p_1^{\beta_1}p_2^{\beta_2}\dotsm p_r^{\beta_r}$ bekannt sind, dann lässt sich der $\operatorname{ggT}$ leicht ablesen: Es gilt
+\begin{equation*}
+	\operatorname{ggT}(a,b)=p_1^{\min\{\alpha_1,\beta_1\}}p_2^{\min\{\alpha_2,\beta_2\}}\dotsm p_r^{\min\{\alpha_r,\beta_r\}}\,.
+\end{equation*}
+Aber der $\operatorname{ggT}$ lässt sich auch ohne Kenntnis der Primfaktorzerlegungen bestimmen. Das geht folgendermaßen:
+\begin{satzmitnamen}[Euklidischer Algorithmus]
+	Gegeben seien nichtnegative ganze Zahlen $a$ und $b$, die nicht beide gleich Null sind. Dann wird $\operatorname{ggT}(a,b)$ durch folgenden rekursiven Algorithmus berechnet:
+	\begin{enumerate}
+		\item[$(*)$] Sei $r$ der Rest von $a$ modulo $b$. Wenn $r=0$, dann ist $\operatorname{ggT}(a,b)=b$. Ansonsten ersetze $(a,b)$ durch $(b,r)$ und wiederhole den gleichen Schritt.
+	\end{enumerate}
+\end{satzmitnamen}
+\begin{proof}
+	Sei $(a_i,b_i)$ das Paar von ganzen Zahlen, das im $i$-ten Schritt betrachtet wird. Dann ist also $(a_1,b_1)=(a,b)$; ferner gilt $a_{i+1}=b_i$ und $b_{i+1}$ ist der Rest von $a_i$ modulo $b_i$. Insbesondere ist $b_1>b_2>\dotsb>b_i>\dotsb$. Nach endlich vielen Schritten muss also $b_{n+1}=0$ gelten und der Algorithmus endet.
+	
+	Weil $b_{i+1}$ der Rest von $a_i$ modulo $b_i$ ist, gibt es eine nichtnegative ganze Zahl $q$ mit $b_{i+1}=a_i-qb_i$. Jeder gemeinsame Teiler von $a_i$ und $b_i$ ist somit auch ein Teiler von $b_{i+1}$ und natürlich auch von $a_{i+1}=b_i$. Umgekehrt ist $a_i=b_{i+1}+qb_i=b_{i+1}+qa_{i+1}$, also ist jeder gemeinsame Teiler von $a_{i+1}$ und $b_{i+1}$ auch ein gemeinsamer Teiler von $a_i$ und $b_i$. Es folgt $\operatorname{ggT}(a_i,b_i)=\operatorname{ggT}(a_{i+1},b_{i+1})$ und damit
+	\begin{equation*}
+		\operatorname{ggT}(a,b)=\operatorname{ggT}(a_1,b_1)=\operatorname{ggT}(a_2,b_2)=\dotsb=\operatorname{ggT}(a_n,b_n)\,.
+	\end{equation*}
+	Wegen $b_{n+1}=0$ ist~$a_n$ durch~$b_n$ teilbar somit $\operatorname{ggT}(a_n,b_n)=b_n$. Nach Konstruktion endet der Algorithmus im $n$-ten Schritt und gibt~$b_n$ aus. Also ist der Algorithmus korrekt.
+\end{proof}
+
+Eine weitere, konzeptuell wichtige Beschreibung des $\operatorname{ggT}$ ist folgendermaßen gegeben:
+\begin{satzmitnamen}[Lemma von Bézout]
+	Gegeben seien ganze Zahlen $a$ und $b$, die nicht beide Null sind. Dann ist der $\operatorname{ggT}$ von $a$ und $b$ die kleinste positive ganze Zahl $d$, die sich in der Form $d=ma+n b$ für ganze Zahlen $m$ und $n$ schreiben lässt.
+\end{satzmitnamen}
+\begin{proof}
+	Jede Zahl der Form $ma+nb$ ist offensichtlich durch $\operatorname{ggT}(a,b)$ teilbar. Wenn $ma+nb$ also eine positive ganze Zahl ist, dann folgt sofort $ma+nb\geqslant \operatorname{ggT}(a,b)$. Wir müssen somit nur zeigen, dass sich auch $\operatorname{ggT}(a,b)$ in dieser Form schreiben lässt. Indem wir gegebenenfalls $a$ oder $b$ durch $-a$ oder $-b$ ersetzen, dürfen wir annehmen, dass $a$ und $b$ nichtnegativ sind, sodass der Euklidische Algorithmus anwendbar ist. Dann zeigen wir, dass sich alle $a_i$ und $b_i$ im Euklidischen Algorithmus in dieser Form schreiben lassen. Dafür benutzen wir Induktion nach $i$. Der Induktionsanfang $i=1$ ist trivial: Es gilt $(a_1,b_1)=(a,b)$ und $a=1\cdot a+0\cdot b$ sowie $b=0\cdot a+1\cdot b$.
+	
+	Nun nehmen wir an, dass wir bereits ganze Zahlen $m_i$, $n_i$, $k_i$ und $\ell_i$ gefunden haben, für die $a_i=m_i a+n_i b$ und $b_i=k_ia+\ell_ib$ gilt. Nach Konstruktion gilt $a_{i+1}=b_i=k_ia+\ell_ib$. Ferner ist $b_{i+1}$ der Rest von $a_i$ modulo $b_i$, folglich gibt es eine nichtnegative ganze Zahl $q$ mit $b_{i+1}=a_i-qb_i$. Es folgt
+	\begin{equation*}
+		b_{i+1}=\parens*{m_ia+n_ib}-q\parens*{k_i a+\ell_i b}=\parens*{m_i-qk_i}a+\parens*{n_i-q\ell_i}b\,.
+	\end{equation*}
+	Somit lässt sich auch $b_{i+1}$ in der gewünschten Form darstellen. Das beendet den Induktionsschritt, die Induktion und den Beweis.
+\end{proof}
+
+\begin{definition}
+	Wir nennen $a$ und $b$ \emph{teilerfremd}, wenn $\operatorname{ggT}(a,b)=1$.
+\end{definition}
+Das Lemma von Bézout hat eine sehr interessante Konsequenz in dem Fall, dass $a$ und $b$ teilerfremd sind: Wir können modulo $b$ nicht nur addieren, subtrahieren und multiplizieren, sondern auch \emph{durch $a$ dividieren!} Um das einzusehen, wählen wir zunächst ganze Zahlen $m$ und $n$ mit $ma+nb=1$. Insbesondere gilt $ma\equiv 1\mod b$. Wir sagen dann, \emph{die Restklasse von $m$ modulo $b$ ist das multiplikative Inverse der Restklasse von $a$ modulo $b$}. Division durch $a$ modulo $b$ können wir schließlich als Multiplikation mit $m$, dem multiplikativen Inversen von $a$, definieren.
+
+Ein besonderer Spezialfall ergibt sich, wenn $b=p$ eine Primzahl ist. In diesem Fall ist $a$ genau dann teilerfremd zu $p$, wenn $a$ nicht durch $p$ teilbar ist. Also können wir modulo $p$ durch $a$ dividieren, solange $a\not\equiv 0\mod p$ gilt. Mit anderen Worten: \emph{Wir können modulo $p$ durch jede Restklasse außer durch Null dividieren!} Auf diese Weise verhalten sich die Restklassen modulo $p$ genau wie die rationalen Zahlen oder die reellen Zahlen, in welchen die Division, außer durch Null, ebenfalls immer erlaubt ist.
+
+Division modulo einer Primzahl ist bestimmt erstmal ungewohnt für euch. Um damit ein bisschen warm zu werden, wollen wir untersuchen, was \enquote{$\frac 32$ modulo 7} ist. Wir stellen uns also die Frage: \emph{Was passiert, wenn wir~3 modulo~7 durch~2 dividieren?} Wenn~$x$ das Ergebnis ist, dann sollte $x$ die Kongruenz $2x\equiv 3\mod 7$ erfüllen. Wegen $2\cdot 4\equiv 8\equiv 1\mod 7$ ist~$4$ das multiplikative Inverse von~$2$ modulo~$7$. Also ist $x\equiv 8x\equiv 4\cdot 2x\equiv 4\cdot 3\equiv 5\mod 7$. Und damit haben wir unsere Antwort: \emph{Wenn wir~3 modulo~7 durch~2 dividieren, erhalten wir~5.}
+
+
+\subsection*{Der Chinesische Restsatz}
+Der Chinesische Restsatz ist auf den ersten Blick eine sehr technische Aussage, die aber trotzdem in vielen Olympiade-Aufgaben eine wichtige Rolle spielt.
+\begin{satzmitnamen}[Chinesischer Restsatz/Satz von Sun Zi]
+	Gegeben seien paarweise teilerfremde positive ganze Zahlen $m_1,m_2,\dotsc,m_n$ sowie Restklassen $a_1$ modulo $m_1$, $a_2$ modulo $m_2$, \ldots, $a_n$ modulo $m_n$. Dann hat das System von Kongruenzen
+	\begin{equation*}
+		\left\{\begin{aligned}
+			x&\equiv a_1\mod m_1\,,\\
+			x&\equiv a_2\mod m_2\,,\\
+			&\mathrel{\tikz[inner sep=0,outer sep=0]{\node at (0,-0.5ex) {$\phantom{\equiv}$};\node at (0,0) {$\vdots$};}}\\
+			x&\equiv a_n\mod m_n
+		\end{aligned}\right.
+	\end{equation*}
+	genau eine Lösung $x$ modulo $m_1m_2\dotsm m_n$.
+\end{satzmitnamen}
+\begin{proof}
+	Wir zeigen zuerst, dass für jedes $j=1,2,\dotsc,n$ eine ganze Zahl $x_j$ existiert, für die $x_j\equiv 1\mod m_j$ und $x_j\equiv 0\mod m_i$ für alle $i\neq j$ gilt. Dazu sei $m$ das Produkt aller $m_i$ für $i\neq j$. Weil $m_1,m_2,\dotsc,m_n$ paarweise teilerfremd sind, sind auch $m_j$ und $m$ teilerfremd. Nach dem Lemma von Bézout existiert also eine ganze Zahl~$y$ mit $my\equiv 1\mod m_j$ (sodass die Restklasse von~$y$ das multiplikative Inverse zur Restklasse von $m$ modulo $m_j$ ist). Somit ist $x_j\coloneqq my$ eine Lösung von $x_j\equiv 1\mod m_j$ und $x_j\equiv 0\mod m_i$ für alle $i\neq j$.
+	
+	Nun sehen wir, dass $x\coloneqq a_1x_1+a_2x_2+\dotsb+a_nx_n$ das obige System von Kongruenzen löst. Somit existiert immer eine Lösung und wir müssen nur noch zeigen, dass diese Lösung eindeutig modulo $m_1m_2\dotsm m_n$ ist. Das folgt aus einem einfachen Abzählargument: Wenn wir $a_1$ modulo~$m_1$, $a_2$ modulo~$m_2$, \ldots, $a_n$ modulo~$m_n$ variieren, erhalten wir $m_1m_2\dotsm m_n$ verschiedene Systeme von Kongruenzen. Wie wir gerade gesehen haben, hat jedes dieser Systeme mindestens eine Lösung modulo $m_1m_2\dotsm m_n$. Es gibt aber nur $m_1m_2\dotsm m_n$ Restklassen modulo $m_1m_2\dotsm m_n$. Also muss jedes System genau eine Lösung haben.
+\end{proof}
+
+Eine typische Anwendung des Chinesischen Restsatzes ist die folgende Olympiadeaufgabe.
+\begin{aufgabe*}\leavevmode\label{aufgabe:ChinesischerRestsatz}
+	\begin{enumerate}[label={$(\alph*)$},ref={$(\alph*)$}]
+		\item Sei $n$ eine vorgegebene positive ganze Zahl. Zeige, dass eine positive ganze Zahl $N$ existiert, sodass keine der Zahlen $N+1,N+2,\dotsc,N+n$ eine Primpotenz ist.\label{teilaufgabe:Primpotenzen}
+		\item Sei $n$ eine vorgegebene positive ganze Zahl. Zeige, dass eine positive ganze Zahl $N$ existiert, sodass keine der Zahlen $N+1,N+2,\dotsc,N+n$ eine echte Potenz ist. (\emph{Eine echte Potenz ist eine ganze Zahl der Form $m^k$, wobei $m$ und $k$ ganze Zahlen sind und $k\geqslant 2$ gilt.})\label{teilaufgabe:EchtePotenzen}
+	\end{enumerate}
+\end{aufgabe*}
+\begin{proof}[Lösung]
+	Wir beginnen mit~\ref{teilaufgabe:Primpotenzen}. Um ein $N$ mit der gewünschten Eigenschaft zu konstruieren, stellen wir uns zunächst folgende Frage: \emph{Wie können wir verhindern, dass eine ganze Zahl eine Primpotenz ist?} Die Antwort ist simpel: \emph{Indem wir dafür sorgen, dass die Zahl durch mindestens zwei Primzahlen teilbar ist!} Wir wollen also ein $N$ konstruieren, sodass jede der Zahlen $N+1,N+2,\dotsc,N+n$ durch mindestens zwei Primzahlen teilbar ist. Dafür wählen wir paarweise verschiedene Primzahlen $p_1,p_2,\dotsc,p_{2n}$. Nach dem Chinesischen Restsatz hat das System
+	\begin{equation*}
+		\left\{\begin{aligned}
+			N&\equiv -1\mod p_1p_2\,,\\
+			N&\equiv -2\mod p_3p_4\,,\\
+			&\mathrel{\tikz[inner sep=0,outer sep=0]{\node at (0,-0.5ex) {$\phantom{=}$};\node at (0,0) {$\vdots$};}}\\
+			N&\equiv -n\mod p_{2n-1}p_{2n}
+		\end{aligned}\right.
+	\end{equation*}
+	eine Lösung. Für alle $i=1,2,\dotsc,n$ ist dann $N+i$ durch $p_{2i-1}p_{2i}$ teilbar und wir sind fertig.
+	
+	Für~\ref{teilaufgabe:EchtePotenzen} stellen wir uns analog zu~\ref{teilaufgabe:Primpotenzen} die Frage: \emph{Wie können wir verhindern, dass eine ganze Zahl eine echte Potenz ist?} Diese Frage ist nicht so offensichtlich zu beantworten, aber nach einigem Nachdenken fällt uns folgendes auf: Wenn eine echte Potenz $m^k$ durch eine Primzahl $p$ teilbar ist, dann ist $m^k$ auch durch $p^k$ teilbar, also auf jeden Fall durch $p^2$. Insbesondere kann es nicht passieren, dass $m^k\equiv p\mod p^2$ gilt. Daraus können wir eine ähnliche Konstruktion wie in~\ref{teilaufgabe:Primpotenzen} basteln: Wähle paarweise verschiedene Primzahlen $p_1,p_2,\dotsc,p_n$. Nach dem Chinesischen Restsatz hat das System
+	\begin{equation*}
+		\left\{\begin{aligned}
+			N&\equiv p_1-1\mod p_1^2\,,\\
+			N&\equiv p_2-2\mod p_2^2\,,\\
+			&\mathrel{\tikz[inner sep=0,outer sep=0]{\node at (0,-0.5ex) {$\phantom{=}$};\node at (0,0) {$\vdots$};}}\\
+			N&\equiv p_n-n\mod p_n^2
+		\end{aligned}\right.
+	\end{equation*}
+	eine Lösung. Für alle $i=1,2,\dotsc,n$ ist dann $N+i\equiv p_i\mod p_i^2$, sodass $N+i$ keine echte Potenz sein kann. Damit sind wir fertig.
+\end{proof}
+
+\subsection*{Die Eulersche $\boldsymbol{\varphi}$-Funktion}
+\begin{definition}
+	Für jede positive ganze Zahl $n$ sei $\varphi(n)$ die Anzahl der positiven ganzen Zahlen $1\leqslant m\leqslant n$, die zu $n$ teilerfremd sind. Die Funktion $\varphi\colon \mathbb Z_{>0}\rightarrow \mathbb Z_{>0}$ wird \emph{Eulersche $\varphi$-Funktion} genannt.
+\end{definition}
+Im Fall $n=1$ gilt zum Beispiel $\varphi(1)=1$, denn $1$ ist zu sich selbst teilerfremd (auch wenn es durch sich selbst teilbar ist). Wenn $n=p$ eine Primzahl ist, dann sind alle kleineren positiven ganzen Zahlen zu $p$ teilerfremd, sodass $\varphi(p)=p-1$ ist. Wenn $n=p^\alpha$ eine Primpotenz ist, dann gilt $\varphi(p^\alpha)=p^\alpha-p^{\alpha-1}=(p-1)p^{\alpha-1}$. Eine positive ganze Zahl $1\leqslant m\leqslant p^\alpha$ ist nämlich genau dann \emph{nicht} zu $p^\alpha$ teilerfremd, wenn $m$ durch $p$ teilbar ist, und es gibt genau $p^{\alpha-1}$ durch $p$ teilbare positive ganze Zahlen $\leqslant p^\alpha$.
+
+Durch ähnliche Überlegungen können wir eine allgemeine Formel für $\varphi(n)$ angeben. Seien $p_1,p_2,\dotsc,p_r$ die Primfaktoren von $n$. Eine positive ganze Zahl $1\leqslant m\leqslant n$ ist genau dann \emph{nicht} zu $n$ teilerfremd, wenn $k$ durch eine der Primzahlen $p_1,p_2,\dotsc,p_r$ teilbar ist. Es gibt genau $\frac{n}{p_i}$ durch $p_i$ teilbare Wahlen von $m$. Also müssen wir $\frac{n}{p_1}+\frac{n}{p_2}+\dotsb+\frac{n}{p_r}$ von $n$ subtrahieren. Dabei haben wir aber alle $m$ doppelt gezählt, die durch mindestens zwei der Primzahlen $p_1,p_2,\dotsc,p_r$ teilbar sind. Wir müssen also $\frac{n}{p_ip_j}$ für alle $i<j$ addieren. Dabei haben wir aber wiederum alle $m$ doppelt gezählt, die durch mindestens drei der Primzahlen $p_1,p_2,\dotsc,p_r$ teilbar sind. Also müssen wir $\frac{n}{p_ip_jp_k}$ für alle $i<j<k$ subtrahieren und so weiter. Es folgt
+\begin{align*}
+	\varphi(n)&=n+\sum_{\ell=1}^r\sum_{1\leqslant i_1<\dotsb<i_\ell\leqslant r}(-1)^\ell\frac{n}{p_{i_1}\dotsm p_{i_\ell}}\\
+	&=n\parens*{1-\frac 1{p_1}}\parens*{1-\frac 1{p_2}}\dotsm \parens*{1-\frac 1{p_r}}\,.
+\end{align*}
+\begin{satzmitnamen}[Lemma]
+	Wenn $m$ und $n$ teilerfremde positive ganze Zahlen sind, dann ist $\varphi(mn)=\varphi(m)\varphi(n)$.
+\end{satzmitnamen}
+\begin{proof}[Erster Beweis]
+	Das folgt direkt aus der obigen Formel.
+\end{proof}
+
+Umgekehrt lässt sich das Lemma benutzen, um die obige Formel auf den Fall von Primpotenzen zurückzuführen. Damit würden wir einen weiteren Beweis der obigen Formel erhalten, vorausgesetzt, wir könnten das Lemma ohne die Formel beweisen. Einen solchen Beweis werden wir nun vorstellen.
+
+\begin{proof}[Zweiter Beweis]
+	Die Gleichung $\varphi(mn)=\varphi(m)\varphi(n)$ ist trivial wenn $m=1$ oder $n=1$. Für $m>1$ ist $m$ nicht teilerfremd zu $m$. Also ist $\varphi(m)$ auch die Anzahl aller Restklassen modulo $m$, die teilerfremd zu $m$ sind. Selbiges gilt für $\varphi(n)$. Eine Restklasse $r$ modulo $mn$ ist genau dann teilerfremd zu $mn$, wenn $r$ teilerfremd zu $m$ und $n$ ist. Wenn $s$ eine teilerfremde Restklasse modulo $m$ und $t$ eine teilerfremde Restklasse modulo $n$ ist, dann hat das System von Kongruenzen
+	\begin{equation*}
+		\left\{\begin{alignedat}{2}
+			r&\equiv s&&\mod m\,,\\
+			r&\equiv t&&\mod n
+		\end{alignedat}\right.
+	\end{equation*}
+	laut dem Chinesischen Restsatz genau eine Lösung modulo $mn$. Weil es $\varphi(m)\varphi(n)$ Wahlen für~$s$ und~$t$ gibt, gibt es $\varphi(m)\varphi(n)$ Restklassen modulo $mn$, die zu $mn$ teilerfremd sind. Es folgt $\varphi(mn)=\varphi(m)\varphi(n)$, wie behauptet.
+\end{proof}
+
+Die wichtigste Anwendung der Eulerschen $\varphi$-Funktion im Kontext von Olympiade-Mathematik ist der \emph{Satz von Euler-Fermat:}
+\begin{satzmitnamen}[Satz von Euler-Fermat]
+	Gegeben sei eine positive ganze Zahl $m$ sowie eine ganze Zahl $a$, die zu $m$ teilerfremd ist. Dann gilt
+	\begin{equation*}
+		a^{\varphi(m)}\equiv 1\mod m\,.
+	\end{equation*}
+\end{satzmitnamen}
+In dem Spezialfall, dass $m=p$ eine Primzahl ist, erhalten wir $a^{p-1}\equiv 1\mod p$ für alle ganzen Zahlen $a$, die nicht durch $p$ teilbar sind. Diese Kongruenz ist auch als der \emph{kleine Satz von Fermat} bekannt.
+
+\begin{proof}
+	Für $m=1$ ist der Satz trivial. Für $m>1$ ist, wie wir weiter oben festgestellt haben, $\varphi(m)$ die Anzahl der Restklassen modulo $m$, die teilerfremd zu $m$ sind. Seien $r_1,r_2,\dotsc,r_{\varphi(m)}$ diese Restklassen. Dann sind auch $ar_1,ar_2,\dotsc,ar_{\varphi(m)}$ zu $m$ teilerfremde Restklassen modulo $m$. Außerdem sind $ar_1,ar_2,\dotsc,ar_{\varphi(m)}$ paarweise verschieden. Aus $ar_i\equiv ar_j\mod m$ folgt nämlich $r_i\equiv r_j\mod m$, denn wenn $a$ teilerfremd zu $m$ ist, dann können modulo $m$ durch $a$ dividieren, wie wir am Anfang des Kapitels gesehen haben. Wenn aber $ar_1,ar_2,\dotsc,ar_{\varphi(m)}$ paarweise verschiedene zu $m$ teilerfremde Restklassen modulo $m$ sind, dann muss $ar_1,ar_2,\dotsc,ar_{\varphi(m)}$ eine Permutation von $r_1,r_2,\dotsc,r_{\varphi(m)}$ sein. Es folgt
+	\begin{equation*}
+		r_1r_2\dotsb r_{\varphi(m)}\equiv ar_1\cdot ar_2\dotsm ar_{\varphi(m)}\equiv a^{\varphi(m)}r_1r_2\dotsm r_m\mod m\,.
+	\end{equation*}
+	Weil wir modulo $m$ durch die zu $m$ teilerfremde Restklasse $r_1r_2\dotsm r_{\varphi(m)}$ teilen dürfen, erhalten wir $1\equiv a^{\varphi(m)}\mod m$, wie behauptet.
+\end{proof}
+
+Im Kapitel zu Diophantischen Gleichungen werdet ihr sehen, wie der Satz von Euler-Fermat ein unverzichtbares Hilfsmittel bei solchen Gleichungen ist. Eine weitere typische Anwendung des Satzes sind Aufgaben, bei denen ihr zeigen sollt, dass eine natürliche Zahl $n$ ein Vielfaches hat, dessen Dezimaldarstellung eine bestimmte Form hat. Wenn $n$ teilerfremd zu $10$ ist, dann gilt $10^{k\varphi(n)}\equiv 1\mod n$ für alle nichtnegativen ganzen Zahlen $k$. Durch geeignete Summen von Zahlen dieser Form kann dann häufig ein Vielfaches von $n$ mit den gewünschten Eigenschaften gebastelt werden. Die folgende Aufgabe ist dafür ein perfektes Beispiel:
+\begin{aufgabe*}
+	Sei $n$ eine positive ganze Zahl, die nicht durch $10$ teilbar ist. Zeige, dass $n$ ein Vielfaches hat, das eine Palindromzahl ist. (\emph{Eine Palindromzahl ist eine Zahl, deren Dezimaldarstellung vorwärts und rückwärts gelesen gleich ist.})
+\end{aufgabe*}
+\begin{proof}[Lösung]
+	Betrachte zuerst den Fall, dass $n$ weder durch $2$ noch durch $5$ teilbar ist. Dann muss $n$ teilerfremd zu $10$ sein. Betrachte die Zahl $A\coloneqq 1+10^{\varphi(n)}+10^{2\varphi(n)}+\dotsb+10^{(n-1)\varphi(n)}$. Die Dezimaldarstellung von $A$ besteht aus $n$ Einsen, zwischen denen jeweils $\varphi(n)-1$ Nullen liegen. Also ist $A$ ein Palindrom. Andererseits gilt nach dem Satz von Euler-Fermat
+	\begin{equation*}
+		A\equiv \underbrace{1+1+\dotsb+1}_{\text{$n$ Summanden}}\equiv n\equiv 0\mod n\,.
+	\end{equation*}
+	Folglich ist $A$ durch $n$ teilbar.
+	
+	Betrachte als nächstes den Fall, dass $n$ durch $2$ teilbar ist. Dann kann $n$ nicht durch $5$ teilbar sein. Also ist $n$ von der Form $n=2^k m$, wobei $m$ zu $10$ teilerfremd ist. Sei $B\coloneqq 2^k$ und sei $\overline{B}$ die Zahl, die wir erhalten, wenn wir die Dezimaldarstellung von $B$ umdrehen. Betrachte nun zuerst die Zahl $B+10^{k\varphi(n)}$. Wegen $10^{k\varphi(n)}>2^k=B$ besteht die Dezimaldarstellung von $B+10^{k\varphi(n)}$, gelesen von links nach rechts, aus einer $1$, gefolgt von einer Reihe Nullen und schließlich der Dezimaldarstellung von $B$. Sei $a$ die Anzahl der Nullen. Betrachte nun die Zahl
+	\begin{equation*}
+		C\coloneqq B+10^{k\varphi(m)}+10^{2k\varphi(m)}+\dotsb+10^{(2m-1)k\varphi(m)}+10^{(2m-1)k\varphi(m)+a+1}\overline{B}\,.
+	\end{equation*}
+	Die Dezimaldarstellung von $C$, gelesen von links nach rechts, besteht zunächst aus der Dezimaldarstellung von $\overline{B}$, gefolgt von $a$ Nullen. Danach folgen $2m-1$ Einsen, die jeweils durch $k\varphi(m)-1$ Nullen getrennt sind. Zuletzt folgen $a$ Nullen und die Dezimaldarstellung von $B$. Damit ist $C$ eine Palindromzahl. Außerdem ist $C$ durch~$2^k$ teilbar, denn alle Summanden sind durch $2^k$ teilbar. Allerdings muss $C$ nicht unbedingt durch $m$ teilbar sein. Sei~$r$ der Rest von $C$ modulo~$m$. Um $C$ durch $m$ teilbar zu machen, wollen wir~$r$ der $2m-1$ Einsen durch Nullen ersetzen. Wegen $10^{ik\varphi(m)}\equiv 1\mod m$ verringert sich der Rest bei jeder Ersetzung um~$1$, sodass wir zum Schluss eine durch $m$ teilbare Zahl $C'$ erhalten. Wenn~$r$ gerade ist, wählen wir die~$r$ zu ersetzenden Einsen symmetrisch zur mittleren der $2m-1$ Einsen. Wenn~$r$ ungerade ist, wählen wir die mittlere Eins und den Rest wieder symmetrisch. Damit können wir sicherstellen, dass $C'$ immer noch eine Palindromzahl ist. Außerdem ist $C'$ immer noch durch $2^k$ teilbar, denn alle Summanden, die wir gelöscht haben indem wir eine $1$ zu einer~$0$ gemacht haben, waren durch~$2^k$ teilbar. Folglich ist $C$ durch $2^km=n$ teilbar und wir sind fertig.
+	
+	Der Fall, dass $n$ durch~$5$ teilbar ist, geht völlig analog.
+\end{proof}

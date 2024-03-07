@@ -1,0 +1,92 @@
+\subsection*{Lösungen zu Kapitel~\ref{kapitel:LTE}: \emph{Das Lifting-The-Exponent-Lemma}}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:NieQuadratfrei}]
+	Für $a\geqslant 3$ besitzt $a-1$ mindestens einen Primfaktor $p$. Falls~$p$ ungerade ist, dann gilt $v_p(a^{a-1}-1)=v_p(a-1)+v_p(a-1)\geqslant 2$ nach dem LTE-Lemma. Also kann $a^{a-1}-1$ nicht quadratfrei sein. Es verbleibt der Fall, dass $a-1$ nur den Primfaktor $p=2$ besitzt, also eine Zweierpotenz ist. Für $a-1=2$ erhalten wir $a^{a-1}-1=8$, was nicht quadratfrei ist. Ansonsten muss $a\equiv 1\mod 4$ sein und es folgt wiederum $v_2(a^{a-1}-1)=v_2(a-1)+v_2(a-1)\geqslant 2$ nach dem LTE-Lemma. Auch in diesem Fall kann~$a$ nicht quadratfrei sein.
+\end{proof}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:2p3pan}]
+	Für $p=2$ erhalten wir $2^2+3^2=13$, was keine echte Potenz ist. In diesem Fall ist also nur $n=1$ möglich. Für ungerade Primzahlen $p\geqslant 3$ schreiben wir $2^p+3^p=2^p-(-3)^p$ und wenden das LTE-Lemma an:
+	\begin{equation*}
+		v_5\parens*{2^p-(-3)^p}=v_5\parens[\big]{2-(-3)}+v_5(p)=1+v_5(p)\,.
+	\end{equation*}
+	Für $p\neq 5$ folgt, dass $2^p+3^p$ genau einmal durch~$5$ teilbar ist. Wenn aber $a^n\equiv 0\mod 5$ gilt, dann muss $a$ durch~$5$ und somit $a^n$ durch $5^n$ teilbar sein. Folglich ist nur $n=1$ möglich. Im Fall $p=5$ sehen wir direkt, dass $2^5+3^5=275=5^2\cdot 11$ keine echte Potenz sein kann.
+\end{proof}
+
+%	\textbf{Lösung zu Aufgabe~\ref{aufgabe:EndlicheMengeVonPrimzahlen}.} Wir dürfen ohne Einschränkung annehmen, dass $a$ zu allen Primzahlen in $\Sigma$ teilerfremd ist, denn diejenigen, für die das nicht der Fall ist, können ohnehin nicht als Teiler von $a^n-1$ auftreten. Sei $p\in\Sigma$ eine ungerade Primzahl und sei $\operatorname{ord}_p(a)$ die multiplikative Ordnung\footnote{Die \emph{multiplikative Ordnung von $a$ modulo~$p$} ist die kleinste positive ganze Zahl, sodass $a^{\operatorname{ord}_p(a)}\equiv 1\mod p$ gilt. Siehe das Kapitel \emph{Multiplikative Ordnungen und Primitivwurzeln} im Heft für Klasse~10.} von~$a$ modulo~$p$. Wenn $n$ durch $\operatorname{ord}_p(a)$ teilbar ist, gilt nach dem LTE-Lemma
+%	\begin{equation*}
+	%		v_p\parens*{a^n-1}=v_p\parens*{a^{\operatorname{ord}_p(a)}-1}+v_p\parens*{\frac{n}{\operatorname{ord}_p(a)}}\,.
+	%	\end{equation*}
+%	Wenn $n$ nicht durch $\operatorname{ord}_p(a)$ teilbar ist, gilt $v_p(a^n-1)=0$. In jedem Fall erhalten wir die sehr großzügige Abschätzung
+%	\begin{equation*}
+	%		v_p\parens*{a^n-1}\leqslant C_p+v_p(n)\,,
+	%	\end{equation*}
+%	wobei $C_p\coloneqq v_p(a^{\operatorname{ord}_p(a)}-1)$ eine Konstante ist, die nicht von~$n$ abhängt. Falls $2\in\Sigma$, dann erhalten wir eine ähnliche Abschätzung für $p=2$. Wenn $n$ ein ungerades Vielfaches von $\operatorname{ord}_2(a)$ ist, dann gilt $v_2(a^n-1)=v_2(a^{\operatorname{ord}_2(a)}-1)$ nach dem Hilfslemma im Theorieteil des Kapitels. Falls $n$ ein gerades Vielfaches von $\operatorname{ord}_2(a)$ ist, dann haben wir im Theorieteil gezeigt, dass
+%	\begin{equation*}
+	%		v_2\parens*{a^n-1}=v_2{a^{\operatorname{ord}_2(a)}-1}+v_2\parens*{a^{\operatorname{ord}_2(a)}+1}+v_2\parens*{\frac{n}{\operatorname{ord}_2}}-1\,.
+	%	\end{equation*}
+%	Falls $n$ nicht durch $\operatorname{ord}_2(a)$ teilbar ist, gilt $v_2(a^n-1)$. Wir erhalten also auch hier eine großzügige Abschätzung der Form
+%	\begin{equation*}
+	%		v_2\parens*{a^n-1}\leqslant C_2+v_2(n)\,,
+	%	\end{equation*}
+%	wobei $C_1\coloneqq v_2(a^{\operatorname{ord}_2(a)}-1)+v_2(a^{\operatorname{ord}_2(a)}+1)$ eine Konstante ist, die nicht von~$n$ abhängt. Wenn $a^n-1$ nur durch Primzahlen aus $\Sigma$ teilbar ist, gilt
+%	\begin{equation*}
+	%		a^n-1=\prod_{p\in\Sigma}p^{v_p(a^n-1)}\leqslant \prod_{p\in\Sigma}p^{C_p+v_p(n)}\leqslant Cn\,,
+	%	\end{equation*}
+%	wobei $C\coloneqq \prod_{p\in \Sigma}C_p$ eine Konstante ist, die nicht von~$n$ abhängt. Aus dieser Ungleichungskette ist klar, dass es nur endlich viele Möglichkeiten für~$n$ geben kann.\qed
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:xn-yn}]
+	Schreibe $x=a/c$ und $y=b/c$, wobei $a$, $b$ und $c$ positive ganze Zahlen sind und $c$ minimal gewählt ist. Wir zeigen zuerst, dass $a/c$ und $b/c$ vollständig gekürzte Brüche sein müssen. Zu diesem Zweck gehen wir indirekt vor und nehmen an, $a/c$ ließe sich kürzen (der Fall für $b/c$ geht analog). Folglich gibt es eine Primzahl $p$ mit $a,c\equiv 0\mod p$. Dann muss $b\not\equiv 0\mod p$ sein, denn sonst ließen sich beide Brüche kürzen und~$c$ wäre nicht minimal. Dann ist aber $a-b\not\equiv 0\mod p$, was der Tatsache widerspricht, dass $x-y=(a-b)/c$ eine ganze Zahl ist. Das gleiche Argument lässt sich auch mit $x^n-y^n$ für jedes $n\geqslant 1$ durchführen, sodass wir auch in der Situation von~$(b)$ schlussfolgern können, dass  $a/c$ und $b/c$ vollständig gekürzt sind.
+	
+	Wir zeigen nun~$(a)$. Dazu genügt es, $c=1$ zu beweisen. Angenommen, das wäre nicht der Fall. Dann gibt es einen Primfaktor $p\mid c$. Weil $x-y$ ganzzahlig ist, muss $a\equiv b\mod p$ gelten und weil die Brüche  $a/c$ und $b/c$ vollständig gekürzt sind, muss $a,b\not\equiv 0\mod p$ sein. Die Bedingung, dass $x^n-y^n$ für alle $n\geqslant 1$ ganzzahlig ist, liefert uns $v_p(a^n-b^n)\geqslant nv_p(c)$. Wenn wir $n$ so wählen, dass $n\not\equiv 0\mod p$, dann gilt also
+	\begin{equation*}
+		v_p\parens*{a^n-b^n}=v_p(a-b)
+	\end{equation*}
+	(das stimmt auch für $p=2$; siehe das Hilfslemma im Theorieteil des Kapitels). Somit ist $v_p(a-b)\geqslant nv_p(c)$. Die linke Seite ist aber eine Konstante, die nicht von~$n$ abhängt, also erhalten wir für hinreichend großes~$n$ einen Widerspruch.
+	
+	Für~$(b)$ genügt es wiederum, $c=1$ zu beweisen. Wie in~$(a)$ betrachten wir einen Primfaktor $p\mid c$ und folgern $a,b\not\equiv 0\mod p$. Allerdings erhalten wir nicht unbedingt $a\equiv b\mod p$. Betrachte stattdessen die Restklasse $a/b$ modulo~$p$ (also das Produkt von $a$ mit dem multiplikativen Inversen von~$b$). Dann ist $a^{\operatorname{ord}_p(a/b)}\equiv b^{\operatorname{ord}_p(a/b)}\mod p$. Nach Annahme gibt es unendlich viele $n\geqslant 1$, für die $x^n-y^n$ ganzzahlig ist. Für diese~$n$ muss wieder $v_p(a^n-b^n)\geqslant nv_p(c)$ gelten. Insbesondere ist $a^n\equiv b^n\mod p$, woraus
+	\begin{equation*}
+		\parens*{\frac{a}{b}}^n\equiv 1\mod p
+	\end{equation*}
+	folgt, sodass $n$ durch die multiplikative Ordnung $\operatorname{ord}_p(a/b)$ teilbar sein muss. Indem wir das LTE-Lemma auf $a^{\operatorname{ord}_p(a/b)}$ und $b^{\operatorname{ord}_p(a/b)}$ anwenden, erhalten wir
+	\begin{equation*}
+		v_p\parens*{a^n-b^n}=v_p\parens*{a^{\operatorname{ord}_p(a/b)}- b^{\operatorname{ord}_p(a/b)}}+v_p\parens*{\frac{n}{\operatorname{ord}_p(a/b)}}
+	\end{equation*}
+	falls~$p$ ungerade ist. Im Fall~$p=2$ erhalten wir
+	\begin{equation*}
+		v_2\parens*{a^n-b^n}=v_2\parens*{a^{\operatorname{ord}_p(a/b)}- b^{\operatorname{ord}_p(a/b)}}+v_2\parens*{a^{\operatorname{ord}_p(a/b)}+ b^{\operatorname{ord}_p(a/b)}}+v_2\parens*{\frac{n}{\operatorname{ord}_p(a/b)}}-1
+	\end{equation*}
+	falls $n$ ein gerades Vielfaches von $\operatorname{ord}_p(a/b)$ ist und $v_2(a^n-b^n)=v_2(a^{\operatorname{ord}_p(a/b)}- b^{\operatorname{ord}_p(a/b)})$ falls $n$ ein gerades Vielfaches von $n$ ist. In jedem dieser Fälle erhalten wir eine großzügige Abschätzung der Form $v_p(a^n-b^n)\leqslant C+v_p(n)$, wobei $C$ eine Konstante ist, die nicht von~$n$ abhängt. Andererseits haben wir bereits festgestellt, dass $v_p(a^n-b^n)\geqslant nv_p(c)$ gilt. Mit der Abschätzung $v_p(n)\leqslant \ln(n)/\ln(p)$, die aus $p^{v_p(n)}\leqslant n$ folgt, erhalten wir schlussendlich
+	\begin{equation*}
+		nv_p(n)\leqslant C+\frac{\ln(n)}{\ln(p)}\,.
+	\end{equation*}
+	Diese Ungleichung kann nur für endlich viele~$n$ gelten, denn links steht ein linearer Term in~$n$ (mit $v_p(c)>0$ nach Annahme), während der Term rechts logarithmisch in~$n$ ist. Das widerspricht der Annahme, dass $x^n-y^n$ für unendlich viele~$n$ ganzzahlig ist.
+\end{proof}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:IMOSL2014N5}]
+	Der Fall $p=2$ führt auf die Bedingung, dass $x+y$ eine Zweierpotenz ist. Also erhalten wir die Lösungen $(p,x,y)=(2,x,2^n-x)$ für alle positiven ganzen Zahlen $n\geqslant 1$ und alle positiven ganzen Zahlen $1<x<2^n$.
+	
+	Von nun an nehmen wir an, dass $p\geqslant 3$ eine ungerade Primzahl ist. Im Fall $x=y$ müsste $x^{p-1}+x=x(1+x^{p-2})$ eine Potenz von $p$ sein. Da beide Faktoren teilerfremd sind, ist das nur für $x=1$ möglich. Aber für $p\geqslant 3$ ist $x=y=1$ keine Lösung. Von nun an nehmen wir ohne Einschränkung $x>y$ an. Dann gilt auch $x^{p-1}+y>x+y^{p-1}$. Wenn wir also $x^{p-1}+y=p^\alpha$ und $x+y^{p-1}=p^\beta$ schreiben, dann gilt $\alpha>\beta$.
+	
+	Als nächstes schließen wir $x\equiv 0\mod p$ aus. In diesem Fall wäre $p^\alpha =x^{p-1}+y>p^{p-1}$, also müsste $p^\beta$ durch $p^{p-1}$ teilbar sein. Dann wäre auch $y$ durch $p^{p-1}$ teilbar. Folglich gälte $p^\beta =x+y^{p-1}>p^{(p-1)^2}$ und wir sehen, dass $p^\beta$ und damit auch $x$ durch $p^{(p-1)^2}$ teilbar sein müssten. Indem wir dieses Argument iterieren, sehen wir, dass $x$ durch beliebig große Potenzen von $p$ teilbar wäre, was für $x>0$ nicht sein kann. Also ist $x\not\equiv 0\mod p$. Das gleiche Argument zeigt auch $y\not\equiv 0\mod p$. Nach dem kleinen Satz von Fermat gilt dann $x^{p-1}+y\equiv 1+y\mod p$. Andererseits ist $p^\alpha\equiv 0\mod p$, denn der Fall $p^\alpha=1$ ist wegen $x,y>0$ unmöglich. Es folgt dann $1+y\equiv 0\mod p$, also $y\equiv -1\mod p$. Ein analoges Argument zeigt $x\equiv -1\mod p$. Insbesondere ist $x\equiv y\mod p$ und das LTE-Lemma ist auf $x$ und $y$ anwendbar.
+	
+	Betrachte nun $x^p-y^p=x(x^{p-1}+y)-y(x+y^{p-1})=xp^\alpha-yp^\beta$. Nach dem LTE-Lemma gilt einerseits $v_p(x^p-y^p)=v_p(x-y)+1$. Andererseits gilt, wie wir oben festgestellt haben, $\alpha>\beta$, also $v_p(xp^\alpha)=\alpha >\beta=v_p(yp^\beta)$. Folglich ist $v_p(xp^\alpha-yp^\beta)=\beta$. Daraus folgt $x\equiv y\mod p^{\beta-1}$ (und $p^{\beta-1}$ ist sogar die größte Potenz von~$p$, die $x-y$ teilt). Das sieht nun endlich nach einer ziemlich starken Bedingung aus!
+	
+	Wir erhalten nun $0\equiv p^\beta\equiv x+y^{p-1}\equiv y+y^{p-1}\equiv y(1+y^{p-2})\mod p^{\beta-1}$. Wegen $y\not\equiv 0\mod p$ muss $1+y^{p-2}\equiv 0\mod p^{\beta-1}$ sein. Das können wir auch in der Form $(-y)^{p-2}\equiv 1\mod p^\beta$ schreiben. Insbesondere ist $\operatorname{ord}_{p^{\beta-1}}(-y)$ ein Teiler von $p-2$. Aber $\operatorname{ord}_{p^{\beta-1}}(-y)$ ist auch ein Teiler von $\varphi(p^{\beta-1})=(p-1)p^{\beta-2}$. Weil $p-2$ und $(p-1)p^{\beta-1}$ teilerfremd sind, muss zwangsläufig $\operatorname{ord}_{p^{\beta-1}}(-y)=1$ und somit $1+y\equiv 0\mod p^{\beta-1}$ gelten. Insbesondere ist $y\geqslant p^{\beta-1}-1$.
+	
+	Wegen $x>y$ und $p^{\beta-1}\mid x-y$ folgt $x>p^{\beta-1}$. Insgesamt erhalten wir die Ungleichungskette
+	\begin{equation*}
+		(p-1)p^{\beta-1}>p^\beta-x =y^{p-1}\geqslant \parens*{p^{\beta-1}-1}^{p-1}\,.
+	\end{equation*}
+	Damit sind wir nun definitiv auf dem richtigen Weg, denn die linke Seite ist $\approx p^\beta$, während die rechte Seite $\approx p^{(p-1)(\beta-1)}$ beträgt. Für $\beta\geqslant 2$ kann die Ungleichungskette also nicht gelten, außer vielleicht für einige kleine Werte von~$p$. Um diese Überlegung zu formalisieren, schätzen wir im Fall $\beta\geqslant 2$ folgendermaßen ab:
+	\begin{align*}
+		\parens*{p^{\beta-1}-1}^{p-1}=p^{(p-1)(\beta-1)}\parens*{1-\frac{1}{p^{\beta-1}}}^{p-1}&\geqslant p^{(p-1)(\beta-1)}\parens*{1-\frac{p-1}{p^{\beta-1}}}\\
+		&\geqslant p^{(p-1)(\beta-1)}\cdot \frac 1p\\
+		&=p^{(p-1)(\beta-1)-1}\,.
+	\end{align*}
+	In der ersten Abschätzung haben wir die Bernoulli-Ungleichung benutzt und in der zweiten Abschätzung haben wir die Annahme $\beta\geqslant 2$ verwendet. Andererseits haben wir die triviale Abschätzung $(p-1)p^{\beta-1}<p^\beta$. Für $p\geqslant 5$ und $\beta\geqslant 2$ gilt $(p-1)(\beta-1)-1\geqslant \beta$, also haben wir gezeigt, dass die behauptete Ungleichungskette in der Tat verletzt ist. Für $p=3$ erhalten wir erst für $\beta\geqslant 3$ einen Widerspruch. Übrig bleiben die folgenden beiden Fälle:
+	
+	\emph{Fall~1: Es gilt $\beta=1$.} Dann ist $x+y^{p-1}=p^\beta=p$. Wir haben aber weiter oben festgestellt, dass $x,y\equiv -1\mod p$ gilt. Also ist $x+y^{p-1}>x+y\geqslant 2(p-1)$ und wir erhalten einen Widerspruch.
+	
+	\emph{Fall~2: Es gilt $p=3$ und $\beta=2$.} Dieser Fall führt auf $x+y^2=p^\beta=9$. Zusammen mit $y\equiv -1\mod 3$ lässt das nur den Fall $x=5$, $y=2$ zu. Dieser Fall ist aber tatsächlich eine Lösung, denn $5^2+2=27=3^3$ ist ebenfalls eine Dreierpotenz. Wir erhalten somit die Lösung $(p,x,y)=(3,5,2)$. An dieser Stelle erinnern wir uns außerdem an unsere Annahme $x>y$. Wenn wir diese Annahme aufheben, erhalten wir die weitere Lösung $(p,x,y)=(3,2,5)$.
+	
+	Damit wurden alle Fälle betrachtet und die Aufgabe ist gelöst.
+\end{proof}

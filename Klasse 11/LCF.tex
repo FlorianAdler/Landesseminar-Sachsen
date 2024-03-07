@@ -1,0 +1,165 @@
+\section{Die Jensensche Ungleichung für nicht-konvexe Funktionen}\label{kapitel:LCF}
+Wenn euch in der Oberstufe eine Ungleichung der Form $f(x_1)+f(x_2)+\dotsb+f(x_n)\geqslant c$ begegnet, dann ist $f$ fast nie konvex, sodass ihr die Jensensche Ungleichung nicht anwenden könnt -- das wäre ja auch zu einfach. In diesem Kapitel lernt ihr einige Tricks, mit denen ihr bei solchen Aufgaben trotzdem mit der Jensenschen Ungleichung argumentieren könnt.
+
+Am Ende des Kapitels findet ihr Tipps und am Ende des Heftes findet ihr Musterlösungen zu den Beispielaufgaben.
+
+\subsection*{Die Karamata-Schiebemethode}
+Angenommen, wir haben es mit einer Ungleichung der Form $f(x_1)+f(x_2)+\dotsb+f(x_n)\geqslant c$ mit der Nebenbedingung $x_1+x_2+\dotsb+x_n=b$ zu tun, wobei $f$ nicht konvex ist. Stattdessen nehmen wir an, dass $f$ konvex für $x\geqslant a$ und konkav für $x\leqslant a$ ist. Analoge Argumente würden in dem Fall funktionieren, dass $f$ konvex für $x\leqslant a$ und konkav für $x\geqslant a$ ist. Wenn ihr dieses Unterkapitel fertig gelesen habt, wird euch auch klar sein, wie ihr die Argumente auf noch allgemeinere Situationen ausdehnen könnt.
+
+\begin{wrapfigure}{r}{0.43\textwidth}
+	\centering\vspace{-0.6cm}
+	\begin{tikzpicture}[x=1cm,y=1cm]
+		\draw[->] (-0.5,0) to node[pos=1,below=0.5ex] {$x$} (6,0);
+		\draw[->] (0,-0.5) to  node[pos=1,right=0.5ex] {$y$} (0,2.5);
+		\node[below left] at (0,0) {$0$};
+		\coordinate (x1) at (1.136,1.828);
+		\coordinate (x2) at (2.287,1.812);
+		\coordinate (x3) at (3.473,0.934);
+		\coordinate (x4) at (5.305,1.097);
+		\coordinate (x5) at (5.697,1.79);
+		\draw plot[domain=0.2:5.8,hobby] (\x,{0.8*((0.56*\x-1.7)*(0.56*\x-1.7)*(0.56*\x-1.7)-\x)+3.7});
+		\draw (3.036,0) ++ (0,0.5ex) to ++(0ex,-1ex) node[below] {$a$};
+		\draw [line width=0.3,dashed,dash phase=0.5] (3.036,1.125ex) to (3.036,2.4);
+		\draw[fill=black] (x1) circle (2pt) node[left=0.25ex] {$\leftarrow$};
+		\draw[fill=black] (x2) circle (2pt) node[right=0.25ex] {$\rightarrow$};
+		\draw[fill=black] (x3) circle (2pt) node[right=0.25ex] {$\rightarrow$};
+		\draw[fill=black] (x4) circle (2pt) node[left=0.25ex] {$\leftarrow$};
+		\draw[fill=black] (x5) circle (2pt) node[left=0.25ex] {$\leftarrow$};
+		\node[below,align=center] at (1.518,-0.5) {\glqq Abstoßung\grqq\\für $x<a$};
+		\node[below,align=center] at (4.518,-0.5) {\glqq Anziehung\grqq\\für $x\geqslant a$};
+	\end{tikzpicture}\vspace{-0.5cm}
+\end{wrapfigure}
+Wir beginnen mit einer beliebigen Wahl der Variablen $x_1,x_2,\dotsc,x_n$ mit $x_1+x_2+\dotsb+x_n=b$. Dann verschieben wir die Variablen schrittweise, sodass $f(x_1)+f(x_2)+\dotsb+f(x_n)$ in jedem Verschiebungsschritt kleiner wird. Zuerst können wir alle Variablen $x_i\geqslant a$ durch ihren Mittelwert ersetzen, denn für $x\geqslant a$ ist $f$ konvex und die Jensensche Ungleichung gilt. Angenommen, es gibt mindestens zwei Variablen $x_j,x_k<a$. Dann schieben wir $x_j$ und $x_k$ auseinander. Das bedeutet: Wenn $x_j\leqslant x_k$ ist, dann ersetzen wir $x_j$ durch $x_j-\delta$ und $x_k$ durch $x_k+\delta$ für passendes $\delta>0$. Aus der Ungleichung von Karamata folgt
+\begin{equation*}
+	f(x_j-\delta)+f(x_k+\delta)\geqslant f(x_j)+f(x_k)\,,
+\end{equation*}
+denn $(x_k+\delta,x_j-\delta)$ majorisiert offensichtlich $(x_k,x_j)$. Wir können $x_j$ und $x_k$ so lange auseinanderschieben, bis eine von beiden Variablen an einer Grenze \glqq anstößt\grqq. Denn sobald $x_k=a$ gilt, also sobald $x_k$ den Konkavitätsbereich verlassen hat, können wir Karamata nicht mehr anwenden. Andererseits kann es passieren, dass unsere Funktion $f$ nur für $x\geqslant a_0$ definiert ist, und sobald $x_j=a_0$ erreicht ist, können wir nicht mehr weiter schieben. Wenn $x_k=a$ erreicht ist, liegt $x_k$ im Konvexitätsbereich. Wir können also wieder Jensen anwenden, um $x_k$ sowie alle anderen Variablen im Konvexitätsbereich durch ihren Mittelwert zu ersetzen.
+
+Wir wiederholen dieses Verfahren so lange, bis es nicht mehr geht. Dann sind wir in einem Spezialfall von der folgenden Form angekommen:
+\begin{itemize}
+	\item Einige Variablen sind gleich $a_0$, sagen wir, $x_1=x_2=\dotsb=x_i=a_0$ (möglicherweise ist $i=0$, zum Beispiel dann, wenn $a_0$ gar nicht existiert).
+	\item Im Konkavitätsbereich liegt höchstens eine Variable $a_0<x_{i+1}<a$.
+	\item Alle anderen Variablen liegen im Konvexitätsbereich und sind gleich. Es gilt folglich $x_{i+2}=x_{i+3}=\dotsb=x_n=x$ für ein $x\geqslant a$ bzw.\ $x_{i+1}=x_{i+2}=\dotsb=x_n=x$, falls keine von $a_0$ verschiedene Variable im Konkavitätsbereich liegt.
+\end{itemize}
+Falls im Konkavitätsbereich keine von $a_0$ verschiedene Variable liegt, folgt aus der Nebenbedingung $x_1+x_2+\dotsb+x_n=b$, dass $x=(b-ia_0)/(n-i)$ gilt, und wir können die Ungleichung $f(x_1)+f(x_2)+\dotsb+f(x_n)\geqslant c$ durch einfaches Einsetzen überprüfen. Falls ein $x_{i+1}$ mit $a_0<x_{i+1}<a$ existiert, können wir aus der Nebenbedingung $x_{i+1}=b-(n-i-1)x-ia_0$ folgern. Damit haben wir die Ungleichung also immerhin auf eine Variable $x$ reduziert.
+
+Und Ungleichungen in einer Variablen lassen sich meistens durch \emph{brute force} lösen: Ihr multipliziert alles aus und erhaltet (meistens) ein Polynom in einer Variablen $x$. Dann versucht ihr, die Gleichheitsfälle der Ungleichung zu erraten. Die Gleichheitsfälle müssen offensichtlich Nullstellen des Polynoms sein. Tatsächlich müssen sie sogar Doppelnullstellen sein, ansonsten würde das Polynom an dieser Stelle sein Vorzeichen ändern und die Ungleichung wäre falsch. Ihr könnt also die Gleichheitsfälle quadratisch ausklammern. Für den übrigbleibenden Faktor gibt es üblicherweise ein einfaches Argument, warum er stets positiv sein muss.
+
+\begin{aufgabe*}\label{aufgabe:KaramataSchieben}
+	Gegeben seien positive reelle Zahlen $a,b,c,d,e>0$ mit $a+b+c+d+e=5$. Beweise, dass
+	\begin{equation*}
+		\frac1{a^2}+\frac1{b^2}+\frac1{c^2}+\frac1{d^2}+\frac1{e^2}+9\geqslant \frac{14}5\parens*{\frac1a+\frac1b+\frac1c+\frac1d+\frac1e}\,.
+	\end{equation*}
+\end{aufgabe*}
+\begin{aufgabe*}[**]\label{aufgabe:log3log2}
+	Ermittle die kleinste reelle Zahl $\kappa$, sodass für alle positiven reellen Zahlen $a,b,c>0$ die folgende Ungleichung gilt:
+	\begin{equation*}
+		\parens*{\frac{2a}{b+c}}^\kappa+\parens*{\frac{2b}{c+a}}^\kappa+\parens*{\frac{2c}{a+b}}^\kappa\geqslant 3\,.
+	\end{equation*}
+\end{aufgabe*}
+
+\subsection*{Die Jensen-Tangenten-Methode}
+Wenn $f$ eine differenzierbare konvexe Funktion ist, dann verläuft jede Tangente an den Funktionsgraphen von $f$ stets unterhalb des Graphen. 
+
+\begin{wrapfigure}{r}{0.21\textwidth}
+	\centering\vspace{-0.5cm}
+	\begin{tikzpicture}[x=1cm,y=1cm]
+		\draw[->] (-0.5,0) to node[pos=1,below=0.5ex] {$x$} (2.5,0);
+		\draw[->] (0,-0.5) to  node[pos=1,right=0.5ex] {$y$} (0,2.3);
+		\node[below left] at (0,0) {$0$};
+		\draw plot[domain=3.7:5.8,hobby] (\x-3.5,{0.8*((0.56*\x-1.7)*(0.56*\x-1.7)*(0.56*\x-1.7)-\x)+3.5});
+		\draw[dashed,line width=0.3] (2.3,1.052) to (0.2,-0.26);
+		\draw [fill=white] (1.374,0.474) circle (2pt);
+	\end{tikzpicture}
+	Tangente an eine konvexe Funktion\vspace{-2cm}
+\end{wrapfigure}
+Betrachte nun $x_1,x_2,\dotsc,x_n$ mit Mittelwert $\overline{x}\coloneqq\frac{x_1+x_2+\dotsb+x_n}{n}$. Wenn die Tangente an den Graphen von $f$ in $\overline{x}$ die Gleichung $y=ax+b$ hat, dann ist also $f(x)\geqslant ax+b$ für alle $x$, mit Gleichheit für $x=\overline{x}$. Nun folgt
+\begin{align*}
+	\frac{f(x_1)+f(x_2)+\dotsb+f(x_n)}{n}&\geqslant \frac{(ax_1+b)+(ax_2+b)+\dotsb+(ax_n+b)}{n}\\
+	&=a\parens*{\frac{x_1+x_2+\dotsb+x_n}{n}}+b\\
+	&=f\parens*{\frac{x_1+x_2+\dotsb+x_n}{n}}
+\end{align*}
+und wir haben die Jensensche Ungleichung bewiesen. Auf die gleiche Weise lässt sich die gewichtete Jensen-Ungleichung beweisen. Insbesondere folgt:
+\begin{itemize}\itshape
+	\item[$(*)$] Um die Jensensche Ungleichung für eine differenzierbare Funktion zu verwenden, benötigen wir nur, dass die Tangente an den Funktionsgraphen im Mittelwert der Variablen stets unterhalb des Funktionsgraphen verläuft.
+\end{itemize}
+Diese Bedingung ist häufig nicht nur im Konvexitätsbereich von $f$ erfüllt, sondern noch ein gutes Stück darüber hinaus (im besten Fall überall). Außerhalb dieses Bereiches sind die Werte von $f$ dann hoffentlich so klein, dass die Ungleichung, die ihr zu beweisen versucht, aus trivialen Gründen gilt.
+\begin{aufgabe*}\label{aufgabe:51}
+	Gegeben seien nichtnegative reelle Zahlen $x,y,z\geqslant 0$ mit $x+y+z=9$. Beweise, dass
+	\begin{equation*}
+		\frac{1}{51+x^2}+\frac{1}{51+y^2}+\frac{1}{51+z^2}\leqslant \frac1{20}\,.
+	\end{equation*}
+\end{aufgabe*}
+\begin{aufgabe*}\label{aufgabe:b+c-aUngleichung}
+	Gegeben seien positive reelle Zahlen $a,b,c>0$. Beweise die Ungleichung
+	\begin{equation*}
+		\frac{(b+c-a)^2}{(b+c)^2+a^2}+\frac{(c+a-b)^2}{(c+a)^2+b^2}+\frac{(a+b-c)^2}{(a+b)^2+c^2}\geqslant \frac35\,.
+	\end{equation*}
+\end{aufgabe*}
+\begin{aufgabe*}[*]\label{aufgabe:USAMO2017}
+	Gegeben seien nichtnegative reelle Zahlen $a,b,c,d\geqslant 0$ mit $a+b+c+d=4$. Finde den minimalen Wert von
+	\begin{equation*}
+		\frac{a}{b^3+4}+\frac{b}{c^3+4}+\frac{c}{d^3+4}+\frac{d}{a^3+4}\,.
+	\end{equation*}
+\end{aufgabe*}
+
+\subsection*{Linearisieren}
+Im vorherigen Unterkapitel haben wir gesehen, dass es sehr praktisch sein kann, eine Funktion gegen ihre Tangente abzuschätzen. Allgemein ist es häufig eine gute Strategie, komplizierte Terme gegen lineare Terme abzuschätzen (achtet dabei darauf, dass die Gleichheitsfälle nicht verloren gehen). Wir werden diese Strategie an einem Beispiel demonstrieren und euch dann zwei weitere Beispiele als Beispielaufgaben stellen.
+\begin{aufgabe*}\label{aufgabe:AIMO2014}
+	Gegeben seien positive reelle Zahlen $a,b,c,d>0$ mit $abcd=1$. Beweise die Ungleichung
+	\begin{equation*}
+		\frac{a^2}{a^3+1}+\frac{b^2}{b^3+1}+\frac{c^2}{c^3+1}+\frac{d^2}{d^3+1}\leqslant 2\,.
+	\end{equation*}
+\end{aufgabe*}
+\begin{proof}
+	Wir versuchen, alle quadratischen und kubischen Terme durch lineare Terme zu ersetzen. Dazu substituieren wir zuerst $x=a^2$, $y=b^2$, $z=c^2$, und $w=d^2$. Dann gilt immer noch $xyzw=1$ und wir sind die quadratischen Terme im Zähler losgeworden. Dafür stehen im Nenner jetzt Terme der Form $x^{3/2}+1$. Um diese Terme zu linearisieren, benutzen wir gewichtetes AM-GM; dabei müssen wir aufpassen, dass bei unserer Abschätzung im Fall $x=1$ Gleichheit eintritt, denn in der ursprünglichen Ungleichung gilt ja auch Gleichheit für $a=b=c=d=1$. Nach etwas Rumprobieren kommen wir auf die Abschätzung
+	\begin{equation*}
+		x^{3/2}+1=\frac{x^{3/2}}2+\frac{x^{3/2}}2+\frac12+\frac12\geqslant 3\sqrt[3]{\frac{x^{3/2}}2\cdot \frac{x^{3/2}}2\cdot\frac12}+\frac12=\frac{3x+1}{2}\,.
+	\end{equation*}
+	Wir erhalten also
+	\begin{equation*}
+		\frac{x}{x^{3/2}+1}\leqslant \frac{2x}{3x+1}=\frac23-\frac23\cdot \frac{1}{3x+1}\,.
+	\end{equation*}
+	Folglich müssen wir nur die Ungleichung
+	\begin{equation*}
+		\frac1{3x+1}+\frac1{3y+1}+\frac1{3z+1}+\frac1{3w+1}\geqslant 1
+	\end{equation*}
+	beweisen. Durch Ausmultiplizieren sehen wir, dass diese Ungleichung zu
+	\begin{equation*}
+		27\sum xyz+18\sum xy+9\sum x+4\geqslant 81xyzw+27\sum xyz+9\sum xy+3\sum x+1
+	\end{equation*}
+	äquivalent ist. Durch $xyzw=1$ und Vereinfachen erhalten wir $9\sum xy+6\sum x\geqslant 78$. Aus AM-GM folgt $9\sum xy\geqslant 9\cdot 6\sqrt[6]{(xyzw)^3}=54$ sowie $6\sum x\geqslant 6\cdot 4\sqrt[4]{xyzw}=24$ und die gewünschte Ungleichung folgt sofort.
+\end{proof}
+
+\begin{aufgabe*}\label{aufgabe:MatBoj2015}
+	Gegeben seien positive reelle Zahlen $a,b,c>0$ mit $abc=1$. Beweise die Ungleichung
+	\begin{equation*}
+		\frac{a}{a^2+2}+\frac{b}{b^2+2}+\frac{c}{c^2+2}\leqslant 1\,.
+	\end{equation*}
+\end{aufgabe*}
+
+\begin{aufgabe*}\label{aufgabe:DEMO2013}
+	Gegeben seien eine reelle Zahl $\alpha>1$. Betrachte die Zahlenfolge $(a_n)_{n\geqslant 1}$, die durch
+	\begin{equation*}
+		a_n=\sqrt[\alpha]{1+\sqrt[\alpha]{2+\sqrt[\alpha]{3+\sqrt[\alpha]{\dotsb+\sqrt[\alpha]{n+\sqrt[\alpha]{n+1}}}}}}
+	\end{equation*}
+	gegeben ist. Zeige, dass die Folge $(a_n)_{n\geqslant 1}$ \emph{beschränkt} ist, das heißt, dass es eine Konstante $C$ gibt, sodass $a_n<C$ für alle $n$ gilt.
+\end{aufgabe*}
+\subsection*{Tipps zu den Beispielaufgaben}
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:KaramataSchieben}.} Benutze die Karamata-Schiebemethode.%Die Ungleichung hat außer dem offensichtlichen Gleichheitsfall $a=b=c=d=e=1$ noch einen weiteren Gleichheitsfall. Kannst du ihn erraten?
+
+\textbf{Tipps zu Aufgabe~\ref{aufgabe:log3log2}.} Offensichtlich ist $a=b=c$ ein Gleichheitsfall. Es ist naheliegend, dass es für das minimale $\kappa$ noch einen weiteren, \glqq asymptotischen\grqq\ Gleichheitsfall geben sollte. Kannst du diesen Gleichheitsfall erraten und damit $\kappa$ bestimmen?
+
+Um die Ungleichung für dieses $\kappa$ nachzuweisen, benutze die Karamata-Schiebemethode, um sie auf eine Ungleichung in einer Variable zurückzuführen. Dann benutze Differentialrechnung, um diese Ungleichung zu beweisen (die übliche Methode wird nicht funktionieren, weil wir kein Polynom bekommen). Das wird leider etwas hässlich.
+
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:51}.} Benutze die Jensen-Tangentenmethode. Dort, wo die Abschätzung versagt, ist die Funktion $f(x)=\frac1{51+x^2}$ sehr klein.
+
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:b+c-aUngleichung}.} Die linke Seite ist homogen in $a$, $b$ und $c$, also darf $a+b+c=1$ angenommen werden.
+
+\textbf{Tipps zu Aufgabe~\ref{aufgabe:USAMO2017}.} Errate, an welcher Stelle das Minimum angenommen wird (Spoiler: Es ist \emph{nicht} $a=b=c=d=1$).
+
+Fasse einen Teil der Terme als Gewichte und einen Teil als Funktion auf.
+
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:MatBoj2015}.} Lass dich von der Lösung zu Aufgabe~\ref{aufgabe:AIMO2014} inspirieren.
+
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:DEMO2013}.} Schätze $\sqrt[\alpha]{x}$ gegen eine geeignete lineare Funktion ab und benutze Konvergenz von geometrischen Reihen.

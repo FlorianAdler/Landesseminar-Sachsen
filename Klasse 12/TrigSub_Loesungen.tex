@@ -1,0 +1,69 @@
+\subsection*{Lösungen zu Kapitel~\ref{kapitel:TrigSub}: \emph{Trigonometrische Substitutionen}}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:Tangenssubstitution}]
+	Jede reelle Zahl~$a$ lässt sich als $a=\tan\alpha$ mit $-90^\circ<\alpha<90^\circ$ darstellen. Wir können also $\{a_1,a_2,\dotsc,a_6\}=\{\tan\alpha_1,\tan\alpha_2,\dotsc,\tan\alpha_6\}$ schreiben, wobei ohne Beschränkung der Allgemeinheit $-90^\circ<\alpha_1\leqslant\alpha_2\leqslant\dotsb\leqslant\alpha_6<90^\circ$ erfüllt sei. Dann gilt
+	\begin{equation*}
+		\frac{\tan\alpha_i-\tan\alpha_j}{1-\tan\alpha_i\tan\alpha_j}=\tan\parens*{\alpha_i-\alpha_j}
+	\end{equation*}
+	Es würde also genügen, $\alpha_i$ und $\alpha_j$ mit $\abs{\alpha_i-\alpha_j}\leqslant 30^\circ$ zu finden, denn $\tan(30^\circ)={1}/{\sqrt{3}}$. Das sollte nun aus dem Schubfachprinzip folgen. Dabei müssen wir aber etwas aufpassen: Wenn wir sechs Zahlen gleichmäßig auf ein offenes Intervall der Länge $180^\circ$ verteilen, dann können die Abstände zwischen je zwei aufeinanderfolgenden beliebig nah an $180^\circ/5$ herankommen. Insbesondere können die Abstände durchaus allesamt größer als $30^\circ$ sein. Der Grund, warum die Aufgabe trotzdem funktioniert, ist dass der Tangens periodisch ist, sodass wir auch dann fertig sind, wenn $\alpha_1$ nahe genug an $-90^\circ$ und $\alpha_6$ nahe genug an $90^\circ$ liegt (konkret: Wenn $(\alpha_1-(-90^\circ))+(90^\circ-\alpha_6)\leqslant 30^\circ$).
+	
+	Um diese Überlegung formal sauber durchzuführen, definieren wir $\alpha_7\coloneqq \alpha_1+180^\circ$. Dann sind $\alpha_1,\alpha_2,\dotsc,\alpha_7$ sieben Zahlen in einem Intervall der Länge~$180^\circ$. Somit können wir nun wirklich nach Schubfachprinzip folgern, dass $\alpha_i$ und $\alpha_j$ mit $\abs{\alpha_i-\alpha_j}\leqslant 30^\circ$ existieren. Wenn $\alpha_7$ eine der ausgewählten Zahlen ist, dann ersetzen wir $\alpha_7$ einfach durch $\alpha_1$, was wegen $\tan\alpha_1=\tan(\alpha_1+180^\circ)$ kein Problem darstellt.
+\end{proof}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:SinusWurzelAdditionstheorem}]
+	Der Audruck $\sqrt{4-y^2}$ erinnert uns an die Gleichung $\cos^2\alpha=1-\sin^2\alpha$. Wir sollten also $a_i=2\sin\alpha_i$ substituieren. Um zu sehen, dass das tatsächlich möglich ist, bemerken wir
+	\begin{equation*}
+		\frac{\sqrt{2}-\sqrt{6}}{2}=2\sin(-15^\circ)\quad\text{und}\quad \frac{2+\sqrt{6}}{2}=2\sin(75^\circ)\,.
+	\end{equation*}
+	Das lässt sich mithilfe der Halbwinkelformeln verifizieren. Hier ist die Rechnung für $\sin(-15^\circ)$, die Rechnung für $\sin(75^\circ)$ geht analog.
+	\begin{equation*}
+		\sin(-15^\circ)=-\sqrt{\frac{1-\cos(30^\circ)}{2}}=-\sqrt{\frac{2-\sqrt{3}}{4}}=-\sqrt{\frac{\parens*{\sqrt{2}-\sqrt{6}}^2}{16}}=\frac{\sqrt{2}-\sqrt{6}}{4}\,.
+	\end{equation*}
+	Wir sehen somit, dass die Substitution $a_i=2\sin\alpha_i$ tatsächlich möglich ist und wir dabei die Schranken $-15^\circ\leqslant \alpha_i\leqslant 75^\circ$ annehmen dürfen. Weil $\alpha_1$, $\alpha_2$, $\alpha_3$ und $\alpha_4$ vier Winkel in einem Intervall der Länge $90^\circ$ sind, gibt es unter diesen nach dem Schubfachprinzip vieren zwei Winkel $\alpha_i$ und $\alpha_j$ mit $\abs{\alpha_i-\alpha_j}\leqslant 30^\circ$. Im Intervall $[-15^\circ,75^\circ]$ ist der Cosinus stets positiv, also gilt $\cos \alpha_i=\sqrt{1-\sin^2\alpha_i}$ und analog $\cos \alpha_j=\sqrt{1-\sin^2\alpha_j}$. Es folgt
+	\begin{equation*}
+		\abs*{a_i\sqrt{4-a_j^2}-a_j\sqrt{4-a_i^2}}=4\abs*{\sin\alpha_i\cos\alpha_j-\sin\alpha_j\cos\alpha_i}=4\abs*{\sin(\alpha_i-\alpha_j)}\leqslant 4\sin(30^\circ)=2\,,
+	\end{equation*}
+	wie gewünscht. Damit sind wir fertig.
+\end{proof}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:SinusVersteckt}]
+	Wir sehen zuerst, dass der Fall $x<0$ unmöglich ist, denn daraus folgt induktiv $a_n<0$ für alle $n$. Ebenso ist $x>1$ unmöglich, denn dann wäre $a_1<0$, also würde die gleiche Induktion $a_n<0$ für alle $n\geqslant 1$ zeigen. Wir finden folglich einen Winkel $0^\circ\leqslant \alpha_0\leqslant 90^\circ$ mit $x=\sin^2\alpha_0$. Aus der Formel $\sin^2(2\alpha)=(2\sin\alpha\cos\alpha)^2=4\sin^2\alpha(1-\sin^2\alpha)$ und der gegebenen Rekursion folgt $a_n=\sin^2(2^n\alpha_0)$. Folglich gilt $a_{\the\year}=0$ genau dann, wenn $2^{\the\year}\alpha_0$ ein ganzzahliges Vielfaches von $90^\circ$ ist. Zusammen mit den Einschränkungen an $\alpha_0$ ergeben sich somit genau die $2^{\the\year}$ Lösungen
+	\begin{equation*}
+		x=\sin\parens*{\frac{i}{2^{\the\year}}\cdot 90^\circ}^2\,,\quad i=0,1,\dotsc,2^{\the\year}\,.\qedhere
+	\end{equation*}
+\end{proof}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:521236}]
+	Aus den Gleichungen $3\parens[\big]{x+\frac1x}=4\parens[\big]{y+\frac1y}=5\parens[\big]{z+\frac1z}$ folgt dann, dass $x$, $y$ und $z$ das gleiche Vorzeichen haben müssen. Alle Gleichungen sind auch dann noch erfüllt, wenn wir $(x,y,z)$ durch $(-x,-y,-z)$ ersetzen. Also dürfen wir $x,y,z\geqslant 0$ annehmen. Aus der Bedingung $xy+yz+zx=1$ folgt, dass wir $x=\tan\parens[\big]{\frac{\alpha}2}$, $y=\tan\parens[\big]{\frac{\beta}2}$ und $z=\tan\parens[\big]{\frac{\gamma}2}$ substituieren dürfen, wobei $\alpha$, $\beta$ und $\gamma$ die Innenwinkel eines Dreiecks $ABC$ sind. Nun gilt
+	\begin{equation*}
+		x+\frac 1x=\frac{\sin \parens[\big]{\frac{\alpha}2}}{\cos\parens[\big]{\frac{\alpha}2}}+\frac{\cos\parens[\big]{\frac{\alpha}2}}{\sin\parens[\big]{\frac{\alpha}2}}=\frac{\sin^2\parens[\big]{\frac{\alpha}2}+\cos^2\parens[\big]{\frac{\alpha}2}}{\sin \parens[\big]{\frac{\alpha}2}\cos\parens[\big]{\frac{\alpha}2}}=\frac2{\sin\alpha}\,.
+	\end{equation*}
+	Die Gleichungen $3\parens[\big]{x+\frac1x}=4\parens[\big]{y+\frac1y}=5\parens[\big]{z+\frac1z}$ implizieren folglich die Verhältnisgleichung $\sin\alpha:\sin\beta:\sin\gamma=3:4:5$. Aus dem Sinussatz folgt dann, dass die Seiten des Dreiecks $ABC$ ebenfalls im Verhältnis $\abs*{BC}:\abs*{CA}:\abs*{AB}=3:4:5$ stehen. Somit muss $ABC$ ein $3$-$4$-$5$-Pythagoras-Dreieck sein. Es folgt $\tan \parens[\big]{\frac{\gamma}2}=\tan(45^\circ)=1$. Ferner ist $\sin\alpha=\cos\beta=\frac 35$ und $\cos\alpha=\sin\beta=\frac 45$. Aus den Halbwinkelformeln für den Tangens folgt nun
+	\begin{equation*}
+		\tan \parens*{\frac{\alpha}2}=\frac{1-\cos\alpha}{\sin\alpha}=\frac{1-\frac{4}{5}}{\frac{3}{5}}=\frac13\quad \text{und}\quad \tan \parens*{\frac{\beta}2}=\frac{1-\cos\beta}{\sin\beta}=\frac{1-\frac{3}{5}}{\frac{4}{5}}=\frac12\,.
+	\end{equation*}
+	Somit erhalten wir die Lösung $(x,y,z)=\parens[\big]{\frac13,\frac12,1}$. Eine Probe bestätigt, dass dieses Tripel tatsächlich eine Lösung ist. Da wir bisher $x,y,z\geqslant 0$ angenommen haben, erhalten auch noch die zweite Lösung $(x,y,z)=\parens[\big]{-\frac13,-\frac12,-1}$.
+\end{proof}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:UngleichungInvertieren2}]
+	Wie wir im Theorieteil des Kapitels gesehen haben, können wir $x=\sin\parens[\big]{\frac{\alpha}2}$, $y=\sin\parens[\big]{\frac{\beta}2}$ und $z=\sin\parens[\big]{\frac{\gamma}2}$ substituieren, wobei $\alpha$, $\beta$ und $\gamma$ die Innenwinkel eines Dreiecks sind. Weil die Ungleichung symmetrisch ist, dürfen wir ferner $\alpha\leqslant \beta\leqslant \gamma$ annehmen. Weil die Sinusfunktion im Intervall $[0^\circ,90^\circ]$ streng monoton steigend ist, folgt $\sin\parens[\big]{\frac{\alpha}2}\leqslant\sin\parens[\big]{\frac{\beta}2}\leqslant\sin\parens[\big]{\frac{\gamma}2}$ und $\sin\parens[\big]{\frac{\alpha}2}\leqslant \sin(30^\circ)=\frac12$. Schreibe die Ungleichung in der Form
+	\begin{equation*}
+		\sin\parens*{\frac{\alpha}2}\parens*{\sin\parens*{\frac{\beta}2}+\sin\parens*{\frac{\gamma}2}}+\parens*{1-2\sin\parens*{\frac{\alpha}2}}\sin\parens*{\frac{\beta}2}\sin\parens*{\frac{\gamma}2}\leqslant \frac12
+	\end{equation*}
+	Der Term $1-2\sin\parens[\big]{\frac{\alpha}2}\geqslant 1-2\cdot\frac12=0$ ist nichtnegativ, somit genügt es, die Terme $\sin\parens[\big]{\frac{\beta}2}+\sin\parens[\big]{\frac{\gamma}2}$ und $\sin\parens[\big]{\frac{\beta}2}\sin\parens[\big]{\frac{\gamma}2}$ nach oben abzuschätzen. Für den ersten Term benutzen wir die Jensensche Ungleichung: Die Sinusfunktion ist auf dem Intervall $[0^\circ,180^\circ]$ konkav, somit gilt
+	\begin{equation*}
+		\sin\parens*{\frac{\beta}2}+\sin\parens*{\frac{\gamma}2}\leqslant 2\sin\parens*{\frac{\beta+\gamma}{4}}\,.
+	\end{equation*}
+	Für den zweiten Term benutzen wir, dass die Cosinusfunktion auf dem Intervall $[0^\circ,90^\circ]$ streng monoton fallend ist. Somit gilt
+	\begin{equation*}
+		\sin\parens*{\frac{\beta}2}\sin\parens*{\frac{\gamma}2}=\frac12\parens*{\cos\parens*{\frac{\gamma-\beta}{2}}-\cos\parens*{\frac{\beta+\gamma}{2}}}\leqslant \frac12\parens*{1-\cos\parens*{\frac{\beta+\gamma}{2}}}\,.
+	\end{equation*}
+	Sei nun $t\coloneqq \sin\parens[\big]{\frac{\beta+\gamma}{4}}$. Aus den Doppelwinkelformeln und der Bedingung $\alpha+\beta+\gamma=180^\circ$ folgt dann $\sin\parens[\big]{\frac\alpha2}=\cos\parens[\big]{\frac{\beta+\gamma}{2}}=1-2t^2$. Durch Einsetzen dieser Abschätzungen und Substitutionen müssen wir nur noch die Ungleichung
+	\begin{equation*}
+		\parens*{1-2t^2}\cdot 2t+\parens[\Big]{1-2\parens*{1-2t^2}}\cdot\frac12\parens[\Big]{1-\parens*{1-2t^2}}\leqslant \frac12
+	\end{equation*}
+	beweisen, wobei $t=\sin\parens[\big]{\frac{\beta+\gamma}{4}}$ im Intervall $[0,\sin(45^\circ)]=\brackets[\big]{0,\frac{\sqrt{2}}{2}}$ liegt. In der ursprünglichen Ungleichung können wir die Gleichheitsfälle $x=y=z=\frac12$ und $x=0$, $y=z=\frac{\sqrt{2}}{2}$ erraten. Diese führen auf die Gleichheitsfälle $t=\frac12$ und $t=\frac{\sqrt{2}}{2}$ in der obigen Ungleichung. Indem wir diese Gleichheitsfälle ausklammern, erhalten wir die folgende Ungleichung, die offensichtlich für alle $t\in \brackets[\big]{0,\frac{\sqrt{2}}{2}}$ erfüllt ist:
+	\begin{equation*}
+		0\leqslant \frac12\parens*{1-2t^2}(2t-1)^2\,.\qedhere
+	\end{equation*}
+\end{proof}

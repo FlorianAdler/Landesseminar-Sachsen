@@ -1,0 +1,42 @@
+
+\subsection*{Lösungen zu den Beispielaufgaben}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:KugelnHeiratssatz}]
+	Wir betrachten einen bipartiten Graphen $G=(A\cup B,E)$, der wie folgt konstruiert ist: $A$ ist die Menge der Schalen und $B$ ist die Menge der Farben. Zwischen $a\in A$ und $b\in B$ verläuft genau dann eine Kante, wenn die Schale~$a$ eine Kugel in der Farbe~$b$  enthält. Wenn wir ein Matching $M$ konstruieren können, das alle Knoten aus $A$ überdeckt (und damit auch alle Knoten aus $B$, denn $\abs{A}=n=\abs{B}$), dann sind wir fertig, denn dann können wir aus jeder Schale eine Kugel in der ihr zugeordneten Farbe entnehmen und haben insgesamt jede der $n$ Farben genau einmal abgedeckt.
+	
+	Wir müssen somit Bedingung des Heiratssatzes prüfen. Sei $S\subseteq A$ eine Teilmenge von Knoten, und seien $s_1,\dotsc,s_k$ die zugehörigen Schalen (hier ist also $k=\abs{S}$). In diesen $k$ Schalen liegen insgesamt $kn$ Kugeln. Da jede Farbe nur $n$-mal auftritt, müssen unter diesen $kn$ Kugeln mindestens $k$ Farben vertreten sein. Das heißt aber nichts anderes als $\abs{N_G(S)}\geqslant k=\abs{S}$, also ist der Heiratssatz anwendbar und wir sind fertig.
+\end{proof}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:Tracey}]
+	Um seinen Plan zu verwirklichen, muss Norman $n$ Erdbeeren so auswählen, dass in jeder Zeile und jeder Spalte genau eine dieser Erdbeeren liegt. Betrachte dazu einen bipartiten Graphen $G=(A\cup B,E)$, der wie folgt konstruiert ist: $A$ ist die Menge der Zeilen des Kuchens und $B$ ist die Menge der Spalten des Kuchens. Zwischen $a\in A$ und $b\in B$ verläuft genau dann eine Kante, wenn sich die Zeile~$a$ und die Spalte~$b$ bei einem Kuchenstück schneiden, auf dem eine positive Anzahl Erdbeeren liegt. Wenn wir in $G$ ein Matching $M$ konstruieren können, das alle Knoten aus $A$ überdeckt (und damit auch alle aus $B$, denn $\abs{A}=n=\abs{B}$), haben wir die Aufgabe gelöst! Die Kanten aus $M$ bestimmen nämlich $n$ Kuchenstücke, eines in jeder Zeile und Spalte, die jedes mindestens eine Erdbeere enthalten. Dann kann Norman eine Erdbeere von jedem dieser Stücke naschen und damit die gewünschte Bedingung erfüllen.
+	
+	Nehmen wir also umgekehrt an, es gäbe kein solches Matching $M$. Nach dem Heiratssatz muss eine nichtleere Teilmenge $S\subseteq A$ existieren, sodass $\abs{N_G(S)}<\abs{S}$. In unser ursprüngliches Problem übersetzt heißt das: Es gibt Zeilen $z_1,z_2,\dotsc,z_k$ und Spalten $s_1,s_2,\dotsc,s_m$, wobei $m<k$, sodass alle Erdbeeren, die sich in den Zeilen $z_1,z_2,\dotsc,z_k$ befinden, schon in den Spalten $s_1,s_2,\dotsc,s_m$ enthalten sind. In den Zeilen $z_1,z_2,\dotsc,z_k$ sind nach Annahme genau $\the\year k$ Erdbeeren enthalten. Da sich alle diese Erdbeeren auch in den Spalten $s_1,s_2,\dotsc,s_m$ befinden, die insgesamt genau $\the\year m$ Erdbeeren enthalten, muss also $\the\year k\leqslant \the\year m$ gelten. Das widerspricht aber der Annahme $m<k$.
+\end{proof}
+
+Wir befolgen den Ratschlag und lösen die reine Zahlentheorie-Aufgabe~\ref{aufgabe:PolynomPrimfaktor}, bevor wir uns Aufgabe~\ref{aufgabe:VerschiedenePrimfaktoren} zuwenden.
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:PolynomPrimfaktor}]
+	Sei $d=\max\{d_1,d_2,\dotsc,d_9\}$ und wähle $N=d^8+1$. Angenommen, für irgendein $n\geqslant N$ hat $P(n)$ nur Primfaktoren $\leqslant 20$. Sei $p_i^{e_i}$ die größte Primpotenz, die $n+d_i$ teilt. Weil $n+d_i$ nur durch die acht verschiedenen Primzahlen $2$, $3$, $5$, $7$, $11$, $13$, $17$ oder $19$ teilbar sein kann, muss $n+d_i$ ein Produkt von höchstens acht Primpotenzen sein. Folglich gilt
+	\begin{equation*}
+		p_i^{e_i}\geqslant \sqrt[8]{n+d_i}\geqslant \sqrt[8]{d^8+1}>d\,.
+	\end{equation*}
+	Nach dem Schubfachprinzip muss es ferner zwei Indizes $1\leqslant i<j\leqslant 9$ mit $p_i=p_j$ geben. Sei $p\coloneqq p_i=p_j$. Danns sind sowohl $n+d_i$ als auch $n+d_j$ durch $p^{\min\{e_i,e_j\}}$ teilbar. Folglich ist auch $\abs{d_i-d_j}$ durch $p^{\min\{e_i,e_j\}}$ teilbar. Nach Annahme gilt $\abs{d_i-d_j}<d<p^{\min\{e_i,e_j\}}$, also kommt nur $d_i=d_j$ in Frage. Das widerspricht jedoch der Annahme, dass $d_1,d_2,\dotsc,d_9$ paarweise verschieden sind.
+\end{proof}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:VerschiedenePrimfaktoren}]
+	Wir führen die Aufgabe zuerst auf ein Matching-Problem zurück. Wir konstruieren einen bipartiten Graphen $G=(A\cup B,E)$ wie folgt: $A$ ist die Menge aller Zahlen $N+1,N+2,\dotsc,N+n$ und $B$ ist die Menge aller Primzahlen, die eine der Zahlen $N+1,N+2,\dotsc,N+n$ teilen. Zwischen $a\in A$ und $b\in B$ verläuft genau dann eine Kante, wenn~$a$ durch die Primzahl~$b$ teilbar ist. Um die Aufgabe zu lösen, müssen wir in $G$ ein Matching $M$ konstruieren, das alle Knoten aus $A$ enthält, denn dann können wir jedem $N+i$ eine Primzahl $p_i\mid N+i$ zuordnen, sodass $p_i\neq p_j$ für $i\neq j$.
+	
+	Angenommen, das wäre unmöglich. Nach dem Heiratssatz muss also eine Menge $S\subseteq A$ mit $\abs{N_G(S)}<\abs{S}$ existieren. In unser ursprüngliches Problem übersetzt heißt das: Es gibt ganze Zahlen $1\leqslant i_1<i_2<\dotsb<i_k\leqslant n$, sodass höchstens $k-1$ verschiedene Primzahlen existieren, die irgendeine der Zahlen $N+i_1,N+i_2,\dotsc,N+i_k$ teilen. Für alle $j=1,2,\dotsc,k$ sei $q_j^{e_j}$ die größte Primpotenz, die $N+i_j$ teilt. Nach Annahme kann $N+i_j$ durch höchstens $k-1\leqslant n-1$ verschiedene Primzahlen teilbar sein, ist also ein Produkt von höchstens $n-1$ Primpotenzen. Wegen $N\geqslant n^{n-1}$ folgt daraus
+	\begin{equation*}
+		q_j^{e_j}>n\quad\text{für alle }j=1,2,\dotsc,k\,.
+	\end{equation*}
+	Andererseits gibt es höchstens $k-1$ verschiedene Primzahlen, die überhaupt irgendeine der Zahlen $N+i_1,N+i_2,\dotsc,N+i_k$ teilen. Nach dem Schubfachprinzip muss es also Indizes $j\neq \ell$ geben, für die $q_j=q_\ell$ gilt. Sei $q\coloneqq q_j=q_\ell$. Dann sind sowohl $N+i_j$ als auch $N+i_\ell$ durch $q^{\min\{e_j,e_\ell\}}$ teilbar. Folglich ist $\abs{i_j-i_\ell}$ ebenfalls durch $q^{\min\{e_j,e_\ell\}}$ teilbar. Nun gilt aber auch $\abs{i_j-i_\ell}<n<q^{\min\{e_j,e_\ell\}}$, also kommt nur $i_j=i_\ell$ in Frage. Das widerspricht jedoch unserer Annahme $j\neq \ell$.
+\end{proof}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:AzurBordeauxCitrin}]
+	Wir konstruieren einen bipartiten Graphen $G=(A\cup A',E)$ wie folgt: $A$ ist die Menge aller Azur-farbenen Spielsteine und $A'$ ist die Menge aller Azur-farbenen Felder. Zwischen $a\in A$ und $a'\in A'$ verläuft genau dann eine Kante, wenn der Abstand zwischen dem Feld, auf dem~$a$ steht, und dem Feld~$a'$ maximal $d+2$ beträgt. Wenn wir in $G$ ein Matching $M$ konstruieren können, das alle Knoten aus $A$ überdeckt (und damit auch alle aus $A'$, denn $\abs{A}=3n^2=\abs{A'}$), dann haben gezeigt, dass alle Azur-farbenen Spielsteine wie gewünscht verschoben werden können. Mit einem analogen Argument für die Farben Bordeaux und Citrin haben wir dann die Aufgabe gelöst.
+	
+	Betrachte eine Menge $S\subseteq A$ von Azur-farbenen Spielsteinen. Für alle positiven reellen Zahlen $r$ sei $S_r$ die Menge aller Felder, die höchstens Abstand $r$ von einem Feld haben, auf dem ein Spielstein aus $S$ steht. Um die Bedingung des Heiratssatzes zu überprüfen, müssen wir zeigen, dass es in $S_{d+2}$ mindestens $\abs{S}$ Azur-farbene Felder gibt. Intuitiv ist das sehr plausibel: Einerseits ist ein insgesamt Drittel aller Felder Azur-farben, also können wir annehmen, dass $\approx\frac13\abs{S_{d+2}}$ Felder in $S_{d+2}$ Azur-farben sind. Andererseits muss es in $S_d$ mindestens $\abs{S}$ Bordeaux- und mindestens $\abs{S}$ Citrin-farbene Felder geben, denn nach Annahme existiert eine Permutation der Spielsteine, die jeden Spielstein maximal im Abstand $d$ bewegt und Azur auf Bordeaux, Bordeaux auf Citrin und Citrin auf Azur schickt. Somit ist $3\abs{S}\leqslant \abs{S_d}$. Wegen $S_d\subseteq S_{d+2}$ erhalten wir also $\abs{S}\lessapprox \frac13\abs{S_{d+2}}$.
+	
+	Der formale Beweis ist nicht viel schwieriger. Wir können das $3n\times 3n$-Feld mit horizontalen $3\times 1$-Rechtecken parkettieren, sodass in jedem dieser Rechtecke jede Farbe mindestens einmal vertreten ist. Wenn $R$ ein solches $3\times 1$-Rechteck ist und ein Feld von $R$ in $S_d$ enthalten ist, dann sind alle drei Felder in $S_{d+2}$ enthalten. Somit enthält $S_{d+2}$ mindestens $\frac13\abs{S_d}$ Azur-farbene Felder. Das ist genau die Abschätzung, die wir brauchen, um die obigen Plausibilitätsüberlegungen wasserdicht zu machen.
+\end{proof}

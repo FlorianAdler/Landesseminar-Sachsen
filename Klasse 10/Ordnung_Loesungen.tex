@@ -1,0 +1,52 @@
+\subsection*{Lösungen zu Kapitel~\ref{kapitel:Ordnung}: \emph{Multiplikative Ordnungen und Primitivwurzeln}}
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:nTeiltPhi}]
+	Es gilt $a^n\equiv 1\mod a^n-1$ und $1<a^i<a^n-1$ für alle $i=1,2,\dotsc,n-1$. Folglich ist $n=\operatorname{ord}_{a^n-1}(a)$. Weil $\operatorname{ord}_{a^n-1}(a)$ ein Teiler von $\varphi(a^n-1)$ sein muss, folgt die Behauptung.
+\end{proof}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:Primzahlen1modp}]
+	Wir beginnen mit~\ref{teilaufgabe:Trick17}. Wenn $q$ ein Primteiler von $\frac{n^p-1}{n-1}$ ist, dann gilt $n^p\equiv 1\mod p$. Also ist $\operatorname{ord}_q(n)$ ein Teiler von $p$. Weil $p$ eine Primzahl ist, kommen nur $\operatorname{ord}_q(n)=1$ und $\operatorname{ord}_q(n)=p$ in Frage. Im ersten Fall gilt $n\equiv 1\mod q$, also auch
+	\begin{equation*}
+		0\equiv \frac{n^p-1}{n-1}\equiv 1+n+\dotsb+n^{p-1}\equiv \underbrace{1+1+\dotsb+1}_{\text{$p$ Summanden}}\equiv p\mod q\,.
+	\end{equation*}
+	Somit muss $p=q$ gelten. Im zweiten Fall folgt $q\equiv 1\mod p$ aus der Tatsache, dass $\operatorname{ord}_q(n)$ stets ein Teiler von $\varphi(q)=q-1$ ist.
+	
+	Für Teil~\ref{teilaufgabe:Primzahlen1modp} nehmen wir an, dass wir schon $m$ Primzahlen $q_1,q_2,\dotsc,q_m$ mit $q_i\equiv 1\mod p$ für alle $i=1,2,\dotsc,m$ gefunden haben. Betrachte $n\coloneqq pq_1q_2\dotsm q_m$. Dann ist $\frac{n^p-1}{n-1}=1+n+\dotsb+n^{p-1}$ durch keine der Primzahlen $p,q_1,q_2,\dotsc,q_m$ teilbar. Nach~\ref{teilaufgabe:Trick17} erfüllt dann jeder Primfaktor $q$ von $\frac{n^p-1}{n-1}$ die Kongruenz $q\equiv 1\mod p$. Somit haben wir mindestens eine weitere Primzahl mit der gewünschten Eigenschaft gefunden.
+\end{proof}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:IMO1999}]
+	Offensichtlich ist $(n,p)=(1,p)$ eine Lösung für jede Primzahl $p$.
+	
+	Ab jetzt betrachten wir nur noch den Fall $n\geqslant 2$. Sei $q$ der kleinste Primfaktor von $n$. Aus $n^{p-1}\mid (p-1)^n+1$ folgt $(p-1)^n\equiv -1\mod q$, also $(p-1)^{2n}\equiv 1\mod q$. Somit ist $\operatorname{ord}_q(p-1)$ ein Teiler von $2n$. Aber $\operatorname{ord}_q(p-1)$ ist auch ein Teiler von $\varphi(q)=q-1$. Nun sind~$n$ und $q-1$ teilerfremd (sonst hätte~$n$ noch einen kleineren Primfaktor). Also kommen nur $\operatorname{ord}_q(p-1)=1$ oder $\operatorname{ord}_q(p-1)=2$ in Frage. 
+	
+	\emph{Fall~1: Es gilt $\operatorname{ord}_q(p-1)=1$.} Dann ist $p-1\equiv 1\mod q$. Wegen $(p-1)^n\equiv -1\mod q$ kann nur $q=2$ sein. Wenn $p\geqslant 3$ eine ungerade Primzahl ist, dann ist $(p-1)^n+1$ ungerade und kann nicht durch $q=2$ teilbar sein. Also kommt nur $p=2$ in Frage. In diesem Fall ist $(p-1)^n+1=2$ und $n^{p-1}=n$ muss ein Teiler von $2$ sein. Also kommt nur $n=2$ in Frage. Tatsächlich ist $(n,p)=(2,2)$ eine Lösung.
+	
+	\emph{Fall~2: Es gilt $\operatorname{ord}_q(p-1)=2$.} Dann gilt $(p-1)^2\equiv 1\mod q$, aber $p-1\not\equiv1\mod q$. Das Polynom $X^2-1$ hat modulo $q$ genau die Nullstellen $X=\pm 1$, denn es lässt sich zu $(X-1)(X+1)$ faktorisieren. Somit kommt nur $p-1\equiv -1\mod q$ in Frage. Dann ist aber $p\equiv 0\mod q$, also $p=q$. Nun ist $n$ durch $q$ teilbar und es gilt $n\leqslant 2p=2q$, also gibt es nur die Möglichkeiten $n=q$ und $n=2q$. Im zweiten Fall muss $q=2$ sein, denn sonst wäre $q$ nicht der kleinste Primfaktor von $n$. Es folgt also $(n,p)=(2q,q)=(4,2)$, aber das ist offensichtlich keine Lösung. Somit muss $n=p=q$ sein. Wir müssen folglich herausfinden, für welche Primzahlen $(p-1)^p+1$ durch $p^{p-1}$ teilbar ist. Den Fall $p=2$ haben wir in Fall~1 bereits betrachtet. Also dürfen wir $p\geqslant 3$ annehmen. Nun betrachten wir $(p-1)^p+1$ modulo $p^3$: Es gilt
+	\begin{equation*}
+		(p-1)^p+1\equiv \sum_{k=0}^p\binom{p}{k}p^k(-1)^{p-k}+1\equiv 1-\binom{p}{1}p+1\equiv -p^2\mod p^3\,.
+	\end{equation*}
+	Hier haben wir benutzt, dass alle Summanden für $k\geqslant 3$ durch $p^3$ teilbar sind. Der Summand für $k=2$ ist ebenfalls durch $p^3$ teilbar, denn der Binomialkoeffizient $\binom{p}{2}=\frac{(p-1)p}{2}$ ist für ungerade Primzahlen~$p$ stets durch~$p$ teilbar. Wir sehen also, dass $(p-1)^p+1$ nicht durch $p^3$ teilbar sein. Also ist $p=3$ die einzige ungerade Primzahl, für die $p^{p-1}\mid (p-1)^p+1$ gelten kann. Es ist leicht nachzuprüfen, dass $(n,p)=(p,p)=(3,3)$ tatsächlich eine Lösung ist.
+	
+	Weil die Fallunterscheidung vollständig ist, haben wir damit alle Lösungen gefunden.
+\end{proof}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:5pq}]
+	Wir betrachten drei Fälle:
+	
+	\emph{Fall~1: Es gilt $p=5$.} Dann ist $p$ auf jeden Fall ein Teiler von $5^p+5^q$. Nach dem kleinen Satz von Fermat gilt ferner $5^q\equiv 5\mod q$. Folglich ist $q$ genau dann ein Teiler von $5^p+5^q$, wenn $0\equiv 5^p+5^q\equiv 5^5+5\mod q$ gilt. Wegen $5^5+5=2\cdot 5\cdot 313$ liefert das die drei Lösungen $(p,q)=(5,2)$, $(p,q)=(5,5)$ und $(p,q)=(5,313)$.
+	
+	\emph{Fall~2: Es gilt $q=5$.} Analog zu Fall~1 erhalten wir die drei Lösungen $(p,q)=(2,5)$, $(p,q)=(5,5)$ und $(p,q)=(313,5)$.
+	
+	\emph{Fall~3: Es gilt $p,q\neq 5$.} Nach dem kleinen Satz von Fermat gilt $5^p\equiv 5\mod p$. Damit $p$ ein Teiler von $5^p+5^q$ gilt, muss also $5+5^q\equiv 0\mod p$ sein. Wegen $p\neq 5$ folgt $5^{q-1}\equiv -1\mod p$ und somit $5^{2(q-1)}\equiv 1\mod p$. Somit ist $\operatorname{ord}_p(5)$ ein Teiler von $2(q-1)$, aber kein Teiler von $q-1$. Andererseits ist $\operatorname{ord}_p(5)$ stets ein Teiler von $p-1$. Also muss $p-1$ mindestens einmal mehr durch $2$ teilbar sein als $q-1$. Das gleiche Argument lässt sich aber auch umgekehrt durchführen und wir erhalten, dass $q-1$ mindestens einmal mehr durch $2$ teilbar sein muss als $p-1$. Das ist ein Widerspruch!
+\end{proof}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:2HochpUnd2Hochq}]
+	Sei $r>3$ eine Primzahl, sei $p$ ein Primfaktor von $2^r-1$ und sei $q$ ein Primfaktor von $2^r+1$. Dann ist $2^r\equiv 1\mod p$, also ist $\operatorname{ord}_p(2)$ ein Teiler von $r$. Weil $r$ eine Primzahl ist, kommt nur $\operatorname{ord}_p(2)=1$ oder $\operatorname{ord}_p(2)=r$ in Frage. Ersterer Fall ist offensichtlich unmöglich, denn er führt auf $2\equiv 1\mod p$. Also muss $\operatorname{ord}_p(2)=r$ gelten.
+	
+	Wir würden gern analog $\operatorname{ord}_q(2)=2r$ folgern. Um das tun zu können, bemerken wir zunächst, dass wir stets $q>3$ wählen können. Ansonsten müsste $2^r+1$ nämlich eine Dreierpotenz sein, was für $r>3$ nicht der Fall ist. Das lässt sich zum Beispiel durch geschickte Faktorisierung zeigen (dafür brauchen wir noch nicht mal, dass $r$ prim ist). Hier präsentieren wir stattdessen ein Overkill-Argument mit Ordnungen: Aus $2^r+1=3^n$ folgt $2^{2r}\equiv 1\mod 3^n$. Also ist $\operatorname{ord}_{3^n}(2)$ ein Teiler von $2r$, aber auch ein Teiler von $\varphi(3^n)=2\cdot 3^{n-1}$. Wegen $r>3$ kommen nur $\operatorname{ord}_{3^n}(2)=1$ oder $\operatorname{ord}_{3^n}(2)=2$ in Frage. Der erste Fall ist nur für $2\equiv 1\mod 3^n$, also nur für $n=0$ möglich, und der zweite Fall nur für $2^2\equiv 1\mod 3^n$, also nur für $n=0$ oder $n=1$. In jedem Fall sehen wir, dass $2^r+1=3^n$ für $r>3$ nicht möglich ist.
+	
+	Weil $q$ ein Teiler von $2^r+1$ ist, folgt $2^{2r}\equiv 1\mod q$. Somit ist $\operatorname{ord}_q(2)$ ein Teiler von $2r$. Es ergeben sich die Möglichkeiten $\operatorname{ord}_q(2)=1$, $\operatorname{ord}_q(2)=2$, $\operatorname{ord}_q(2)=r$ und $\operatorname{ord}_q(2)=2r$. Die ersten beiden Fälle sind für $q>3$ unmöglich und der dritte Fall ist unmöglich, weil in unserem Fall $2^r\equiv -1\not\equiv 1\mod q$ gilt. Es verbleibt $\operatorname{ord}_q(2)=2r$, wie behauptet.
+	
+	Andererseits ist $\operatorname{ord}_p(2)$ ein Teiler von $p-1$ und $\operatorname{ord}_q(2)$ ein Teiler von $q-1$. Folglich erhalten wir $p\equiv 1\mod r$ und $q\equiv 1\mod 2r$. Weil $p-1$ gerade ist, muss sogar $p\equiv 1\mod 2r$ sein. Es folgt, dass $p-1$ durch $\operatorname{ord}_q(2)=2r$ teilbar ist, sodass $q\mid 2^{p-1}-1$. Ebenso ist $q-1$ durch $\operatorname{ord}_p(2)=r$ teilbar, sodass $p\mid 2^{q-1}-1$. Damit haben wir ein Paar von Primzahlen mit der gewünschten Eigenschaft konstruiert. Weil $2^r-1$ und $2^r+1$ teilerfremd sind, muss ferner $p\neq q$ gelten, wie gewünscht.
+	
+	Um zu zeigen, dass unendlich viele solche Paare existieren, nehmen wir an, dass wir bereits Paare $(p_1,q_1),(p_2,q_2),\dotsc,(p_m,q_m)$ konstruiert haben. Indem wir die obige Konstruktion mit einer Primzahl $r>\max\{p_1,p_2,\dotsc,p_m,q_1,q_2,\dotsc,q_m\}$ durchführen, erhalten wir Primzahlen $p$ und $q$ mit $p,q\equiv 1\mod 2r$. Folglich sind $p$ und $q$ verschieden von allen bisher konstruierten Primzahlen und wir haben ein weiteres Paar mit den gewünschten Eigenschaften konstruiert.
+\end{proof}

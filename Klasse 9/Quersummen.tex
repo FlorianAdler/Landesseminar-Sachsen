@@ -1,0 +1,29 @@
+\section{Quersummen}\label{kapitel:Quersummen}
+Manchmal kommen in Olympiade-Aufgaben Quersummen vor. So zum Beispiel in den beiden folgenden Aufgaben:
+\begin{aufgabe*}\label{aufgabe:441244}
+	Wir bezeichnen die Quersumme einer positiven ganzen Zahl $n$ mit $Q(n)$. Was ist
+	\begin{equation*}
+		Q\parens*{Q\parens*{Q\parens*{2005^{2005}}}}\,?
+	\end{equation*}
+\end{aufgabe*}
+\begin{aufgabe*}\label{aufgabe:531042}
+	Für eine positive ganze Zahl sei $Q(n)$ die Quersumme von $n$ und $P(n)$ das Querprodukt von $n$, also das Produkt aller Ziffern von $n$. Ferner sei $R(n)\coloneqq n+P(n)Q(n)$. Für ein gegebenes $n$ definieren wir nun eine Folge $(a_i)_{i\geqslant 0}$ rekursiv durch $a_0\coloneqq n$, $a_{i+1}\coloneqq R(a_i)$. Zeige, dass die Folge $(a_i)_{i\geqslant 0}$ ab irgendeinem Punkt konstant sein muss.
+\end{aufgabe*}
+
+Bei solchen Aufgaben gibt es zwei Tricks, deren Kombination fast immer zum Erfolg führt.
+
+\textbf{1. ~Abschätzungen.} Wenn $n$ eine $k$-stellige Zahl ist, dann gilt offensichtlich $n\geqslant 10^{k-1}$ und andererseits $Q(n)\leqslant 9k$. Weil lineare Funktionen viel langsamer wachsen als Exponentialfunktionen, ist $10^{k-1}$ für große $k$ viel größer als $9k$. Somit ist $n$ im Allgemeinen viel größer als~$Q(n)$.
+
+\textbf{2.~Modulo~9.} Wenn $n=a_0+10a_1+10^2a_2+\dotsb+10^ka_k$ die Dezimaldarstellung einer positiven ganzen Zahl $n$ ist, dann gilt
+\begin{equation*}
+	n\equiv a_0+1\cdot a_1+1^2\cdot a_2+\dotsb+1^k\cdot a_k\equiv Q(n)\mod 9
+\end{equation*}
+(das ist eine Verschärfung der bekannten Teilbarkeitsregel für~$9$).
+
+Ihr sollt nun versuchen, die beiden Aufgaben selbstständig zu lösen. Wenn ihr nicht weiterkommt, helfen euch die folgenden Tipps weiter. Am Ende dieses Heftes findet ihr außerdem die Lösungen.
+
+\subsection*{Tipps zu den Beispielaufgaben}
+
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:441244}.} Schätze ab, wie groß $Q(Q(Q(2005^{2005})))$ höchstens sein kann. Wie kannst du herausfinden, welche der (sehr wenigen) verbleibenden Möglichkeiten die richtige ist?
+
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:531042}.} Wenn die Behauptung falsch wäre, dann müsste die Folge $(a_i)_{i\geqslant 0}$ streng monoton steigend sein. Um einen Widerspruch zu erzeugen, konstruiere ein $a_i$, welches an geeigneter Stelle eine Ziffer~$0$ enthält.

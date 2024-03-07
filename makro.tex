@@ -1,0 +1,241 @@
+\usepackage{yhmath}
+\usepackage{ngerman} % a4wide,, latexsym
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+\usepackage[slantedGreek]{mathptmx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{amscd}
+\usepackage{exscale}
+\usepackage{enumerate}
+\usepackage{amsthm}
+\usepackage{graphics}
+\usepackage{graphicx}	
+\usepackage{longtable}
+\usepackage{color}
+\usepackage{dsfont} 
+\usepackage{bbm}
+%\usepackage{wasysym}
+\usepackage{ifpdf}
+%\usepackage{pst-all}
+%\usepackage{pstricks,pstricks-add,pst-math,pst-xkey}
+\usepackage{lscape}
+\usepackage{eurosym, url, hyperref}
+%\usepackage{fourier}
+
+
+\frenchspacing
+
+%--------------------------------------------------------------------
+
+\setlength\parskip{\medskipamount}
+\setlength\parindent{0pt}
+\setlength{\voffset}{-3cm} %-1	%-1.5 %bis -3
+%%\setlength{\topmargin}{0.625cm}		% oberer Rand bis Oberkante Kopfzeile
+\setlength{\oddsidemargin}{0.0cm} \setlength{\evensidemargin}{0.0cm}%	Linker Rand 
+%%\setlength{\headheight}{1.25cm}		% Höhe der Kopfzeile
+%%\setlength{\headsep}{0.625cm}			% Abstand zw. Kopfzeile und 
+\setlength{\topskip}{0cm}
+%%\setlength{\footskip}{1cm}
+\setlength{\textheight}{26cm} %24 %23.5; voffset ausblenden % bis 27
+\setlength{\textwidth}{16cm} %16
+
+
+\setcounter{secnumdepth}{3}								% Nummerierungstiefe
+\setcounter{tocdepth}{1}									% Inhaltsverzeichnistiefe
+%\numberwithin{equation}{section}					% Formeln abschnittsweise nummerieren
+
+\flushbottom
+\renewcommand{\baselinestretch}{1.0}
+
+
+
+%Abkürzungen-------------------------------------------------------------
+%Zahlenbereiche----------------------------------
+\newcommand{\N}{{\mathbb{N}}}
+\newcommand{\Z}{{\mathbb{Z}}}
+\newcommand{\Q}{{\mathbb{Q}}}
+\newcommand{\R}{{\mathbb{R}}}
+\newcommand{\C}{{\mathbb{C}}}	
+%(Komplexe) Zahlen
+\newcommand{\I}{{\mathrm{i}}}					% Imaginäre Einheit
+\newcommand{\real}{{\mathrm{Re}}}			% Realteil
+\newcommand{\imag}{{\mathrm{Im}}}			% Imaginärteil
+\newcommand{\dual}{{\mathrm{Du}}}			% Dualteil
+%Abkürzung griechischer Buchstaben & Abbildungen etc.
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\ve}{\varepsilon}
+\newcommand{\vp}{\varphi}
+\newcommand{\eul}{{\mathrm{e}}} 			% Eulersche Zahl e
+\newcommand{\ld}{{\mathrm{ld}}} 			% duadischer Logarithmus
+%Matrizen und Vektorrechnung---------------------
+\newcommand{\T}{^{\mathrm{T}}}				% Transponiertzeichen
+\newcommand{\rg}{{\mathrm{rg}}}				% Rang
+\newcommand{\bild}{{\mathrm{bild}}}		% Bild
+\newcommand{\Kern}{{\mathrm{kern}}}		% Kern
+\newcommand{\lin}{{\mathrm{lin}}}			% Kern
+\newcommand{\ul}[1]{\underline{#1}} 	% Vektorunterstrich
+%Algebra----------------------
+\newcommand{\ggT}{{\mathrm{ggT}}}				% ggT
+\newcommand{\kgV}{{\mathrm{kgV}}}				% kgV
+%Geometrie
+\newcommand{\ol}[1]{\overline{#1}} 	  % Strecke
+\newcommand{\TV}{{\mathrm{TV}}}				% Teilverhältnis
+\newcommand{\DV}{{\mathrm{DV}}}				% Doppelverhältnis
+\newcommand{\mbb}[1]{\mathbb{#1}}			% \mathbb	
+%Einheiten
+\newcommand{\mm}{{\mbox{\,} \mathrm{mm}}}
+\newcommand{\cm}{{\mbox{\,} \mathrm{cm}}}				% Einheit cm
+\newcommand{\dm}{{\mbox{\,} \mathrm{dm}}}	
+\newcommand{\m}{{\mbox{\,} \mathrm{m}}}	
+\newcommand{\LE}{{\mbox{\,} \mathrm{LE}}}	
+\newcommand{\fe}{{\mbox{\,} \mathrm{FE}}}	
+\newcommand{\km}{{\mbox{\,} \mathrm{km}}}
+\newcommand{\gpkcm}{{\mbox{\,} \mathrm{g}/\mathrm{cm}^3}}
+\newcommand{\kmh}{{\mbox{\,} \frac{\mathrm{km}}{\mathrm{h}}}}
+\newcommand{\komma}{{,}}
+\newcommand{\entspricht}{\mathrel{\widehat{=}}}   		% Entspricht
+
+\newcommand{\h}{{\mbox{\,} \mathrm{h}}}
+\newcommand{\s}{{\mbox{\,} \mathrm{s}}}
+\newcommand{\g}{{\mbox{\,} \mathrm{g}}}
+\newcommand{\kg}{{\mbox{\,} \mathrm{kg}}}	
+\newcommand{\gc}{{\grad\mathrm{C}}}	
+\newcommand{\grad}{^{\circ}}				% Einheit °
+\newcommand{\mbm}[1]{\mathbbm{#1}}	
+\newcommand{\arc}{{\mathrm{arc}}}	
+%Schüler
+\newcommand{\ds}{\displaystyle}
+% shortcuts
+\def\ol#1{\overline{#1}}
+\def\ul#1{\underline{#1}}
+\def\br#1{\left(#1\right)}             % brackets
+\def\sbr#1{\left[#1\right]}            % square brackets
+\def\cbr#1{\left\{#1\right\}}          % curly brackets
+\def\iff{\Leftrightarrow\ }
+\def\yields{\Rightarrow\ }
+\newcommand{\rf}[1][]{\textup{\eqref{#1}}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\third}{\frac{1}{3}}
+\newcommand{\ov}{\overline}
+\newcommand{\nn}{\nonumber}
+\newcommand{\RRA}{{\,\,\Longrightarrow}\,\,}
+\newcommand{\LRA}{{\,\,\Leftrightarrow}\,\,}
+%\newcommand{\qed}[1][\rule{1ex}{1ex}]{\nopagebreak\hspace*{2em}\hspace*{\fill}{$#1$}}
+
+
+%Analysis --------------------
+\newcommand{\inte}[4]{\int\limits_{#1}^{#2} {#3}\mathrm{d}{#4} } 
+
+%---------------------------------------------------------------------------------------------
+\newenvironment{description*}[2]
+   {\begin{list}{}{%
+      \settowidth{\labelwidth}{#2{#1}}
+      \setlength{\leftmargin}{\labelwidth}
+         \addtolength{\leftmargin}{\labelsep}
+      \setlength{\parsep}{0.5ex plus0.2ex minus0.2ex}
+      \setlength{\itemsep}{0.3ex}
+      \renewcommand{\makelabel}[1]{#2{##1}\hfill}}}
+   {\end{list}}
+%*********************************************************************************************
+
+\newcommand{\bsp}[1]{\begin{Bsp}\hspace*{1cm}\newline#1\end{Bsp}}
+\newcommand{\kartauf}[3]{
+\newpage
+\normalsize
+\begin{tabular}{p{13cm}}
+\textbf{#1 \hfill #2}\\\hline
+\end{tabular}
+\begin{enumerate}\small
+#3
+\end{enumerate}}
+
+\newcommand{\bem}[1]{\begin{Bem}\normalfont \hspace*{1cm}\newline#1\end{Bem}}
+
+\newcommand{\defi}[2]{\begin{Def}[#1]\hspace*{1cm}\newline#2\end{Def}}
+
+\newcommand{\theo}[2]{\begin{Theo}[#1]\hspace*{1cm} #2\end{Theo}} %\newline
+
+\newcommand{\satz}[2]{\begin{Satz}[#1]\hspace*{1cm}\newline#2\end{Satz}}
+
+\newcommand{\folg}[2]{\begin{Folg}[#1]\hspace*{1cm}\newline#2\end{Folg}}
+
+\newcommand{\auf}[1]{\begin{Auf} \normalfont#1\end{Auf}} % \hspace*{1cm}\newline
+
+\newcommand{\lem}[1]{\begin{Lem}\hspace*{1cm}\newline#1\end{Lem}}
+
+\newcommand{\cor}[1]{\begin{Cor}\hspace*{1cm}\newline#1\end{Cor}}
+
+\newcommand{\tipp}[2]{\begin{Tipp}[#1]\hspace*{1cm}\newline#2\end{Tipp}}
+
+\newcommand{\bew}[1]{\textsl{Beweis: }#1 \hfill $\Box$}  %ge{\"a}ndert (\!)
+
+\newcommand{\loes}[1]{\textit{Lösung: }#1 \hfill $\Box$}  %ge{\"a}ndert (\!)
+
+\newcommand{\lema}[2]{\begin{Lem}[#1]\hspace*{1cm}\newline#2\end{Lem}}
+
+\newtheoremstyle{definition}% name
+     {3pt}%      Space above
+     {5pt}%      Space below
+     {\itshape}%         Body font % evtl 
+     {0ex}%         Indent amount (empty = no indent, \parindent = para indent)
+     {\bfseries}% Thm head font
+     {:}%        Punctuation after thm head
+     {.5em}%     Space after thm head: " " = normal interword space;
+           %       \newline = linebreak
+     {}%         Thm head spec (can be left empty, meaning `normal')
+
+\newtheoremstyle{Beweis}% name
+     {30pt}%      Space above
+     {3pt}%      Space below
+     {}%         Body font
+     {}%         Indent amount (empty = no indent, \parindent = para indent)
+     {\itshape}% Thm head font
+     {:}%        Punctuation after thm head
+     {.5em}%     Space after thm head: " " = normal interword space;
+           %       \newline = linebreak
+     {}%         Thm head spec (can be left empty, meaning `normal')
+
+
+\newtheoremstyle{break}% name
+     {3pt}%      Space above
+     {7pt}%      Space below
+     {\itshape}%         Body font
+     {}%         Indent amount (empty = no indent, \parindent = para indent)
+     {\bfseries}% Thm head font
+     {:}%        Punctuation after thm head
+     {.5em}%     Space after thm head: " " = normal interword space;
+           %       \newline = linebreak
+     {}%         Thm head spec (can be left empty, meaning `normal')
+
+\theoremstyle{definition}
+
+\newtheorem{Def}{Definition}[section]
+
+
+\theoremstyle{break}
+\newtheorem{Satz}[Def]{Satz}
+\newtheorem{Lem}[Def]{Lemma}
+\newtheorem{Cor}[Def]{Korollar}
+\newtheorem{Tipp}[Def]{Tipp}
+
+\theoremstyle{definition}
+\newtheorem{Theo}[Def]{Theorem}
+\newtheorem{Auf}[Def]{Aufgabe}
+\newtheorem{Bem}[Def]{Bemerkung}
+\newtheorem{Bsp}[Def]{Beispiel}
+\newtheorem{beispiel}[Def]{Beispiel}
+\newtheorem{aufgabe}[Def]{Aufgabe}
+\newtheorem{Folg}[Def]{Folgerung}
+\newtheorem{obs}[Def]{Beobachtung}
+
+\theoremstyle{Beweis}
+\newtheorem{Bew}{Beweis}
+
+
+
+\makeindex
+
+\endinput

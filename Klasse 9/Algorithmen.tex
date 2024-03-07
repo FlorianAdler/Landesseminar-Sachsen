@@ -1,0 +1,48 @@
+\section{Algorithmen in der Kombinatorik}\label{kapitel:Algorithmen}
+Es gibt eine bestimmte Sorte von Kombinatorik-Aufgaben, die sich nur lösen lassen, indem ihr einen geeigneten Algorithmus hinschreibt. In diesem Kapitel seht ihr vier solche Aufgaben.\footnote{Diese vier Aufgaben wurden (in leicht anderer Formulierung) dem Autoren dieses Textes bei der Bundesrunde in den Klassenstufen 8, 9, 10 und 11 gestellt. Nachdem er keine der Aufgaben in den Klassen 8, 9 und 10 lösen konnte, hat er zehn Minuten vor Abgabe in der Klasse~11 endlich verstanden, wie solche Aufgaben funktionieren. Der vorliegende Text soll dafür sorgen, dass euch diese Erkenntnis möglichst schon früher ereilt (und zwar am besten schon in der Klasse~9).} Wie üblich findet ihr am Ende des Kapitels Tipps und am Ende des Heftes die Lösungen. Ihr solltet euch aber zuerst selbst an diesen Aufgaben versuchen.\footnote{Lasst euch nicht davon beeindrucken, dass Aufgabe~\ref{aufgabe:541143} in der 11.\ Klasse gestellt wurde. Sie ist definitiv nicht die schwerste der vier Aufgaben.} 
+\begin{aufgabe*}\label{aufgabe:510846}
+	Gegeben seien positive ganze Zahlen $z_1,z_2,\dots,z_m$ und $s_1,s_2,\dotsc,s_n$, für die
+	\begin{equation*}
+		z_1+z_2+\dotsb+z_m=s_1+s_2+\dotsb+s_n
+	\end{equation*} 
+	gilt. Gegeben sei weiter eine leere Tabelle mit $m$ Zeilen und $n$ Spalten. In die Tabelle sollen nichtnegative ganze Zahlen derart eingetragen werden, dass für alle $i=1,2,\dotsc,m$ und alle $j=1,2,\dotsc,n$ die Summe der Einträge in der $i$-ten Zeile genau $z_i$ und die Summe der Einträge in der $j$-ten Spalte genau $s_j$ beträgt. Außerdem darf in höchstens $m+n-1$ Feldern eine positive Zahl stehen. Beweise, dass das stets möglich ist.
+\end{aufgabe*}
+\begin{aufgabe*}[*]\label{aufgabe:520945}
+	Arne und Basti spielen ein Spiel. Arne hat \the\year\ Zettel vorbereitet. Auf jedem dieser Zettel steht eine endliche nichtleere Menge von natürlichen Zahlen. Bastis Aufgabe besteht darin, ebenfalls eine endliche nichtleere Menge von natürlichen Zahlen auf einen Zettel zu schreiben, sodass folgende Bedingungen erfüllt sind:
+	\begin{enumerate}[label={$(\Alph*)$},ref={$(\Alph*)$}]
+		\item Für jeden von Arnes Zetteln steht mindestens eine Zahl von diesem Zettel auch auf Bastis Zettel.\label{bedingung:EineZahlVonJedemZettel}
+		\item Es gibt mindestens einen von Arnes Zetteln, dessen kleinste Zahl auch die kleinste Zahl auf Bastis Zettel ist. Zudem soll keine weitere Zahl von diesem Zettel auch auf Bastis Zettel stehen.\label{bedingung:KleinsteZahlVonEinemZettel}
+	\end{enumerate}
+	Zeige, dass Basti diese Aufgabe stets lösen kann.
+\end{aufgabe*}
+\begin{aufgabe*}[*]\label{aufgabe:531046}
+	Gegeben seien positive ganze Zahlen $0<a<b$. Eine $3$-elementige Menge $\{\ell,m,n\}$ von positiven ganzen Zahlen heißt \emph{$ab$-normal}, wenn die \embrace{positiven} Abstände dieser drei Zahlen genau $a$, $b$ und $a+b$ betragen. Die Reihenfolge ist dabei egal. Ist es stets möglich, die Menge $\mathbb Z_{>0}$ aller positiven ganzen Zahlen in disjunkte $ab$-normale Teilmengen zu zerlegen?
+\end{aufgabe*}
+\begin{aufgabe*}[*]\label{aufgabe:541143}
+	Bei einem Mathematik-Wettbewerb kennen sich einige der Teilnehmenden bereits (Bekanntschaft ist immer gegenseitig). Insgesamt gibt es dabei $k$ Bekanntschaften. Für einen Ausflug sollen die Teilnehmenden auf zwei Busse aufgeteilt werden. Damit nicht immer die gleichen Gruppen miteinander rumhängen, soll in beiden Bussen die Anzahl der Bekanntschaften möglichst gering sein. Zeige, dass es stets eine Aufteilung gibt, für die die Anzahl der Bekanntschaften in jedem der beiden Busse maximal $\frac{k}{3}$ beträgt.
+\end{aufgabe*}
+Bevor wir zu den konkreten Tipps kommen, sammeln wir einige allgemeine Strategien, wie ihr an solche Aufgaben herangehen könnt.
+\begin{itemize}
+	\item Traut euch und probiert Dinge aus! Schreibt einen Algorithmus hin und schaut, ob er funktioniert. Wenn nicht, überlegt euch, an welcher Stelle er scheitert, und versucht, euren Algorithmus Schritt für Schritt zu verbessern, bis er die Aufgabe löst.
+	\item Tut das \enquote{Offensichtliche}. Algorithmen in Olympiade-Aufgaben sind meistens nicht besonders kompliziert. Ihr könnt davon ausgehen, dass der gesuchte Algorithmus die gegebene Situation in jedem Schritt verbessert und sich damit Schritt für Schritt der gewünschten Situation nähert.
+	\item Benutze einen \enquote{Greedy-Algorithmus}. Ein Greedy-Algorithmus nimmt sich einfach in jedem Schritt so viel wie möglich. In der Praxis finden solche Algorithmen oftmals nicht eine optimale Lösung, aber in den Problemen, die euch in Olympiade-Aufgaben begegnen, sind sie häufig ausreichend.
+\end{itemize}
+Genauso wichtig wie das Finden einer Lösung ist aber auch, dass ihr eure Lösung sauber aufschreiben könnt. Gerade Lösungen mit Algorithmen tendieren dazu, konfus und unverständlich zu sein, wenn sie schlecht aufgeschrieben sind. Damit macht ihr dem Korrekturteam das Leben schwer (und das Korrekturteam revanchiert sich natürlich mit Punktabzügen). Deshalb:
+\begin{itemize}
+	\item Erwähnt am Anfang eurer Lösung, dass ihr die Aufgabe mit einem Algorithmus lösen werdet.
+	\item Formuliert euren Algorithmus so klar wie möglich. Wenn es nicht anders geht, könnt ihr sogar Pseudocode verwenden.
+	\item Ihr müsst zeigen, dass jeder Schritt eures Algorithmus durchführbar ist, dass euer Algorithmus nach endlich vielen Schritten endet und dass euer Algorithmus ein korrektes Ergebnis liefert. Am besten strukturiert ihr euren Aufschrieb so, dass diese drei Schritte, also Durchführbarkeit, Endlichkeit und Korrektheit, klar voneinander getrennt sind.
+\end{itemize}
+Allgemein lohnt es sich, darüber nachzudenken, ob ihr eure algorithmische Lösung nicht zu einer Lösung mit dem Extremalprinzip umformulieren könnt. Das ist nicht immer möglich, aber recht häufig, und es verlangt etwas Übung. Dafür sind solche Lösungen leichter aufzuschreiben (und leichter zu korrigieren) als algorithmische Lösungen. In den Musterlösungen seht ihr ein Beispiel, wie sich eine algorithmische Lösung in eine Extremalprinzips-Lösung umformulieren lässt. Um auf die Lösung zu kommen, könnt (und solltet) ihr natürlich nach wie vor über Algorithmen nachdenken.
+
+
+\subsection*{Tipps zu den Beispielaufgaben}
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:510846}.} Fülle die Tabelle Feld für Feld aus.
+
+\textbf{Tipps zu Aufgabe~\ref{aufgabe:520945}.} Beginne damit, das Minimum aller Zahlen auf Arnes Zetteln auf Bastis Zettel zu schreiben. In welchem Fall geht das schief?
+
+Zeige, dass Basti zuerst alle Zettel beiseite legen kann, die einen anderen Zettel komplett enthalten. Kannst du danach die Aufgabe lösen?
+
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:531046}.} Füge schrittweise Tripel der Form $\{n,n+a,n+a+b\}$ hinzu. Wenn das nicht geht, füge ein Tripel der Form $\{n,n+b,n+a+b\}$ hinzu.
+
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:541143}.} Starte mit einer beliebigen Verteilung und verbessere sie Schritt für Schritt auf die \enquote{offensichtliche} Weise.

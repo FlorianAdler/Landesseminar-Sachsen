@@ -1,0 +1,52 @@
+\subsection*{Lösungen zu Kapitel~\ref{kapitel:Jensen}: \emph{Die Ungleichungen von Jensen und Karamata}}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:MittelungleichungenJensen}]
+	Falls ein Index $i$ mit $a_i=0$ existiert, ist $\sqrt[n]{a_1a_2\dotsm a_n}=0$ und die AM-GM-Ungleichung ist trivial. Also dürfen wir annehmen, dass alle $a_i$ positiv sind. Dann gibt es reelle Zahlen $x_1,x_2,\dotsc,x_n$ mit $a_i=\mathrm{e}^{x_i}$. Die Exponentialfunktion $f(x)=\mathrm{e}^x$ ist konvex, denn es gilt $f''(x)=\mathrm{e}^x>0$. Aus der Jensenschen Ungleichung folgt also
+	\begin{equation*}
+		\frac{\mathrm{e}^{x_1}+\mathrm{e}^{x_2}+\dotsb+\mathrm{e}^{x_n}}{n}\geqslant \mathrm{e}^{(x_1+x_2+\dotsb+x_n)/n}=\sqrt[n]{\mathrm{e}^{x_1}\mathrm{e}^{x_2}\dotsm \mathrm{e}^{x_n}}
+	\end{equation*}
+	und das ist genau die AM-GM-Ungleichung.
+	
+	Für~\ref{aufgabe:PotenzmittelMitJensen} substituieren wir $y_i=a_i^q$, sodass $a_i^p=y_i^{p/q}$. Die Funktion $g(x)=x^{p/q}$ ist konvex, denn
+	\begin{equation*}
+		g''(x)=\frac pq\parens*{\frac pq-1}x^{p/q-2}>0
+	\end{equation*}
+	für alle $x>0$ (hier benutzen wir $p>q$). Aus der Jensenschen Ungleichung folgt also
+	\begin{equation*}
+		\frac{y_1^{p/q}+y_2^{p/q}+\dotsb+y_n^{p/q}}{n}\geqslant \parens*{\frac{y_1+y_2+\dotsb+y_n}{n}}^{p/q}\,.
+	\end{equation*}
+	Nachdem wir beide Seiten zur $1/p$-ten Potenz erheben und $y_i=a_i^q$ einsetzen, erhalten wir genau die allgemeine Potenzmittelungleichung.
+\end{proof}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:VAIMO2012}]
+	Betrachte die Funktion $f\colon \mathbb R_{>0}\rightarrow \mathbb R$ gegeben durch
+	\begin{equation*}
+		f(x)=\frac{x+2}{(x+1)(x+5)}\,.
+	\end{equation*}
+	Nach kurzer Rechnung folgt, dass die zweite Ableitung von $f$ wie folgt gegeben ist:
+	\begin{equation*}
+		f''(x)=\frac{2\parens*{x^3+6x^2+21x+32}}{(x+1)^3(x+5)^3}\,.
+	\end{equation*}
+	Dieser Ausdruck ist offensichtlich positiv, also ist $f$ in der Tat konvex. Wir wenden jetzt die gewichtete Jensen-Ungleichung mit den Gewichten $a+1$, $b+1$ und $c+1$ an und erhalten:
+	\begin{equation*}
+		\frac{(a+1)f(b)+(b+1)f(c)+(c+1)f(a)}{a+b+c+3}\geqslant f\parens*{\frac{(a+1)b+(b+1)c+(c+1)a}{a+b+c+3}}\,.
+	\end{equation*}
+	Wir setzen nun $u\coloneqq a+b+c$ und $v\coloneqq ab+bc+ca$, sodass $(a+1)b+(b+1)c+(c+1)a=u+v$. Mithilfe der obigen Abschätzung müssen wir also nur
+	\begin{equation*}
+		(u+3)f\parens*{\frac{u+v}{u+3}}\geqslant\frac32
+	\end{equation*}
+	zeigen. Indem wir $(u+v)/(u+3)$ in die Definition von $f$ einsetzen, erhalten wir
+	\begin{equation*}
+		(u+3)f\parens*{\frac{u+v}{u+3}}=\frac{(u+3)^2(3u+v+6)}{(2u+v+3)(6u+v+15)}=\frac32\cdot \frac{(u+3)^2(6u+2v+12)}{(6u+3v+9)(6u+v+15)}\,.
+	\end{equation*}
+	Aus der Voraussetzung $a^2+b^2+c^2\geqslant 3$ folgt $u^2-2v\geqslant 3$. Also erhalten wir die Abschätzung $(u+3)^2=u^2+6u+9\geqslant 6u+2v+12$. Aus der AM-GM-Ungleichung folgt schließlich
+	\begin{equation*}
+		(6u+2v+12)^2=\parens*{\frac{(6u+3v+9)+(6u+v+15)}{2}}^2\geqslant (6u+3v+9)(6u+v+15)\,.
+	\end{equation*}
+	Indem wir alle Abschätzungen bisher kombinieren, erhalten wir
+	\begin{equation*}
+		(u+3)f\parens*{\frac{u+v}{u+3}}\geqslant \frac32\cdot \frac{(6u+2v+12)^2}{(6u+3v+9)(6u+v+15)}\geqslant \frac32\,.
+	\end{equation*}
+	Damit ist die Aufgabe gelöst.
+\end{proof}
+Der Trick, einen Teil der Variablen als Funktion und den Rest als Jensen-Gewichte aufzufassen, kommt nicht besonders häufig zum Einsatz, aber ihr solltet ihn in der Hinterhand behalten. Außerdem ist er ziemlich cool.

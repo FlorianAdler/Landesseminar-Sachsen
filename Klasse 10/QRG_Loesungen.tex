@@ -1,0 +1,66 @@
+\subsection*{Lösungen zu Kapitel~\ref{kapitel:QuadratischeReste}: \emph{Quadratische Reste}}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:PrimzahlsatzVonDirichletMod4}]
+	Wir beginnen mit~\ref{teilaufgabe:3Mod4}. Angenommen, wir haben schon $m$ Primzahlen $p_1,p_2,\dotsc,p_m$ mit $p_i\equiv 3\mod m$ für alle $i=1,2,\dotsc,m$ gefinden. Wir werden zeigen, dass stets eine weitere solche Primzahl existiert. Betrachte dazu $N\coloneqq 4p_1p_2\dotsm p_m-1$. Dann ist $N\equiv 3\mod 4$, also kann es nicht sein, dass alle Primfaktoren $p\mid N$ von der Form $p\equiv 1\mod 4$ sind. Wir finden somit eine Primzahl $p\mid N$ mit $p\equiv 3\mod 4$. Andererseits ist $N$ teilerfremd zu $p_1,p_2,\dotsc,p_m$. Also haben wir mit~$p$ eine weitere Primzahl konstruiert, die die gewünschte Eigenschaft erfüllt.
+	
+	Der Beweis für~\ref{teilaufgabe:1Mod4} geht analog, nur dass wir hier $N\coloneqq (2p_1p_2\dotsm p_m)^2+1$ betrachten. Dann ist $N$ ungerade und zu $p_1,p_2,\dotsc,p_m$ teilerfremd. Ferner muss $-1$ für jeden Primteiler $p\mid N$ ein quadratischer Rest modulo~$p$ sein. Nach dem ersten Ergänzungssatz zum QRG muss dafür $p\equiv 1\mod 4$ gelten. Damit haben wir eine weitere Primzahl mit der gewünschten Eigenschaft konstruiert.
+\end{proof}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:IMO1996_4}]
+	Schreibe $15a+16b=m^2$ und $16a-15b=n^2$. Dann gilt
+	\begin{align*}
+		16m^2-15n^2=16\cdot 15a+16^2b-15\cdot 16a+15^2b&=481b\\
+		15m^2+16n^2=15^2a+15\cdot 16b+ 16^2a-16\cdot 15b&=481a\,.
+	\end{align*}
+	Aus $481=13\cdot 37$ folgt nun $16m^2\equiv 15n^2\mod 13$ und $16m^2\equiv 15n^2\mod 37$. Wir werden zeigen, dass das nur sein kann, wenn $m$ und $n$ durch $481$ teilbar sind. Dazu berechnen wir zuerst das Legendre-Symbol $\parens[\big]{\frac{15}{13}}$: Nach Multiplikativität des Legendre-Symbols und unter Ausnutzung des QRG gilt
+	\begin{equation*}
+		\parens*{\frac{15}{13}}= \parens*{\frac{3}{13}}\parens*{\frac{5}{13}}=\parens*{\frac{13}{3}}\parens*{\frac{13}{5}}=\parens*{\frac{1}{3}}\parens*{\frac{3}{5}}=-1\,.
+	\end{equation*}
+	Es folgt
+	\begin{equation*}
+		\parens*{\frac{16m^2}{13}}=\parens*{\frac{15n^2}{13}}=\parens*{\frac{15}{13}}\parens*{\frac{n^2}{13}}=-\parens*{\frac{n^2}{13}}\,.
+	\end{equation*}
+	Andererseits sind $16m^2$ und $n^2$ notwendigerweise quadratische Reste modulo~$13$. Die einzige Möglichkeit ist also $\parens[\big]{\frac{16m^2}{13}}=0=\parens[\big]{\frac{n^2}{13}}$, sodass $m$ und $n$ durch $13$ teilbar sein müssen. Mit einem völlig analogen Argument sehen wir, dass $m$ und $n$ auch durch $37$ teilbar sein müssen. Wenn $m$ und $n$ positiv sind, muss also $m^2,n^2\geqslant 481^2=231361$ gelten.
+	
+	Andererseits ist $m^2=n^2=481^2$ tatsächlich möglich, denn in diesem Fall führen die Gleichungen $16m^2-15n^2=481b$ und $15m^2+16n^2=481a$ auf die ganzzahligen Lösungen $a=481$ und $b=(15+16)\cdot 481=14911$.
+\end{proof}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:PrimfaktorTrick}]
+	Wir zeigen zuerst, dass die Gleichung $a^2+5=b^3$ keine ganzzahligen Lösungen hat. Dazu bemerken wir zunächst, dass $b$ ungerade ist. Sonst wäre nämlich $a^2+5\equiv 0\mod 8$, was unmöglich ist. Als nächstes schreiben wir die Gleichung in der Form 
+	\begin{equation*}
+		a^2+4=b^3-1=(b-1)\parens*{b^2+b+1}\,.
+	\end{equation*}
+	Für jeden Primfaktor~$p$ von $b^2+b+1$ folgt dann $a^2\equiv -4\mod p$, sodass $-4$ ein quadratischer Rest modulo~$p$ sein muss. Da $b$ ungerade ist, muss $b^2+b+1$ ebenfalls ungerade sein, also ist auch jeder Primfaktor~$p$ ungerade. Ferner ist $\parens[\big]{\frac{-4}{p}}=\parens[\big]{\frac{-1}{p}}\parens[\big]{\frac{4}{p}}=\parens[\big]{\frac{-1}{p}}$, denn~$4$ ist offensichtlich ein quadratischer Rest modulo~$p$. Folglich ist $-4$ genau dann ein quadratischer Rest, wenn $-1$ ein quadratischer Rest ist, also genau dann, wenn $p\equiv 1\mod 4$.
+	
+	Weil jeder Primfaktor von $b^2+b+1$ von der Form $p\equiv1\mod 4$ ist, muss $b^2+b+1\equiv 1\mod 4$ gelten. Durch Ausprobieren aller Reste modulo~$4$ folgt daraus $b\equiv 3\mod 4$. Indem wir die ursprüngliche Gleichung modulo~$4$ betrachten, erhalten wir $a^2+5\equiv b^3\equiv 3\mod 4$. Daraus folgt nun aber $a^2\equiv 2\mod 4$, was unmöglich ist. 
+	
+	Auf ähnliche Weise lässt sich zeigen, dass $a^2+3=b^3$ keine ganzzahligen Lösungen hat. Wir bemerken zunächst, dass $b$ ungerade ist. Sonst wäre $a^2+3\equiv 0\mod 8$, was unmöglich ist. Als nächstes schreiben wir die Gleichung in der Form
+	\begin{equation*}
+		a^2+4=b^3+1=(b+1)\parens*{b^2-b+1}\,.
+	\end{equation*}
+	Dann ist $-4$ ein quadratischer Rest modulo jedem Primteiler~$p$ von $b^2-b+1$. Analog zum obigen Argument folgt dann $p\equiv 1\mod 4$ und somit auch $b^2-b+1\equiv 1\mod 4$. Durch Ausprobieren aller Reste modulo~$4$ folgt dann $b\equiv 1\mod 4$.
+	
+	Andererseits können wir die gegebene Gleichung auch in der Form
+	\begin{equation*}
+		a^2+2=b^3-1=(b-1)\parens*{b^2+b+1}
+	\end{equation*}
+	schreiben. Dann muss $-2$ ein quadratischer Rest modulo jedem Primteiler~$p$ von $b^2+b+1$ sein. Weil~$b$ ungerade ist, muss auch $b^2+b+1$ ungerade sein. Aus den beiden Ergänzungssätzen zum QRG folgt: Für eine ungerade Primzahl~$p\geqslant 3$ ist $-2$ genau dann ein quadratischer Rest, wenn $p\equiv 1\mod 8$ oder $p\equiv 3\mod 8$. Als Produkt solcher Primfaktoren muss auch $b^2+b+1$ den Rest~$1$ oder~$3$ modulo~$8$ lassen. Wegen $b\equiv 1\mod 4$ gilt aber auch $b^2+b+1\equiv 3\mod 4$, sodass $b^2+b+1\equiv 3\mod 8$ sein muss. Durch Ausprobieren aller Reste modulo~$8$ folgt nun $b\equiv 1\mod 8$. Indem wir die ursprüngliche Gleichung modulo~$8$ betrachten, erhalten wir jetzt jedoch $a^2+3\equiv b^3\equiv 1\mod 8$, also $a^2\equiv 6\mod 8$, was unmöglich ist.
+\end{proof}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:Polen2019}]
+	Der Fall~$p=2$ ist trivial, denn alle Reste modulo~$2$ sind quadratische Reste. Im Folgenden nehmen wir an, dass~$p$ eine ungerade Primzahl ist.
+	
+	Die Bedingung $r^7\equiv 1\mod p$ impliziert $\operatorname{ord}_p(r)=1$ oder $\operatorname{ord}_p(r)=7$. Der erste Fall führt auf $r\equiv 1\mod p$. Folglich ist $r+1\equiv r^2+1\equiv r^3+1\mod p$ und die Behauptung gilt offensichtlich. Von nun an nehmen wir $\operatorname{ord}_p(r)=7$ an. Insbesondere muss $p\equiv 1\mod 7$ sein. Wegen
+	\begin{equation*}
+		r^7-1= (r-1)\parens*{r^6+r^5+r^4+r^3+r^2+r+1}
+	\end{equation*}
+	muss in diesem Fall $r^6+r^5+r^4+r^3+r^2+r+1\equiv 0\mod p$ gelten. Andererseits ist
+	\begin{equation*}
+		(r+1)\parens*{r^2+1}\parens*{r^3+1}\equiv r^6+r^5+r^4+2r^3+r^2+r+1\equiv r^3\mod p\,.
+	\end{equation*}
+	Nun ist $r^3$ ein quadratischer Rest modulo~$p$. Denn wenn $g$ eine Primitivwurzel modulo~$p$ ist und $r\equiv g^n\mod p$, dann folgt aus $r^7\equiv1\mod p$, dass $n$ ein Vielfaches von $\frac{p-1}{7}$ sein muss. Weil $p$ eine ungerade Primzahl ist und $p\equiv 1\mod 7$ gilt, muss $\frac{p-1}{7}$ eine gerade Zahl sein. Damit ist auch $n$ gerade. Folglich ist $r^3\equiv g^{3n}\mod p$ ein quadratischer Rest, wie behauptet. Es folgt
+	\begin{equation*}
+		\parens*{\frac{r+1}{p}}\parens*{\frac{r^2+1}{p}}\parens*{\frac{r^3+1}{p}}=\parens*{\frac{(r+1)\parens*{r^2+1}\parens*{r^3+1}}{p}}=\parens*{\frac{r^3}{p}}=1\,.
+	\end{equation*}
+	Weil $r+1$ und $r^2+1$ quadratische Reste sind, kommt nur $\parens[\big]{\frac{r^3+1}{p}}=1$ in Frage, sodass auch $r^3+1$ ein quadratischer Rest modulo~$p$ sein muss.
+\end{proof}

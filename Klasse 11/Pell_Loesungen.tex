@@ -1,0 +1,67 @@
+\subsection*{Lösungen zu Kapitel~\ref{kapitel:Pell}: \emph{Pellsche Gleichungen}}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:561246}]
+	Wir benutzen die bekannte Summenformel
+	\begin{equation*}
+		\sum_{k=1}^nk^2=\frac{n(n+1)(2n+1)}{6}\,.
+	\end{equation*}
+	Damit die Bedingung für~$m$ erfüllt ist, muss eine nichtnegative ganze Zahl~$n\geqslant 0$ existieren, sodass Folgendes gilt:
+	\begin{align*}
+		m^3=\sum_{k=1}^{n+m}k^2-\sum_{k=1}^nk^2&=\frac{(n+m)(n+m+1)(2n+2m+1)}{6}-\frac{n(n+1)(2n+1)}{6}\\
+		&=\frac{m}{6}\parens*{2m^2+6n^2+6nm+3m+6n+1}\,.
+	\end{align*}
+	Indem wir $m^3$ auf die andere Seite bringen, durch $m$ teilen (was wegen $m>0$ eine Äquivalenzumformung ist) und mit~$6$ multiplizieren, erhalten wir
+	\begin{equation*}
+		0=-4m^2+6n^2+6nm+3m+6n+1\,.
+	\end{equation*}
+	Wir wollen diese Gleichung durch quadratische Ergänzung auf eine Pellsche Gleichung zurückführen. Nach etwas Rumprobieren erhalten wir
+	\begin{equation*}
+		0=6\parens*{n+\frac{m}{2}+\frac12}^2-\frac{11}2m^2-\frac12\quad\Longleftrightarrow\quad 3\parens*{2n+m+1}^2-11m^2=1\,.
+	\end{equation*}
+	Die Substitution $\ell\coloneqq 2n+m+1$ führt nun auf $3\ell^2-11m^2=1$, was eine Gleichung der Form ist, die wir am Ende des Kapitels untersucht haben. An dieser Stelle ist ein guter Moment, uns klar zu machen, dass wir durch die Substitution nichts verschenkt haben: Für jedes Lösungspaar $(\ell,m)$ von $3\ell^2-11m^2$ müssen~$\ell$ und~$m$ von unterschiedlicher Parität sein. Ferner muss offensichtlich $\ell>m$ gelten. Es gibt also stets ein $n\geqslant 0$ mit $\ell=2n+m+1$.
+	
+	Die Gleichung $3\ell^2-11m^2=1$ hat die Lösung $(\ell,m)=(2,1)$. Wie wir gesehen haben, existieren dann unendlich viele weitere Lösungen $(\ell_i,m_i)$, $i=1,2,\dotsc$, die durch
+	\begin{equation*}
+		\ell_i\sqrt{3}+m_i\sqrt{11}=\parens*{2\sqrt{3}+\sqrt{11}}\parens*{x_0+y_0\sqrt{33}}^i
+	\end{equation*}
+	gegeben sind, wobei $(x_0,y_0)$ die Fundamentallösung der Pellschen Gleichung $x^2-33y^2=1$ ist. Damit haben wir bereits gezeigt, dass unendlich viele~$m$ mit der gewünschten Eigenschaft existieren. Was noch zu tun ist, ist eine Lösung mit $m>1$ zu konstruieren. Nach etwas Rumprobieren erhalten wir, dass die Fundamentallösung durch $(x_0,y_0)=(23,4)$ gegeben ist. Nun ist $(2\sqrt{3}+\sqrt{11})(23+4\sqrt{33})=90\sqrt{3}+47\sqrt{11}$, also ist $(\ell_1,m_1)=(90,47)$ eine weitere Lösung von $3\ell^2-11m^2=1$. Aus $90=\ell_1=2n+m_1+1=2n+48$ folgt $n=21$. Somit ist $m=47$ eine Zahl mit der gewünschten Eigenschaft und
+	\begin{equation*}
+		\underbrace{22^2+23^2+\dotsb+68^2}_{\text{$47$ Summanden}}=47^3\,.\qedhere
+	\end{equation*}
+\end{proof}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:521246}]
+	Wir lösen zuerst die Rekursionsgleichung für $(a_n)_{n\geqslant 1}$ mit der Standardmethode für lineare Rekursionen (siehe das Kapitel \emph{Lineare Rekursionen} im Heft für Klasse~$10$) und erhalten
+	\begin{equation*}
+		a_n=\frac{1}{2\sqrt{2}}\parens*{\parens*{1+\sqrt{2}}^n-\parens*{1-\sqrt{2}}^n}\,.
+	\end{equation*}
+	Für $z=x+y\sqrt{2}\in \mathbb Z[\sqrt{2}]$ gilt stets $y=\frac{1}{2\sqrt{2}}(z-\overline{z})$. Wegen $\overline{(1+\sqrt{2})^n}=(\overline{1+\sqrt{2}})^n=(1-\sqrt{2})^n$ ist die Gleichung für $a_n$ genau von dieser Form. Es folgt: Wenn wir $(1+\sqrt{2})^n$ in der Form $x_n+y_n\sqrt{2}$ mit ganzen Zahlen $x_n$ und $y_n$ schreiben, dann ist $a_n=y_n$.
+	
+	Als nächstes bemerken wir, dass $z\coloneqq 1+\sqrt{2}$ eine Lösung der Gleichung $N(z)=-1$ ist. Ferner ist $z=(1+\sqrt{2})^2=3+2\sqrt{2}$ die Fundamentallösung der Gleichung $N(z)=1$. Nach dem Satz über die Lösbarkeit der Pellschen Gleichung sind alle Lösungen der Gleichung $N(z)=1$ durch $z=\pm (3+2\sqrt{2})^n=\pm (1+\sqrt{2})^{2n}$ gegeben, wobei $n$ durch alle ganzen Zahlen läuft. Indem wir uns auf $z=(1+\sqrt{2})^{2n}$ für $n\geqslant 1$ einschränken, durchlaufen wir genau diejenigen Lösungen mit $z>1$. Das entspricht genau denjenigen Lösungen der Pellschen Gleichung $x^2-2y^2=1$, die $x>1$ und $y>0$ erfüllen. Analog sind alle Lösungen von $N(z)=-1$ durch $z=\pm (1+\sqrt{2})(3+2\sqrt{2})^n=(1+2\sqrt{2})^{2n+1}$ gegeben, wobei $n$ alle ganzen Zahlen durchläuft. Wenn wir nur $z=(1+2\sqrt{2})^{2n+1}$ für $n\geqslant 0$ betrachten, schränken wir uns wieder auf die Lösungen mit $z>1$ ein. Das entspricht den Lösungen der Pellschen Gleichnung $x^2-2y^2=-1$, die $x,y>0$ erfüllen.
+	
+	Insgesamt sehen wir: Die Folge $(a_n)_{n\geqslant 1}$ besteht genau aus denjenigen positiven ganzen Zahlen $y>0$, die Teil eines Lösungspaares $(x,y)$ der Pellschen Gleichungen $x^2-2y^2=\pm 1$ sind. Für gerades~$n$ bekommen wir Lösungen von $x^2-2y^2=1$ und für ungerades~$n$ bekommen wir Lösungen von $x^2-2y^2=-1$.
+	
+	Jetzt wenden wir uns der eigentlichen Aufgabe zu und untersuchen nacheinander die beiden Bedingungen (und zwar fast wortwörtlich auf die gleiche Weise).
+	
+	\emph{Bedingung~\ref{bedingung:RationaleApproximation}.} Nach dem Satz über die Lösbarkeit der Pellschen Gleichung gibt es unendlich viele Paare $(p,q)$ mit $p>1$ und $q>0$, welche die Gleichung $p^2-2q^2=1$ erfüllen. In diesem Fall gilt $p/q>\sqrt{2}$ und folglich
+	\begin{equation*}
+		\abs*{\frac pq-\sqrt{2}}=\frac{1}{\abs*{\frac{p}{q}+\sqrt{2}}q^2}<\frac{1}{2\sqrt{2}q^2}\,.
+	\end{equation*}
+	Folglich ist~\ref{bedingung:RationaleApproximation} für alle $\beta\geqslant \frac{1}{2\sqrt{2}}$ erfüllt. Wir zeigen nun, dass~\ref{bedingung:RationaleApproximation} für $\beta<\frac{1}{2\sqrt{2}}$ nicht erfüllt sein kann. Angenommen, das Paar $(p,q)$ erfüllt $\abs{p/q-\sqrt{2}}<\beta/q^2$. Dann gilt $p/q<\sqrt{2}+\beta/q^2$. Andererseits gilt stets $\abs{p^2-2q^2}\geqslant 1$ und somit
+	\begin{equation*}
+		\frac{\beta}{q^2}>\abs*{\frac pq-\sqrt{2}}\geqslant \frac{1}{\abs*{\frac{p}{q}+\sqrt{2}}q^2}>\frac{1}{2\sqrt{2}q^2+\beta}\,.
+	\end{equation*}
+	Diese Ungleichungskette führt auf $\beta^2>(1-2\sqrt{2}\beta)q^2$, was für $\beta<\frac1{2\sqrt{2}}$ nur für endlich viele~$q$ erfüllt sein kann.
+	
+	\emph{Bedingung~\ref{bedingung:NurEndlichVieleNichtInDerFolge}}. Nach dem Satz Nach dem Satz über die Lösbarkeit der Pellschen Gleichung gibt es unendlich viele Paare $(p,q)$ mit $p>1$ und $q>0$, welche die Gleichung $p^2-2q^2=2$ erfüllen (denn $(p,q)=(2,1)$ ist eine Lösung, also gibt es unendlich viele weitere). In diesem Fall gilt $p/q>\sqrt{2}$ und folglich
+	\begin{equation*}
+		\abs*{\frac pq-\sqrt{2}}=\frac{2}{\abs*{\frac{p}{q}+\sqrt{2}}q^2}<\frac{1}{\sqrt{2}q^2}\,.
+	\end{equation*}
+	Nach unserer obigen Beobachtung kann~$q$ aber nicht in der Zahlenfolge $(a_n)_{n\geqslant 1}$ auftauchen. Somit ist~\ref{bedingung:NurEndlichVieleNichtInDerFolge} für alle $\beta\geqslant \frac{1}{\sqrt{2}}$ verletzt. Umgekehrt werden wir zeigen, dass~\ref{bedingung:NurEndlichVieleNichtInDerFolge} für $\beta<\frac{1}{\sqrt{2}}$ wahr ist. Wenn $(p,q)$ ein beliebiges Zahlenpaar ist, sodass $q$ nicht in der Folge $(a_n)_{n\geqslant 1}$ auftritt, dann muss $\abs{p^2-2q^2}\geqslant 2$ gelten. Wenn gleichzeitig $\abs{p/q-\sqrt{2}}<\beta/q^2$ erfüllt ist, dann folgt $p/q<\sqrt{2}+\beta/q^2$ und somit
+	\begin{equation*}
+		\frac{\beta}{q^2}>\abs*{\frac pq-\sqrt{2}}\geqslant \frac{2}{\abs*{\frac{p}{q}+\sqrt{2}}q^2}>\frac{2}{2\sqrt{2}q^2+\beta}\,.
+	\end{equation*}
+	Diese Ungleichungskette führt auf $\beta^2>(2-2\sqrt{2}\beta)q^2$, was für $\beta<\frac1{\sqrt{2}}$ nur für endlich viele $q$ erfüllt sein kann. Also gilt~\ref{bedingung:NurEndlichVieleNichtInDerFolge} für alle $\beta<\frac{1}{\sqrt{2}}$.
+	
+	Insgesamt sehen wir, dass~\ref{bedingung:RationaleApproximation} und~\ref{bedingung:NurEndlichVieleNichtInDerFolge} genau dann beide erfüllt sind, wenn $\frac{1}{2\sqrt{2}}\leqslant \beta<\frac{1}{\sqrt{2}}$.
+\end{proof}

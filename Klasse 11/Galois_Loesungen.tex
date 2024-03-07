@@ -1,0 +1,35 @@
+\subsection*{Lösungen zu Kapitel~\ref{kapitel:Galois}: \emph{Nullstellen von Polynomen in der Zahlentheorie}}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:621246}]
+	Durch Ausprobieren finden wir heraus, dass
+	\begin{equation*}
+		-0{,}6<\alpha<-0{,}5\,,\quad 0{,}6<\beta<0{,}7\quad\text{und}\quad 2<\gamma <3
+	\end{equation*}
+	gilt. Etwas genauer können wir hierfür wie folgt argumentieren: Durch Einsetzen erhalten wir $f(-0{,}6)<0<f(-0{,}5)$, also muss $f$ nach dem Zwischenwertsatz zwischen $-0{,}6$ und $-0{,}5$ eine Nullstelle haben. Analog sehen wir, dass $f$ zwischen $0{,}6$ und $0{,}7$ sowie zwischen $2$ und $3$ jeweils eine Nullstelle haben muss. Da $f$ ein Polynom dritten Grades ist, kann es insgesamt höchstens drei Nullstellen haben, sodass wir damit alle Nullstellen gefunden haben müssen.
+	
+	Es folgt $0<\alpha^n+\beta^n$ für alle $n\geqslant 1$. Ferner ist $\alpha^n+\beta^n<0{,}36+0{,}49<1$ für alle $n\geqslant 2$. Für $n=1$ gilt ebenfalls $\alpha+\beta <0{,7} -0{,}5<1$. Schließlich haben wir im Theorieteil des Kapitels gezeigt, dass $u_n\coloneqq \alpha^n+\beta^n+\gamma^n$ für alle $n\geqslant 0$ eine ganze Zahl ist. Es folgt
+	\begin{equation*}
+		\lceil \gamma^n\rceil=u_n\quad\text{und}\quad\lfloor \gamma^n\rfloor =u_n-1\quad \text{für alle }n\geqslant 1\,.
+	\end{equation*}
+	Damit können wir nun beide Teilaufgaben lösen.
+	
+	Für~\ref{teilaufgabe:621246} bemerken wir, dass die Folge $(u_n)_{n\geqslant 0}$ die Rekursionsgleichung $u_{n+3}=3u_{n+2}-u_n$ erfüllt. Anhand der Koeffizienten von $f$ können wir $\alpha+\beta+\gamma=3$ und $\alpha\beta+\beta\gamma+\gamma\alpha=0$ ablesen. Es folgt, dass $u_0=\alpha^0+\beta^0+\gamma^0=3$, $u_1=\alpha+\beta+\gamma=3$ und $u_2=\alpha^2+\beta^2+\gamma^2=(\alpha+\beta+\gamma)^2-2(\alpha\beta+\beta\gamma+\gamma\alpha)=9$ allesamt durch~$3$ teilbar sind. Aus der Rekursionsgleichung folgt dann sofort, dass $u_n$ für jedes $n\geqslant 0$ durch~$3$ teilbar sein muss. Damit ist~\ref{teilaufgabe:621246} gezeigt.
+	
+	Für~\ref{teilaufgabe:IMOSL1988} können wir die obige Rekursion modulo~$17$ betrachten. Alternativ können wir benutzen, dass $x^3-3x^2+1\equiv (x-4)(x-5)(x+6)\mod 17$ gilt. Diese Faktorisierung legt die Vermutung $u_n\equiv 4^n+5^n+(-6)^n\mod 17$ nahe. Und tatsächlich: Wenn $u_n'\coloneqq 4^n+5^n+(-6)^n$, dann lässt sich sofort nachprüfen, dass $u_n\equiv u_n'\mod 17$ für $n=0,1,2$ gilt. Ferner erfüllt $u_n'$ ebenfalls die Rekursion $u_{n+3}'\equiv 3u_{n+2}-u_n\mod 17$. Somit gilt in der Tat $u_n\equiv u_n'\mod 17$ für alle $n\geqslant 0$. Nach dem kleinen Satz von Fermat ist $4^{16}\equiv 5^n\equiv (-6)^n\mod 17$. Also ist $(u_n)_{n\geqslant 0}$ periodisch modulo~$17$ mit Periodenlänge~$16$. Wegen $2020\equiv 4\mod 17$ und $2220\equiv -4\mod 16$ müssen wir nur zeigen, dass $u_4\equiv u_{-4}\equiv 1\mod 17$ gilt (wobei $u_n$ für $n<0$ rekursiv durch $u_n=3u_{n+2}-u_{n+3}$ definiert ist). Aus der Rekursionsgleichung erhalten wir $u_3=24$ und $u_4=69$ sowie $u_{-1}=0$, $u_{-2}=6$, $u_{-3}=-3$ und $u_{-4}=18$. Und tatsächlich ist $69\equiv 18\equiv 1\mod 17$.
+\end{proof}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:VAIMO2011_2}]
+	Wir bemerken zunächst, dass $\sqrt[3]{28}-3$ eine Nullstelle des kubischen Polynoms $(X+3)^3-28=X^3+9X^2+27X-1$ ist. Die anderen beiden Nullstellen sind durch $\sqrt[3]{28}\zeta-3$ und $\sqrt[3]{28}\zeta^2-3$ gegeben, wobei $\zeta\coloneqq \mathrm{e}^{2\pi\mathrm{i}/3}=\frac{1+\sqrt{3}\mathrm{i}}{2}$ eine dritte Einheitswurzel ist.
+	
+	Betrachte nun die Folge $(u_m)_{m\in\mathbb Z}$, die durch
+	\begin{equation*}
+		u_m\coloneqq \parens*{\sqrt[3]{28}-3}^m+\parens*{\sqrt[3]{28}\zeta-3}^m+\parens*{\sqrt[3]{28}\zeta^2-3}^m
+	\end{equation*}
+	gegeben ist. Wir haben im Theorieteil des Kapitels gezeigt, dass $u_m$ für alle $m\geqslant 0$ eine ganze Zahl ist. Ferner erfüllt $(u_m)_{m\in\mathbb Z}$ die Rekursionsgleichung $u_{m+3}=9u_{m+2}+27u_{m+1}-u_m$. Indem wir die Gleichung in der Form $u_{m}=27u_{m+1}+9u_{m+2}-u_{m+3}$ schreiben, sehen wir, dass $u_m$ auch für alle $m<0$ eine ganze Zahl ist. Analog zur Lösung von Aufgabe~\ref{aufgabe:VAIMO2011_2} können wir die Werte von $u_0$, $u_1$ und $u_2$ aus den Koeffizienten von $X^3+9X^2+27X-1$ ablesen. Wir finden $u_0=3$, $u_1=-9$ sowie $u_2=(-9)^2-2\cdot 27=27$. Nun fällt uns auf, dass $u_0\equiv u_1\equiv u_3\equiv 3\mod 6$ gilt. Aus der Rekursion ist dann klar, dass $u_m\equiv 3\mod 6$ auch für alle $m<0$ gilt.
+	
+	Schließlich bemerken wir $\abs{\sqrt[3]{28}\zeta-3}>3$. Das lässt sich am einfachsten geometrisch sehen: Die komplexen Zahlen $0$, $3$ und $\sqrt[3]{28}\zeta$ bilden ein Dreieck in der komplexen Ebene, dessen Winkel bei $0$ genau $120^\circ$ beträgt. Die Seite, die diesem Winkel gegenüberliegt, hat die Länge $\abs{\sqrt[3]{28}\zeta-3}$. Aber dem größten Winkel eines Dreiecks liegt stets die größte Seite gegenüber, also gilt in der Tat $\abs{\sqrt[3]{28}\zeta-3}>3$ (und sogar $\abs{\sqrt[3]{28}\zeta-3}>\sqrt[3]{28}$). Analog gilt $\abs{\sqrt[3]{28}\zeta^2-3}>3$. Nach der Dreiecksungleichung und der Definition von $b$ folgt nun
+	\begin{equation*}
+		\abs*{b-u_{-n}}\leqslant \abs[\Big]{b-\parens*{\sqrt[3]{28}-3}^{-n}}+\abs*{\sqrt[3]{28}\zeta-3}^{-n}+\abs*{\sqrt[3]{28}\zeta-3}^{-n}<1+3^{-n}+3^{-n}<2\,.
+	\end{equation*}
+	Weil $b$ und $u_{-n}$ ganze Zahlen sind, muss also $\abs*{b-u_{-n}}\leqslant 1$ sein. Wegen $u_{-n}\equiv 3\mod 6$ kann $b$ modulo~$6$ nur die Reste~$2$, $3$ oder~$4$ annehmen. Insbesondere kann $b$ nicht durch~$6$ teilbar sein, wie behauptet.
+\end{proof}

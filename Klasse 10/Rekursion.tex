@@ -1,0 +1,120 @@
+\section{Lineare Rekursionen}\label{kapitel:Rekursionen}
+In der Mathe-Olympiade begegnen euch regelmäßig Rekursionsgleichungen. Zum Teil sind sie direkt Teil der Aufgabe, zum Teil treten sie erst in eurer Lösung auf. In diesem Kapitel lernt ihr, wie ihr Rekursionsgleichungen von einem spezifischen Typ in explizite Formeln umwandeln könnt. Das wird euch in einigen Aufgaben eine große Hilfe sein.
+
+Mehr zu Rekursionen findet ihr in Kapitel~\ref{kapitel:Rekursionen}: \emph{Lineare Rekursionen}.
+
+\subsection*{Fibonacci-Zahlen}
+Bevor wir das allgemeine Verfahren erläutern, werden wir zum Warmwerden eine explizite Formel für die Fibonacci-Zahlen herleiten. An diesem Beispiel lässt sich die Methode hervorragend demonstrieren und der allgemeine Fall wird uns danach leicht fallen.
+
+Wir erinnern uns, dass die \emph{Fibonacci-Folge $(F_n)_{n\geqslant 0}$} durch die Anfangsbedingungen $F_0=0$, $F_1=1$ und die Rekursionsgleichung $F_{n+2}=F_{n+1}+F_n$ für alle $n \geqslant 0$ gegeben ist. Wir fragen uns zuerst, ob eine reelle Zahl $\lambda$ existiert, sodass die Zahlenfolge $(\lambda^n)_{n\geqslant 0}$ die gleiche Rekursionsgleichung wie die Fibonacci-Folge erfüllt (wir behaupten allerdings nicht, dass die Fibonacci-Folge selber von dieser Form sein muss). Dann müsste also
+\begin{equation*}
+	\lambda^{n+2}=\lambda^{n+1}+\lambda^n
+\end{equation*}
+für alle $n\geqslant 0$ erfüllt sein. Wenn wir $\lambda\neq 0$ annehmen (was eine vernünftige Annahme ist, sonst würden wir ja einfach die Nullfolge bekommen), dann sind diese Gleichungen äquivalent zu $\lambda^2=\lambda+1$. Mit der üblichen Lösungsformel für quadratische Gleichungen erhalten wir, dass die Lösungen dieser Gleichung durch den \emph{goldenen Schnitt} und sein \emph{Konjugiertes}
+\begin{equation*}
+	\phi\coloneqq\frac{1+\sqrt{5}}{2}\quad\text{und}\quad \overline{\phi}\coloneqq\frac{1-\sqrt
+		5}{2}\,.
+\end{equation*}
+gegeben sind. Folglich erfüllen die Zahlenfolgen $(\phi^n)_{n\geqslant 0}$ und $(\overline{\phi}^n)_{n\geqslant 0}$ die gleiche Rekursion wie die Fibonacci-Zahlen. Für beliebige reelle Zahlen $\alpha$ und $\beta$ erfüllt dann auch $(\alpha\phi^n+\beta\overline{\phi}^n)_{n\geqslant 0}$ die gleiche Rekursion. Wenn wir $\alpha$ und $\beta$ so wählen, dass das Gleichungssystem
+\begin{equation*}
+	\left\{\begin{alignedat}{2}
+		\alpha\phi^0&+\beta\overline{\phi}^0&&=0\,,\\
+		\alpha\phi^1&+\beta\overline{\phi}^1&&=1
+	\end{alignedat}\right.
+\end{equation*}
+erfüllt ist, dann stimmen die Zahlenfolgen $(F_n)_{n\geqslant 0}$ und $(\alpha\phi^n+\beta\overline{\phi}^n)_{n\geqslant 0}$ an den Stellen $n=0$ und $n=1$ überein und außerdem erfüllen sie die gleiche Rekursionsgleichung. Folglich müssen sie überall übereinstimmen! Wir müssen also nur noch das Gleichungssystem lösen! Aus der ersten Gleichung folgt $\alpha=-\beta$. In die zweite Gleichung eingesetzt lieft das $\alpha=1/(\phi-\overline{\phi})=1/{\sqrt{5}}$ und somit $\beta=-1/{\sqrt{5}}$. Insgesamt haben wir das folgende Resultat bewiesen:
+\begin{satzmitnamen}[Formel von Binet]
+	Die Fibonacci-Folge $(F_n)_{n\geqslant 0}$ besitzt die folgende explizite Darstellung:
+	\begin{equation*}
+		F_n=\frac{1}{\sqrt{5}}\parens*{\phi^n-\overline{\phi}^n}\,.
+	\end{equation*}
+\end{satzmitnamen}
+\subsection*{Das allgemeine Verfahren}
+Wir wollen nun die Überlegungen aus dem vorherigen Unterabschnitt verallgemeinern. Angenommen, wir haben eine Zahlenfolge $(a_n)_{n\geqslant 0}$, deren Werte (\enquote{Anfangsbedingungen}) $a_0,a_1,\dotsc,a_{k-1}$ bekannt sind. Ferner soll $(a_n)_{n\geqslant 0}$ die Rekursionsgleichung
+\begin{equation*}
+	a_{n+k}=c_{k-1}a_{n+k-1}+\dotsb+c_1a_{n+1}+c_0a_n
+\end{equation*}
+erfüllen, wobei $c_0,c_1,\dotsc,c_{k-1}$ vorgegebene reelle Zahlen sind. Um zu einer expliziten Formel zu gelangen, stellen wir uns wieder die Frage, ob es reelle Zahlen $\lambda$ gibt, sodass die Zahlenfolge $(\lambda^n)_{n\geqslant 0}$ die gleiche Rekursionsgleichung erfüllt. Das führt uns darauf, dass $\lambda$ die Polynomgleichung
+\begin{equation*}
+	\lambda^{k}=c_{k-1}\lambda^{k-1}+\dotsb+c_1\lambda+c_0
+\end{equation*}
+erfüllen muss. Diese Gleichung wird auch \emph{charakteristische Gleichung} der gegebenen Rekursion genannt. Entsprechend nennen wir das das Polynom $\chi(\lambda)\coloneqq \lambda^k-(c_{k-1}\lambda^{k-1}+\dotsb+c_1\lambda+c_0)$ das \emph{charakteristische Polynom} der Rekursion.
+
+An dieser Stelle stoßen wir auf das erste Problem: Es kann passieren, dass $\chi(\lambda)$ gar keine reellen Nullstellen hat. Es hindert uns aber niemand daran, stattdessen Nullstellen in den \emph{komplexen Zahlen} zu suchen (siehe Kapitel~\ref{kapitel:Durchrechnen}: \emph{Geometrie-Aufgaben durchrechnen}). Es lässt sich zeigen, dass jedes Polynom vom Grad~$k$ über den komplexen Zahlen in~$k$ Linearfaktoren zerfällt.\footnote{Dieses Resultat ist als \emph{Fundamentalsatz der Algebra} bekannt, obwohl es in Wirklichkeit eher ein Resultat aus der komplexen Analysis ist.} Also hat das charakteristische Polynom~$k$ Nullstellen $\lambda_1,\lambda_2,\dotsc,\lambda_k$. Damit erfüllt erfüllt jede der Zahlenfolgen $(\lambda_i^n)_{n\geqslant 0}$ für $i=1,2,\dotsc, k$ die gleiche Rekursionsgleichung wie die Folge $(a_n)_{n\geqslant 0}$. Also erfüllt auch jede Folge der Form $(\alpha_1\lambda_1^n+\alpha_2\lambda_2^n+\dotsb+\alpha_k\lambda_k^n)_{n\geqslant 0}$ diese Rekursion. Wenn wir $\alpha_1,\alpha_2,\dotsc,\alpha_k$ als Lösungen des Gleichungssystem
+\newlength{\lengthofequals}
+\settowidth{\lengthofequals}{$=$}
+\begin{equation*}
+	\left\{\begin{alignedat}{5}
+		\alpha_1\lambda_1^0&+\alpha_2\lambda_2^0&&+\dotsb&&+\alpha_k\lambda_k^0&&=a_0\\
+		\alpha_1\lambda_1^1&+\alpha_2\lambda_2^1&&+\dotsb&&+\alpha_k\lambda_k^1&&=a_2\\
+		&&&&&&&\mathrel{\tikz[inner sep=0,outer sep=0]{\node at (0,-0.5ex) {$\phantom{=}$};\node at (0,0) {$\vdots$};}}\\
+		\alpha_1\lambda_1^{k-1}&+\alpha_2\lambda_2^{k-1}&&+\dotsb&&+\alpha_k\lambda_k^{k-1}&&=a_{k-1}\\
+	\end{alignedat}\right.
+\end{equation*}
+wählen, dann erhalten wir wiederum
+\begin{equation*}
+	a_n=\alpha_1\lambda_1^n+\alpha_2\lambda_2^n+\dotsb+\alpha_k\lambda_k^n\quad\text{für alle }n\geqslant 0\,,
+\end{equation*}
+den beide Seiten stimmen in ihren $k$ Anfangswerten überein und erfüllen die gleiche Rekursion. Damit haben wir eine explizite Darstellung gefunden.
+
+Das einzige, was dabei noch schiefgehen kann, ist dass das obige Gleichungssystem keine Lösung besitzt. Es lässt sich zeigen, dass das Gleichungssystem eine eindeutige Lösung besitzt, wenn die Nullstellen $\lambda_1,\lambda_2,\dotsc,\lambda_n$ von $\chi(\lambda)$ paarweise verschieden sind. Der einfachste Beweis dafür benutzt allerdings Matrizen und Determinanten, was ihr wahrscheinlich noch nicht kennt.\footnote{Der Beweis geht folgendermaßen: Wir schreiben die Koeffizienten des Gleichungssystems in eine $n\times n$-Matrix (also eine Tabelle). Um zu zeigen, dass das Gleichungssystem eine eindeutige Lösung hat, müssen wir zeigen, dass die Determinante dieser Matrix $\neq 0$ ist. Die Matrix hat eine spezielle Form, die als \emph{Vandermonde-Matrix} bekannt ist. Nach der \emph{Vandermonde-Formel} gilt
+	\begin{equation*}
+		\det\begin{pmatrix}
+			\lambda_1^0 & \lambda_2^0 & \dotsb & \lambda_k^0\\
+			\lambda_1^1 & \lambda_2^1 & \dotsb & \lambda_k^1\\
+			\vdots & \vdots & \ddots & \vdots\\
+			\lambda_1^{k-1} & \lambda_2^{k-1} & \dotsb & \lambda_k^{k-1}\\
+		\end{pmatrix}=\prod_{1\leqslant i<j\leqslant k}(\lambda_j-\lambda_i)\,.
+	\end{equation*}
+	Wenn $\lambda_1,\lambda_2,\dotsc,\lambda_k$ paarweise verschieden sind, ist das Produkt auf der rechten Seite offensichtlich $\neq 0$, wie gewünscht.} Aber zum Lösen einer \emph{konkreten} Rekursion müsst ihr natürlich nicht wissen, dass das Verfahren für paarweise verschiedene $\lambda_1,\lambda_2,\dotsc,\lambda_k$ \emph{immer} funktioniert, es ist nur eine psychologische Hilfe.
+
+\subsection*{Was passiert bei Doppelnullstellen?}
+
+Wir werden wieder zuerst an einem Beispiel erklären, dass sich das Gleichungssystem in diesem Fall tatsächlich manchmal nicht lösen lässt und wie sich dieses Problem trotzdem beheben lässt. Betrachte dazu die Folge $(a_n)_{n\geqslant 0}$ mit $a_0=1$, $a_1=1$ und $a_{n+2}=4a_{n+1}-4a_n$. In diesem Fall ist $\chi(\lambda)=\lambda^2-4\lambda+4\lambda=(\lambda-2)^2$. Wir erhalten also die Nullstellen $2$ und $2$ und damit zweimal die Folge $(2^n)_{n\geqslant 0}$. Das entstehende Gleichungssystem
+\begin{equation*}
+	\left\{\begin{alignedat}{2}
+		\alpha\cdot 2^0&+\beta\cdot 2^0&&=1\,,\\
+		\alpha\cdot 2^1&+\beta\cdot 2^1&&=1
+	\end{alignedat}\right.
+\end{equation*}
+hat keine Lösung. Aus der ersten Gleichung folgt nämlich $\alpha+\beta=1$, während die zweite Gleichung $\alpha+\beta=\frac12$ liefert. Nun fällt uns aber auf, dass auch die Zahlenfolge $(n2^{n-1})_{n\geqslant 0}$ die Rekursionsgleichung $(n+2)2^{n+1}=4\cdot (n+1)2^{n}-4\cdot n2^{n-1}$ erfüllt. Wir können also versuchen, geeignete Koeffizienten $\alpha$ und $\beta$ mit $a_n=\alpha\cdot 2^n+\beta\cdot n2^{n-1}$ zu finden. Das führt auf das folgende Gleichungssystem:
+\begin{equation*}
+	\left\{\begin{alignedat}{2}
+		\alpha\cdot 2^0&+\beta\cdot 0\cdot 2^{-1}&&=1\,,\\
+		\alpha\cdot 2^1&+\beta\cdot 1\cdot 2^0&&=1\,.
+	\end{alignedat}\right.
+\end{equation*}
+Dieses Gleichungssystem hat die eindeutige Lösung $\alpha=1$, $\beta=-1$. Wir erhalten also die explizite Darstellung $a_n=2^n-n2^{n-1}$.
+
+Betrachten wir nun den allgemeinen Fall, dass das charakteristische Polynom $\chi(\lambda)$ eine $s$-fache Nullstelle bei $\lambda=\lambda_i$ hat. Dann erfüllen die Folgen $(n(n-1)\dotsm(n-r+1)\lambda_i^{n-r})_{n\geqslant 0}$ für $r=0,1,\dotsc,s-1$ ebenfalls die gegebene Rekursionsgleichung.\footnote{Es ist natürlich kein Zufall, dass diese Formel wie eine $r$-te Ableitung aussieht: Wenn $\chi(\lambda)$ eine $s$-fache Nullstelle bei $\lambda=\lambda_i$ hat, dann hat auch $\lambda^n\chi(\lambda)$ eine $s$-fache Nullstelle bei $\lambda=\lambda_i$. Für alle $r=0,1,\dotsc,s-1$ folgt, dass die $r$-te Ableitung der Funktion $\lambda^n\chi(\lambda)$ ebenfalls eine Nullstelle bei $\lambda=\lambda_i$ hat. Wenn ihr aufschreibt, wie die $r$-te Ableitung von $\lambda^n\chi(\lambda)$ aussieht und was es bedeutet, dass sie bei $\lambda=\lambda_i$ eine Nullstelle hat, erhaltet ihr genau, dass $(n(n-1)\dotsm(n-r+1)\lambda_i^{n-2})_{n\geqslant 0}$ die gegebene Rekursionsgleichung erfüllt.} Anstatt also $s$~mal die gleiche Folge $(\lambda_i^n)_{n\geqslant 0}$ zu betrachten, was nicht funktionieren kann, können wir die Folgen $(n(n-1)\dotsm(n-r+1)\lambda_i^{n-r})_{n\geqslant 0}$ für $r=0,1,\dotsc,s-1$ in Betracht ziehen. Dadurch können wir ein neues Gleichungssystem aufstellen. Es lässt sich (wiederum mit Determinanten\footnote{Wir erklären die Idee im Fall, dass $\lambda_1=\lambda_2$ eine Doppelnullstelle ist. Der allgemeine Fall geht völlig analog. Betrachte zuerst eine Vandermonde-Matrix wie oben, wobei $\lambda_2=\lambda_1+h$. Wenn wir die erste Spalte von der zweiten Spalte subtrahieren, ändert sich die Determinante bekanntlich nicht. Wenn wir danach die zweite Spalte durch~$h$ dividieren, wird auch die Determinante durch~$h$ dividiert. Im Limes $h\rightarrow 0$ wird die zweite Spalte zur \enquote{Ableitung} der ersten Spalte, also erhalten wir genau die gewünschte Matrix! Das Produkt $\prod_{i<j}(\lambda_j-\lambda_i)$ enthält den Faktor $\lambda_2-\lambda_1=h$, der gekürzt wird, wenn wir durch $h$ teilen. Alle anderen Faktoren $\lambda_j-\lambda_2=\lambda_j-(\lambda_1+h)$ für $2<j$ werden im Limes $h\rightarrow 0$ zu $\lambda_j-\lambda_1\neq 0$. Also erhalten wir immer noch ein Produkt, das nicht $0$ sein kann.}) zeigen, dass dieses Gleichungssystem stets eine eindeutige Lösung hat.
+
+Damit haben wir ein allgemeines Verfahren, mit dem sich tatsächlich jede lineare Rekursion in eine explizite Darstellung umwandeln lässt.
+
+\subsection*{Inhomogene lineare Rekursionen}
+Eine \emph{inhomogene lineare Rekursion} ist eine Rekursionsgleichung der Form
+\begin{equation*}
+	b_{n+k}=c_{k-1}b_{n+k-1}+\dotsb+c_1b_{n+1}+c_0b_n+f(n)\,,
+\end{equation*}
+wobei $f\colon \mathbb Z_{\geqslant 0}\rightarrow \mathbb R$ eine vorgegebene Funktion ist. Gesucht ist wieder eine explizite Formel für die Folge $(b_n)_{n\geqslant 0}$, die durch die obige Rekursion und vorgegebene Anfangswerte $b_0,b_1,\dotsc,b_{k-1}$ gegeben ist. Bisher haben wir nur \emph{homogene lineare Rekursionen} betrachtet, also solche, für die $f(n)=0$ für alle $n\geqslant 0$ gilt.
+
+Als erstes fällt uns auf: Wenn $(b_n)_{n\geqslant 0}$ und $(\overline{b}_n)_{n\geqslant 0}$ die obige inhomogene Rekursionsgleichung erfüllen, dann erfüllt $(\overline{b}_n-b_n)_{n\geqslant 0}$ die entsprechende homogene Rekursion (also die gleiche Rekursionsgleichung bloß ohne $f(n)$). Folglich müssen wir bloß \emph{eine} Lösung der inhomogenen Rekursionsgleichung finden und können dann alle anderen Lösungen konstruieren, indem wir eine Lösung der homogenen Rekursion addieren. Insbesondere können wir die Anfangswerte $b_0,b_1,\dotsc,b_{k-1}$ zunächst ignorieren und dann durch Addition einer geeigneten Lösung der homogenen Gleichung korrigieren.
+
+Im Allgemeinen ist es jedoch alles andere als einfach, überhaupt nur \emph{eine} Lösung der inhomogenen Rekursionsgleichung zu finden. Wir werden im Folgenden beschreiben, wie das für einen Spezialfall funktioniert, nämlich den Fall $f(n)=P(n)C^n$, wobei $P(n)$ ein Polynom in~$n$ und~$C$ eine Konstante ist. Damit lässt sich schon eine große Familie von Fällen abdecken. Denn wenn $f(n)=f_1(n)+f_2(n)$ die Summe zweier Funktionen ist, dann genügt es, eine Lösung für $f_1(n)$ und eine Lösung für $f_2(n)$ zu finden und diese Lösungen zu addieren. Wir bekommen also nicht nur den Fall $f(n)=P(n)C^n$, sondern auch beliebige Summen von Termen dieser Form. Das deckt die allermeisten Fälle ab, die euch in der Mathe-Olympiade begegnen werden.
+
+Bevor wir den kompletten Spezialfall $f(n)=P(n)C^n$ betrachten, gehen wir durch einige Spezialfälle des Spezialfalls.
+
+\emph{Fall~1: $f(n)=c$ ist eine Konstante.} In diesem Fall gibt es einen einfachen Trick: Wir subtrahieren die Rekursionsgleichung für~$n$ von der Gleichung für $n+1$ und erhalten
+\begin{equation*}
+	b_{n+k+1}-b_{n+k}=c_{k-1}\parens*{b_{n+k}-b_{n+k-1}}+\dotsb+c_1\parens*{b_{n+2}-b_{n+1}}+c_0\parens*{b_{n+1}-b_n}\,.
+\end{equation*}
+Das ist nun eine homogene Rekursionsgleichung. Ferner fällt uns auf: Wenn $\chi(\lambda)$ das charakteristische Polynom der ursprünglichen Rekursion ist, dann ist das charakteristische Polynom der neuen Gleichung genau $(\lambda-1)\chi(\lambda)$. Wenn wir die Nullstellen von $\chi(\lambda)$ kennen, dann kennen wir also auch die Nullstellen des neuen charakteristischen Polynoms und wir können die Methode aus den vorherigen Abschnitten anwenden.
+
+\emph{Fall~2: $f(n)=P(n)$ ist ein Polynom in~$n$.} Wir wenden den gleichen Trick wie in Fall~1 mehrfach an. Wenn wir die Rekursionsgleichung für~$n$ von der Gleichung für $n+1$ subtrahieren, erhalten wir eine inhomogene Rekursionsgleichung mit $f(n)=P(n+1)-P(n)$. Wenn $P(n)$ ein Polynom vom Grad~$d$ ist, dann ist $P(n+1)-P(n)$ ein Polynom vom Grad~$d-1$. Indem wir die neue Gleichung für $n+1$ von der neuen Gleichung für~$n$ subtrahieren, erhalten wir ein Polynom vom Grad $d-2$ und so weiter. Nach $d+1$ Schritten ist $f(n)$ ein Polynom vom Grad~$-1$, also $f(n)=0$ und wir haben eine homogene Rekursionsgleichung. In jedem Schritt wird das charakteristische Polynom mit $\lambda-1$ multipliziert, also erhalten wir am Ende das charakteristische Polynom $(\lambda-1)^{d+1}\chi(\lambda)$. Hierauf können wir die Methode aus den vorherigen Abschnitten anwenden.
+
+\emph{Fall~3: $f(n)=C^n$ für eine reelle Zahl~$C$.} In diesem nehmen wir die Rekursionsgleichung für~$n$, multiplizieren sie mit $C$ und subtrahieren sie dann von der Gleichung für $n+1$. Wir erhalten
+\begin{equation*}
+	b_{n+k+1}-Cb_{n+k}=c_{k-1}\parens*{b_{n+k}-Cb_{n+k-1}}+\dotsb+c_1\parens*{b_{n+2}-Cb_{n+1}}+c_0\parens*{b_{n+1}-Cb_n}\,.
+\end{equation*}
+Das ist nun eine homogene Rekursionsgleichung und das charakteristische Polynom der neuen Gleichung ist genau $(\lambda-C)\chi(\lambda)$. Wir können also wiederum die Methode aus den vorherigen Abschnitten anwenden.
+
+Jetzt können wir die Ideen aus Fall~2 und Fall~3 kombinieren, um den Fall $f(n)=P(n)C^n$ zu lösen, wobei $P(n)$ ein Polynom vom Grad~$d$ in~$n$ und $C$ eine Konstante ist. Wir nehmen wieder die Rekursionsgleichung für~$n$, multiplizieren sie mit $C$ und subtrahieren sie von der Gleichung für $n+1$. Das ganze wiederholen wir $d+1$ mal. Im $i$-ten Schritt erhalten wir eine inhomogene Rekursionsgleichung mit $f(n)=P_i(n)C^n$, wobei $P_0(n)=P(n)$ und $P_i(n)=P_{i-1}(n+1)-P_i(n)$. Per Induktion folgt, dass $P_i(n)$ ein Polynom vom Grad $d-i$ ist. Insbesondere ist $P_i(n)=0$ für $i\geqslant d+1$. Folglich erhalten wir nach $d+1$ Schritten eine homogene Rekursionsgleichung. In jedem Schritt wird das charakteristische Polynom mit $\lambda-C$ multipliziert, also erhalten wir am Ende das charakteristische Polynom $(\lambda-C)^{d+1}\chi(\lambda)$. Hierauf können wir die Methode aus den vorherigen Abschnitten anwenden. Damit sind wir fertig!

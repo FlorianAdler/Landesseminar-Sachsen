@@ -1,0 +1,139 @@
+\section{Die Ungleichungen von Jensen und Karamata}\label{kapitel:Jensen}
+Es kommt recht häufig vor, dass in einer Ungleichung die Variablen \enquote{getrennt} vorliegen, sodass wir die Ungleichung in der Form $f(x_1)+f(x_2)+\dotsb+f(x_n)\geqslant c$ schreiben können. Hierbei ist $f$ eine geeignete Funktion, $x_1,x_2,\dotsc,x_n$ sind Variablen (möglicherweise mit einer Nebenbedingung) und $c$ ist eine Konstante.
+
+Die Jensensche Ungleichung liefert eine Lösungsmethode unter der Voraussetzung, dass $f$ \emph{konvex} ist. Im Heft für die Klasse~11 werdet ihr einige Tricks kennenlernen, mit der sich die Jensensche Ungleichung sogar auf manche nicht-konvexe Funktionen anwenden lässt.
+
+\subsection*{Konvexe Funktionen und die Jensensche Ungleichung}
+\begin{definition}
+	Sei $I\subseteq \mathbb R$ ein Intervall. Eine stetige Funktion $f\colon I\rightarrow \mathbb R$ heißt \emph{konvex}, wenn für alle $x_1,x_2\in I$ die folgende Ungleichung gilt:
+	\begin{equation*}
+		\frac{f(x_1)+f(x_2)}{2}\geqslant f\parens*{\frac{x_1+x_2}{2}}\,.
+	\end{equation*}
+	Umgekehrt heißt $f$ \emph{konkav}, wenn die obige Ungleichung mit \enquote{$\leqslant$} statt \enquote{$\geqslant$} gilt.
+\end{definition}
+\begin{wrapfigure}{r}{0.29\textwidth}
+	\centering\vspace{-0.65cm}
+	\begin{tikzpicture}[x=1.25cm,y=1.25cm]
+		\draw[->] (-0.4,0) to node[pos=1,below=0.5ex] {$x$} (3,0);
+		\draw[->] (0,-0.4) to  node[pos=1,right=0.5ex] {$y$} (0,2.5);
+		\node[below left] at (0,0) {$0$};
+		\coordinate (P1) at (0.6,1);
+		\coordinate (P2) at (2.4,0.7);
+		\coordinate (M) at (1.5,0.85);
+		\draw plot[hobby] coordinates {(0.2,2) (P1) (1.5,0.5) (P2) (2.8,1.1)};
+		\node at (1.5,-0.33) {$\frac{x_1+x_2}{2}$};
+		\node at (0.6,-0.33) {$x_1\vphantom{\frac{x_1+x_2}{2}}$};
+		\node at (2.4,-0.33) {$x_2\vphantom{\frac{x_1+x_2}{2}}$};
+		\draw (1.5,0) ++ (0,0.5ex) to ++(0ex,-1ex);
+		\draw (0.6,0) ++ (0,0.5ex) to ++(0ex,-1ex);
+		\draw (2.4,0) ++ (0,0.5ex) to ++(0ex,-1ex);
+		\draw [line width=0.3] (P1) to (P2);
+		\draw [line width=0.3,dashed,dash phase=0.5] (0.6,1.125ex) to (P1);
+		\draw [line width=0.3,dashed,dash phase=0.5] (1.5,1.125ex) to (M);
+		\draw [line width=0.3,dashed,dash phase=0.5] (2.4,1.125ex) to (P2);
+		\draw[fill=black] (P1) circle (2pt);
+		\draw[fill=black] (P2) circle (2pt);
+		\draw[fill=white] (M) circle (2pt);
+	\end{tikzpicture}
+	konvexe Funktion\vspace{-0.5cm}
+\end{wrapfigure}
+Anschaulich bedeutet konvex zu sein, dass für jede Strecke zwischen zwei Punkten auf dem Funktionsgraphen von $f$ der Mittelpunkt dieser Strecke stets oberhalb des Graphen oder auf dem Graphen liegt, aber niemals unterhalb. Indem wir uns die Graphen dieser Funktionen anschauen, sieht es zum Beispiel so aus, als wäre $f(x)=x^{2n}$ für jede positive ganze Zahl~$n\geqslant 1$ auf ganz $\mathbb R$ konvex. Hingegen sollte $g(x)=x^{2n-1}$ für $x\geqslant 0$ konvex und für $x\leqslant 0$ konkav sein. Und als letztes Beispiel sieht $h(x)=\sin(x)$ im Intervall $[0,180^\circ]$ konkav aus.
+
+
+Alle diese Funktionen sind auch tatsächlich konvex/konkav wie angegeben. Dies mit der Definition zu beweisen, wäre allerdings reichlich mühsam. Glücklicherweise gibt es ein einfacheres Kriterium.
+
+\begin{satzmitnamen}[Lemma]
+	Sei $f\colon I\rightarrow \mathbb R$ eine Funktion, die im Inneren von $I$ zweifach differenzierbar ist \embrace{am Rand von $I$ muss die Ableitung von $f$ nicht existieren}. Die Funktion $f$ ist genau dann konvex, wenn ihre zweite Ableitung $f''$ überall nichtnegativ ist: $f''(x)\geqslant 0$ für alle inneren Punkte $x\in I$. Umgekehrt ist $f$ genau dann konkav, wenn $f''$ überall nichtpositiv ist.
+\end{satzmitnamen}
+	
+Wir werden dieses Kriterium nicht beweisen (nicht zuletzt, weil die Differentialrechnung erst Stoff der Klasse~11 ist), aber hier ist zumindest ein Plausibilitätsargument: Intuitiv bedeutet konvex zu sein, dass die Tangenten an den Funktionsgraphen von $f$ immer steiler oder zumindest nicht flacher werden. Das bedeutet, dass die erste Ableitung $f'$ monoton steigend ist. Das wiederum bedeutet, dass die zweite Ableitung $f''$ nichtnegativ ist.
+
+Nun werden wir die Ungleichung, die diesem Kapitel seinen Namen gibt, beweisen.
+\begin{satzmitnamen}[Jensensche Ungleichung]
+	Gegeben seien eine konvexe Funktion $f\colon I\rightarrow \mathbb R$ und reelle Zahlen $x_1,x_2,\dotsc,x_n\in I$. Dann gilt die Ungleichung
+	\begin{equation*}
+		\frac{f(x_1)+f(x_2)+\dotsb+f(x_n)}{n}\geqslant f\parens*{\frac{x_1+x_2+\dotsb+x_n}{n}}\,.
+	\end{equation*}
+	Wenn $f$ stattdessen konkav ist, gilt eine analoge Ungleichung mit \enquote{$\leqslant$} statt \enquote{$\geqslant$}.
+\end{satzmitnamen}
+Analog zur Definition von Konvexität lässt sich die Jensensche Ungleichung geometrisch veranschaulichen: Für jedes $n$-Eck, dessen Eckpunkte auf dem Funktionsgraphen von $f$ liegen, liegt der Schwerpunkt dieses $n$-Ecks oberhalb des Graphen oder auf dem Graphen. Tatsächlich befindet sich sogar das komplette $n$-Eck oberhalb des Graphen oder auf dem Graphen von $f$. Das führt uns sofort auf eine gewichtete Verallgemeinerung der Jensenschen Ungleichung:
+\begin{satzmitnamen}[Gewichtete Jensen-Ungleichung]
+	Gegeben seien eine konvexe Funktion $f\colon I\rightarrow \mathbb R$, reelle Zahlen $x_1,x_2,\dotsc,x_n\in I$ sowie Gewichte $\lambda_1,\lambda_2,\dotsc,\lambda_n\geqslant 0$ mit $\lambda_1+\lambda_2+\dotsc+\lambda_n=1$. Dann gilt
+	\begin{equation*}
+		\lambda_1f(x_1)+\lambda_2f(x_2)+\dotsb+\lambda_nf(x_n)\geqslant f\parens*{\lambda_1x_1+\lambda_2 x_2+\dotsb+\lambda_nx_n}\,.
+	\end{equation*}
+	Wenn $f$ stattdessen konkav ist, gilt eine analoge Ungleichung mit \enquote{$\leqslant$} statt \enquote{$\geqslant$} .
+\end{satzmitnamen}
+\begin{proof}
+	Mit einer einfachen Induktion über $k$ zeigen wir zuerst, dass für alle $x_1,x_2,\dotsc,x_{2^k}\in I$ die Ungleichung
+	\begin{equation*}
+		\frac{f(x_1)+f(x_2)+\dotsb+f(x_{2^k})}{2^k}\geqslant f\parens*{\frac{x_1+x_2+\dotsb+x_{2^k}}{2^k}}
+	\end{equation*}
+	gilt (also dass die ungewichtete Jensen-Ungleichung für $n=2^k$ erfüllt ist).
+	%	Der Induktionsanfang $k=1$ ist genau die Bedingung, dass $f$ konvex ist. Für den Induktionsschritt schätzen wir wie folgt ab:
+	%	\begin{align*}
+		%		\frac{f(x_1)+f(x_2)+\dotsb+f(x_{2^{k+1}})}{2^{k+1}}&=\frac12\parens*{\frac{f(x_1)+\dotsb+f(x_{2^{k}})}{2^{k}}+\frac{f(x_{2^k+1})+\dotsb+f(x_{2^{k+1}})}{2^{k}}}\\
+		%		&\geqslant \frac12\parens*{f\parens*{\frac{x_1+\dotsb+x_{2^k}}{2^k}}+f\parens*{\frac{x_{2^k+1}+\dotsb+x_{2^{k+1}}}{2^k}}}\\
+		%		&\geqslant f\parens*{\frac12\parens*{\frac{x_1+\dotsb+x_{2^k}}{2^k}+\frac{x_{2^k+1}+\dotsb+x_{2^{k+1}}}{2^k}}}\\
+		%		&= f\parens*{\frac{x_1+x_2+\dotsb+x_{2^{k+1}}}{2^{k+1}}}\,.
+		%	\end{align*}
+	%	In der ersten Abschätzung haben wir die Induktionsannahme auf $x_1,\dotsc,x_{2^k}$ und $x_{2^k+1},\dotsc,x_{2^{k+1}}$ angewendet. In der zweiten Abschätzung haben wir benutzt, dass $f$ konvex ist. Damit ist der Induktionsschritt beendet.
+	
+	Als nächstes zeigen wir die gewichtete Jensen-Ungleichung in dem Spezialfall, dass alle $\lambda_i$ rationale Zahlen sind, deren Nenner allesamt Zweierpotenzen sind. Indem wir alle $\lambda_i$ auf einen Hauptnenner bringen, können wir $\lambda_i=m_i/2^k$ für gewisse nichtnegative ganze Zahlen $m_i$ schreiben. Die Bedingung $\lambda_1+\lambda_2+\dotsb+\lambda_n=1$ impliziert $m_1+m_2+\dotsb+m_n=2^k$. Indem wir die Jensensche Ungleichung (in dem Spezialfall, in dem wir sie schon bewiesen haben) auf $m_1$ mal $x_1$, $m_2$ mal $x_2$, \ldots, $m_n$ mal $x_n$ anwenden, erhalten wir die behauptete Ungleichung $\lambda_1f(x_1)+\lambda_2f(x_2)+\dotsb+\lambda_nf(x_n)\geqslant f\parens*{\lambda_1x_1+\lambda_2 x_2+\dotsb+\lambda_nx_n}$.
+	
+	Der allgemeine Fall folgt aus einem Stetigkeitsargument. Angenommen, die Ungleichung wäre falsch. Dann gilt also $\lambda_1f(x_1)+\lambda_2f(x_2)+\dotsb+\lambda_nf(x_n)= f\parens*{\lambda_1x_1+\lambda_2 x_2+\dotsb+\lambda_nx_n}-\varepsilon$ für ein $\varepsilon>0$. Wir können $\lambda_1,\lambda_2,\dotsc,\lambda_n$ beliebig genau durch rationale Zahlen $\lambda_1',\lambda_2',\dotsc,\lambda_n'$ approximieren, deren Nenner Zweierpotenzen sind. Weil $f$ stetig ist, wird dann auch der Funktionswert $f\parens*{\lambda_1x_1+\lambda_2 x_2+\dotsb+\lambda_nx_n}$ beliebig genau durch $f\parens*{\lambda_1'x_1+\lambda_2' x_2+\dotsb+\lambda_n'x_n}$ approximiert. Indem wir genau genug approximieren, können wir rationale Gewichte $\lambda_1',\lambda_2',\dotsc,\lambda_n'$ mit Zweierpotenzen als Nenner und $\lambda_1'+\lambda_2'+\dotsb+\lambda_n'=1$ finden, sodass Folgendes gilt:
+	\begin{align*}
+		\abs[\big]{\parens[\big]{\lambda_1 f(x_1)+\lambda_2 f(x_2)+\dotsb+\lambda_nf(x_n)}-\parens[\big]{\lambda_1' f(x_1)+\lambda_2' f(x_2)+\dotsb+\lambda_n'f(x_n)}}&<\frac{\varepsilon}{2}\\
+		\abs[\big]{f\parens*{\lambda_1x_1+\lambda_2 x_2+\dotsb+\lambda_nx_n}-f\parens*{\lambda_1'x_1+\lambda_2' x_2+\dotsb+\lambda_n'x_n}}&<\frac{\varepsilon}{2}\,.
+	\end{align*}
+	Da wir die gewichtete AM-GM-Ungleichung für die Gewichte $\lambda_1',\lambda_2',\dotsc,\lambda_n'$ bereits bewiesen haben, folgt nun aber
+	\begin{equation*}
+		\lambda_1 f(x_1)+\lambda_2 	f(x_2)+\dotsb+\lambda_nf(x_n)-f\parens*{\lambda_1x_1+\lambda_2 x_2+\dotsb+\lambda_nx_n}>-\frac{\varepsilon}2-\frac{\varepsilon}2=-\varepsilon\,.
+	\end{equation*}
+	Das widerspricht unserer Wahl von $\varepsilon$. Unsere Annahme, dass die gewichtete AM-GM-Un-gleichung falsch wäre, muss also selber falsch gewesen sein.
+\end{proof}
+
+\subsection*{Die Ungleichung von Karamata}
+Die Ungleichung von Karamata ist eine weitere Verallgemeinerung der Jensenschen Ungleichung. Hierfür benötigen wir das Konzept der \emph{Majorisierung}, das ihr in Kapitel~\ref{kapitel:Schuirhead}: \emph{Die Schuirhead-Ungleichung} kennengelernt haben. Weil ein beliebiges absteigend geordnetes $n$-Tupel $(x_1,\dotsc,x_n)$, $x_1\geqslant x_2\geqslant \dotsb\geqslant x_n$, stets das $n$-Tupel $\parens[\big]{\frac{x_1+\dotsb+x_n}{n},\frac{x_1+\dotsb+x_n}{n},\dotsc,\frac{x_1+\dotsb+x_n}{n}}$ majorisiert, lässt sich die Jensensche Ungleichung aus der Ungleichung von Karamata zurückerhalten.
+\begin{satzmitnamen}[Ungleichung von Karamata]
+	Gegeben sei eine konvexe Funktion $f\colon I\rightarrow \mathbb R$ sowie absteigend geordnete $n$-Tupel $x_1\geqslant x_2\geqslant \dotsb\geqslant x_n$ und $y_1\geqslant y_2\geqslant \dotsb\geqslant y_n$ von Elementen von $I$. Angenommen, es gilt $(x_1,x_2,\dotsc,x_n)\succcurlyeq(y_1,y_2,\dotsc,y_n)$. Dann gilt die folgende Ungleichung:
+	\begin{equation*}
+		f(x_1)+f(x_2)+\dotsb+f(x_n)\geqslant f(y_1)+f(y_2)+\dotsb+f(y_n)\,.
+	\end{equation*}
+	Wenn $f$ stattdessen konkav ist, gilt eine analoge Ungleichung mit \enquote{$\leqslant$} statt \enquote{$\geqslant$} .
+\end{satzmitnamen}
+\begin{proof}
+	Nach dem Majorisierungs-Lemma (siehe Kapitel~\ref{kapitel:Schuirhead}: \emph{Die Schuirhead-Ungleichung}) gibt es Gewichte $\mu_\sigma\geqslant 0$, $\sigma\in\mathfrak S_n$, mit $\sum_{\sigma\in\mathfrak S_n}\mu_\sigma=1$ und $y_i=\sum_{\sigma\in\mathfrak S_n}\mu_\sigma x_{\sigma(i)}$. Indem wir die gewichtete Jensen-Ungleichung mit den Gewichten $\mu_\sigma$ anwenden, erhalten wir
+	\begin{equation*}
+		\sum_{\sigma\in\mathfrak S_n}\mu_\sigma f\parens*{x_{\sigma(i)}}\geqslant f\parens*{\sum_{\sigma\in\mathfrak S_n}\mu_\sigma x_{\sigma(i)}}=f(y_i)
+	\end{equation*}
+	für alle $i=1,2,\dotsc,n$. Wenn wir alle diese Ungleichungen addieren, steht auf der rechten Seite offensichtlich $f(y_1)+f(y_2)+\dotsb+f(y_n)$ und wegen $\sum_{\sigma\in\mathfrak S_n}\mu_\sigma=1$ steht auf der linken Seite genau $f(x_1)+f(x_2)+\dotsb+f(x_n)$. Das beendet den Beweis.
+\end{proof}
+
+\subsection*{Beispielaufgaben}
+Wie üblich findet ihr weiter unten Tipps und am Ende des Heftes Musterlösungen zu den Übungsaufgaben. Aufgabe~\ref{aufgabe:VAIMO2012} ist ziemlich schwierig, aber sie lehrt euch einen coolen Trick, den ihr euch merken solltet.
+\begin{aufgabe*}\label{aufgabe:MittelungleichungenJensen}
+	Gegeben seien positive reelle Zahlen $a_1,a_2,\dotsc,a_n\geqslant 0$.
+	\begin{enumerate}[label={$(\alph*)$},ref={$(\alph*)$}]
+		\item Benutze die Jensensche Ungleichung, um die AM-GM-Ungleichung zu zeigen:\label{aufgabe:AM-GM-MitJensen}
+		\begin{equation*}
+			\frac{a_1+a_2+\dotsb+a_n}{n}\geqslant \sqrt[n]{a_1a_2\dotsm a_n}\,.
+		\end{equation*}
+		\item Benutze die Jensensche Ungleichung, um die allgemeine Potenzmittelungleichung zu zeigen: Für positive reelle Zahlen $p>q>0$ gilt stets\label{aufgabe:PotenzmittelMitJensen}
+		\begin{equation*}
+			\parens*{\frac{a_1^{p}+a_2^{p}+\dotsb+a_n^{p}}{n}}^{1/p}\geqslant \parens*{\frac{a_1^{q}+a_2^{q}+\dotsb+a_n^q}{n}}^{1/q}\,.
+		\end{equation*}
+	\end{enumerate}
+\end{aufgabe*}
+\begin{aufgabe*}[**]\label{aufgabe:VAIMO2012}
+	Gegeben seien $a,b,c>0$ positive reelle Zahlen mit $a^2+b^2+c^2\geqslant 3$. Zeige, dass
+	\begin{equation*}
+		\frac{(a+1)(b+2)}{(b+1)(b+5)}+\frac{(b+1)(c+2)}{(c+1)(c+5)}+\frac{(c+1)(a+2)}{(a+1)(a+5)}\geqslant\frac32
+	\end{equation*}
+\end{aufgabe*}
+
+\subsection*{Tipps zu den Beispielaufgaben}
+\textbf{Tipps zu Aufgabe~\ref{aufgabe:MittelungleichungenJensen}.} Benutze die Jensensche Ungleichung für die Funktionen $f(x)=\mathrm{e}^x$ und $g(x)=x^{p/q}$. Kannst du zeigen, dass diese Funktionen konkav oder konvex sind?
+
+\textbf{Tipps zu Aufgabe~\ref{aufgabe:VAIMO2012}.} Interpretiere die Terme auf der linken Seite teilweise als Gewichte und teilweise als Funktion. Dann benutze die gewichtete Jensen-Ungleichung.
+

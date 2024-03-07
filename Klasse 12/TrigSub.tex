@@ -1,0 +1,129 @@
+\section{Trigonometrische Substitutionen}\label{kapitel:TrigSub}
+
+Manchmal lassen sich Aufgaben lösen, indem ihr auf sehr clevere Art und Weise mit Sinus, Cosinus oder Tangens substituiert. Solche Lösungen sind sehr schwer zu finden, aber wenn ihr sie findet, dann sind sie unglaublich elegant. 
+
+Um herauszufinden, wann sich eine trigonometrische Substitution lohnt, müsst ihr lernen, versteckte Additionstheoreme zu erkennen. Wir werden in diesem Kapitel anhand von Beispielaufgaben drei \enquote{Standardverstecke} besprechen. Am Ende des Kapitels findet ihr Tipps zu den Beispielaufgaben und am Ende des Heftes könnt ihr die Lösungen nachrechnen.
+
+\textbf{1.~Das Tangens-Additionstheorem.} Das Additionstheorem für den Tangens nimmt bekanntlich folgende Form an:
+\begin{equation*}
+	\tan(\alpha\pm\beta)=\frac{\tan\alpha\pm\tan\beta}{1\mp\tan\alpha\tan\beta}\,.
+\end{equation*}
+Wenn in einer Aufgabe die Ausdrücke $1-xy$ und $x+y$ vorkommen, dann ist Tangens-Substitu-tionszeit. So zum Beispiel bei folgender Aufgabe:
+\begin{aufgabe*}\label{aufgabe:Tangenssubstitution}
+	Gegeben seien sechs reelle Zahlen $a_1,a_2,\dotsc,a_6$. Zeige: Unter diesen sechs Zahlen gibt es stets zwei Zahlen~$x$ und~$y$ mit der Eigenschaft
+	\begin{equation*}
+		\sqrt{3}(x-y)\leqslant 1+xy\,.
+	\end{equation*}
+\end{aufgabe*}
+
+
+\textbf{2.~Das Sinus-Additionstheorem.} Das Additionstheorem für den Sinus nimmt bekanntlich folgende Form an:
+\begin{equation*}
+	\sin(\alpha\pm\beta)=\sin\alpha\cos\beta\pm\cos\alpha\sin\beta\,.
+\end{equation*}
+Auch dieses Additionstheorem lässt sich gelegentlich in Aufgaben entdecken, kann aber deutlich komplizierter zu erkennen sein. Hier sind zwei Beispielaufgaben. In Aufgabe~\ref{aufgabe:SinusVersteckt} ist das Sinus-Additionstheorem ganz besonders gut versteckt.
+\begin{aufgabe*}\label{aufgabe:SinusWurzelAdditionstheorem}
+	Vier reelle Zahlen $a_1,a_2,a_3,a_4$ werden aus dem Intervall $\brackets[\big]{\frac{\sqrt{2}-\sqrt{6}}{2},\frac{\sqrt{2}+\sqrt{6}}{2}}$ ausgewählt. Zeige: Unter $a_1,a_2,a_3,a_4$ gibt es stets zwei Zahlen $x$ und $y$ mit
+	\begin{equation*}
+		\abs*{x\sqrt{4-y^2}-y\sqrt{4-x^2}}\leqslant 2\,.
+	\end{equation*}
+\end{aufgabe*}
+\begin{aufgabe*}\label{aufgabe:SinusVersteckt}
+	Für eine reelle Zahl~$x$ definieren wir eine Folge $(a_n)_{n\geqslant 0}$ rekursiv durch $a_0=x$ und $a_{n+1}=4a_n(1-a_n)$ für alle $n\geqslant 0$. Finde alle Werte von $x$, für die $a_{\the\year}=0$ gilt!
+\end{aufgabe*}
+
+\textbf{3.~Trigonometrische Identitäten im Dreieck.} Für $\alpha+\beta+\gamma=180^\circ$ ergeben sich zusätzliche Identitäten, die ihr ebenfalls in einigen Aufgaben entdecken könnt. Dafür beweisen wir zunächst das folgende Lemma.
+\begin{satzmitnamen}[Lemma]\leavevmode
+	\begin{enumerate}[label={$(\alph*)$},ref={$(\alph*)$}]
+		\item \label{behauptung:DreieckTangensIdentitaet}Für reelle Zahlen $x$, $y$ und $z$ mit
+		\begin{equation*}
+			x+y+z=xyz
+		\end{equation*}
+		können wir stets $x=\tan \alpha$, $y=\tan\beta$ und $z=\tan\gamma$ substituieren, wobei $\alpha$, $\beta$, $\gamma$ \embrace{nicht notwendigerweise positive} Winkel mit $\alpha+\beta+\gamma=180^\circ$ sind. Wenn zusätzlich $x,y,z\geqslant 0$ gilt, dann können $\alpha$, $\beta$, $\gamma$ als die Innenwinkel eines spitzwinkligen Dreiecks gewählt werden.
+		\item \label{behauptung:DreieckCotangensIdentitaet}Für reelle Zahlen $x$, $y$ und $z$ mit 
+		\begin{equation*}
+			xy+yz+zx=1
+		\end{equation*}
+		können wir stets $x=\cot\alpha$, $y=\cot\beta$ und $z=\cot\gamma$ substituieren, wobei $\alpha$, $\beta$, $\gamma$ \embrace{nicht notwendigerweise positive} Winkel  mit $\alpha+\beta+\gamma=180^\circ$ sind. Wenn zusätzlich $x,y,z\geqslant 0$ gilt, dann können $\alpha$, $\beta$, $\gamma$ als die Innenwinkel eines spitzwinkligen oder rechtwinkligen Dreiecks gewählt werden.
+		\item \label{behauptung:DreieckCosinusIdentitaet} Für nichtnegative reelle Zahlen $x,y,z\geqslant 0$ mit
+		\begin{equation*}
+			x^2+y^2+z^2+2xyz=1
+		\end{equation*}
+		können wir stets $x=\cos\alpha$, $y=\cos\beta$ und $z=\cos\gamma$ substituieren, wobei $\alpha$, $\beta$, $\gamma$ die Innenwinkel eines spitzwinkligen oder rechtwinkligen Dreiecks sind.
+	\end{enumerate}
+\end{satzmitnamen}
+
+\begin{proof}
+	Wir zeigen zuerst~\ref{behauptung:DreieckTangensIdentitaet}. Wähle Winkel $\alpha$, $\beta$ und $\gamma$ mit $x=\tan\alpha$, $y=\tan\beta$ und $z=\tan\gamma$. Indem wir ganzzahlige Vielfache von $180^\circ$ addieren, können wir $0^\circ<\alpha+\beta+\gamma< 360^\circ$ annehmen. Falls $x,y,z\geqslant 0$,  können wir direkt $0^\circ\leqslant \alpha,\beta,\gamma<90^\circ$ annehmen und die Bedingung $0^\circ<\alpha+\beta+\gamma< 360^\circ$ ist automatisch erfüllt. Nun gilt
+	\begin{equation*}
+		\tan(\alpha+\beta+\gamma)=\frac{\tan\alpha+\tan\beta+\tan\gamma-\tan\alpha\tan\beta\tan\gamma}{1-\parens*{\tan\alpha\tan\beta+\tan\beta\tan\gamma+\tan\gamma\tan\alpha}}\,.
+	\end{equation*}
+	Der Zähler des Bruches auf der rechten Seite ist genau $x+y+z-xyz$. Folglich gilt $x+y+z=xyz$ genau dann, wenn $\tan(\alpha+\beta+\gamma)=0$. Wegen $0^\circ<\alpha+\beta+\gamma< 360^\circ$ ist das genau für $\alpha+\beta+\gamma=180^\circ$ möglich.
+	
+	Der Beweis für~\ref{behauptung:DreieckCotangensIdentitaet} ist ähnlich. Analog zu~\ref{behauptung:DreieckTangensIdentitaet} wählen wir Winkel $\alpha$, $\beta$ und $\gamma$ mit $x=\tan\alpha$, $y=\tan\beta$, $z=\tan\gamma$ und außerdem $0^\circ<\alpha+\beta+\gamma< 180^\circ$. Im Fall $x,y,z\geqslant 0$ nehmen wir außerdem $0^\circ <\alpha,\beta,\gamma\leqslant 90^\circ$ an. Nun gilt
+	\begin{multline*}
+		\cot\alpha\cot\beta+\cot\beta\cot\gamma+\cot\gamma\cot\alpha-1\\
+		\begin{aligned}
+			&=\frac{\cos\alpha\cos\beta\sin\gamma+\cos\beta\cos\gamma\sin\alpha+\cos\gamma\cos\alpha\sin\beta-\sin\alpha\sin\beta\sin\gamma}{\sin\alpha\sin\beta\sin\gamma}\\
+			&=\frac{\sin(\alpha+\beta+\gamma)}{\sin\alpha\sin\beta\sin\gamma}\,.
+		\end{aligned}
+	\end{multline*}
+	Also gilt $xy+yz+zx=1$ genau dann, wenn $\sin(\alpha+\beta+\gamma)=0$. Wegen $0^\circ<\alpha+\beta+\gamma< 360^\circ$ ist das genau für $\alpha+\beta+\gamma=180^\circ$ möglich.
+	
+	Für~\ref{behauptung:DreieckCosinusIdentitaet} zeigen wir zuerst, dass die Identität $x^2+y^2+z^2+2xyz=1$ tatsächlich erfüllt ist, wenn $x=\cos\alpha$, $y=\cos\beta$ und $z=\cos\gamma$ gilt, wobei $\alpha$, $\beta$ und $\gamma$ die Innenwinkel eines Dreiecks sind. In diesem Fall müssen zwei der drei Winkel $\leqslant 90^\circ$ sein. Ohne Beschränkung der Allgemeinheit seien das $\alpha$ und $\beta$. Betrachte nun ein Dreieck $ABC$ mit den  Innenwinkeln $\winkel BAC=90^\circ-\alpha$, $\winkel CBA=90^\circ-\beta$ und $\winkel ACB=180^\circ-\gamma$. Außerdem sei $\abs*{AB}=\sin\gamma$. Aus dem Sinussatz lassen sich die anderen Seitenlängen bestimmen:
+	\begin{equation*}
+		\abs*{BC}=\abs{AB}\cdot \frac{\sin(90^\circ-\beta)}{\sin(180^\circ-\gamma)}=\cos \beta\quad\text{und}\quad \abs*{CA}=\abs{AB}\cdot \frac{\sin(90^\circ-\alpha)}{\sin(180^\circ-\gamma)}=\cos \alpha\,.
+	\end{equation*}
+	Der Cosinussatz im Dreieck $ABC$ liefert nun $\abs*{AB}^2=\abs*{CA}^2+\abs*{BC}^2-2\abs*{CA}\cdot\abs*{BC}\cos(180^\circ-\gamma)$. Durch Einsetzen der Seitenlängen sowie $\cos(180^\circ-\gamma)=-\cos\gamma$ folgt dann
+	\begin{equation*}
+		\sin^2\gamma=\cos^2\beta+\cos^2\alpha+2\cos\alpha\cos\beta \cos\gamma\,.
+	\end{equation*}
+	Durch Einsetzen von $\sin^2\gamma=1-\cos^2\gamma$ folgt sofort die gewünschte Identität.
+	
+	Nun zeigen wir, dass die gewünschten Identität nur in dem behaupteten Fall erfüllt ist. Zunächst ist klar, dass aus $x^2+y^2+z^2+2xyz=1$ und $x,y,z\geqslant 0$ folgt, dass $0\leqslant x,y,z\leqslant 1$ gilt. Wir können also $y=\cos\beta$ und $z=\cos\gamma$ mit $0^\circ\leqslant \beta,\gamma\leqslant 90^\circ$ substituieren. Dann muss $\beta+\gamma\geqslant 90^\circ$ gelten. Wäre das nämlich nicht der Fall, dann gälte $\cos\gamma>\cos(90^\circ-\beta)$ nach Monotonie des Cosinus auf dem Intervall $[0^\circ,90^\circ]$. Dann würde
+	\begin{equation*}
+		y^2+z^2=\cos^2\beta+\cos^2\gamma>\cos^2\beta+\cos^2(90^\circ-\beta)=\cos^2\beta+\sin^2\beta=1
+	\end{equation*}
+	folgen, was einen Widerspruch darstellt. Sei nun $x'\coloneqq \cos(180^\circ-\beta-\gamma)$. Nach dem obigen gilt dann $x'\geqslant 0$. Ferner erfüllt $x'$ ebenfalls die Gleichung $(x')^2+y^2+z^2+2x'yz=1$. Für $x'=x$ sind wir fertig. Ansonsten sind $X=x$ und $X=x'$ die beiden Lösungen der quadratischen Gleichung $X^2+2Xyz+y^2+z^2-1=0$. Nach dem Satz von Vieta gilt dann $x+x'=-2yz$. Wegen $x,x',y,z\geqslant 0$ kann diese Gleichung nur für $x=x'=0$ gelten und wir erhalten einen Widerspruch zu unserer Annahme $x\neq x'$.
+\end{proof}
+
+Häufig ist eine Variante dieser Substitutionen nützlich. Wenn $\alpha_0$, $\beta_0$ und $\gamma_0$ Winkel mit der Eigenschaft $\alpha_0+\beta_0+\gamma_0=180^\circ$ sind und Winkel $\alpha$, $\beta$ und $\gamma$ mit $\alpha_0=90^\circ-\frac\alpha2$, $\beta_0=90^\circ-\frac\beta2$ und $\gamma_0=90^\circ-\frac\gamma2$ gewählt werden, dann gilt auch $\alpha+\beta+\gamma=180^\circ$. Daraus folgt:
+\begin{enumerate}[label={$(\alph*)$},ref={$(\alph*)$}]\itshape
+	\item Wenn $x+y+z=xyz$, dann können wir auch $x=\cot\parens[\big]{\frac{\alpha}2}$, $y=\cot\parens[\big]{\frac{\beta}2}$ und $z=\cot\parens[\big]{\frac{\gamma}2}$ mit $\alpha+\beta+\gamma=180^\circ$ substituieren. Falls $x,y,z\geqslant 0$, dann können $\alpha$, $\beta$ und $\gamma$ als die Innenwinkel eines Dreiecks gewählt werden \embrace{dieses Dreiecks muss aber nicht spitz- oder rechtwinklig sein}.
+	\item Wenn $xy+yz+zx=1$, dann können wir auch $x=\tan\parens[\big]{\frac{\alpha}2}$, $y=\tan\parens[\big]{\frac{\beta}2}$ und $z=\tan\parens[\big]{\frac{\gamma}2}$ mit $\alpha+\beta+\gamma=180^\circ$ substituieren. Falls $x,y,z\geqslant 0$, dann können $\alpha$, $\beta$ und $\gamma$ als die Innenwinkel eines Dreiecks gewählt werden \embrace{dieses Dreiecks muss aber nicht spitz- oder rechtwinklig sein}.
+	\item Wenn $x$, $y$ und $z$ nichtnegative reelle Zahlen mit $x^2+y^2+z^2+2xyz=1$ sind, dann können wir auch $x=\sin\parens[\big]{\frac{\alpha}2}$, $y=\sin\parens[\big]{\frac{\beta}2}$ und $z=\sin\parens[\big]{\frac{\gamma}2}$ substituieren, wobei $\alpha$, $\beta$ und $\gamma$ die Innenwinkel eines Dreiecks sind.
+\end{enumerate}
+Damit könnt ihr nun die folgenden beiden Aufgaben lösen, die ohne dieses Wissen sehr schwierig wären. Aufgabe~\ref{aufgabe:UngleichungInvertieren2} ist euch bereits im Kapitel \emph{Die $uvw$-Methode} im Heft für Klasse~11 begegnet. Hier seht ihr nun, wie sich diese Aufgabe wesentlich eleganter lösen lässt.
+\begin{aufgabe*}\label{aufgabe:521236}
+	Finde alle Tripel reeller Zahlen $(x,y,z)$ mit $xy+yz+zx=1$ und
+	\begin{equation*}
+		3\parens*{x+\frac 1x}=4\parens*{y+\frac 1y}=5\parens*{z+\frac 1z}\,.
+	\end{equation*}
+\end{aufgabe*}
+\begin{aufgabe*}[*]\label{aufgabe:UngleichungInvertieren2}
+	Gegeben seien nichtnegative reelle Zahlen $x,y,z\geqslant 0$ mit $x^2+y^2+z^2+2xyz=1$. Zeige, dass
+	\begin{equation*}
+		xy+yz+zx\leqslant \frac12+2xyz\,.
+	\end{equation*}
+\end{aufgabe*}
+Aufgabe~\ref{aufgabe:UngleichungInvertieren2} haben wir euch schon als Beispielaufgabe im Kapitel \emph{Die $uvw$-Methode} im Heft für Klasse~11 gestellt. Die Lösung, die dort vorgestellt wurde, ist allerdings weder besonders einfach noch besonders schön. Hier habt ihr die Gelegenheit, euch eine elegantere Lösung zu überlegen.
+
+
+
+\subsection*{Tipps zu den Beispielaufgaben}
+
+\textbf{Tipps zu Aufgabe~\ref{aufgabe:Tangenssubstitution}.} Substituiere $a_i=\tan \alpha_i$ und benutze das Schubfachprinzip. Jedoch aufgepasst: Das Schubfachprinzip lässt sich nicht völlig naiv anwenden. Du musst auch noch die Periodizität des Tangens ausnutzen!
+
+\textbf{Tipps zu Aufgabe~\ref{aufgabe:SinusWurzelAdditionstheorem}.} Substituiere $a_i=2\sin\alpha_i$. Für welche Werte von $\alpha$ gilt $2\sin\alpha = \frac{\sqrt{2}\pm\sqrt{6}}{2}$? (Es kommen keine krummen Werte raus.)
+
+\textbf{Tipps zu Aufgabe~\ref{aufgabe:SinusVersteckt}.} Es gilt $\sin^2(2\alpha)=(2\sin\alpha\cos\alpha)^2=4\sin^2\alpha(1-\sin^2\alpha)$. Um geeignet substituieren und diese Formel anwenden zu können, musst du natürlich einige Fälle für $x$ ausschließen.
+
+\textbf{Tipps zu Aufgabe~\ref{aufgabe:521236}.} Zeige zuerst, dass $x,y,z\geqslant 0$ angenommen werden kann. Substituiere dann $x=\tan\parens[\big]{\frac{\alpha}2}$, $y=\tan\parens[\big]{\frac{\beta}2}$ und $z=\tan\parens[\big]{\frac{\gamma}2}$.
+
+\textbf{Tipps zu Aufgabe~\ref{aufgabe:UngleichungInvertieren2}.} Substituiere $x=\sin\parens[\big]{\frac{\alpha}2}$, $y=\sin\parens[\big]{\frac{\beta}2}$ und $z=\sin\parens[\big]{\frac{\gamma}2}$.
+
+Nimm $\alpha\leqslant \beta\leqslant \gamma$ an. Schreibe die Ungleichung in der Form
+\begin{equation*}
+	\sin\parens*{\frac{\alpha}2}\parens*{\sin\parens*{\frac{\beta}2}+\sin\parens*{\frac{\gamma}2}}+\parens*{1-2\sin\parens*{\frac{\alpha}2}}\sin\parens*{\frac{\beta}2}\sin\parens*{\frac{\gamma}2}\leqslant \frac12
+\end{equation*}
+und schätze die beiden Terme $\sin\parens[\big]{\frac{\beta}2}+\sin\parens[\big]{\frac{\gamma}2}$ und $\sin\parens[\big]{\frac{\beta}2}\sin\parens[\big]{\frac{\gamma}2}$ ab.

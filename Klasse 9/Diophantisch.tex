@@ -1,0 +1,142 @@
+\section{Diophantische Gleichungen}\label{kapitel:Diophantastisch}
+
+In vielen Olympiadeaufgaben ist nach allen ganzzahligen Lösungen einer Gleichung (meistens in mehreren Variablen) gefragt. Solche Gleichungen werden \emph{Diophantische Gleichungen} genannt. Für diophantische Gleichungen gibt es (beweisbar) keine Lösungsmethoden, die immer zum Ziel führen, oder gar Lösungsformeln. Trotzdem gibt es einige Tricks und Strategien, mit denen sich die meisten dieser Gleichungen, denen ihr in Olympiaden begegnen werdet, lösen lassen.
+
+Wir werden nun die wichtigsten dieser Strategien zusammenfassen
+
+\textbf{1.~Errate die Lösungen.} Olympiadegleichungen haben in den allermeisten Fällen keine absurden Lösungen. Wenn ihr alle \enquote{kleinen} Fälle durchprobiert habt, dann habt ihr meistens auch alle Lösungen gefunden.
+
+\enquote{Kleine} Fälle auszuprobieren sollte immer eines der ersten Dinge sein, die ihr versucht. Einerseits bekommt ihr dadurch ein Gefühl für die Aufgabe. Andererseits zielen viele der Methoden, die wir weiter unten besprechen werden, darauf ab, zu zeigen, dass die Gleichung keine (weiteren) Lösungen hat. Das kann natürlich nur klappen, wenn ihr die Lösungen schon kennt. Zum Beispiel kann es vorkommen, dass in einer Diophantischen Gleichung der Term $3^n$ vorkommt. Nachdem ihr die Fälle $n=0$ und $n=1$ durchprobiert habt (und möglicherweise Lösungen gefunden habt), dürft ihr $n\geqslant 2$ annehmen. Ab dann ist $3^n$ durch $9$ teilbar und ihr könnt die Gleichung zum Beispiel modulo~$9$ betrachten.
+
+Das bringt uns zu unserer nächsten Strategie.
+
+\textbf{2.~Betrachte die Gleichung modulo einer geeigneten Zahl.} Diese Methode ist vor allem dann geeignet, wenn ihr zeigen wollt, dass eine Diophantische Gleichung keine Lösungen hat. Denn dafür reicht es aus, ein~$m$ zu finden, sodass die Gleichung keine Lösungen modulo~$m$ hat. Oft habt ihr nicht ganz so viel Glück, dass die Gleichung keine Lösungen modulo~$m$ hat, aber die Betrachtung modulo~$m$ liefert euch trotzdem Einschränkungen, die ihr nutzen könnt, um weitere Strategien anzuwenden (zum Beispiel Faktorisierung oder unendlicher Abstieg).
+
+Wie findet ihr heraus, modulo welcher Zahl sich die Gleichung zu betrachten lohnt? Um eine Chance auf einen Widerspruch modulo~$m$ zu haben, sollten die Terme in eurer Gleichung möglichst wenige Reste modulo~$m$ annehmen. Das kann zum Beispiel passieren, indem
+\begin{itemize}
+	\item eine oder besser einige der Zahlen in der Gleichung durch $m$ teilbar sind.
+	\item eine oder besser einige der Zahlen in der Gleichung den Rest $\pm1$ modulo $m$ lassen.
+\end{itemize}
+In vielen Diophantischen Gleichungen kommen polynomielle Terme wie $x^2,x^3,\dotsc$ vor. Für solche Terme gibt es folgende Faustregel, mit der ihr geeignete~$m$ gezielt erraten könnt:
+\begin{itemize}\itshape
+	\item[$(*)$] Für eine gegebene positive ganze Zahl~$n$ nimmt der Term $x^n$ möglichst wenige verschiedene Werte modulo~$m$ an, wenn~$n$ ein Teiler von $\varphi(m)$ ist.
+\end{itemize}
+Der Grund hierfür ist der Satz von Euler-Fermat (siehe Kapitel~\ref{kapitel:Teilerfremdheit}: \emph{Teiler und Teilerfremdheit}): Wenn $x$ teilerfremd zu $m$ ist, dann ist $x^{\varphi(m)}\equiv 1\mod m$. Im Fall $n=\varphi(m)$ ist also nur der Rest~$1$ möglich. Wenn~$n$ nur ein Teiler von $\varphi(m)$ ist, können wir zumindest hoffen, dass nicht zu viele Reste möglich sind.\footnote{Umgekehrt ist es aussichtslos, auf wenige Reste zu hoffen, wenn $n$ zu $\varphi(m)$ teilerfremd ist. Nach dem Lemma von Bézout gibt es dann positive ganze Zahlen $a$ und $b$ mit $an=b\varphi(m)+1$. Der Term $x^n$ nimmt, solange $x$ teilerfremd zu $m$ ist, modulo~$m$ mindestens so viele Reste an, wie der Term $(x^a)^n\equiv x^{b\varphi(m)+1}\equiv x\mod m$.} Es kann natürlich auch passieren, dass $x$ nicht teilerfremd zu~$m$ ist, aber auch in diesem Fall können wir darauf hoffen, dass nicht zu viele Reste auftreten können (falls $m$ eine Primzahl ist, kann zum Beispiel nur der Rest~$0$ auftreten).
+
+Als konkrete Anwendungen dieser Faustregel erhalten wir die folgenden gereimten Weisheiten:
+\begin{itemize}\itshape
+	\item[$(**)$] Sind Kuben niedergeschrieben -- rechne modulo neun oder sieben!\\
+	Stehen Quadrate auf dem Papier -- rechne modulo acht oder vier \embrace{oder drei}.
+\end{itemize}
+Kubikzahlen nehmen modulo~$7$ oder~$9$ nur die Werte $-1$, $0$ und $1$ an. Das stimmt perfekt mit Faustregel~$(*)$ überein, denn $\varphi(7)=6=\varphi(9)$ ist durch~$3$ teilbar. Quadratzahlen nehmen modulo~$3$ und~$4$ nur die Werte $0$ und $1$ an sowie modulo~$8$ nur die Werte~$0$,~$1$ und~$4$. Auch das passt mit Faustregel~$(*)$. Allerdings ist $\varphi(m)$ für alle $m\neq 1,2$ durch~$2$ teilbar und somit gibt es für Quadratzahlen viele potentiell geeignete~$m$. Die Wahlen $m=3,4,8$ kommen jedoch am häufigsten zum Einsatz.
+
+\textbf{3.~Faktorisiere die Gleichung.} Die wichtigste Faktorisierung, die ihr kennen solltet, ist die dritte binomische Formel $a^2-b^2=(a-b)(a+b)$ sowie ihr großer Bruder
+\begin{equation*}
+	a^n-b^n=(a-b)\parens*{a^{n-1}+a^{n-2}b+\dotsb+ab^{n-2}+b^{n-1}}\,.
+\end{equation*}
+Indem wir in der obigen Formel $b$ durch $-b$ ersetzen, erhalten wir ferner die Faktorisierungen
+\begin{align*}
+	a^n-b^n&=(a+b)\parens*{a^{n-1}-a^{n-2}b\pm\dotsb+ab^{n-2}-b^{n-1}}\quad\text{falls $n$ gerade ist}\,,\\
+	a^n+b^n&=(a+b)\parens*{a^{n-1}-a^{n-2}b\pm\dotsb-ab^{n-2}+b^{n-1}}\quad\text{falls $n$ ungerade ist}\,.
+\end{align*}
+Schließlich solltet ihr die \emph{Sophie-Germain-Faktorisierung} kennen:
+\begin{equation*}
+	a^4+4b^4=\parens*{a^2+2ab+2b^2}\parens*{a^2-2ab+2b^2}
+\end{equation*}
+Manchmal sind Faktorisierungen erst anwendbar, nachdem ihr einige der anderen Strategien verwendet habt. Zum Beispiel könnte in einer Aufgabe der Term $2^n$ vorkommen und durch geeignete Modulo-Betrachtungen (etwa modulo~$3$) könnt ihr zwar keinen Widerspruch erzeugen, aber zumindest zeigen, dass $n$ gerade sein muss. Dann ist $n=2k$ und $2^n=(2^{k})^2$ ist also eine Quadratzahl, sodass wir zum Beispiel versuchen können, eine Faktorisierung mit der dritten binomischen Formel zu finden.
+
+Manchmal sind Faktorisierungen auch nicht offensichtlich zu sehen. Zum Beispiel können wir die Gleichung
+\begin{equation*}
+	\frac 1x+\frac 1y=\frac1{\the\year}
+\end{equation*}
+für ganze Zahlen $x,y\neq 0$ umformen zu $\the\year(x+y)=xy$. Diese Gleichung wiederum lässt sich umformen zu
+\begin{equation*}
+	\the\year^2=xy-\the\year(x+y)+\the\year^2=(x-\the\year)(y-\the\year)
+\end{equation*} 
+Um diese Gleichung zu lösen, müssen wir nun nur noch alle Teiler von $\the\year^2$ durchprobieren. Die möglichen Teiler lassen sich anhand der Primfaktorzerlegung von $\the\year$ ablesen. Für solche Zwecke solltet ihr übrigens die Primfaktorzerlegung des aktuellen Jahres auswendig wissen!
+
+\textbf{4.~Benutze unendlichen Abstieg/das Extremalprinzip.} Um zu zeigen, dass eine Diophantische Gleichung keine oder nur triviale Lösungen hat, könnt ihr indirekt argumentieren: Ihr nehmt an, dass eine Lösung existiert und führt diese Annahme zum Widerspruch. Eine Möglichkeit, einen Widerspruch zu erzeugen, ist aus eurer angenommenen Lösung eine kleinere Lösung zu konstruieren. Indem ihr diesen Schritt wiederholt, könnt ihr eine unendliche Folge von immer kleiner werdenden Lösungen konstruieren, was offensichtlich nicht sein kann (diese Art des Widerspruches ist als \emph{unendlicher Abstieg} bekannt). Alternativ könnt ihr mit dem Extremalprinzip argumentieren und eine in geeignetem Sinne minimale Lösung betrachten. Wenn ihr eine kleinere Lösung konstruieren könnt, habt ihr euren Widerspruch erzeugt.
+
+Um diese kleineren Lösungen zu konstruieren, sind häufig Modulo-Betrachtungen oder Faktorisierungen nützlich. Eine weitere Möglichkeit ist das sogenannte \emph{Vieta-Jumping:} Hierbei wird die gegebene Diophantische Gleichung in eine quadratische Gleichung in einer Variablen umgeformt. Mithilfe des Satzes von Vieta wird sodann gezeigt, dass die zweite Lösung dieser quadratischen Gleichung ebenfalls ganzzahlig und kleiner als die erste Lösung ist.
+
+\textbf{5.~Schätze ab.} Die wichtigsten Abschätzungen in der Zahlentheorie sind die folgenden beiden Trivialitäten:
+\begin{itemize}
+	\item Wenn $m$ und~$n$ ganze Zahlen sind und $m>n$ gilt, dann folgt schon $m\geqslant n+1$.
+	\item Wenn $a$ und~$n$ positive ganze Zahlen sind und~$a$ durch~$n$ teilbar ist, dann gilt $a\geqslant n$.
+\end{itemize}
+Obwohl beide Abschätzungen vollkommen offensichtlich sind, lassen sie sich erstaunlich oft anwenden. Und selbst manche tiefe Resultate in der modernen Forschungsmathematik beruhen am Ende auf diesen beiden Beobachtungen.
+
+Besonders dann, wenn in einer Aufgabe Potenzen auftreten, kann es vorkommen, dass eine Seite schnell viel größer als die andere Seite wird. Oft wird auch folgender Trick verwendet: Wenn ihr (zum Beispiel durch Modulo-Betrachtungen) zeigen könnt, dass eine Potenz $a^n$ durch eine Primzahl $p$ teilbar ist, dann ist $a^n$ sogar durch $p^n$ teilbar (und mithin $a^n\geqslant p^n$, falls $a$ eine positive ganze Zahl ist).
+
+\textbf{6.~Benutze Quadratschachtelung.} Wenn in einer Diophantischen Gleichung ein quadratischer Term vorkommt, könnt ihr versuchen, die Gleichung in der Form $x^2=R$ zu schreiben. Wenn ihr Glück habt, sieht $R$ selbst schon fast wie ein Quadrat aus und durch geeignete quadratische Ergänzung könnt ihr einen Term~$r$ finden, sodass $r^2<R<(r+1)^2$ gilt (außer vielleicht für kleine Werte von $r$). Dann habt ihr einen Widerspruch erzeugt, denn zwischen $r^2$ und $(r+1)^2$ kann keine weitere Quadratzahl $x^2=R$ liegen. Selbiges geht natürlich auch für höhere Potenzen.
+
+Quadratschachtelung ist übrigens eine Anwendung der trivialen Beobachtung, dass für ganze Zahlen aus $m>n$ schon $m\geqslant n+1$ folgt!
+
+Und noch ein letzer Hinweis zu Diophantischen Gleichungen: \emph{Macht eine Probe!!!}
+
+\subsection*{Beispielaufgaben}
+Ihr sollt nun die beschriebenen Methoden selbstständig auf einige Beispielaufgaben anwenden. Am Ende dieses Kapitels (nach den weiteren Übungsaufgaben) findet ihr erst Tipps und dann Lösungen zu den Beispielaufgaben. Aufgabe~\ref{aufgabe:VAIMO2010} ist so schwer, dass es fast unmöglich ist, von selbst auf den Trick zu kommen. Dafür ist die Aufgabe aber sehr instruktiv! Wenn ihr nicht weiterkommt, holt euch einen Tipp oder lest euch die Lösung durch.
+
+\begin{aufgabe*}\label{aufgabe:521235}
+	Ermittle alle ganzzahligen Lösungen $(x,y)$ der Gleichung $19x^3-17y^3=50$.
+\end{aufgabe*}
+\begin{aufgabe*}\label{aufgabe:Modulo11}
+	Ermittle alle ganzzahligen Lösungen $(a,b)$ der Gleichung $a^2+4=b^5$.
+\end{aufgabe*}
+\begin{aufgabe*}\label{aufgabe:UnendlicherAbstieg}
+	Ermittle alle ganzzahligen Lösungen $(a,b,c,d)$ der Gleichung $a^4+2b^4+4c^4=8d^4$.
+\end{aufgabe*}
+\begin{aufgabe*}\label{aufgabe:Modulo+Faktorisierung}
+	Ermittle alle Tripel $(a,b,n)$ von nichtnegativen ganzen Zahlen, die die Gleichung $2^a+3^b=n^2$ erfüllen.
+\end{aufgabe*}
+\begin{aufgabe*}[*]\label{aufgabe:471046}
+	Ermittle alle reellen Zahlen $x$, für die $4x^3-7$ und $4x^5-7$ Quadratzahlen sind.
+\end{aufgabe*}
+\begin{aufgabe*}[***]\label{aufgabe:VAIMO2010}
+	Ermittle alle Paare $(m,n)$ von nichtnegativen ganzen Zahlen, die die Gleichung $3^m-7^n=2$ erfüllen.
+\end{aufgabe*}
+
+\subsection*{Weitere Übungsaufgaben}
+\begin{aufgabe*}\label{aufgabe:501044}
+	Ermittle alle ganzzahligen Lösungen der Gleichung $n^2=2^k+5$.
+\end{aufgabe*}
+\begin{aufgabe*}
+	Gibt es positive ganze Zahlen $a$ und $b$, sodass sowohl $a^2+4b$ als auch $b^2+4a$ Quadratzahlen sind?
+\end{aufgabe*}
+\begin{aufgabe*}
+	Gibt es ganze Zahlen $x$ und $y$, sodass $x^3+y^4=19^{19}$.
+\end{aufgabe*}
+\begin{aufgabe*}
+	Sei $n$ eine ungerade positive ganze Zahl und seien $x$, $y$ rationale Zahlen, sodass $x^n+2y=y^n+2x$ gilt. Zeige, dass $x=y$ sein muss.
+\end{aufgabe*}
+\begin{aufgabe*}[*]
+	Finde alle Paare $(n,k)$ nichtnegativer ganzer Zahlen, sodass $(n+1)^k=n!+1$.
+\end{aufgabe*}
+\begin{aufgabe*}[*]
+	Finde alle Paare $(x,y)$ nichtnegativer ganzer Zahlen, sodass $1+2^x+2^{2x+1}=y^2$.
+\end{aufgabe*}
+\begin{aufgabe*}[**]
+	Finde alle Paare $(a,b)$ nichtnegativer ganzer Zahlen, sodass $2^a=3^b+5$.
+\end{aufgabe*}
+\begin{aufgabe*}[**]
+	Finde alle Tripel $(a,b,c)$ nichtnegativer ganzer Zahlen, sodass $3^a+4^b=5^c$.
+\end{aufgabe*}
+
+\subsection*{Tipps zu den Beispielaufgaben}
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:521235}.} Finde eine geeignete Zahl~$m$, sodass Kubikzahlen möglichst wenige Reste modulo~$m$ annehmen, und betrachte die Gleichung modulo~$m$.
+
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:Modulo11}.} Finde eine geeignete Zahl~$m$, sodass Quadratzahlen und fünfte Potenzen möglichst wenige Reste modulo~$m$ annehmen, und betrachte die Gleichung modulo~$m$.
+
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:UnendlicherAbstieg}.} Betrachte die Gleichung modulo~$2$ und benutze unendlichen Abstieg.
+
+\textbf{Tipps zu Aufgabe~\ref{aufgabe:Modulo+Faktorisierung}.} Betrachte die Gleichung modulo~$3$. Faktorisiere sie danach.
+
+Um die faktorisierte Gleichung zu lösen, betrachte die Faktoren modulo $3$ und modulo $4$ und faktorisiere erneut.
+
+
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:471046}.} Zeige zuerst, dass $x$ rational und dann, dass $x$ ganzzahlig ist.
+
+Benutze danach Quadratschachtelung.
+
+
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:VAIMO2010}.} Betrachte die Gleichung erst modulo~$9$, danach modulo~$49$ und schließlich modulo~$43$ (wenn du wissen willst, wie zum Geier du auf die~43 hättest kommen sollen, dann schau einmal in die Musterlösung).

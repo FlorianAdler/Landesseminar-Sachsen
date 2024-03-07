@@ -1,0 +1,97 @@
+\section{Ungleichungen und die Schiebemethode}\label{kapitel:Schiebemethode}
+
+Die Schiebemethode ist eine sehr naive Methode, aber erstaunlich effektive Methode, an Ungleichungen heranzugehen: Wir wählen uns zuerst zwei der Variablen aus, sagen wir,~$a$ und~$b$. Alle anderen Variablen werden fixiert. Wir verschieben nun~$a$ und~$b$ gegeneinander (und zwar auf solch eine Weise, dass die Nebenbedingung, wenn sie existiert, erfüllt bleibt). Wenn wir Glück haben, können wir sehr einfach ablesen, dass das Minimum oder Maximum nur in speziellen Fällen angenommen werden kann, zum Beispiel nur für $a=0$ oder $b=0$ oder $a=b$. Dann müssen wir die Ungleichung nur in diesen Spezialfällen beweisen, was meistens deutlich einfacher ist.
+
+Zum Beispiel kommt es häufig vor, dass wir eine Ungleichung in vier Variablen $a,b,c,d\geqslant 0$ mit der Nebenbedingung $a+b+c+d=1$ haben. Wir fixieren $c$ und $d$. Damit die Nebenbedingung erhalten bleibt, fixieren wir außerdem $s\coloneqq a+b$. Nun verschieben wir $a$ und $b$ gegeneinander. Weil wir $s$ fixieren, läuft das darauf hinaus, $b=s-a$ einzusetzen und $a$ zu variieren. Wenn wir Glück haben, ist der erhaltene Ausdruck linear in $a$. Lineare Funktionen nehmen in Minimum und Maximum stets am Rand ihres Definitionsbereiches an. Wegen $a,b\geqslant 0$ und $a+b=s$ ist der Definitionsbereich für $a$ genau das Intervall $[0,s]$. Wir müssen also nur die beiden Randfälle $a=0$ und $a=s$ (was auf $b=0$ führt) betrachten.
+
+Natürlich kommt es eher selten (aber auch nicht nie) vor, dass der erhaltene Ausdruck linear in $a$ ist. Dafür ist die Methode aber auch sehr flexibel. Zum Beispiel würde sie genauso gut funktionieren, wenn der erhaltene Ausdruck bloß monoton in $a$ ist (egal ob steigend oder fallend). Aber auch für nicht-monotone Ausdrücke können wir uns häufig auf wenige Spezialfälle beschränken. Das werden wir nun an zwei Aufgaben demonstrieren. Wir empfehlen euch, die Aufgaben zuerst mit AM-GM oder der Umordnungsungleichung zu attackieren, um euch davon zu überzeugen, dass sie alles andere als trivial sind.
+\begin{aufgabe*}\label{aufgabe:JuMaUngleichung}
+	Seien $a,b,c,d\geqslant 0$ nichtnegative reelle Zahlen mit $a+b+c+d=4$. Beweise die Ungleichung
+	\begin{equation*}
+		abc+bcd+cda+dab\leqslant ac+bd+\frac12(ab+bc+cd+da)\,.
+	\end{equation*}
+\end{aufgabe*}
+\begin{proof}
+	Wir fixieren $b$, $d$ und die Summe $s=a+c$ und verschieben die Variablen $a$ und $c$ gegeneinander. Dabei bleibt die Nebenbedingung offenbar erhalten. Wir können die Ungleichung umschreiben zu
+	\begin{equation*}
+		0\leqslant ac\parens[\big]{1-(b+d)}+bd(1-s)+\frac12s(b+d)\,.
+	\end{equation*}
+	Der einzige Term, der sich beim gegenseitigen Verschieben von $a$ und $c$ ändert, ist $ac(1-(b+d))$. Wir wollen diesen Term so klein wie möglich machen. Je nach dem, ob der Faktor $1-(b+d)$ positiv oder negativ ist, wollen wir dafür $ac$ minimieren oder maximieren (im Fall $1-(b+d)=0$ ist es egal, ob wir maximieren oder minimieren). Das Produkt $ac$ nimmt offensichtlich für $a=0$ oder $c=0$ sein Minimum an. Für das Maximum erinnern wir uns an die AM-GM-Ungleichung: Es gilt $\sqrt{ac}\leqslant s/2$, also $ac\leqslant s^2/4$. Ferner gilt Gleichheit in AM-GM genau für $a=c$. Also nimmt das Produkt $ac$ genau für $a=c$ sein Maximum an.
+	
+	Also müssen wir die Ungleichung nur in den drei Spezialfällen $a=0$, $c=0$ und $a=c$ beweisen! Eine analoge Überlegung lässt sich für $b$ und $d$ durchführen: Wir müssen nur die Spezialfälle $b=0$, $d=0$ und $b=d$ betrachten. Bis auf Vertauschen von $a$ und $c$ oder $b$ und $d$ haben wir die Ungleichung damit auf die folgenden drei Spezialfälle reduziert:
+	
+	\emph{Fall~1: $a=0$ und $b=0$.} Dieser Fall führt auf die triviale Ungleichung $0\leqslant \frac12 cd$.
+	
+	\emph{Fall~2: $a=0$, $b=d$.} In diesem Fall müssen wir die Ungleichung $b^2c\leqslant b^2+bc$ unter der Nebenbedingung $2b+c=4$ beweisen. Indem wir $c=4-2b$ einsetzen und alles auf eine Seite bringen, erhalten wir die Ungleichung
+	\begin{equation*}
+		0\leqslant b\parens*{2b^2-5b+4}=b\,\parens*{\parens*{b-\frac{5}{4}}^2+\frac78}\,,
+	\end{equation*}
+	welche offensichtlich wahr ist.
+	
+	\emph{Fall~3: $a=c$ und $b=d$.} Hier müssen wir $2a^2b+2ab^2\leqslant a^2+b^2+2ab$ unter der Nebenbedingung $a+b=2$ zeigen. Die linke Seite lässt sich als $2ab(a+b)=4ab$ schreiben, und die rechte Seite als $(a+b)^2$. Wir müssen also $4ab\leqslant (a+b)^2$ zeigen, was direkt aus AM-GM folgt.
+\end{proof}
+
+Nehmt euch einen Moment, um diese Lösung zu verdauen: Wir haben, ohne uns ernsthaft anzustrengen, die Ungleichung auf wenige triviale Spezialfälle reduziert! Dabei betonen wir erneut, dass es sich hier keineswegs um eine triviale Aufgabe handelt.\footnote{In der JuMa-Klausur, in welcher der Autor dieses Textes mit Aufgabe~\ref{aufgabe:JuMaUngleichung} konfrontiert wurde, hat sie niemand rausbekommen.}
+
+\begin{aufgabe*}
+	Gegeben seien nichtnegative reelle Zahlen $x,y,z\geqslant 0$ mit $x+y+z=1$. Beweise die Ungleichung
+	\begin{equation*}
+		0\leqslant xy+yz+zx-2xyz\leqslant\frac{7}{27}\,.
+	\end{equation*}
+\end{aufgabe*}
+\begin{proof}
+	Wir fixieren $z$ sowie die Summe $s\coloneqq x+y$ und verschieben die Variablen $x$ und $y$ gegeneinander. Dabei bleibt die Nebenbedingung offenbar erhalten. Wir können die Ungleichung umschreiben zu
+	\begin{equation*}
+		0\leqslant xy(1-2z)+sz\leqslant \frac{7}{27}\,.
+	\end{equation*}
+	Der einzige Term, der sich beim Verschieben ändert, ist $xy(1-2z)$. Wir müssen also herausfinden, wann das Produkt $xy$ sein Minimum und Maximum annimmt. Genau wie in der Lösung von Aufgabe~\ref{aufgabe:JuMaUngleichung} finden wir heraus, dass das Minimum von $xy$ genau bei $x=0$ oder $y=0$ angenommen wird und das Maximum genau bei $x=y$. Bis auf Vertauschung von $x$ und $y$ müssen wir also nur die folgenden beiden Fälle betrachten:
+	
+	\emph{Fall~1: $x=0$.} In diesem Fall gilt $xy+yz+zx-2xyz=yz$. Die Ungleichung $0\leqslant yz$ ist nun trivial. Die Nebenbedingung wird zu $y+z=1$, sodass wir mithilfe der AM-GM-Ungleichung
+	\begin{equation*}
+		yz\leqslant\parens*{\frac{y+z}{2}}^2=\frac{1}{4}<\frac{7}{27}\,.
+	\end{equation*}
+	erhalten. Also gelten die gewünschten Ungleichungen in diesem Fall.
+	
+	\emph{Fall~2: $x=y$.} In diesem Fall folgt $xy+yz+zx-2xyz=x^2+2xz-2x^2z$. Wegen $x\leqslant 1$ gilt $2xz\geqslant 2x^2z$, also ist $x^2+2xz-2x^2z\geqslant 0$. Andererseits folgt $z=1-(x+y)=1-2x$ aus der Nebenbedingung. Indem wir das einsetzen, erhalten wir $x^2+2xz-2x^2z=4x^3-5x^2+2x$. Nun gilt
+	\begin{equation*}
+		4x^3-5x^2+2x-\frac{7}{27}=\parens*{x-\frac13}^2\parens*{4x-\frac{7}{3}}\leqslant 0\,,
+	\end{equation*}
+	denn der erste Faktor ist stets nichtnegativ, während der zweite Faktor für $x\leqslant \frac12$ (was aus $2x+z=1$ und $x,z\geqslant 0$ folgt) negativ ist. Damit haben wir die Ungleichung auch im zweiten Fall bewiesen.
+\end{proof}
+
+\textbf{Bemerkung~1.} Die Faktorisierung im zweiten Fall scheint auf den ersten Blick vom Himmel zu fallen, aber in Wirklichkeit ist sie sehr naheliegend. Es lässt sich sofort nachprüfen, dass in der Ungleichung $xy+yz+zy-2xyz\leqslant\frac7{27}$ für $x=y=z=\frac13$ Gleichheit eintritt (den Fall, dass alle Variablen gleich sind, solltet ihr immer als erstes ausprobieren). Also muss das Polynom $f(x)\coloneqq4x^3-5x^2+2x-\frac{7}{27}$ bei $x=\frac13$ eine Nullstelle haben. Dann muss es aber bei $x=\frac13$ automatisch eine Doppelnullstelle haben, denn sonst würde es dort sein Vorzeichen ändern und die Ungleichung wäre falsch. Also wissen wir, dass $f(x)$ durch $\parens[\big]{x-\frac13}^2$ teilbar sein muss. Durch Polynomdivision erhalten wir dann die gewünschte Faktorisierung. 
+
+Merkt euch diese Technik! Wenn ihr es schafft, eure Ungleichung auf eine Variable zurückzuführen, seid ihr durch (quadratisches) Ausklammern der Gleichheitsfälle fast immer fertig.
+
+Um Gleichheitsfälle zu erraten, solltet ihr die \enquote{üblichen Verdächtigen} durchprobieren: Alle Variablen sind gleich, alle bis auf eine Variable sind gleich oder einige Variablen sind $0$ und die anderen Variablen sind gleich.
+
+Um allgemein Nullstellen von Polynomen höheren Grades zu raten, könnt ihr wie folgt vorgehen. Bringt das Polynom zuerst in eine Form $P(X)=a_0+a_1X+\dotsb+a_nX^n$, in der $a_0,a_1,\dotsc,a_n$ ganze Zahlen sind (wenn euer ursprüngliches Polynom keine rationalen Koeffizienten hat, ist meistens etwas schief gelaufen). Wir dürfen außerdem $a_0,a_n\neq 0$ annehmen (für $a_0=0$ ist $X=0$ eine Nullstelle). Wenn $X=r/s$ eine rationale Nullstelle ist, wobei $r/s$ vollständig gekürzt ist (sodass~$r$ und~$s$ teilerfremde ganze Zahlen sind), dann folgt
+\begin{equation*}
+	0=s^nP\parens*{\frac rs}=a_0s^n+a_1rs^{n-1}+\dotsb+a_nr^n\,.
+\end{equation*}
+Also ist $0\equiv a_0s^n\mod r$ und $0\equiv a_nr^n\mod s$. Weil $r$ und $s$ teilerfremd sind, folgt, dass $a_0$ durch~$r$ und $a_n$ durch~$s$ teilbar sein muss. Auf diese Weise müsst ihr nur endlich viele Fälle durchprobieren und findet alle rationalen Nullstellen von~$P$.
+
+Für irrationale Nullstellen gibt es kein so einfaches Kriterium. In Olympiade-Aufgaben haben eure Polynome aber meistens mindestens eine rationale Nullstelle.
+
+\textbf{Bemerkung~2.} Eine weitere Idee im Fall~2 wäre, die Schiebemethode als nächstes auf $y$ und $z$ anzuwenden und so die Ungleichung auf den Fall $x=y=z=\frac13$ zu reduzieren. Hier müssen wir allerdings aufpassen: Wenn wir $x=y$ erreicht haben und jetzt $y$ und $z$ gegeneinander verschieben, bis wir $y=z$ erreichen, geht die Gleichheit $x=y$ wieder verloren. Wir erhalten also \emph{nicht} direkt $x=y=z$. Trotzdem lässt sich auch dieser Ansatz zum Ziel führen: Wenn wir die Schiebemethode erst auf $x$ und $y$, dann auf $y$ und $z$, dann auf $z$ und $x$ anwenden und das Ganze sehr oft wiederholen, lässt sich tatsächlich zeigen, dass $x$, $y$ und $z$ gegen $\frac13$ konvergieren (es sei denn, irgendeiner dieser Schritte führt uns in den Fall~1, aber dieser Fall ist ja ebenfalls trivial).
+
+Allerdings ist es etwas umständlich, diese Lösung so sauber aufzuschreiben, dass ihr keine Punkte verliert. In der Olympiade solltet ihr deshalb lieber den etwas weniger eleganten Weg gehen.
+
+
+
+\subsection*{Weitere Übungsaufgaben}
+
+\begin{aufgabe*}
+	Gegeben seien nichtnegative reelle Zahlen $a,b,c, d\geqslant 0$ mit $a+b+c+d=1$. Beweise die Ungleichung
+	\begin{equation*}
+		abc+bcd+cda+dab\leqslant \frac{1}{27}+\frac{176}{27}abcd\,.
+	\end{equation*}
+\end{aufgabe*}
+
+\begin{aufgabe*}\label{exc:Ungleichung1}
+	Gegeben sei der Ausdruck
+	\begin{equation*}
+		T\coloneqq x_1x_2x_3+x_2x_3x_4+x_3x_4x_5+x_4x_5x_6+x_5x_6x_7+x_6x_7x_1+x_7x_1x_2
+	\end{equation*}
+	für nichtnegative reelle Zahlen $x_1,x_2,\dotsc,x_7\geqslant 0$ mit $x_1+x_2+\dotsb+x_7=1$. Beweise, dass $T$ einen maximalen Wert annimmt und bestimme diesen Wert.
+\end{aufgabe*}

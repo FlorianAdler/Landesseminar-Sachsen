@@ -1,0 +1,139 @@
+\section{Nichtlineare Gleichungssysteme}\label{kapitel:Gleichungssysteme}
+
+Ein beliebtes Aufgaben-Thema in allen Klassenstufen sind nichtlineare Gleichungssysteme. Im Gegensatz zu linearen Gleichungssystemen, die ihr aus der Schule kennt, gibt es hier keine Methode, die sicher zum Ziel führt. Stattdessen ist bei jeder Aufgabe aufs Neue eure Kreativität gefragt. Auf den richtigen Trick zu kommen wird euch um so leichter fallen, je mehr Tricks ihr schon kennt. Deshalb werden in diesem Kapitel einige Tricks präsentieren, mit denen sich nichtlineare Gleichungssysteme attackieren lassen. Danach werdet ihr dazu eingeladen, diese Tricks an einigen Beispielaufgaben auszuprobieren.
+
+Wir werden im Folgenden davon ausgehen, dass die Variablen unseres Gleichungssystems \emph{reell} sind. Wenn stattdessen nach \emph{ganzzahligen} Lösungen gefragt ist, dann könnt ihr die Methoden aus Kapitel~\ref{kapitel:Diophantastisch}: \emph{Diophantische Gleichungen} verwenden (ganz besonders solltet ihr in diesem Fall nach Faktorisierungen Ausschau halten).
+
+Zu nichtlinearen Gleichungssystemen gibt es auch ein exzellentes Skript von Eric Müller.\footnote{Online verfügbar unter \url{http://www.mathematikinformation.info/pdf/MI38_43-52_Mueller.pdf}.}
+
+\subsection*{Strategien, Tipps und Tricks für nichtlineare Gleichungssysteme}
+
+\textbf{1.~Forme geeignet um.} Ein guter erster Schritt ist zunächst mit den gegebenen Gleichungen herumzuspielen. Wenn ihr einige der Gleichungen so addieren oder subtrahieren könnt, dass sich möglichst viele Terme wegheben, dann seid ihr  auf gutem Wege. Haltet auch nach Faktorisierungen Ausschau. Fast immer sind die Gleichungen in Olympiade-Aufgaben von polynomieller Natur. Dann kommt es bei geschickter Addition oder Subtraktion zweier Gleichungen schnell einmal vor, dass sich zum Beispiel ein Faktor $(x-y)$ auf beiden Seiten ausklammern lässt. Wenn euch so eine Umformung gelingt, seid ihr ziemlich sicher auf dem richtigen Weg. Mehr zu solchen Faktorisierungen findet ihr in Kapitel~\ref{kapitel:Diophantastisch}: \emph{Diophantische Gleichungen}.
+
+Es wird auch gerne versucht, die Gleichungen nacheinander nach einer Variablen umzuformen und ineinander einzusetzen. Gelegentlich führt das zum Ziel, häufig aber eher zu langwierigen Rechnungen, die irgendwann an Rechenfehlern. Allgemein gilt: \emph{Macht euch einen Plan!} Wenn es so aussieht, als könntet ihr durch sukzessives Einsetzen zum Ziel kommen, dann probiert das auf jeden Fall aus. Ansonsten schaut lieber, ob ihr einen besseren Trick seht.
+
+\textbf{2.~Substituiere geeignet.} Substitutionen sind geeignet, wenn sie das Gleichungssystem vereinfachen, gleichzeitig aber auch nichts verschenken: Die Lösungen des ursprünglichen Gleichungssystems sollten sich immer noch aus den Lösungen des substituierten Gleichungssystems rekonstruieren lassen.
+
+Hier sind zwei spezielle Substitutionen, die hin und wieder zum Ziel führen:
+\begin{itemize}
+	\item Wenn in eurem Gleichungssystem zwei Variablen~$x$ und~$y$ vorkommen, dann könnt ihr oftmals $s=x+y$ und $t=xy$ substituieren. Nach dem Satz von Vieta könnt ihr~$x$ und~$y$ als Lösungen der quadratischen Gleichung $X^2-sX+t=0$ rekonstruieren. Diese Substitution ist auch für Ungleichungen nützlich, wie ihr in Kapitel~\ref{kapitel:Schiebemethode}: \emph{Ungleichungen und die Schiebemethode} sehen werdet.
+	
+	Das Ganze funktioniert natürlich auch mit mehr als zwei Variablen. Wenn ihr zum Beispiel~$x$,~$y$ und~$z$ gegeben habt, könnt ihr $u=x+y+z$, $v=xy+yz+zx$ und $w=xyz$ substituieren. Auch hier lassen sich~$x$,~$y$ und~$z$ rekonstruieren, nämlich als Lösungen der kubischen Gleichung $(X-x)(X-y)(X-z)=X^3-uX^2+vX-w=0$.
+	
+	\item In manchen Aufgaben kommen \emph{trigonometrische Substitutionen} zum Einsatz. Hier schreibt ihr die Variablen als Sinus, Kosinus oder Tangens von geeigneten Winkeln (bevor ihr $x=\sin\alpha$ substituieren könnt, müsst ihr natürlich beweisen, dass $x$ im Intervall $[-1,1]$ liegt). Dadurch ergeben sich manchmal ganz phantastische Vereinfachungen und besonders elegante Lösungen.
+	
+	Trigonometrische Substitutionen werden meistens dann verwendet, wenn Terme auftauchen, die wie Additionstheoreme aussehen. Zum Beispiel erinnert uns der Term $\frac{x+y}{1-xy}$ an das Additionstheorem 
+	\begin{equation*}
+		\tan(\alpha+\beta)=\frac{\tan\alpha+\tan\beta}{1-\tan\alpha\tan\beta}
+	\end{equation*}
+	und der Term $2x^2-1$ könnte ein Hinweis auf die Formel $\cos(2\alpha)=2\cos^2\alpha-1$ sein. Weil trigonometrische Substitutionen in der Klassenstufe~9/10 sehr selten sind, werden wir hier nicht weiter darauf eingehen. Im Heft für die Klasse~12 gibt es ein komplettes Kapitel dazu.
+\end{itemize}
+
+\textbf{3.~Benutze das Extremalprinzip.} Das Extremalprinzip für Gleichungssysteme ist vielleicht der wichtigste Trick in diesem Kapitel! Um damit Gleichungssysteme zu lösen, schaut ihr euch zuerst das Maximum oder das Minimum aller vorkommenden Variablen an. Sagen wir, $x_1$ ist maximal. Erstaunlich häufig sind die Gleichungen so beschaffen, dass ihr zeigen könnt, dass dann noch eine weitere Variable maximal oder minimal sein muss. Sagen wir, $x_2$ ist ebenfalls maximal. Wenn das Gleichungssystem \emph{zyklisch}\footnote{\emph{Zyklisch} bedeutet, dass das Gleichungssystem bei einem geeigneten Ringtausch der Variablen in sich selbst überführt wird.} ist, dann können wir das gleiche Argument mit $x_2$ wiederholen und erhalten noch eine maximale Variable. Auf diese Weise könnt ihr euch von Variable zu Variable hangeln und findet heraus, dass alle Variablen maximal, also alle Variablen gleich sein müssen. Damit ist die Aufgabe meistens gegessen.
+
+Wenn ihr mit dem Extremalprinzip argumentiert, dann müsst ihr besonders auf der Hut sein, dass ihr nicht \enquote{ohne Beschränkung der Allgemeinheit} Annahmen trefft, die in Wirklichkeit die Allgemeinheit beschränken. Wenn ihr zum Beispiel ein zyklisches Gleichungssystem in den Variablen $x$, $y$ und $z$ vorliegen habt, dann dürf ihr \emph{nicht} ohne Beschränkung der Allgemeinheit $x\geqslant y\geqslant z$ annehmen. Das ist nur möglich, wenn das Gleichungssystem \emph{symmetrisch}\footnote{\emph{Symmetrisch} bedeutet, dass das Gleichungssystem bei jedem beliebigen Tausch der Variablen in sich selbst überführt wird} ist. Was ihr im zyklischen Fall jedoch tun dürft, ist $x=\max\{x,y,z\}$ anzunehmen. Und ihr dürft natürlich ebenfalls die beiden Fälle $x\geqslant y\geqslant z$ und $x\geqslant z\geqslant y$ unterscheiden. Ihr müsst sie nur beide betrachten.
+
+
+\textbf{4.~Interpretiere das Gleichungssystem als Gleichheitsfall einer Ungleichung.} Manchmal lässt sich ein Gleichungssystem als Ungleichung mit Nebenbedingung interpretieren. Wenn ihr die Ungleichung beweisen und die Gleichheitsfälle identifizieren könnt, habt ihr das ursprüngliche Gleichungssystem gelöst. Zum Beweis einer solchen Ungleichung könnt ihr etwa AM-GM benutzen (siehe Kapitel~\ref{kapitel:AM-GM}: \emph{Mittelungleichungen}) oder die entsprechenden Terme als Summe von Quadraten schreiben.
+
+Nach diesem Trick solltet ihr vor allem dann Ausschau halten, wenn euer Gleichungssystem \emph{unterbestimmt} ist, das heißt, wenn es weniger Gleichungen als Variablen gibt. Denn in diesem Fall muss es einen Grund geben, warum das Gleichungssystem nicht einfach unendlich viele Lösungen hat. Und dieser Grund ist meistens, dass eine der Gleichungen, bis auf wenige Gleichheitsfälle, in Wirklichkeit als Ungleichung gilt.
+
+Natürlich kann es auch vorkommen, dass euer Gleichungssystem wirklich unendlich viele Lösungen hat und ihr diese klassifizieren müsst. In diesem Fall könnt ihr meistens eine oder mehrere der Variablen beliebig wählen und die restlichen Variablen in Abhängigkeit der frei gewählten Variablen darstellen.
+
+Noch ein letzer Hinweis: \emph{Macht eine Probe!!!} Eine fehlende Probe ist einer der häufigsten Gründe für ärgerliche und vermeidbare Punktabzüge.
+
+\subsection*{Beispielaufgaben}
+
+Ihr sollt nun einige der folgenden Aufgaben selbstständig lösen. Am Ende des Kapitels findet ihr Tipps zu den Aufgaben und am Ende des Heftes könnt ihr die Lösungen nachlesen.
+
+\begin{aufgabe*}\label{aufgabe:520943}
+	Bestimme alle reellen Lösungen $(x,y,z)$ des Gleichungssystems
+	\begin{equation*}
+		x-\frac 1y=y-\frac 1z=z-\frac 1x\,.
+	\end{equation*}
+\end{aufgabe*}
+\begin{aufgabe*}\label{aufgabe:521043}
+	Bestimme alle reellen Lösungen $(x,y,z)$ des Gleichungssystems
+	\begin{equation*}
+		x+\frac 1y=y+\frac 1z=z+\frac 1x\,.
+	\end{equation*}
+\end{aufgabe*}
+\begin{aufgabe*}\label{aufgabe:380943}
+	Finde alle Tripel $(x,y,z)$ von positiven reellen Zahlen, die die folgende Gleichung erfüllen:
+	\begin{equation*}
+		x+3y^3+5z^5+\frac1x+\frac{3}{y^3}+\frac{5}{z^5}=18\,.
+	\end{equation*}
+\end{aufgabe*}
+\begin{aufgabe*}\label{aufgabe:451046}
+	Finde alle reellen Lösungen $(x,y,z)$ des Gleichungssystems
+	\begin{equation*}
+		\left\{\begin{aligned}
+			x+y+\frac 1z &= 3\,,\\
+			y+z+\frac 1x &= 3\,,\\
+			z+x+\frac 1y &= 3\,.
+		\end{aligned}\right.
+	\end{equation*}
+\end{aufgabe*}
+\begin{aufgabe*}\label{aufgabe:461041}
+	Finde alle reellen Lösungen $(x,y,z)$ des Gleichungssystems
+	\begin{equation*}
+		\left\{\begin{aligned}
+			x+y+z &= 1\,,\\
+			\frac 1x+\frac 1y+\frac 1z &= 1\,.
+		\end{aligned}\right.
+	\end{equation*}
+\end{aufgabe*}
+\begin{aufgabe*}\label{aufgabe:541241}
+	Finde alle reellen Lösungen $(x,y)$ des Gleichungssystems
+	\begin{equation*}
+		\left\{\begin{alignedat}{2}
+			x^3&+9x^2y &&= 10\,,\\
+			y^3&+\phantom{9}xy^2 &&= 2\,.
+		\end{alignedat}\right.
+	\end{equation*}
+\end{aufgabe*}
+\begin{aufgabe*}\label{aufgabe:Sayda2013}
+	Finde alle reellen Lösungen $(u,v,w,x,y)$ des Gleichungssystems
+	\begin{equation*}
+		\left\{\begin{alignedat}{4}
+			v^2&+w^2&&+x^2&&+y^2 &&= 6-2u\,,\\
+			w^2&+x^2&&+y^2&&+u^2 &&= 6-2v\,,\\
+			x^2&+y^2&&+u^2&&+v^2 &&= 6-2w\,,\\
+			y^2&+u^2&&+v^2&&+w^2 &&= 6-2x\,,\\
+			u^2&+v^2&&+w^2&&+x^2 &&= 6-2y\,.
+		\end{alignedat}\right.
+	\end{equation*}
+\end{aufgabe*}
+\begin{aufgabe*}[*]\label{aufgabe:IMOSL1993VNM}
+	Sei $a>1$ eine gegebene reelle Zahl. Finde, in Abhängigkeit von $a$, alle reellen Lösungen des Gleichungssystems
+	\begin{equation*}
+		\left\{\begin{alignedat}{2}
+			x_1^2 &= ax_2&&+1\,,\\
+			x_2^2 &= ax_3&&+1\,,\\
+			&\mathrel{\tikz[inner sep=0,outer sep=0]{\node at (0,-0.5ex) {$\phantom{=}$};\node at (0,0) {$\vdots$};}}\\
+			x_{41}^2 &= ax_{42}&&+1\,,\\
+			x_{42}^2 &= ax_1&&+1\,.
+		\end{alignedat}\right.
+	\end{equation*}
+\end{aufgabe*}
+
+\subsection*{Tipps zu den Beispielaufgaben}
+\textbf{Tipps zu Aufgabe~\ref{aufgabe:520943}.} Zeige zuerst, dass alle Variablen das gleiche Vorzeichen haben müssen.
+
+Nimm an, dass $x$ das Maximum der Variablen $x$, $y$ und $z$ ist. Was kannst du dann über $y$ aussagen?
+
+\textbf{Tipps zu Aufgabe~\ref{aufgabe:521043}.} Bezeichne den gemeinsamen Wert von $x+\frac 1y$, $y+\frac 1z$ und $z+\frac 1x$ mit $a$. Forme geschickt um.
+
+Für bestimmte Werte von $a$ hat das Gleichungssystem nicht nur die triviale Lösung $x=y=z$. Kannst du herausfinden, welche Werte von~$a$ das sind?
+
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:380943}.} Zeige, dass die gewünschte Gleichung in Wirklichkeit als Ungleichung gilt und bestimme alle Gleichheitsfälle.
+
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:451046}.} Subtrahiere jeweils zwei Gleichungen und faktorisiere.
+
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:461041}.} Betrachte das Polynom $P(X)\coloneqq (X-x)(X-y)(X-z)$. Was kannst du über die Koeffizienten von $P(X)$ aussagen?
+
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:541241}.} Durch eine geschickte Umformumg lässt sich bei dieser Aufgabe eine sehr einfache Faktorisierung finden.
+
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:Sayda2013}.} Subtrahiere jeweils zwei Gleichungen und faktorisiere.
+
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:IMOSL1993VNM}.} Nimm an, dass der Betrag $\abs{x_1}$ maximal unter allen Variablen ist. Was kannst du über $x_2$ und $x_{42}$ aussagen, je nachdem, ob $x_1$ positiv oder negativ ist?

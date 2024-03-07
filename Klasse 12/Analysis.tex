@@ -1,0 +1,310 @@
+\section{Ungleichungen mit Analysis beweisen}\label{kapitel:Analysis}
+In der Theorie könnt ihr Ungleichungen beweisen, indem ihr sie als Extremwertaufgaben auffasst. Die lokalen Extrema lasse sich durch Ableiten bestimmen. Falls die Ungleichung eine Nebenbedingung hat, müsst ihr dafür die Lagrange-Multiplikator-Methode benutzen, die wir später in diesem Text erklären werden. Wenn ihr die Extrema bestimmt habt, könnt ihr durch Einsetzen überprüfen, dass die Ungleichung erfüllt ist.
+
+In der Praxis wird das nicht funktionieren. Ihr werdet nichtlineare Gleichungssysteme bekommen, die so kompliziert sind, dass ihr sie niemals von Hand lösen könnt. Aber das müsst ihr auch gar nicht! Ihr wollt ja in Wirklichkeit gar nicht die lokalen Extrema bestimmen, sondern nur beweisen, \emph{dass die Ungleichung dort erfüllt ist!} Das furchtbare nichtlineare Gleichungssystem, das ihr unmöglich lösen könnt, ist in Wirklichkeit \emph{Gratisinformation}, die euch beim Beweis der Ungleichung hilft, und die ihr einsetzen könnt, wie ihr wollt.
+
+In diesem Kapitel werden wir an zahlreichen Beispielen vorführen, wie sich Analysis auf kreative Weise zum Beweis von schweren Olympiade-Ungleichungen benutzen lässt. Aber zuerst führen wir etwas Theorie ein.%In den meisten Fällen haben diese Aufgaben wesentlich elegantere Musterlösungen, auf die ihr aber nur sehr schwer kommen könnt. 
+
+\subsection*{Partielle Ableitungen}
+\begin{definition}
+	Sei $\Omega\subseteq \mathbb R^n$ eine offene Menge\footnote{Das bedeutet, dass es für jeden Punkt $x=(x_1,x_2,\dotsc,x_n)\in\Omega$ ein $\varepsilon >0$ gibt, sodass alle Punkte im Abstand $<\varepsilon$ von $x$ auch in $\Omega$ liegen.} und sei $f\colon \Omega\rightarrow \mathbb R$ eine stetige Funktion. Sei ferner $a=(a_1,a_2,\dotsc,a_n)\in\Omega$ ein Punkt. Die \emph{partielle Ableitung von $f$ nach $x_i$ in $a$} ist definiert als
+	\begin{equation*}
+		\frac{\partial f}{\partial x_i}(a)\coloneqq \lim_{h\rightarrow 0}\frac{f(a_1,\dotsc,a_{i-1},a_{i}+h,a_{i+1},\dotsc,a_n)-f(a_1,\dotsc,a_{i-1},a_{i},a_{i+1},\dotsc,a_n)}{h}\,,
+	\end{equation*}
+	sofern dieser Grenzwert existiert. Wenn alle partiellen Ableitungen von $f$ existieren, nennen wir $f$ \emph{partiell differenzierbar}. In diesem Fall definieren wir den \emph{Gradienten von $f$} als Funktion $\nabla f\colon \Omega\rightarrow \mathbb R^n$ gegeben durch
+	\begin{equation*}
+		\nabla f(a)\coloneqq \parens*{\frac{\partial f}{\partial x_1}(a),\frac{\partial f}{\partial x_2}(a),\dotsc,\frac{\partial f}{\partial x_n}(a)}\,.
+	\end{equation*}
+\end{definition}
+Die partielle Ableitung nach $x_i$ ist also genau wie die Ableitung von Funktionen in einer Variablen definiert, nur dass wir die anderen Variablen $x_j$, $j\neq i$ wie Konstanten behandeln.
+
+Sei $f\colon \Omega\rightarrow \mathbb R$ eine partiell differenzierbare Funktion. Analog zum Fall von Funktionen in einer Variablen kann ein Punkt $a\in \Omega$ nur dann ein lokales Extremum von $f$ sein, wenn alle partiellen Ableitungen von $f$ in $a$ verschwinden.\footnote{Genau wir bei Funktionen in einer Variablen ist das natürlich nur eine notwendige, aber nicht unbedingt eine hinreichende Bedingung.} Diese Bedingung können wir sehr kompakt als $\nabla f(a)=0$ schreiben, wobei $0=(0,0,\dotsc,0)$ der Nullvektor in $\mathbb R^n$ ist.
+
+Mit partiellen Ableitungen können wir Ungleichungen attackieren, die keine Nebenbedingung haben. Wie wir oben bereits beschrieben haben, ist es meistens hoffnungslos, die Gleichung (bzw.\ eigentlich das Gleichungssystem) $\nabla f(a)=0$ lösen zu wollen. Trotzdem lassen sich auf diese Weise Aufgaben lösen. Das werden wir nun an unserem ersten Beispiel demonstrieren.
+\begin{aufgabe*}
+	Gegeben seien positive reelle Zahlen $a,b,c>0$ mit $ab,bc,ca\geqslant 1$. Zeige, dass
+	\begin{equation*}
+		\sqrt[3]{\parens*{a^2+1}\parens*{b^2+1}\parens*{c^2+1}}\leqslant\parens*{\frac{a+b+c}{3}}^2+1\;.
+	\end{equation*}
+\end{aufgabe*}
+(Diese Aufgabe hat eine wesentlich elegantere Lösung als die, die wir hier präsentieren werden. Findest du sie?)
+
+\begin{proof}[Lösung]
+	Wir erinnern uns, dass sich die AM-GM-Ungleichung beweisen lässt, indem die Jensensche Ungleichung auf die Logarithmusfunktion angewendet wird. Die Aufgabe sieht zunächst so aus, als wäre ein ähnlicher Trick möglich: Wir könnten versuchen, die Jensensche Ungleichung auf die Funktion $f(x)=\ln(x^2+1)$ anzuwenden \ldots\ wenn diese Funktion konkav wäre! Eine kurze Rechnung liefert aber
+	\begin{equation*}
+		f''(x)=\frac{2\parens*{1-x^2}}{\parens*{x^2+1}^2}\,,
+	\end{equation*}
+	was nur für $x\geqslant 1$ nichtpositiv ist. Also ist $f$ nur für $x\geqslant 1$ konkav. Die nächste Idee wäre, die Karamata-Schiebemethode zu verwenden (siehe das Kapitel \emph{Die Jensensche Ungleichung für nicht-konvexe Funktionen} im Heft für die Klasse~11). Mit dieser Methode lässt sich die Aufgabe auf den Fall reduzieren, dass zwei Variablen gleich sind oder dass in einer der Ungleichungen $ab,bc,ca\geqslant 1$ Gleichheit gilt. Aber damit lässt sich die Aufgabe nicht auf eine Variable reduzieren, denn die Nebenbedingung ist keine Gleichheit. Es ist also nicht klar, wie wir an dieser Stelle fortfahren würden.
+	
+	Stattdessen benutzen wir Analysis. Sei $\overline{\Omega}\coloneqq \braces*{(x,y,z)\ \middle|\ xy,yz,zx\geqslant 1}$ die Menge aller Tripel, für die die Nebenbedingung erfüllt ist, und sei $\Omega\coloneqq \braces*{(x,y,z)\ \middle|\ xy,yz,zx> 1}$. Dann ist $\Omega$ eine offene Menge, aber $\overline{\Omega}$ nicht. Betrachte die Funktion $g\colon\overline{\Omega}\rightarrow \mathbb R$ gegeben durch
+	\begin{equation*}
+		g(x,y,z)\coloneqq 3\ln\parens*{\parens*{\frac{x+y+z}{3}}^2+1}-\parens[\Big]{\ln\parens*{x^2+1}+\ln\parens*{y^2+1}+\ln\parens*{z^2+1}}\,.
+	\end{equation*}
+	Wir müssen zeigen, dass $g\geqslant 0$. Wenn $(a,b,c)\in\Omega$ ein Punkt ist, an dem $g$ ein lokales Extremum annimmt, dann muss $\nabla g(a,b,c)=0$ sein. Schreibe $s\coloneqq \frac{a+b+c}{3}$. Dann muss also
+	\begin{equation*}
+		0=\frac{\partial g}{\partial x}(a,b,c)=\frac{2s}{s^2+1}-\frac{2a}{a^2+1}
+	\end{equation*}
+	gelten. Indem wir diese Gleichung logarithmieren, erhalten wir
+	\begin{equation*}
+		\ln\parens*{s^2+1}-\ln\parens*{a^2+1}=\ln(s)-\ln(a)\,.
+	\end{equation*}
+	Analoge Gleichungen gelten auch für $b$ und $c$. Um die gewünschte Ungleichung
+	\begin{equation*}
+		\ln\parens*{s^2+1}-\parens*{\ln\parens*{a^2+1}+\ln\parens*{b^2+1}+\ln\parens*{c^2+1}}\geqslant 0
+	\end{equation*}
+	zu zeigen, genügt es also, die Ungleichung $3\ln(s)-(\ln(a)+\ln(b)+\ln(c))\geqslant 0$ zu zeigen. Diese Ungleichung folgt aber sofort aus Jensen! Folglich ist die gewünschte Ungleichung an allen lokalen Extrema von $g$ erfüllt!
+	
+	Damit haben wir den größten Teil der Aufgabe geschafft. Wir müssen nur noch das Verhalten von $g$ \enquote{im Unendlichen} sowie am Rand von $\overline{\Omega}$ (also für Punkte in $\overline{\Omega}\smallsetminus \Omega$) untersuchen. Das ist nicht schwer, aber etwas länglich.
+	
+	\emph{Verhalten von $g$ im Unendlichen.} Für $a,b,c\geqslant 1$ folgt die gewünschte Ungleichung einfach aus Jensen, denn $f(x)=\ln(x^2+1)$ ist konkav für $x\geqslant 1$. Ansonsten dürfen wir ohne Einschränkung $c<1$ und $a=\max\{a,b,c\}$ annehmen. Dann gilt $\sqrt[3]{(a^2+1)(b^2+1)(c^2+1)}<\sqrt[3]{2(a^2+1)^2}$ und $s^2+1> \frac19a^2+1$. Für hinreichend große $a$ ist aber $\sqrt[3]{2(a^2+1)^2}<\frac19a^2+1$. Folglich ist die Ungleichung für $a\rightarrow \infty$ erfüllt.
+	
+	\emph{Verhalten von $g$ am Rand von $\overline{\Omega}$.} Wenn $(a,b,c)$ auf dem Rand von $\Omega$ liegt, dürfen wir ohne Einschränkung $bc=1$ annehmen. Dann gilt $b\leqslant 1$ oder $c\leqslant 1$. In jedem Fall folgt aus $ab,ca\geqslant 1$, dass $a\geqslant 1$ sein muss. Zusammen mit $b+c=b+\frac1b\geqslant 2$ folgt auch $s\geqslant 1$. Nun betrachten wir zwei Fälle:
+	
+	\emph{Fall~1: Es gilt auch $ab=1$ oder $ca=1$.} Wir betrachten nur den Fall $ab=1$; der Fall $ac=1$ lässt sich völlig analog behandeln. Aus $ab=bc=1$ folgt $a=c=\frac1b$ und wir haben die Ungleichung auf eine Variable zurückgeführt. Durch Einsetzen erhalten wir die Ungleichung
+	\begin{equation*}
+		\frac{a^2+1}{a^{2/3}}=\sqrt[3]{\frac{(a^2+1)^3}{a^2}}\leqslant \parens*{\frac{2a+\frac1a}{3}}^2+1=\frac{4a^2+4+\frac1{a^2}}{9}+1\,.
+	\end{equation*}
+	Indem wir $t=a^2$ setzen, ausmultiplizieren und den Gleichheitsfall $t=1$ ausklammern, erhalten wir die äquivalente Ungleichung
+	\begin{equation*}
+		0\leqslant (t-1)^3\parens*{64t^3+87t^2-42t-1}\,,
+	\end{equation*}
+	welche für $t=1$ offensichtlich erfüllt ist.
+	
+	\emph{Fall~2: Es gilt $ab,ca>1$.} Wir fixieren $b$ (und wegen $bc=1$ auch $c$) und betrachten die Funktion $h(x)=g(x,b,c)$. Wir zeigen zuerst, dass die gewünschte Ungleichung an den lokalen Extrema von $h$ erfüllt ist. Wenn $x=a$ ein solches lokales Extremum ist, folgt wie oben
+	\begin{equation*}
+		0=h'(a)=\frac{\partial g}{\partial x}(a,b,c)=\frac{2s}{s^2+1}-\frac{2a}{a^2+1}\,.
+	\end{equation*}
+	Diese Gleichung impliziert $s+\frac1s=a+\frac1a$. Wir haben weiter oben gesehen, dass $a,s\geqslant 1$ gilt. Also kann diese Gleichung nur für $a=s$ gelten. Aus $ab,ca>1$ und $bc=1$ folgt $a>b,c$. Also gilt
+	\begin{equation*}
+		\sqrt[3]{\parens*{a^2+1}\parens*{b^2+1}\parens*{c^2+1}}<\sqrt[3]{\parens*{a^2+1}^3}=a^2+1=s^2+1
+	\end{equation*}
+	und die gewünschte Ungleichung ist trivial. Damit gilt die Ungleichung an allen lokalen Extrema von $h$. Wir müssen nur noch das Verhalten von $h$ für $a\rightarrow \infty$ untersuchen. Das folgt aus unserer Allgemeinen Analyse des Verhaltens von $g$ im Unendlichen.
+\end{proof}
+
+Da diese Lösung aus vielen Schritten bestand, lasst uns die entscheidende Idee hervorheben: Die Funktion $f(x)=\ln(x^2+1)$ ist zwar nicht überall konkav, aber die Bedingungen, die für ein lokales Extremum des Ausdruckes in der Aufgabenstellung gelten müssen, sind genau so beschaffen, dass wir die Jensensche Ungleichung trotzdem anwenden konnten! Alle weiteren Schritte in der obigen Lösung bestanden dann nur noch darin, das Verhalten im Unendlichen sowie am Rand des Definitionsbereiches zu untersuchen.
+
+\subsection*{Die Langrange-Multiplikator-Methode}
+Mit der Langrange-Multiplikator-Methode lassen sich mehrdimensionale Extremwertprobleme mit Nebenbedingungen lösen. Um die Methode zu beschreiben, betrachten wir eine Teilmenge $\overline{\Omega}\subseteq \mathbb R^n$. Sei $\Omega\subseteq \overline{\Omega}$ das \emph{Innere von $\overline{\Omega}$}, also die größte offene Teilmenge von $\mathbb R^n$, die in $\overline{\Omega}$ enthalten ist. Betrachte außerdem zwei stetige Funktionen $f,g\colon \overline{\Omega}\rightarrow \mathbb R$, die auf $\Omega$ \emph{stetig differenzierbar} sind. Das bedeutet, dass sie partiell differenzierbar sind und ihre partiellen Ableitungen stetig sind. Schließlich wollen wir $f(x_1,x_2,\dotsc,x_n)$ für $(x_1,x_2,\dotsc,x_n)\in\overline{\Omega}$ maximieren, wobei die Nebenbedingung $g(x_1,x_2,\dotsc,x_n)=0$ erfüllt sein soll.
+
+\begin{satzmitnamen}[Lagrange-Multiplikator-Methode]
+	Um das eben beschriebene Extremwertproblem zu lösen, können wir folgendermaßen vorgehen:
+	\begin{enumerate}
+		\item Finde alle $(n+1)$-Tupel $(a_1,a_2,\dotsc,a_n,\lambda)$ mit $a=(a_1,a_2,\dotsc,a_n)\in\Omega$ und $\lambda\in \mathbb R$, die Lösungen des folgenden Gleichungssystems sind:\label{schritt:Gleichungssystem}
+		\begin{equation*}
+			\left\{\begin{alignedat}{2}
+				\frac{\partial f}{\partial x_1}(a)&-\lambda\frac{\partial g}{\partial x_1}(a)&&=0\,,\\
+				&&&\mathrel{\tikz[inner sep=0,outer sep=0]{\node at (0,-0.5ex) {$\phantom{=}$};\node at (0,0) {$\vdots$};}}\\
+				\frac{\partial f}{\partial x_n}(a)&-\lambda\frac{\partial g}{\partial x_n}(a)&&=0\,,\\
+				&&\llap{$g(a_1,a_2,\dotsc,a_n)$}&=0\,.
+			\end{alignedat}\right.
+		\end{equation*}
+		Alle diese Lösungen kommen als lokale Extrema von $f(x_1,x_2,\dotsc,x_n)$ unter der Nebenbedingung $g(x_1,x_2,\dotsc,x_n)=0$ in Frage. Die reelle Zahl $\lambda$ wird auch \emph{Lagrange-Multiplikator} genannt und gibt der Methode ihren Namen.
+		\item Finde alle Lösungen von $\nabla g(a)=0$ mit $a=(a_1,a_2,\dotsc,a_n)\in\Omega$. Auch diese kommen als lokale Extrema von $f$ unter $g(x_1,x_2,\dotsc,x_n)=0$ in Frage.\label{schritt:SingulaerePunkte}
+		\item Untersuche das Verhalten von $f$ am Rand des Definitionsbereiches, also auf $\overline{\Omega}\smallsetminus\Omega$, sowie \enquote{im Unendlichen} \embrace{falls $\overline{\Omega}$ eine unbeschränkte Menge ist}.\label{schritt:VerhaltenAmRand}
+	\end{enumerate}
+	Durch Einsetzen der erhaltenen Werte kann dann das Maximum von $f(x_1,x_2,\dotsc,x_n)$ unter der Nebenbedingung $g(x_1,x_2,\dotsc,x_n)=0$ ermittelt werden.
+\end{satzmitnamen}
+\begin{proof}
+	Sei $a=(a_1,a_2,\dotsc,a_n)\in\Omega$ ein Punkt mit $\nabla g(a)\neq 0$. Bis auf Vertauschung der Variablen dürfen wir dann $\frac{\partial g}{\partial x_n}(a)\neq 0$ annehmen. Diese Bedingung garantiert, dass wir die Gleichung $g(x_1,x_2,\dotsc,x_n)=0$ nach $x_n$ umstellen können (zumindest in einer kleinen Umgebung von $a$). Es gibt also eine Funktion $h(x_1,x_2,\dotsc,x_{n-1})$, sodass
+	\begin{equation*}
+		g(x_1,x_2,\dotsc,x_n)=0\quad\Longleftrightarrow \quad x_n=h(x_1,x_2,\dotsc,x_{n-1})
+	\end{equation*}
+	(zumindest für $(x_1,x_2,\dotsc,x_n)$ in einer kleinen Umgebung von $a$). Um dieses Argument sauber durchführen zu können, brauchen wir den \emph{Satz von der impliziten Funktion}, den ihr im Studium kennenlernen werdet. Wenn ihr diesen Satz noch nicht kennt, könnt ihr euch trotzdem leicht überlegen, dass so eine Funktion $h$ für alle Nebenbedingungen existiert, die normalerweise in Olympiade-Aufgaben vorkommen (zum Beispiel für $x_1+x_2+\dotsb+x_n=1$ oder $x_1x_2\dotsm x_n=1$).
+	
+	Indem wir die Funktion $F(x_1,x_2,\dotsc,x_{n-1})\coloneqq f(x_1,x_2,\dotsc,x_{n-1},h(x_1,x_2,\dotsc,x_{n-1}))$ betrachten, können wir die Nebenbedingung loswerden. Betrachte nun den Fall, dass $a=(a_1,a_2,\dotsc,a_n)$ ein lokales Extremum von $f(x_1,x_2,\dotsc,x_{n-1})$ unter der Nebenbedingung $g(x_1,x_2,\dotsc,x_n)=0$ ist. Dann ist $a'\coloneqq (a_1,a_2,\dotsc,a_{n-1})$ ein lokales Extremum von $F$ und es gilt
+	\begin{equation*}
+		0=\frac{\partial F}{\partial x_i}(a')=\frac{\partial f}{\partial x_i}(a)+\frac{\partial f}{\partial x_n}(a)\frac{\partial h}{\partial x_i}(a')
+	\end{equation*}
+	(überlegt euch, dass die mehrdimensionale Kettenregel so funktioniert, indem ihr den Beweis der eindimensionalen Kettenregel anpasst). Nach Konstruktion von $h$ ist die Funktion $G(x_1,x_2,\dotsc,x_{n-1})\coloneqq g(x_1,x_2,\dotsc,x_{n-1},h(x_1,x_2,\dotsc,x_{n-1}))$ konstant $0$. Es gilt also auch
+	\begin{equation*}
+		0=\frac{\partial G}{\partial x_i}(a')=\frac{\partial g}{\partial x_i}(a)+\frac{\partial g}{\partial x_n}(a)\frac{\partial h}{\partial x_i}(a')\,.
+	\end{equation*}
+	Aus diesen beiden Gleichungen folgt: Wenn $\lambda=\frac{\partial f}{\partial x_n}(a)\mathop{\big/}\frac{\partial g}{\partial x_n}(a)$, dann erfüllt $(a_1,a_2,\dotsc,a_n,\lambda)$ das Gleichungssystem aus Schritt~\ref{schritt:Gleichungssystem}.
+	
+	Insgesamt haben wir also gesehen, dass alle lokalen Extrema $a=(a_1,a_2,\dotsc,a_n)\in\Omega$ von $f(x_1,x_2,\dotsc,x_{n-1})$ unter der Nebenbedingung $g(x_1,x_2,\dotsc,x_n)=0$ das Gleichungssystem aus Schritt~\ref{schritt:Gleichungssystem} oder die Gleichung $\nabla g(a)=0$ aus Schritt~\ref{schritt:SingulaerePunkte} erfüllen. Mit diesen beiden Schritten finden wir also alle lokalen Extrema. Mit Schritt~\ref{schritt:VerhaltenAmRand} finden wir dann auch alle möglichen Extrema auf dem Rand $\overline{\Omega}\smallsetminus \Omega$. Somit funktioniert die Lagrange-Multiplikator-Methode.
+\end{proof}
+
+Wir wenden die Lagrange-Multiplikator-Methode nun auf mehrere Olympiade-Aufgaben an. Ihr werdet sehen, dass wir nur in Aufgabe~\ref{aufgabe:MatBoj2014Lagrange} das Gleichungssystem aus Schritt~\ref{schritt:Gleichungssystem} tatsächlich lösen. In den anderen beiden Aufgaben werten wir das Gleichungssystem auf andere, nicht-triviale Weise aus.
+
+Wir beginnen mit einer Aufgabe, die euch schon im Heft für die Klasse~11 begegnet ist. Dort haben wir eine elegante Lösung besprochen, hier kommt nun die Lösung mit der Brechstange.
+\begin{aufgabe*}\label{aufgabe:AIMO2014}
+	Gegeben seien positive reelle Zahlen $a,b,c,d>0$ mit $abcd=1$. Beweise die Ungleichung
+	\begin{equation*}
+		\frac{a^2}{a^3+1}+\frac{b^2}{b^3+1}+\frac{c^2}{c^3+1}+\frac{d^2}{d^3+1}\leqslant 2\,.
+	\end{equation*}
+\end{aufgabe*}
+\begin{proof}[Lösung]
+	Wir betrachten den gegebenen Ausdruck als Funktion in $a$, $b$, $c$ und $d$ und versuchen, diese unter der Nebenbedingung $abcd=1$ zu maximieren. Dazu benutzen wir die Lagrange-Multiplikator-Methode. Betrachte zuerst den Fall, dass $(a,b,c,d,\lambda)$ eine Lösung des Gleichungssystems aus Schritt~\ref{schritt:Gleichungssystem} ist. Dann erhalten wir
+	\begin{equation*}
+		0=\frac{\partial}{\partial a}\frac{a^2}{a^3+1}-\lambda\frac{\partial}{\partial a}(abcd)=\frac{2a-a^4}{\parens*{a^3+1}^2}-\lambda bcd\,.
+	\end{equation*}
+	Indem wir diese Gleichung mit $a$ multiplizieren und $abcd=1$ benutzen, erhalten wir
+	\begin{equation*}
+		\lambda=\lambda abcd=\frac{2a^2-a^5}{\parens*{a^3+1}^2}\eqqcolon g(a)\,.
+	\end{equation*}
+	Analog erhalten wir $\lambda=g(b)=g(c)=g(d)$. Ist das schon genug, um $a=b=c=d$ zu folgern? Nicht ganz! Wir rechnen nach, dass
+	\begin{equation*}
+		g'(x)=\frac{x}{\parens*{x^3+1}^3}\parens*{-2x^6-7x^3+4}
+	\end{equation*}
+	gilt. Der Bruch ist stets nichtnegativ. Mit der Substitution $t=x^3$ wird der zweite Faktor zu $-(2t^2+7t-4)$, was nur eine positive Nullstelle hat. Folglich hat auch $g'$ nur eine positive Nullstelle. Somit kann $g$ jeden Wert maximal zweifach annehmen und wir müssen uns in einem der folgenden Fälle befinden:
+	
+	\emph{Fall~1: $a=b=c=d=1$.} Dieser Fall ist trivial.
+	
+	\emph{Fall~2: $a=b=c$, $d=\frac1{a^3}$.} Durch Einsetzen können wir die Ungleichung nun auf eine Variable zurückführen. Indem wir alles auf einen Hauptnenner bringen und den Gleichheitsfall $a=1$ ausklammern, erhalten wir
+	\begin{equation*}
+		2-\frac{3a^2}{a^3+1}-\frac{\frac{1}{a^6}}{\frac1{a^9}+1}=\frac{(a-1)^2\parens*{2a^7+a^6-a^4+a^3+3a^2+4a+2}}{a^9+1}\geqslant 0\,.
+	\end{equation*}
+	Wegen $a^6-a^4+a^2\geqslant a^6-2a^4+a^2=a^4(a-1)^2$ ist der zweite Faktor im Zähler stets positiv und die Ungleichung gilt aus offensichtlichen Gründen.
+	
+	\emph{Fall~3: $a=b$, $c=d=\frac1a$.} Wir setzen ein und erhalten die offensichtliche Ungleichung
+	\begin{equation*}
+		\frac{2a^2}{a^3+1}+\frac{\frac{2}{a^2}}{\frac1{a^3}+1}=\frac{2\parens*{a^2+a}}{a^3+1}=\frac{2a}{(a-1)^2+a}\leqslant 2\,.
+	\end{equation*}
+	
+	Damit haben wir Schritt~\ref{schritt:Gleichungssystem} erfolgreich abgeschlossen. Schritt~\ref{schritt:SingulaerePunkte} ist trivial, denn die partiellen Ableitungen von $g(a,b,c,d)\coloneqq abcd-1$ verschwinden nicht für $a,b,c,d>0$. Für Schritt~\ref{schritt:VerhaltenAmRand} müssen wir nur das Verhalten im Unendlichen untersuchen, weil wir keine Randpunkte vorliegen haben. Für $a\rightarrow \infty$ muss wegen $abcd=1$ mindestens eine Variable gegen $0$ gehen. Sagen wir, $b\rightarrow 0$. Damit gilt $\frac{a^2}{a^3+1}\rightarrow 0$ und $\frac{b^2}{b^3+1}\rightarrow 0$. Es genügt also, $\frac{x^2}{x^3+1}< 1$ für alle $x>0$ zu zeigen. Für $x\leqslant 1$ folgt diese Ungleichung aus $x^2\leqslant 1$ und für $x\geqslant 1$ folgt sie aus $x^3\geqslant x^2$.
+\end{proof}
+
+
+\begin{aufgabe*}\label{aufgabe:MatBoj2014Lagrange}
+	Finde die kleinste positive reelle Zahl $C>0$, sodass
+	\begin{equation*}
+		\frac{x^2}{yz}+\frac{y^2}{zx}+\frac{z^2}{xy}<C\parens*{\frac{x}{y}+\frac{y}{z}+\frac{z}{x}}
+	\end{equation*}
+	für alle $x,y,z>0$ gilt.
+\end{aufgabe*}
+\begin{proof}[Lösung]
+	Sei $a=\frac xy$, $b=\frac yz$ und $c=\frac zx$. Dann gilt $abc=1$ und die linke Seite der gewünschten Ungleichung lässt sich als
+	\begin{equation*}
+		\frac{a}{c}+\frac{b}{a}+\frac{c}{b}=\frac{a^2b+b^2c+c^2a}{abc}=a^2b+b^2c+c^2a
+	\end{equation*}
+	schreiben. Wir suchen also das kleinste $C>0$ mit $a^2b+b^2c+c^2a<C(a+b+c)^3$ unter der Nebenbedingung $abc=1$. Weil die Ungleichung homogen in $a$, $b$ und $c$ ist, können wir die Nebenbedingung ignorieren und nur $a,b,c>0$ annehmen. Wie kann es nun sein, dass wir eine strikte Ungleichung bekommen? Wir vermuten, dass in Wirklichkeit die Ungleichung
+	\begin{equation*}
+		a^2b+b^2c+c^2a\leqslant C(a+b+c)^3
+	\end{equation*}
+	für alle $a,b,c\geqslant 0$ gilt, wobei Gleichheit nur eintritt, wenn eine der Variablen gleich $0$ ist. Um diese Vermutung zu beweisen und $C$ zu bestimmen, dürfen wir die neue Nebenbedingung $a+b+c=1$ einführen, denn die Ungleichung ist homogen in $a$, $b$ und $c$. Wir betrachten also die Menge $\overline{\Omega}=\mathbb R_{\geqslant 0}^3$, ihr Inneres $\Omega=\mathbb R_{>0}^3$ sowie die Funktionen $f,g\colon \overline{\Omega}\rightarrow \mathbb R$ gegeben durch $f(a,b,c)=a^2b+b^2c+c^2a$ und $g(a,b,c)=a+b+c-1$. Wir wollen $f(a,b,c)$ unter der Nebenbedingung $g(a,b,c)=0$ maximieren. Dafür benutzen wir die Lagrange-Multiplikator-Methode.
+	
+	Betrachten wir zuerst den Fall, dass $(a,b,c)$ ein lokales Extremum von $f$ unter der Nebenbedingung $g(a,b,c)=0$. Es gilt offenbar $\nabla g(a,b,c)=(1,1,1)\neq 0$.  Also muss eine reelle Zahl $\lambda$ existieren, sodass $(a,b,c,\lambda)$ Lösung des Gleichungssystems
+	\begin{equation*}
+		\left\{\begin{alignedat}{3}
+			2ab&+c^2&&-\lambda&&=0\\
+			2bc&+a^2&&-\lambda&&=0\\
+			2ca&+b^2&&-\lambda&&=0\\
+			&&&&\llap{$a+b+c$}&=1
+		\end{alignedat}\right.
+	\end{equation*}
+	ist. Durch Subtraktion der ersten beiden Gleichungen folgt
+	\begin{equation*}
+		0=c^2-a^2+2ab-2bc=(c-a)(c+a-2b)
+	\end{equation*}
+	Also muss $c=a$ oder $c+a=2b$ gelten. Analog gilt $a=b$ oder $a+b=2c$ und $b=c$ oder $b+c=2a$. Wenn stets die erste Option gilt, muss $a=b=c$ sein. Wenn stets die zweite Option gilt, folgt auch $a=b=c$. Wenn mal die erste und mal die zweite Option erfüllt ist, also etwa $c=a$ und $a+b=2c$, so folgt ebenfalls $a=b=c$. Zusammen mit $a+b+c=1$ erhalten wir also $a=b=c=\frac13$ und somit $a^2b+b^2c+c^2a=\frac19$.
+	
+	Das Verhalten im Unendlichen müssen wir wegen $a,b,c\leqslant 1$ nicht untersuchen. Es bleibt das Verhalten auf dem Rand, also wenn eine der Variablen gleich $0$ ist. Ohne Einschränkung sei $c=0$. Dann müssen wir $a^2b$ unter der Nebenbedingung $a+b=1$ maximieren. Aus AM-GM folgt aber sofort
+	\begin{equation*}
+		a^2b=4\cdot\frac{a}{2}\cdot \frac{a}{2}\cdot b\leqslant 4\parens*{\frac{\frac a2+\frac a2+b}{3}}^3=\frac{4}{27}
+	\end{equation*}
+	mit Gleichheit genau für $a=\frac23$, $b=\frac13$. Damit haben wir unsere Antwort: Es gilt $C=\frac{4}{27}$. Gleichheit wird nur am Rand angenommen, weil, wie wir gesehen haben, alle lokalen Extrema stattdessen den Wert $\frac19$ haben. Somit gilt in der originalen Aufgabe die Ungleichung mit \enquote{$<$} statt \enquote{$\leqslant$}.
+\end{proof}
+
+\begin{aufgabe*}
+	Gegeben sei der Ausdruck
+	\begin{align*}
+		T\coloneqq x_1x_2x_4+x_2x_3x_5+x_3x_4x_6+x_4x_5x_7+x_5x_6x_1+x_6x_7x_2+x_7x_1x_3
+	\end{align*}
+	für nichtnegative reelle Zahlen $x_1,\ldots,x_7\geqslant 0$ mit $x_1+x_2+\ldots+x_7=1$. Beweise, dass $T$ einen maximalen Wert annimmt und bestimme diesen.
+\end{aufgabe*}
+\begin{proof}[Lösung]
+	Wir betrachten $T$ als Funktion in $x_1,x_2,\dotsc,x_7$ und wollen $T$ unter der Nebenbedingung $g(x_1,x_2,\dotsc,x_7)=0$ maximieren, wobei $g(x_1,x_2,\dotsc,x_7)\coloneqq x_1+x_2+\ldots+x_7=1$. Dafür benutzen wir die Lagrange-Multiplikator-Methode. Betrachte zuerst den Fall, dass $(x_1,x_2,\dotsc,x_7)$ ein lokales Extremum von $T$ unter der gegebenen Nebenbedingung ist. Wegen $\nabla g(x_1,x_2,\dotsc,x_7)=(1,1,\dotsc,1)$ kann $\nabla g$ nicht verschwinden. Also muss es eine reelle Zahl $\lambda$ geben, sodass das folgende Gleichungssystem erfüllt ist:
+	\begin{equation*}
+		\left\{\begin{alignedat}{3}
+			x_2x_4&+x_5x_6&&+x_7x_3&&=\lambda\\
+			x_1x_4&+x_3x_5&&+x_6x_7&&=\lambda\\
+			&\mathrel{\tikz[inner sep=0,outer sep=0]{\node at (0,-0.5ex) {$\phantom{=}$};\node at (0,0) {$\vdots$};}}\\
+			x_4x_5&+x_6x_2&&+x_1x_3&&=\lambda\\
+			&&&&\llap{$x_1+x_2+\dotsb+x_7$}&=1
+		\end{alignedat}\right.
+	\end{equation*}
+	Wenn wir die ersten sieben Gleichungen addieren, erhalten wir
+	\begin{equation*}
+		\sum_{i<j}x_ix_j=7\lambda\,.
+	\end{equation*}
+	Wenn wir die erste Gleichung mit $x_1$ multiplizieren, erhalten wir $x_1x_2x_4+x_5x_6x_1+x_7x_1x_3=\lambda x_1$. Die Terme auf der linken Seite treten genau so auch in $T$ auf.\footnote{Das sollte uns natürlich nicht verwundern, denn $T$ ist eine lineare Funktion in $x_1$. Wenn wir also $T$ nach $x_1$ ableiten und dann wieder mit $x_1$ multiplizieren, kriegen wir alles bis auf den \enquote{konstanten Term} (also den Teil von $T$, der kein $x_1$ enthält) zurück.} Das gleiche gilt, wenn wir die zweite Gleichung mit $x_2$ multiplizieren, die dritte Gleichung mit $x_3$ multiplizieren und so weiter. Wenn wir die entstehenden Gleichungen aufaddieren, erhalten wir unter Ausnutzung von $x_1+x_2+\dotsc+x_7=1$:
+	\begin{equation*}
+		3T=\lambda(x_1+x_2+\dotsb+x_7)=\lambda\,.
+	\end{equation*}
+	Nun können wir wie folgt abschätzen:
+	\begin{equation*}
+		\frac 17=\frac{x_1+\ldots+x_7}{7}\geqslant\sqrt{\frac{\sum_{i<j}x_ix_j}{21}}=\sqrt{\frac{\lambda}{3}}\,.
+	\end{equation*}
+	Die erste Gleichheit ist die Vorausetzung $x_1+\ldots+x_7=1$, die Abschätzung danach folgt aus der Maclaurin-Ungleichung (die wir weiter unten beweisen werden) und die letzte Gleichheit haben wir oben nachgeprüft. Es folgt
+	\begin{equation*}
+		T=\frac{\lambda}{3}\leqslant\frac{1}{49}\,.
+	\end{equation*}
+	
+	Das Verhalten im Unendlichen müssen wir nicht untersuchen, weil offenbar $x_1,x_2,\dotsc,x_7\leqslant 1$ gilt. Es bleibt, das Verhalten am Rand zu untersuchen, also wenn mindestens eine der Variablen gleich $0$ ist. Ohne Einschränkung sei $x_1=0$. Die nun verbleibende Ungleichung 
+	\begin{equation*}
+		x_2x_3x_5+x_3x_4x_6+x_4x_5x_7+x_6x_7x_2=x_3(x_2x_5+x_4x_6)+x_7(x_4x_5+x_6x_2)\leqslant\frac{1}{27}
+	\end{equation*}
+	lässt sich mit der Schiebemethode bewerkstelligen. Halten wir $x_2,x_4,x_5,x_6$ sowie $x_3+x_7$ fest und variieren $x_3,x_7$, dann ist die linke Seite linear und nimmt daher ihr Maximum für $x_3=0$ oder $x_7=0$ an. Die nun verbleibende Ungleichung hat die Form 
+	\begin{equation*}
+		a(bc+de)\leqslant\frac{1}{27}\quad\text{für }a+b+c+d+e=1\;.
+	\end{equation*}
+	Mit AM-GM können wir ganz grob folgendermaßen abschätzen
+	\begin{equation*}
+		a(bc+de)\leqslant a\left(\frac{(b+c)^2+(d+e)^2}{4}\right)\leqslant a\left(\frac{b+c+d+e}{2}\right)^2 \leqslant\left(\frac{a+b+c+d+e}{3}\right)^3=\frac{1}{27}\,.
+	\end{equation*}
+	Insgesamt erhalten wir also $T\leqslant \frac1{27}$. Für $x_2=x_3=x_5=\frac13$ und $x_1=x_4=x_6=x_7=0$ wird dieser Wert auch tatsächlich angenommen. Damit haben wir gezeigt, dass ein minimaler Wert existiert und durch $\frac1{27}$ gegeben ist.
+\end{proof}
+
+In der obigen Lösung haben wir die \emph{Maclauring-Ungleichung} verwendet. Weil sich diese ebenfalls auf sehr elegante und überraschende Art mit Analysis beweisen lässt, bildet sie den perfekten Abschluss dieses Kapitels.
+\begin{satzmitnamen}[Maclaurin-Ungleichung]
+	Gegeben seien nichtnegative reelle Zahlen $a_1,a_2,\dotsc,a_n\geqslant 0$. Für $k=1,2,\dotsc,n$ sei
+	\begin{equation*}
+		\sigma_k\coloneqq \sigma_k(a_1,a_2,\dotsc,a_n)= \sum_{1\leqslant i_1<i_2<\dotsb<i_k\leqslant n}a_{i_1}a_{i_2}\dotsm a_{i_k}
+	\end{equation*}
+	das $k$-te elementarsymmetrische Polynom in $a_1,a_2,\dotsc,a_n$. Dann gilt die folgende Kette von Ungleichungen:
+	\begin{equation*}
+		\frac{\sigma_1}{n}\geqslant\sqrt{\frac{\sigma_2}{\binom{n}{2}}}\geqslant \dotsb\geqslant \sqrt[k]{\frac{\sigma_k}{\binom{n}{k}}}\geqslant \dotsb\geqslant\sqrt[n]{\sigma_n}\,.
+	\end{equation*}
+\end{satzmitnamen}
+Die Ungleichung $\sigma_1/n\geqslant \sqrt[n]{\sigma_n}$ ist offenbar genau die AM-GM-Ungleichung, sodass die Mac-laurin-Ungleichung eine Verschärfung von AM-GM darstellt. Im Fall $n=4$ erhalten wir die Ungleichung $\sqrt{\sigma_2/6}\geqslant \sqrt[3]{\sigma_3/4}$. Diese wurde bei der Bundesrunde der 9.\ Mathematik-Olympiade 1970 gestellt und ist aufgrund ihrer Schwierigkeit als \emph{Pirlscher Hammer} in die Geschichte eingegangen.
+
+
+\begin{proof}
+	Wir werden für alle $k$ die Ungleichung $\sqrt[k-1]{\sigma_{k-1}/\binom{n}{k-1}}\geqslant \sqrt[k]{\sigma_k/\binom{n}{k}}$ zeigen. Betrachte dazu das Polynom
+	\begin{equation*}
+		P(X)=(X-a_1)(X-a_2)\dotsm (X-a_n)=X^n-\sigma_1 X^{n-1}+\sigma_2 X^{n-2}\mp\dotsb+(-1)^n\sigma_n\,.
+	\end{equation*}
+	Die Nullstellen von $P$ sind alle nichtnegativ. Zwischen je zwei Nullstellen muss $P$ einen Extremwert annehmen, also muss zwischen je zwei Nullstellen von $P$ auch eine Nullstelle der Ableitung $P'$ liegen. Somit hat $P'$ mindestens $n-1$ nichtnegativ Nullstellen. Weil $P'$ ein Polynom $(n-1)$-ten Grades ist, müssen somit alle Nullstellen von $P'$ nichtnegative reelle Zahlen sein. Dieser Schluss ist auch dann korrekt, wenn einige der Nullstellen von $P$ zusammenfallen, denn für jede $r$-fache Nullstelle von $P$ muss $P'$ an dieser Stelle eine $(r-1)$-fache Nullstelle haben.
+	
+	Betrachte nun die $(n-k)$-fache Ableitung
+	\begin{equation*}
+		P^{(n-k)}(X)=n(n-1)\dotsm (k+1)\parens*{X^k-\binom{k}{1}\sigma_1 X^{k-1}+\binom{k}{2}\sigma_2 X^{n-2}\mp\dotsb+(-1)^{k}\binom{k}{k}\sigma_k}\,.
+	\end{equation*}
+	Seien $b_1,b_2,\dotsc,b_k$ die Nullstellen von $P^{(n-k)}$. Dann gilt also
+	\begin{align*}
+		b_1b_2\dotsm b_{k-1}+b_1b_2\dotsm b_{k-2}b_k+\dotsb+b_2b_3\dotsm b_k=\binom{k}{k-1}\sigma_{k-1}\,,\quad b_1b_2\dotsm b_k= \binom{k}{k}\sigma_k\,.
+	\end{align*}
+	Nach dem obigen Argument sind die Nullstellen $b_1,b_2,\dotsc,b_k$ allesamt nichtnegative reelle Zahlen. Also können wir AM-GM anwenden und erhalten
+	\begin{equation*}
+		\frac{1}{k}\binom{k}{k-1}\sigma_{k-1}\geqslant \sqrt[k]{(b_1b_2\dotsm b_k)^{k-1}}=\sqrt[k]{\binom{k}{k}\sigma_k^{k-1}}\,.
+	\end{equation*}
+	Durch Umformungen erhalten wir die gewünschte Ungleichung
+	\begin{equation*}
+		\sqrt[k-1]{\frac{\sigma_{k-1}}{\binom{n}{k-1}}}\geqslant \sqrt[k]{\frac{\sigma_k}{\binom{n}{k}}}\,.\qedhere
+	\end{equation*}
+\end{proof}
+
+\subsection*{Weitere Übungsaufgaben}
+\begin{aufgabe*}
+	Gegeben seien positive reelle Zahlen $a,b,c>0$ mit $abc=1$. Zeige die Ungleichung
+	\begin{equation*}
+		\sqrt{9+16a^2}+\sqrt{9+16b^2}+\sqrt{9+16c^2}\geqslant 3+4(a+b+c)\,.
+	\end{equation*}
+\end{aufgabe*}
+\begin{aufgabe*}
+	Gegeben seien positive reelle Zahlen $a,b,c,d>0$ mit $ac+bd=(a+c)(b+d)$. Was ist der minimale Wert, den der Ausdruck
+	\begin{equation*}
+		S\coloneqq\frac ab+\frac bc+\frac cd+\frac da
+	\end{equation*}
+	annehmen kann?
+\end{aufgabe*}

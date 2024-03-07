@@ -1,0 +1,38 @@
+\section{Kombinatorikaufgaben mit Graphentheorie lösen}\label{kapitel:GraphenInCombo}
+Viele Kombinatorik-Aufgaben lassen sich lösen, indem das Problem auf geeignete Weise als Graph interpretiert wird. Häufig ist das recht offensichtlich, zum Beispiel immer dann, wenn in einer Aufgabe von Freundschaften, Feindschaften, Bekanntschaften oder von Straßennetzen in Ländern mit phantasievollen Namen die Rede ist. Aber es gibt auch Aufgaben, bei denen alles andere als offensichtlich ist, dass sie sich mit Graphentheorie lösen lassen.
+
+Hier sind einige Lösungsstrategien, die bei solchen Aufgaben häufig hilfreich sind:
+\begin{itemize}
+	\item Nach dem Handschlagslemma ist in jedem Graphen die Anzahl der Knoten von ungeradem Grad gerade. Insbesondere folgt: Wenn ihr einen Graphen konstruiert habt und wisst, dass ein bestimmter Knoten ungeraden Grad hat, dann muss es einen weiteren Knoten mit ungeradem Grad geben. Diese simple Beobachtung lässt sich erstaunlich oft auf nichttriviale Weise anwenden!
+	\item Bei vielen Aufgaben könnt ihr euren Graphen in Wege (oder Pfade oder Kreise) zerlegen und entlang dieser Wege etwas abwechselnd tun, zum Beispiel Knoten oder Kanten abwechselnd einfärben.
+	\item Allgemein könnt ihr versuchen, euren Graphen schrittweise zu vereinfachen. Zum Beispiel könnt ihr häufig Knoten von Grad $1$ entfernen oder Kreise \emph{kontrahieren}: Das bedeutet, ihr nehmt euch einen Kreis und ersetzt alle seine Knoten und Kanten durch einen einzigen Knoten.
+\end{itemize}
+Ansonsten solltet ihr natürlich die üblichen Lösungsstrategien in der Kombinatorik im Kopf behalten (Extremalprinzip, Invarianzprinzip, Schubfachprinzip, \ldots).
+
+Wir werden euch nun vier Beispielaufgaben stellen, die sich mit Graphentheorie lösen lassen (obwohl manche dieser Aufgaben überhaupt nicht danach aussehen). Die letzten beiden Aufgaben sind richtig schwer. Im Anschluss an die Aufgaben findet ihr Tipps dazu und am Ende des Heftes könnt ihr die Lösungen nachlesen. Wenn ihr nicht weiterkommt, benutzt gerne die Tipps oder lest (besonders bei den schweren Aufgaben) die Lösungen.
+\begin{aufgabe*}\label{aufgabe:Feldwege}
+	Zwischen den Orten einer Insel verlaufen einige Feldwege, die zum Spazierengehen genutzt werden. Jeder Feldweg beginnt an einem Ort und endet an einem anderen Ort, wobei von jedem Ort genau drei Wege ausgehen. Um das touristische Angebot der Insel zu erweitern, sollen einige dieser Feldwege zu Radwegen ausgebaut werden. Damit aber auch das Spaziergehen nicht zu sehr beeinträchtigt wird, soll anschließend von jedem Ort mindestens ein Radweg und mindestens ein weiterhin unausgebauter Feldweg ausgehen. Zeige, dass das stets möglich ist.
+\end{aufgabe*}
+\begin{aufgabe*}\label{aufgabe:50Laender}\leavevmode
+	\begin{enumerate}
+		\item 100 Leute aus 50 Ländern, zwei aus jedem Land, stehen im Kreis. Zeige, dass die Leute so in zwei Gruppen aufgeteilt werden können, dass weder zwei Leute aus einem Land noch drei im Kreis aufeinanderfolgende Leute zu einer Gruppe gehören.\label{teilaufgabe:50}
+		\item 100 Leute aus 25 Ländern, vier aus jedem Land, stehen im Kreis. Zeige, dass die Leute so in vier Gruppen aufgeteilt werden können, dass weder zwei Leute aus einem Land noch zwei im Kreis aufeinanderfolgende Leute zu einer Gruppe gehören.\label{teilaufgabe:25}
+	\end{enumerate}
+\end{aufgabe*}
+\begin{aufgabe*}[**]\label{aufgabe:Kartenspiel}
+	Zwei Mathematikerinnen werden gezwungen, ein Kartenspiel zu spielen, und dürfen erst aufhören, wenn eine von beiden keine Karten mehr hat. Das Kartendeck besteht aus $n$ verschiedenen Karten. Von je zwei Karten schlägt eine die andere (aber wenn $A$ von $B$ geschlagen wird und $B$ von $C$ geschlagen wird, muss $A$ nicht unbedingt von $C$ geschlagen werden). Zu Beginn wird das Deck zufällig in zwei Stapel aufgeteilt, von denen jede Mathematikerin einen bekommt. Sie dürfen sich ihre Stapel anschauen und sich absprechen, aber die Reihenfolge der Karten nicht verändern. In jedem Zug decken beide die oberste Karte ihres Stapels auf. Diejenige Mathematikerin, deren Karte die andere schlägt, bekommt beide Karten und legt sie unter ihren Stapel (sie bestimmt die Reihenfolge). Zeige, dass die beiden Mathematikerinnen stets das Spiel beenden können.
+\end{aufgabe*}
+
+\begin{aufgabe*}[***]\label{aufgabe:Rechtecksparkettierung}
+	Gegeben seien positive ganze Zahlen $m$, $n$, $a$ und $b$. Angenommen, ein $m\times n$ Rechteck lässt sich lückenlos und überscheidungsfrei mit horizontalen $a\times1$-Rechtecken und vertikalen $1\times b$-Rechtecken parkettieren. Zeige, dass $m$ durch $a$ oder $n$ durch $b$ teilbar sein muss.
+\end{aufgabe*}
+\subsection*{Tipps zu den Beispielaufgaben}
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:Feldwege}.} Füge geeignete Kanten hinzu und benutze den Satz von Euler-Hierholzer.
+
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:50Laender}.} Für~\ref{teilaufgabe:50} betrachte den Graphen, in dem je zwei Leute aus einem Land mit einer Kante verbunden sind sowie außerdem die erste und die zweite Person im Kreis, die dritte und die vierte Person und so weiter.
+
+Für~\ref{teilaufgabe:25} benutze zuerst~\ref{teilaufgabe:50} und führe dann ein ähnliches Argument noch einmal durch.
+
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:Kartenspiel}.} Betrachte den gerichteten Graphen aller Spielsituationen. Was kannst du über die Eingangs- und Ausgangsgrade der Knoten aussagen?
+
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:Rechtecksparkettierung}.} Betrachte den folgenden Graphen $G$: Die Knoten sind der Mittelpunkt eines jeden Rechtecks in der Parkettierung sowie diejenigen Eckpunkte von Rechtecken, deren $x$-Koordinate durch $a$ und deren $y$-Koordinate durch $b$ teilbar ist. Jeder Mittelpunkt eines Rechtecks wird mit allen Eckpunkten verbunden, die in $G$ liegen. Was kannst du über die Knotengrade in $G$ aussagen?

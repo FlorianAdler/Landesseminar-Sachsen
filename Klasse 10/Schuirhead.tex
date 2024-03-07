@@ -1,0 +1,162 @@
+\section{Die Schuirhead-Ungleichung}\label{kapitel:Schuirhead}
+
+Was könnt ihr tun, wenn ihr bei einer Ungleichung nicht weiterkommt? \emph{Brute force!} Ihr könnt brutal mit allen Nennern durchmultiplizieren, so lange quadrieren, bis alle Wurzeln weg sind, und am Ende werdet ihr einen riesigen Haufen Terme übrig haben, die ihr irgendwie gegeneinander abschätzen müsst.
+
+In so einer Situation ist die \emph{Schuirhead-Ungleichung} hilfreich. Hinter diesem (nicht ganz ernst gemeinten) Namen verbergen sich in Wirklichkeit zwei Ungleichung: nämlich die \emph{Muirhead-} und die \emph{Schur-Ungleichung}. In diesem Kapitel werdet ihr beide kennenlernen.
+
+\subsection*{Die Muirhead-Ungleichung}
+
+In diesem Abschnitt benutzen wir die folgende Notation: Sei $\alpha= (\alpha_1,\alpha_2,\dotsc,\alpha_n)$ ein $n$-Tupel von nichtnegativen reellen Zahlen und seien $x_1,x_2,\dotsc,x_n$ Variablen. Dann schreiben wir
+\begin{equation*}
+	T_\alpha(x_1,x_2,\dotsc,x_n)\coloneqq \sum_{\sigma\in\mathfrak S_n}x_{1}^{\alpha_{\sigma(1)}}x_{2}^{\alpha_{\sigma(2)}}\dotsm x_{n}^{\alpha_{\sigma(n)}}\,.
+\end{equation*}
+Hier bezeichnet $\mathfrak S_n$ die Menge aller Permutationen von $\{1,2,\dotsc,n\}$, die Summe erstreckt sich somit über alle $n!$ Vertauschungen der Exponenten $\alpha_1,\alpha_2,\dotsc,\alpha_n$. Es gilt also zum Beispiel $T_{(2,1,0)}(x,y,z)=x^2y+xy^2+y^2z+yz^2+z^2x+xz^2$ und $T_{(1,1,1)}(x,y,z)=6xyz$.% Solche Summen sind euch bestimmt schon mal begegnet, wenn ihr eine Ungleichung ausmultipliziert habt.
+
+\newlength{\lengthofgeqslant}
+\settowidth{\lengthofgeqslant}{$\geqslant$}
+\begin{definition}
+	Seien $\alpha=(\alpha_1,\alpha_2,\dotsc,\alpha_n)$ und $\beta=(\beta_1,\beta_2,\dotsc,\beta_n)$ zwei $n$-Tupel von nichtnegativen reellen Zahlen. Wir sagen \emph{$\alpha$ majorisiert $\beta$} und schreiben $\alpha\succcurlyeq \beta$, wenn gilt:
+	\begin{align*}
+		\alpha_1&\geqslant \beta_1\\
+		\alpha_1+\alpha_2&\geqslant \beta_1+\beta_2\\
+		&\mathrel{\tikz[inner sep=0,outer sep=0]{\node at (0,-0.5ex) {$\phantom{=}$};\node at (0,0) {$\vdots$};}}\\
+		\alpha_1+\alpha_2+\dotsb+\alpha_{n-1}&\geqslant \beta_1+\beta_2+\dotsb+\beta_{n-1}\\
+		\alpha_1+\alpha_2+\dotsb+\alpha_{n-1}+\alpha_n&= \beta_1+\beta_2+\dotsb+\beta_{n-1}+\beta_n\,.
+	\end{align*}
+	Beachte, dass in der letzten Zeile (und nur dort) eine Gleichheit steht!
+\end{definition}
+Zum Beispiel gilt $(2,1,0)\succcurlyeq (1,1,1)$. Allgemein gilt: Wenn $\alpha_1\geqslant \alpha_2\geqslant \dotsb\geqslant \alpha_n$ absteigend geordnete nichtnegative reelle Zahlen sind, dann gilt
+\begin{equation*}
+	(\alpha_1,\alpha_2,\dotsc,\alpha_n)\succcurlyeq\parens*{\frac{\alpha_1+\alpha_2+\dotsb+\alpha_n}{n},\frac{\alpha_1+\alpha_2+\dotsb+\alpha_n}{n},\dotsc,\frac{\alpha_1+\alpha_2+\dotsb+\alpha_n}{n}}\,.
+\end{equation*}
+Es kann aber auch vorkommen, dass weder $\alpha\succcurlyeq\beta$ noch $\beta\succcurlyeq\alpha$ gilt. Das ist zum Beispiel immer der Fall, wenn $\alpha_1+\alpha_2+\dotsb+\alpha_n\neq\beta_1+\beta_2+\dotsb+\beta_n$. Aber es gibt auch nichttriviale Gegenbeispiele wie etwa $\alpha=\parens[\big]{\frac 32,\frac 32,0}$ und $\beta=\parens[\big]{\frac 53,1,\frac 13}$.
+\begin{satzmitnamen}[Muirhead-Ungleichung]
+	Gegeben seien absteigend geordnete $n$-Tupel $\alpha=(\alpha_1,\alpha_2,\dotsc,\alpha_n)$, $\alpha_1\geqslant \alpha_2\geqslant\dotsb\geqslant \alpha_n\geqslant 0$ und $\beta=(\beta_1,\beta_2,\dotsc,\beta_n)$, ${\beta_1\geqslant \beta_2\geqslant \dotsb\geqslant \beta_n\geqslant 0}$. Wenn $\alpha\succcurlyeq \beta$, dann gilt für alle $x_1,x_2,\dotsc,x_n\geqslant 0$ die folgende Ungleichung:
+	\begin{equation*}
+		T_\alpha(x_1,x_2,\dotsc,x_n)\geqslant T_\beta(x_1,x_2,\dotsc,x_n)\,.
+	\end{equation*}
+	Wenn alle $x_i$ positiv sind, dann tritt Gleichheit genau für $x_1=x_2=\dotsb=x_n$ oder $\alpha=\beta$ ein.
+\end{satzmitnamen}
+Wegen $(1,0,0,\dotsc,0)\succcurlyeq \parens[\big]{\frac1n,\frac1n,\dotsc,\frac1n}$ ist die AM-GM-Ungleichung ein Spezialfall der Muirhead-Ungleichung. Umgekehrt lässt sich die Muirhead-Ungleichung mit der gewichteten AM-GM-Ungleichung beweisen. Insofern könnt ihr jede Aufgabe, die sich mit der Muirhead-Ungleichung erschlagen lässt, auch mit gewichtetem AM-GM beweisen. Trotzdem ist die Muirhead-Un-gleichung nützlich zu wissen, weil sie euch ein wichtiges Kriterium liefert, wann ihr eine Aufgabe mit gewichtetem AM-GM lösen könnt. Zudem spart ihr euch ein wenig Zeit in der Olympiade, wenn ihr nicht erst die richtigen Gewichte herausfinden müsst.
+
+Der Beweis der Muirhead-Ungleichung ist ziemlich technisch, aber wir besprechen ihn trotzdem (unter anderem, weil ulkigerweise der Heiratssatz verwendet wird; siehe Kapitel~\ref{kapitel:Heiratssatz}: \emph{Der Heiratssatz}). Wenn ihr keine Lust darauf habt, dann überspringt ihn ruihig, ihr verpasst nichts.
+
+Wir benötigen zuerst ein ziemlich technisches Lemma.
+\begin{satzmitnamen}[Majorisierungs-Lemma]
+	Seien $\alpha$ und $\beta$ zwei absteigend geordnete $n$-Tupel von nichtnegativen reellen Zahlen, sodass $\alpha\succcurlyeq \beta$. Dann gibt es nichtnegative reelle Zahlen $\mu_\sigma\geqslant 0$, $\sigma\in\mathfrak S_n$, mit
+	\begin{equation*}
+		\sum_{\sigma\in\mathfrak S_n}\mu_\sigma=1\quad\text{und}\quad \beta_i=\sum_{\sigma\in\mathfrak S_n}\mu_\sigma\alpha_{\sigma(i)}\quad\text{für alle }i=1,\dotsc,n\,.
+	\end{equation*}
+\end{satzmitnamen}
+Ihr könnt euch das Majorisierungs-Lemma anschaulich so erklären, dass es uns eine mögliche Wahl von Gewichten liefert, die wir brauchen, um die Muirhead-Ungleichung aus der gewichteten AM-GM-Ungleichung herzuleiten.
+\begin{proof}
+	Der Beweis besteht aus zwei Schritten. Wir werden zuerst beide Schritte vorstellen, danach beweisen wir sie.
+	\begin{enumerate}[label=\textup{(\arabic*)},ref=\textup{(\arabic*)}]\itshape
+		\item Es gibt nichtnegative reelle Zahlen $\lambda_{i,j}\geqslant 0$, $i,j=1,2,\dotsc,n$, die die folgenden Bedingungen erfüllen:\label{behauptung:DoppeltStochastischeMatrix}
+		\begin{equation*}
+			\sum_{i=1}^n\lambda_{i,j}=1\quad\text{für alle $j$}\,,\quad \sum_{j=1}^n\lambda_{i,j}=1\quad\text{für alle $i$}\,,\quad \beta_i=\sum_{j=1}^n\lambda_{i,j}\alpha_j\quad\text{für alle $i$}\,.
+		\end{equation*}
+	\end{enumerate}
+	Um diese Behauptung besser zu verstehen, betrachten wir die \emph{Matrix} $\Lambda=(\lambda_{i,j})$. $\Lambda$ ist nichts weiteres als eine $n\times n$-Tabelle mit dem Eintrag $\lambda_{i,j}$ an der $(i,j)$-ten Stelle. Die ersten beiden Bedingungen sagen dann nichts anderes, als dass die Summe der Einträge in jeder Spalte und jeder Zeile genau $1$ ist.\footnote{Wenn ihr schon einmal mit Matrizen gearbeitet habt, werdet ihr außerdem erkennen, dass die dritte Bedingung genau $\Lambda\cdot\alpha=\beta$ aussagt, wobei wir $\alpha$ und $\beta$ als Spaltenvektoren auffassen. Aber ihr könnt den Beweis auch verstehen, wenn ihr das Produkt von Matrizen und Vektoren noch nicht kennt.}
+	
+	Um den zweiten Schritt zu formulieren, müssen wir etwas Notation einführen. Für zwei Matrizen $A=(a_{i,j})$ und $B=(b_{i,j})$ schreiben wir $A+B\coloneqq (a_{i,j}+b_{i,j})$ für die Matrix, in der wir die entsprechenden Einträge von $A$ und $B$ addiert haben. Wenn $\mu$ eine reelle Zahl ist, schreiben wir außerdem $\mu A\coloneqq (\mu a_{i,j})$ für die Matrix, in der wir jeden Eintrag von $A$ mit $\mu$ multipliziert haben. Außerdem ist eine \emph{Permutationsmatrix} eine Matrix, in der in jeder Spalte und jeder Zeile genau ein Eintrag $1$ ist und alle anderen Einträge $0$ (sozusagen ein \glqq $n\times n$-Sudoku mit $0$ und $1$\grqq). Für jede Permutation $\sigma\in\mathfrak S_n$ erhalten wir eine Permutationsmatrix $P_\sigma$, in der der $(i,j)$-te Eintrag $1$ ist, falls $\sigma(i)=j$, und sonst $0$. Umgekehrt ist jede Permutationsmatrix von der Form $P_\sigma$ für ein $\sigma\in\mathfrak S_n$.
+	
+	Der zweite Schritte besagt nun:
+	\begin{enumerate}[resume,label=\textup{(\arabic*)},ref=\textup{(\arabic*)}]\itshape
+		\item Sei $\Lambda=(\lambda_{i,j})$ eine Matrix mit nichtnegativen reellen Einträgen, in der die Summe der Einträge in jeder Zeile und jeder Spalte $1$ ist. Dann gibt es nichtnegative reelle Zahlen $\mu_\sigma\geqslant 0$, $\sigma\in\mathfrak S_n$, mit\label{behauptung:BirkhoffVonNeumann}
+		\begin{equation*}
+			\sum_{\sigma\in\mathfrak S_n}\mu_\sigma=1\quad\text{und}\quad \Lambda=\sum_{\sigma\in\mathfrak S_n}\mu_\sigma P_\sigma
+		\end{equation*}
+	\end{enumerate}
+	Aus~\ref{behauptung:DoppeltStochastischeMatrix} und~\ref{behauptung:BirkhoffVonNeumann} folgt die Aussage des Majorisierungslemmas sofort. Wir müssen also nur diese beiden Behauptungen beweisen.
+	
+	\emph{Beweis von~\ref{behauptung:DoppeltStochastischeMatrix}.} Für zwei absteigend geordnete $n$-Tupel $\alpha$ und $\beta$ schreiben wir $\alpha\succcurlyeq'\beta$, wenn die Bedingung aus~\ref{behauptung:DoppeltStochastischeMatrix} erfüllt ist. Wir bemerken zuerst: Wenn $\gamma=(\gamma_1,\gamma_2,\dotsc,\gamma_n)$ ein weiteres $n$-Tupel von nichtnegativen reellen Zahlen ist, dann folgt aus $\alpha\succcurlyeq'\gamma$ und $\gamma\succcurlyeq\beta$ schon $\alpha\succcurlyeq' \beta$. Denn wenn $\gamma_i=\sum_{j=1}^n\lambda_{i,j}'\alpha_j$ und $\beta_i=\sum_{j=1}^n\lambda_{i,j}''\gamma_j$, dann können wir die Ausdrücke für $\gamma_j$ in den Ausdruck für $\beta_i$ einsetzen und erhalten eine Darstellung $\beta_i=\sum_{j=1}^n\lambda_{i,j}\alpha_j$ mit $\lambda_{i,j}=\sum_{k=1}^n\lambda_{i,k}'\lambda_{k,j}''$, die die gewünschten Bedingungen erfüllt.\footnote{Wenn ihr schon mit Matrizen vertraut seid, bemerkt ihr sicherlich, dass wir hier lediglich die Gleichungen $\gamma=\Lambda'\cdot \alpha$ und $\beta=\Lambda''\cdot \gamma$ zu der Gleichung $\beta=\Lambda\cdot \alpha$ mit $\Lambda=\Lambda''\cdot\Lambda'$ umgeformt haben.}
+	
+	Um~\ref{behauptung:DoppeltStochastischeMatrix} zu beweisen, werden wir eine Folge $\alpha=\gamma^{(0)},\gamma^{(1)},\dotsc,\gamma^{(n)}=\beta$ konstruieren, sodass sowohl $\gamma^{(0)}\succcurlyeq\gamma^{(1)}\succcurlyeq\dotsb\succcurlyeq\gamma^{(n)}$ als auch $\gamma^{(0)}\succcurlyeq'\gamma^{(1)}\succcurlyeq'\dotsb\succcurlyeq'\gamma^{(n)}$ gilt und sodass jedes $\gamma^{(i)}$ mindestens $i$ Einträge mit $\beta$ gemeinsam hat (allerdings fordern wir nicht an, dass die Einträge von $\gamma^{(i)}$ absteigend geordnet sein müssen). Dafür benutzen wir Induktion. Für den Induktionsanfang setzen wir $\gamma^{(0)}\coloneqq \alpha$ und es ist nichts zu beweisen. Für den Induktionsschritt nehmen wir an, dass $\gamma^{(0)},\gamma^{(1)},\dotsc,\gamma^{(i)}$ bereits konstruiert wurden. Wenn schon $\gamma^{(i)}=\beta$ gilt, setzen wir $\gamma^{(i+1)}\coloneqq \gamma^{(i)}$ und sind fertig. Ansonsten gibt es einen minimalen Index $r$ mit $\gamma_r^{(i)}>\beta_r$ und einen minimalen Index $s$ mit $\gamma_s^{(i)}<\beta_s$; wegen $\gamma^{(i)}\succcurlyeq \beta$ muss $r>s$ sein. Insbesondere gilt
+	\begin{equation*}
+		\gamma_r^{(i)}>\beta_r\geqslant \beta_s>\gamma_s^{(i)}
+	\end{equation*}
+	(obwohl $\gamma^{(i)}$ nicht absteigend geordnet sein muss). Sei $\delta\coloneqq \min\braces[\big]{\gamma_r^{(i)}-\beta_r,\beta_s-\gamma_s^{(i)}}$. Wir setzen nun $\gamma_r^{(i+1)}\coloneqq \gamma_r^{(i)}-\delta$ und $\gamma_s^{(i+1)}\coloneqq \gamma_s^{(i)}+\delta$. Alle anderen Einträge bleiben unverändert. Es ist klar, dass $\gamma^{(i)}$ mindestens einen Eintrag mehr mit $\beta$ gemeinsam hat als $\gamma^{(i)}$, denn es gilt $\gamma_r^{(i)}=\beta_r$ oder $\gamma_s^{(i)}=\beta_s$. Als nächstes zeigen wir $\gamma^{(i)}\succcurlyeq \gamma^{(i+1)}\succcurlyeq \beta$. Die erste Majorisierung ist klar. Für die zweite bemerken wir, dass die gewünschte Ungleichung
+	\begin{equation*}
+			\gamma_1^{(i+1)}+\gamma_2^{(i+1)}+\dotsb+\gamma_t^{(i+1)}\geqslant \beta_1+\beta_2+\dotsb+\beta_t
+	\end{equation*}
+	nur für $t\geqslant s$ verletzt sein kann, denn für kleinere Indizes sind die Einträge von $\gamma^{(i+1)}$ mindestens so groß wie die Einträge von $\beta$. Nach Konstruktion gilt aber $\gamma_r^{(i+1)}+\gamma_s^{(i+1)}=\gamma_r^{(i)}+\gamma_s^{(i)}$, sodass für $t\geqslant s$ die $t$-te Partialsumme von $\gamma^{(i+1)}$ gleich der $t$-ten Partialsumme von $\gamma^{(i)}$ ist. Also gilt die gewünschte Ungleichung (bzw.\ die gewünschte Gleichung für $t=n$) auch in diesem Fall.
+	
+	Es bleibt zu zeigen, dass auch $\gamma^{(i)}\succcurlyeq'\gamma^{(i+1)}$ gilt. Nach Konstruktion gelten die Ungleichungen
+	\begin{equation*}
+		\gamma_r^{(i)}> \gamma_r^{(i+1)}\geqslant \beta_r\geqslant \beta_s\geqslant \gamma_s^{(i+1)}> \gamma_s^{(i)}\,.
+	\end{equation*}
+	Insbesondere liegt $\gamma_r^{(i+1)}$ zwischen $\gamma_r^{(i)}$ und $\gamma_s^{(i)}$. Also gibt es eine reelle Zahl $0< \theta< 1$ mit $\gamma_r^{(i+1)}=\theta\gamma_r^{(i)}+(1-\theta)\gamma_s^{(i)}$. Weil aber auch $\gamma_r^{(i+1)}+\gamma_s^{(i+1)}=\gamma_r^{(i)}+\gamma_s^{(i)}$ gilt, muss automatisch $\gamma_s^{(i+1)}=(1-\theta)\gamma_r^{(i)}+\theta\gamma_s^{(i)}$ sein. Indem wir unsere Matrix $\Lambda^{(i)}=(\lambda_{k,j}^{(i)})$ so wählen, dass $\lambda_{r,r}^{(i)}=\lambda_{s,s}^{(i)}=\theta$, $\lambda_{r,s}^{(i)}=\lambda_{s,r}^{(i)}=1-\theta$ sowie $\lambda_{k,k}^{(i)}=1$ für alle $k\neq r,s$ gilt und alle anderen Einträge $0$ sind, sehen wir, dass die Bedingung aus~\ref{behauptung:DoppeltStochastischeMatrix} erfüllt ist und somit in der Tat $\gamma^{(i)}\succcurlyeq'\gamma^{(i+1)}$ gilt. Das beendet den Induktionsschritt und damit den Beweis von~\ref{behauptung:DoppeltStochastischeMatrix}.
+	
+	\emph{Beweis von~\ref{behauptung:BirkhoffVonNeumann}.} Wir werden eine Folge $\Lambda=\Lambda^{(0)},\Lambda^{(1)},\dotsc,\Lambda^{(n^2)}=0$ von Matrizen mit nichtnegativen reellen Einträgen konstruieren, sodass mindestens $i$ Einträge von $\Lambda^{(i)}$ gleich $0$ sind und $\Lambda^{(i+1)}=\Lambda^{(i)}-\mu_i P_{\sigma_i}$ für eine nichtnegative reelle Zahl $\mu_i\geqslant 0$ und eine Permutationsmatrix $P_{\sigma_i}$ gilt. Dann gilt $\Lambda=\sum_{i=1}^{n^2}\mu_iP_{\sigma_i}$. Weil die Summe der Einträge in jeder Zeile und Spalte von $\mu_i P_{\sigma_i}$ gleich $\mu_i$ ist, muss außerdem $\sum_{i=1}^{n^2}\mu_i=1$ gelten. Indem wir die Summanden für gleiche $\sigma_i$ zusammenfassen, erhalten wir also eine Zerlegung $\Lambda=\sum_{\sigma\in\mathfrak S_n}\mu_\sigma P_\sigma$ von der gewünschten Form.
+	
+	Um die Folge von Matrizen zu konstruieren, benutzen wir wieder Induktion. Für den Induktionsanfang setzen wir $\Lambda^{(0)}\coloneqq \Lambda$ und es ist nichts zu zeigen. Für den Induktionsschritt nehmen wir an, dass $\Lambda^{(0)},\Lambda^{(1)},\dotsc,\Lambda^{(i)}$ bereits konstruiert wurden. Wenn alle Einträge von $\Lambda^{(i)}$ gleich $0$ sind, setzen wir $\Lambda^{(i+1)}\coloneqq \Lambda^{(i)}$ und sind fertig. Ansonsten gibt es mindestens einen positiven Eintrag. Wegen $\Lambda^{(i)}=\Lambda-\sum_{j=1}^i\mu_jP_{\sigma_j}$ ist die Summe der Einträge in jeder Zeile und Spalte von $\Lambda^{(i)}$ gleich $1-\sum_{j=1}^i\mu_j$. Diese Summe muss positiv sein, sonst wären alle Einträge $0$. Aus dem Heiratssatz, oder genauer, aus dem gleichen Argument wie in Aufgabe~\ref{aufgabe:Tracey} aus Kapitel~\ref{kapitel:Heiratssatz}: \emph{Der Heiratssatz}, folgt, dass wir $n$ positive Einträge auswählen können, sodass in jeder Zeile und jeder Spalte genau einer dieser ausgewählten Einträge liegt. Diese Auswahl wird durch eine Permutation $\sigma_{i+1}\in\mathfrak S_n$ beschrieben, sodass wir in der $k$-ten Zeile den $\sigma_{i+1}(k)$-ten Eintrag ausgewählt haben. Wenn $\mu_{i+1}$ das Minimum der ausgewählten Einträge ist, dann sind alle Einträge von $\Lambda^{(i+1)}\coloneqq \Lambda^{(i)}-\mu_{i+1} P_{\sigma_{i+1}}$ nichtnegativ, außerdem hat $\Lambda^{(i+1)}$ mindestens einen $0$-Eintrag mehr als $\Lambda^{(i)}$. Das beendet den Induktionsschritt und den Beweis von~\ref{behauptung:BirkhoffVonNeumann}.
+\end{proof}
+\begin{proof}[Beweis der Muirhead-Ungleichung]
+	Wähle Gewichte $\mu_\sigma$ wie im Majorisierungs-Lemma. Aus der gewichteten AM-GM-Ungleichung folgt dann
+	\begin{equation*}
+		\sum_{\sigma\in\mathfrak S_n}\mu_\sigma x_{1}^{\alpha_{\sigma(1)}}x_{2}^{\alpha_{\sigma(2)}}\dotsm x_{n}^{\alpha_{\sigma(n)}}\geqslant \prod_{\sigma\in\mathfrak S_n} x_1^{\mu_\sigma \alpha_{\sigma(1)}}x_2^{\mu_\sigma \alpha_{\sigma(2)}}\dotsm x_n^{\mu_\sigma \alpha_{\sigma(n)}}=x_1^{\beta_1}x_2^{\beta_2}\dotsm x_n^{\beta_n}\,.
+	\end{equation*}
+	Analoge Ungleichungen gelten auch für alle Vertauschungen der Exponenten $\beta_1,\beta_2,\dotsc,\beta_n$. Wenn wir alle diese Ungleichungen addieren, steht auf der rechten Seite offensichtlich $T_\beta(x_1,x_2,\dotsc,x_n)$ und wegen $\sum_{\sigma\in\mathfrak S_n}\mu_\sigma=1$ steht auf der linken Seite genau $T_\alpha(x_1,x_2,\dotsc,x_n)$.
+	
+	Gleichheit kann nur eintreten, wenn in jeder gewichteten AM-GM-Ungleichung Gleichheit eingetreten ist, aber diese Bedingung ist sehr unhandlich. Stattdessen erinnern wir uns an die Folge $\alpha=\gamma^{(0)},\gamma^{(1)}, \dotsc,\gamma^{(n)}=\beta$ aus dem Beweis des Majorisierungs-Lemmas. Mit Behauptung~\ref{behauptung:BirkhoffVonNeumann} aus dem Beweis des Majorisierungs-Lemmas können wir analog zu oben zeigen, dass $T_{\gamma^{(i)}}(x_1,x_2,\dotsc,x_n)\geqslant T_{\gamma^{(i+1)}}(x_1,x_2,\dotsc,x_n)$ gelten muss, auch wenn die $\gamma^{(i)}$ nicht absteigend geordnet sein müssen. Insbesondere kann $T_\alpha(x_1,x_2,\dotsc,x_n)=T_\beta(x_1,x_2,\dotsc,x_n)$ nur gelten, wenn in jeder der Ungleichungen $T_{\gamma^{(i)}}(x_1,x_2,\dotsc,x_n)\geqslant T_{\gamma^{(i+1)}}(x_1,x_2,\dotsc,x_n)$ Gleichheit eintritt. Diese Ungleichung lässt sich als Summe von Ungleichungen der Form
+	\begin{equation*}
+		\parens*{x_{\tau(r)}^{\gamma_r^{(i)}}x_{\tau(s)}^{\gamma_s^{(i)}}+x_{\tau(r)}^{\gamma_s^{(i)}}x_{\tau(s)}^{\gamma_r^{(i)}}}\prod_{\substack{k=1\\k\neq r,s}}^nx_{\tau(k)}^{\gamma_k^{(i)}}\geqslant \parens*{x_{\tau(r)}^{\gamma_r^{(i)}-\delta}x_{\tau(s)}^{\gamma_s^{(i)}+\delta}+x_{\tau(r)}^{\gamma_s^{(i)}+\delta}x_{\tau(s)}^{\gamma_r^{(i)}-\delta}}\prod_{\substack{k=1\\k\neq r,s}}^nx_{\tau(k)}^{\gamma_k^{(i)}}
+	\end{equation*}
+	für Permutationen $\tau\in \mathfrak S_n$ schreiben. Wenn alle Variablen positiv sind, können wir die Produkte ignorieren und Gleichheit kann nur eintreten, wenn die Ausdrücke in den Klammern gleich sind. Für $\alpha\neq \beta$ kommt es mindestens einmal vor, dass $\delta>0$ ist. Dann kann Gleichheit nur für $x_{\tau(r)}=x_{\tau(s)}$ gelten. Weil $\tau$ eine beliebige Permutation war, folgt $x_1=x_2=\dotsb=x_n$, wie gewünscht.
+\end{proof}
+
+\subsection*{Die Schur-Ungleichung}
+Manchmal lassen sich Ungleichungen nicht mit Muirhead beweisen, obwohl sie sehr danach aussehen. So zum Beispiel die Ungleichung
+\begin{equation*}
+	x^3+y^3+z^3+3xyz\geqslant x^2y+xy^2+y^2z+yz^2+z^2x+zx^2
+\end{equation*}
+für alle $x,y,z\geqslant 0$ (diese Ungleichung ist tatsächlich wahr, wie wir sogleich sehen werden). Wenn wir sie in der Notation $\frac 12T_{(3,0,0)}(x,y,z)+\frac12 T_{(1,1,1)}(x,y,z)\geqslant T_{(2,1,0)}(x,y,z)$ schreiben, sehen wir, dass zwar $(3,0,0)\succcurlyeq (2,1,0)$ gilt, aber auch $(1,1,1)\preccurlyeq (2,1,0)$. Also ist Muirhead nicht anwendbar. Auch gewichtetes AM-GM wird hier versagen. Denn egal, was für Gewichte wir wählen, solange $xyz$ mit positivem Gewicht vorkommt, können wir nur gegen Terme abschätzen, die alle drei Variablen enthalten. Also müssten wir $x^3+y^3+z^3$ allein gegen den Term auf der rechten Seite abschätzen, was offensichtlich nicht klappen kann.
+
+Glücklicherweise schafft die Schur-Ungleichung in solchen Situationen Abhilfe!
+\begin{satzmitnamen}[Schur-Ungleichung]
+	Sei $I\subseteq \mathbb R$ ein Intervall und $f\colon I\rightarrow \mathbb R_{\geqslant 0}$ eine Funktion mit nichtnegativen reellen Werten. Angenommen, $f$ ist monoton \embrace{sowohl steigend als auch fallend ist erlaubt} oder konvex \embrace{siehe Kapitel~\ref{kapitel:Jensen}: Die Ungleichungen von Jensen und Karamata}. Dann gilt für alle $x,y,z\in I$
+	\begin{equation*}
+		f(x)(x-y)(x-z)+f(y)(y-z)(y-x)+f(z)(z-x)(z-y)\geqslant 0\,.
+	\end{equation*}
+\end{satzmitnamen}
+\begin{proof}
+	Weil die Ungleichung symmetrisch in $x$, $y$ und $z$ ist, dürfen wir ohne Einschränkung $x\geqslant y\geqslant z$ annehmen. Wenn $f$ monoton steigend ist, können wir die Ungleichung wie folgt umschreiben:
+	\begin{equation*}
+		(x-y)\parens[\big]{f(x)(x-z)-f(y)(y-z)}+f(z)(x-z)(y-z)\geqslant 0\,.
+	\end{equation*}
+	Nach Annahme ist $f(x)\geqslant f(y)$ und $x-z\geqslant y-z$, also ist der erste Summand nichtnegativ. Der zweite Summand ist ebenfalls nichtnegativ. Also gilt die gewünschte Ungleichung. Wenn $f$ monoton fallend ist, können wir analog mit $z$ statt $x$ argumentieren.
+	
+	Es bleibt der Fall, dass $f$ konvex ist. In diesem Fall verwenden wir die gewichtete Jensen-Ungleichung (siehe Kapitel~\ref{kapitel:Jensen}: \emph{Die Ungleichungen von Jensen und Karamata}) und erhalten
+	\begin{equation*}
+		f(y)=f\parens*{\frac{y-z}{x-z}x+\frac{x-y}{x-z}z}\leqslant \frac{y-z}{x-z}f(x)+\frac{x-y}{x-z}f(z)
+	\end{equation*}
+	(wegen $x\geqslant y\geqslant z$ liegen die Gewichte auch tatsächlich im Intervall $[0,1]$). Einsetzen liefert
+	\begin{multline*}
+		f(x)(x-y)(x-z)-f(y)(y-z)(x-y)+f(z)(x-z)(y-z)\\
+		\geqslant(x-y)f(x)\frac{(x-z)^2-(y-z)^2}{x-z}+(y-z)f(z)\frac{(x-z)^2-(x-y)^2}{x-z}\geqslant 0\,,
+	\end{multline*}
+	denn wiederum sind beide Summanden aufgrund unserer Annahme $x\geqslant y\geqslant z$ positiv.
+\end{proof}
+
+Meistens wird die Schur-Ungleichung auf Funktionen der Form $f(x)=x^\alpha$ für eine reelle Zahl $\alpha$ angewendet. Häufig wird sogar nur der Fall $\alpha=1$ betrachtet. In diesem Fall erhalten wir die anfangs behauptete Ungleichung $x^3+y^3+z^3+3xyz\geqslant x^2y+xy^2+y^2z+yz^2+z^2x+zx^2$. Diesen Spezialfall solltet ihr euch auf jeden Fall merken!
+
+\subsection*{Beispielaufgaben}
+Ihr sollt nun die Schuirhead-Methode selbstständig auf zwei Aufgaben anwenden. Wie üblich findet ihr unter den Beispielaufgaben Tipps und am Ende des Heftes Musterlösungen.
+\begin{aufgabe*}\label{aufgabe:IMO1984Schur}
+	Gegeben seien nichtnegative reelle Zahlen $x,y,z\geqslant 0$ mit $x+y+z=1$. Beweise die Ungleichung
+	\begin{equation*}
+		0\leqslant xy+yz+zx-2xyz\leqslant\frac{7}{27}\,.
+	\end{equation*}
+\end{aufgabe*}
+\begin{aufgabe*}\label{aufgabe:SubstitutionSchur}
+	Beweise, dass für nichtnegative reelle Zahlen $x,y,z\geqslant 0$ stets die folgende Ungleichung gilt:
+	\begin{equation*}
+		(xy+yz+zx)\parens*{x^2+y^2+z^2}+3\parens*{x^4+y^4+z^4}\geqslant 6\parens*{x^2y^2+y^2z^2+z^2x^2}
+	\end{equation*}
+\end{aufgabe*}
+
+\subsection*{Tipps zu den Beispielaufgaben}
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:IMO1984Schur}.} Homogenisiere die Ungleichung.
+
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:SubstitutionSchur}.} Multipliziere die Schur-Ungleichung mit $x+y+z$.

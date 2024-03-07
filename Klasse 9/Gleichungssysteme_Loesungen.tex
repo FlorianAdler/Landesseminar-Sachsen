@@ -1,0 +1,115 @@
+\subsection*{Lösungen zu Kapitel~\ref{kapitel:Gleichungssysteme}: \emph{Nichtlineare Gleichungssysteme}}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:520943}]
+	Es ist klar, dass $x,y,z\neq 0$, sonst wären die Brüche nicht definiert. Wir zeigen zuerst, dass $x$,~$y$ und~$z$ das gleiche Vorzeichen haben müssen. Angenommen, das wäre nicht der Fall. Indem wir gegebenenfalls $(x,y,z)$ durch $(-x,-y,-z)$ ersetzen (wodurch wir immer noch eine Lösung bekommen), dürfen wir annehmen, dass genau eine Variable negativ ist und die anderen beiden positiv sind. Nach zyklischer Vertauschung der Variablen dürfen wir dann annehmen, dass $x$ negativ und $y$, $z$ positiv sind. Dann ist $z-\frac 1x$ positiv, aber $x-\frac 1y$ negativ, Widerspruch!
+	
+	Also haben $x$, $y$, $z$ das gleiche Vorzeichen. Indem wir gegebenenfalls $(x,y,z)$ durch $(-x,-y,-z)$ ersetzen, dürfen wir annehmen, dass alle Variablen positiv sind. Das Gleichungssystem ist zyklisch in $x$, $y$ und $z$, also dürfen wir ohne Beschränkung der Allgemeinheit annehmen, dass $x=\max\{x,y,z\}$. Aus $x\geqslant y$ und $x-\frac 1y=y-\frac 1z$ folgt $\frac 1y\geqslant \frac 1z$. Aus $x\geqslant z$ und $x-\frac 1y=z-\frac 1x$ folgt $\frac 1y\geqslant \frac 1z$. Folglich ist $\frac 1y=\max\braces[\big]{\frac 1x,\frac 1y,\frac 1z}$. Weil die Funktion $f\colon \mathbb R_{>0}\rightarrow \mathbb R_{>0}$, $f(t)=\frac 1t$ streng monoton fallend ist, muss deshalb $y=\min\{x,y,z\}$ gelten. Mit einem analogen Argument folgt aus $y=\min\{x,y,z\}$ zuerst $\frac 1z=\min\braces[\big]{\frac 1x,\frac 1y,\frac 1z}$ und dann $z=\max\{x,y,z\}$. Also ist $x=z$. Indem wir das gleiche Argument noch einmal mit~$z$ durchführen, erhalten wir $x=\min\{x,y,z\}$. Also ist auch $x=y$. Somit muss $x=y=z$ sein. Es ist unmittelbar klar, dass jedes Tripel $(x,y,z)$ mit $x=y=z\neq 0$ auch tatsächlich das Gleichungssystem löst.
+\end{proof}
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:521043}.]
+	Es ist klar, dass $x,y,z\neq 0$, sonst wären die Brüche nicht definiert. Sei $a$ der gemeinsame Wert von $x+\frac 1y$, $y+\frac 1z$ und $z+\frac 1x$. Aus $x+\frac 1y=a$ folgt $ay=xy+1$ und aus $y+\frac 1z=a$ folgt $az=yz+1$. Nach Multiplikation mit~$a$ und Einsetzen folgt
+	\begin{equation*}
+		a^2z=ayz+a=(xy+1)z+a=xyz+z+a\quad\Longleftrightarrow \quad\parens*{a^2-1}z=xyz+a\,.
+	\end{equation*}
+	Analog gilt auch $(a^2-1)x=xyz+a$ und $(a^2-1)y=xyz+a$. Für $a^2-1\neq 0$ folgt aus den Gleichungen $(a^2-1)x=(a^2-1)y=(a^2-1)z$ schon $x=y=z$. Offensichtlich ist jedes Tripel $(x,y,z)$ mit $x=y=z\neq 0$ auch tatsächlich eine Lösung des Gleichungssystems.
+	
+	Übrig bleibt der Fall $a^2-1=0$, also $a=\pm 1$. Wir machen nun eine Fallunterscheidung.
+	
+	\emph{Fall~1: Es gilt $a=1$.} Die Gleichung $ay=xy+1$ wird in diesem Fall zu $y=xy+1$, was sich zu $y=\frac{1}{1-x}$ umformen lässt (im Fall $x=1$ bekommen wir keine Lösung). Analog gilt $z=\frac{1}{1-y}$ und $x=\frac{1}{1-z}$. Indem wir diese Gleichungen nacheinander ineinander einsetzen, bekommen wir zuerst $z=-\frac{1-x}{x}$ und dann die wahre Aussage $x=x$. Das lässt uns vermuten, dass für $x\neq 0,1$ das Tripel $(x,y,z)=\parens[\big]{x,\frac{1}{1-x},-\frac{1-x}{x}}$ eine Lösung des Gleichungssystems ist. Das lässt sich durch Einsetzen unmittelbar verifizieren.
+	
+	
+	\emph{Fall~2: Es gilt $a=-1$.} Völlig analog zu Fall~1 bekommen wir für jede reelle Zahl $x\neq 0,-1$ das Lösungstripel $(x,y,z)=\parens[\big]{x,-\frac{1}{1+x},-\frac{1+x}{x}}$.
+	
+	Damit sind alle Fälle abgearbeitet und wir haben alle Lösungen gefunden.
+\end{proof}
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:380943}]
+	Aus der AM-GM-Ungleichung folgt $t+\frac 1t\geqslant 2\sqrt{t\cdot\frac 1t}=2$ für alle $t>0$. Gleichheit gilt nur für $t=\frac 1t$, was auf $t^2=1$ und damit $t=1$ führt (der Fall $t=-1$ ist wegen $t>0$ ausgeschlossen). Insbesondere erhalten wir
+	\begin{equation*}
+		x+3y^3+5z^5+\frac 1x+\frac3{y^3}+\frac5{z^5}=\parens*{x+\frac 1x}+3\parens*{y^3+\frac1{y^3}}+5\parens*{z^5+\frac1{z^5}}\geqslant 2+3\cdot 2+5\cdot 2=18\,.
+	\end{equation*}
+	Gleichheit gilt nur für $x=y^3=z^5=1$, was auf $(x,y,z)=(1,1,1)$ führt. Eine Probe zeigt, dass dieses Tripel tatsächlich eine (und folglich die einzige) Lösung ist.
+\end{proof}
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:451046}.]
+	Offenbar muss $x,y,z\neq 0$ sein, sonst wären die Brüche nicht definiert. Indem wir die ersten beiden Gleichungen voneinander subtrahieren, erhalten wir
+	\begin{equation*}
+		0=\parens*{x+y+\frac1z}-\parens*{y+z+\frac 1x}=(x-z)\parens*{1-\frac{1}{xz}}\,.
+	\end{equation*}
+	Aus dieser Gleichung folgt $x=z$ oder $xz=1$. Analog folgt $x=y$ oder $xy=1$ sowie $y=z$ oder $yz=1$. Wenn $x=y$ oder $x=z$ gilt, dann sind zwei Variablen gleich. Wenn nicht, dann muss $xy=1$ und $yz=1$ gelten. Wegen $x\neq 0$ folgt $y=z$ und auch in diesem Fall sind zwei Variablen gleich. Es müssen also in jedem Fall mindestens zwei der drei Variablen gleich sein. Bis auf zyklische Vertauschung der Variablen ergeben sich dann die folgenden beiden Fälle:
+	
+	\emph{Fall~1: Es gilt $x=y=z$.} In diesem Fall erhalten wir durch Einsetzen $2x+\frac 1x=3$, was sich zu $0=2x^2-3x+1=(2x-1)(x-1)$ umformen lässt. Wir können die Lösungen $x=\frac12$ und $x=1$ ablesen. Es ergeben sich die Lösungstripel $(x,y,z)=\parens[\big]{\frac12,\frac12,\frac12}$ und $(x,y,z)=(1,1,1)$. Durch Einsetzen lässt sich unmittelbar nachprüfen, dass es sich hierbei tatsächlich um Lösungen des Gleichungssystems handelt.
+	
+	\emph{Fall~2: Es gilt $x=y$ und $xz=1$.} Dann gilt $x=\frac 1z$. In der Gleichung $x+y+\frac 1z=3$ sind folglich alle drei Summanden gleich und es muss $x=y=\frac 1z=1$ gelten. Das führt auf das Lösungstripel $(x,y,z)=(1,1,1)$, welches wir bereits in Fall~1 behandelt haben.
+	
+	Damit sind alle Fälle abgehandelt und wir haben alle Lösungen gefunden.
+\end{proof}
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:461041}]
+	Offenbar gilt $x,y,z\neq 0$, sonst wären die Brüche nicht definiert. Aus der Bedingung $\frac 1x+\frac 1y+\frac 1z=1$ folgt, dass eine reelle Zahl $a$ mit $a=xy+yz+zx=xyz$ existiert. Nun sind $x$, $y$ und $z$ die drei Nullstellen des Polynoms
+	\begin{align*}
+		P(X)\coloneqq (X-x)(X-y)(X-z)&=X^3-(x+y+z)X^2+(xy+yz+zx)X-xyz\\
+		&=X^3-X^2+aX-a\\
+		&=(X^2+a)(X-1)\,.
+	\end{align*}
+	Wir können direkt ablesen, dass $P(X)$ die drei Nullstellen $X=1$ und $X=\pm\sqrt{-a}$ hat (insbesondere muss $a\leqslant 0$ sein). Indem wir $t\coloneqq \sqrt{-a}$ setzen, erhalten wir $(x,y,z)=(1,t,-t)$ sowie Permutationen davon. Durch Einsetzen ist klar, dass Tripel von dieser Form mit $t\neq 0$ tatsächlich das gegebene Gleichungssystem lösen.
+\end{proof}
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:541241}]
+	Indem wir die zweite Gleichung mit $27$ multiplizieren und zur ersten Gleichung addieren, erhalten wir
+	\begin{equation*}
+		64=10+27\cdot 2=x^3+9x^2y+27xy^2+27y^3=\parens*{x+3y}^3\,.
+	\end{equation*}
+	Es folgt $x+3y=4$. Indem wir $3y=4-x$ in die erste Gleichung einsetzen, erhalten wir
+	\begin{equation*}
+		10=x^3+9x^2y=x^3+3x^2(4-x)=-2x^3+12x^2\quad\Longleftrightarrow\quad 0=2(x-1)\parens*{x^2-5x-5}\,.
+	\end{equation*}
+	Diese Faktorisierung haben wir gefunden, indem uns aufgefallen ist, dass $(x,y)=(1,1)$ eine Lösung des ursprünglichen Gleichungssystems ist, sodass sich ein Faktor $x-1$ ausklammern lassen muss. Es bleiben folglich zwei Fälle:
+	
+	\emph{Fall~1: Es gilt $x=1$.} Dieser Fall führt auf $(x,y)=(1,1)$, was offensichtlich eine Lösung des Gleichungssystems ist.
+	
+	
+	\emph{Fall~2: Es gilt $x^2-5x-5=0$.} Die Lösungsformel für quadratische Gleichungen liefert uns $x=\frac{5\pm3\sqrt{5}}{2}$ und $y=\frac{4-x}{3}=\frac{1\mp\sqrt{5}}{2}$. Durch Einsetzen erhalten wir nach kurzer Rechnung, dass die Paare $(x,y)=\parens[\big]{\frac{5+3\sqrt{5}}{2},\frac{1-\sqrt{5}}{2}}$ und $(x,y)=\parens[\big]{\frac{5-3\sqrt{5}}{2},\frac{1+\sqrt{5}}{2}}$ tatsächlich Lösungen sind.
+	
+	Damit sind alle Fälle behandelt und wir haben alle Lösungen gefunden.
+\end{proof}
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:Sayda2013}]
+	Indem wir die erste Gleichung von der zweiten subtrahieren und faktorisieren, erhalten wir $(u-v)(u+v)=2(u-v)$. Es muss folglich $u=v$ oder $u+v=2$ gelten. Selbiges gilt für jedes andere Paar von Variablen. Wir behaupten, dass dann von je drei Variablen mindestens zwei gleich sein müssen. Wir werden diese Behauptung nur für $u$, $v$ und $w$ beweisen, alle anderen Fälle sind völlig analog. Falls $u=v$ oder $u=w$ gilt, dann ist die Behauptung offensichtlich erfüllt. Ansonsten muss $u+v=2$ und $u+w=2$ gelten, woraus aber $v=w$ und damit ebenfalls die Behauptung folgt. Damit ist gezeigt, dass es unter je drei Variablen stets mindestens zwei gleiche geben muss.
+	
+	Es folgt, dass die Variablen $u$, $v$, $w$, $x$ und $y$ nur höchstens zwei verschiedene Werte annehmen können. Bis auf Vertauschung der Variablen ergeben sich also folgende Fälle:
+	
+	\emph{Fall~1: Es gilt $u=v=w=x=y$.} In diesem Fall erhalten wir die Gleichung $4u^2=6-2u$, welche sich zu $0=2(u-1)(2u+3)$ umformen lässt. Die Lösungen $u=1$ und $u=-\frac23$ lassen sich ablesen und wir erhalten die beiden Lösungstupel $(u,v,w,x,y)=(1,1,1,1,1)$ und $(u,v,w,x,y)=\parens[\big]{-\frac23,-\frac23,-\frac23,-\frac23,-\frac23}$. Durch Einsetzen sehen wir, dass diese tatsächlich das Gleichungssystem lösen.
+	
+	\emph{Fall~2: Es gilt $u=v=w=x$ und $u\neq y$.} Aus $u\neq y$ folgt, wie wir gesehen haben, $u+y=2$. Indem wir $y=2-u$ in die letzte Gleichung einsetzen, folgt $4u^2=6-2(2-u)=2u+2$, was sich zu $0=2(u-1)(2u+1)$ umformen lässt. Das führt auf die beiden Lösungstupel $(u,v,w,x,y)=(1,1,1,1,1)$ und $(u,v,w,x,y)=\parens[\big]{-\frac12,-\frac12,-\frac12,-\frac12,\frac52}$ sowie alle Permutationen dieser Tupel. Durch Einsetzen sehen wir, dass diese tatsächlich das Gleichungssystem lösen.
+	
+	\emph{Fall~3: Es gilt $u=v=w$, $x=y$ und $u\neq x$.} Aus $u\neq x$ folgt $u+x=2$. Indem wir $x=y=2-u$ in die letzte Gleichung einsetzen, erhalten wir $3u^2+(2-u)^2=6-2(2-u)=2u+2$, was sich zu $0=2(u-1)(2u-1)$ umformen lässt. Das führt auf die beiden Lösungstupel $(u,v,w,x,y)=(1,1,1,1,1)$ und $(u,v,w,x,y)=\parens[\big]{\frac12,\frac12,\frac12,\frac32,\frac32}$ sowie alle Permutationen dieser Tupel. Durch Einsetzen sehen wir, dass diese tatsächlich das Gleichungssystem lösen.
+	
+	Damit haben wir alle Fälle untersucht und alle Lösungen gefunden.
+\end{proof}
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:IMOSL1993VNM}]
+	Weil das Gleichungssystem zyklisch ist, dürfen wir annehmen, dass $x_1$ den maximalen Betrag unter~$x_1,x_2,\dotsc,x_{42}$ hat. Wir unterscheiden zwei Fälle:
+	
+	\emph{Fall~1: Es gilt $x_1\geqslant 0$.} Weil $x_1$ den maximalen Betrag hat, ist $x_1^2$ das Maximum von $x_1^2,x_2^2,\dotsc,x_{42}^2$. Wegen $x_1^2=ax_2+1$ muss $ax_2+1$ das Maximum von $ax_1+1,ax_2+1,\dotsc,ax_{42}+1$ sein. Wegen $a>0$ folgt, dass $x_2$ das Maximum von $x_1,x_2,\dotsc,x_{42}$ ist. Weil $x_1$ nichtnegativ ist und unter den Zahlen $x_1,x_2,\dotsc,x_{42}$ den maximalen Betrag hat, muss $x_1$ auch das Maximum von $x_1,x_2,\dotsc,x_{42}$ sein. Es folgt $x_1=x_2$. Indem wir das gleiche Argument mit $x_2,x_3,\dotsc$ wiederholen, erhalten wir $x_1=x_2=\dotsb=x_{42}$. Dann ist $x_1$ eine Lösung von $x_1^2-ax_1-1=0$. Aus der üblichen quadratischen Lösungsformel erhalten wir
+	\begin{equation*}
+		x_1=\frac{a+\sqrt{a^2+4}}2=x_2=x_3=\dotsb=x_{42}
+	\end{equation*}
+	(die andere Lösung der quadratischen Gleichung ist negativ und kommt deshalb im Falle $x_1\geqslant 0$ nicht in Frage). Aus der Konstruktion ist klar, dass dies tatsächlich eine Lösung ist.
+	
+	\emph{Fall~2: Es gilt $x_1<0$.} Damit die Gleichung $x_{42}^2=ax_1+1$ überhaupt eine reelle Lösung hat, muss $x_1\geqslant -\frac 1a>-1$ sein, denn nach Annahme gilt $a>1$. Also ist $x_1^2<1$. Nach dem gleichen Argument wie in Fall~1 ist $x_2$ wieder das Maximum von $x_1,x_2,\dotsc,x_{42}$. Andererseits ist $ax_2+1=x_1^2<1$. Aus $a>1$ folgt nun $x_2<0$. Somit sind $x_1,x_2,\dotsc,x_{42}$ allesamt negativ, denn ihr Maximum $x_2$ ist negativ. Als Maximum von lauter negativen Zahlen hat $x_2$ zwangsläufig den minimalen Betrag. Wegen $x_2^2=ax_3+1$ muss $x_3$ minimal unter $x_1,x_2,\dotsc,x_{42}$ sein. Weil diese alle negativ sind, muss $x_3$ den maximalen Betrag haben. Also ist $x_1=x_3$. Indem wir diese Argumente iterieren, erhalten wir $x_1=x_3=\dotsb=x_{41}$ und $x_2=x_4=\dotsb=x_{42}$. Das ursprüngliche Gleichungssystem lässt sich also zu folgendem Gleichungssystem vereinfachen:
+	\begin{equation*}
+		\left\{\begin{aligned}
+			x_1^2&=ax_2+1\,,\\
+			x_2^2&=ax_1+1\,.
+		\end{aligned}\right.
+	\end{equation*}
+	Indem wir die beiden Gleichungen subtrahieren, erhalten wir $(x_1-x_2)(x_1+x_2)=a(x_2-x_1)$. Es gibt also nur die Möglichkeiten $x_1=x_2$ und $x_1+x_2=-a$. 
+	
+	\emph{Fall~2.1: Es gilt $x_1=x_2$.} Dieser Fall führt auf die quadratische Gleichung $x_1^2-ax_1-1=0$ und damit auf
+	\begin{equation*}
+		x_1=\frac{a-\sqrt{a^2+4}}2=x_2=x_3=\dotsb=x_{42}\,.
+	\end{equation*}
+	(die andere Lösung der quadratischen Gleichung ist positiv und kommt daher im Fall $x_1^2<0$ nicht in Frage). Aus der Konstruktion ist klar, dass dies tat tatsächlich eine Lösung ist.
+	
+	\emph{Fall~2.2: Es gilt $x_1+x_2+a=0$} Wir setzen $x_2=-a-x_1$ in die erste Gleichung ein und erhalten die quadratische Gleichung $x_1^2+ax_1+(a^2-1)=0$. Die Diskriminante dieser quadratischen Gleichung ist $4-3a^2$. Für $a>{2}/{\sqrt{3}}$ ist dieser Ausdruck negativ und wir erhalten keine reellen Lösungen. Für $a\leqslant {2}/{\sqrt{3}}$ führt die übliche Lösungsformel auf 
+	\begin{equation*}
+		x_1=\frac{-a\pm\sqrt{4-3a^2}}2=x_3=x_5=\dotsb=x_{41}\,,\quad x_2=\frac{-a\mp\sqrt{4-3a^2}}2=x_4=x_6=\dotsb=x_{42}\,.
+	\end{equation*}
+	Durch Einsetzen lässt sich überprüfen, dass dies wiederum eine Lösung des ursprünglichen Gleichungssystems ist.
+	
+	Damit haben wir alle Fälle abgefrühstückt und alle Lösungen gefunden.
+\end{proof}

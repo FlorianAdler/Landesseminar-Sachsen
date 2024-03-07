@@ -1,0 +1,34 @@
+\section{Die Umordnungs-Ungleichung}\label{kapitel:Umordnung}
+In diesem Kapitel behandeln wir eine sehr simple, aber sehr mächtige Ungleichung.
+\begin{satzmitnamen}[Umordnungs-Ungleichung]
+	Sei $a_1\geqslant a_2\geqslant \dotsb\geqslant a_n\geqslant 0$ eine absteigend geordnete Folge sowie $b_1,b_2,\dotsc,b_n\geqslant 0$ eine beliebig geordnete Folge von nichtnegativen reellen Zahlen. Sei $b_1',b_2',\dotsc,b_n'$ eine Permutation von $b_1,b_2,\dotsc,b_n$, für die $b_1'\geqslant b_2'\geqslant \dotsb\geqslant b_n'\geqslant 0$ erfüllt ist. Dann gelten stets die Ungleichungen
+	\begin{equation*}
+		a_1b_1'+a_2b_2'+\dotsb+a_nb_n'\geqslant a_1b_1+a_2b_2+\dotsb+a_nb_n\geqslant a_1b_n'+a_2b_{n-1}'+\dotsb+a_nb_1\,.
+	\end{equation*}
+\end{satzmitnamen}
+Wenn ihr ein wenig darüber nachdenkt, ist die Umordnungs-Ungleichung völlig klar: Um die Summe $a_1b_1+a_2b_2+\dotsb+a_nb_n$ so groß wie möglich zu machen, muss $a_1$ in der Summe so oft wie möglich vorkommen, also müssen wir $a_1$ mit dem größten $b_i$ multiplizieren. Analog muss $a_2$ mit dem zweitgrößten $b_i$ multipliziert werden und so weiter. Der formale Beweis ist auch nicht schwieriger:
+\begin{proof}
+	Betrachten wir zuerst den Fall $n=2$. In diesem Fall müssen wir nur die Ungleichung $a_1b_1'+a_2b_2'\geqslant a_1b_2'+a_2b_1'$ zeigen. Aber $(a_1b_1'+a_2b_2')- (a_1b_2'+a_2b_1')=(a_1-a_2)(b_1'-b_2')\geqslant 0$. Im allgemeinen Fall gehen wir wie folgt vor: Immer dann, wenn Indizes $i>j$ mit $b_i<b_j$ existieren, vertauschen wir $b_i$ und $b_j$. Nach endlich vielen Tauschen sind $b_1,b_2,\dotsc,b_n$ absteigend geordnet und aus dem Fall $n=2$ folgt, dass die Summe $a_1b_1+a_2b_2+\dotsb+a_nb_n$ in jedem Tausch nicht kleiner wird. Also gilt $a_1b_1'+a_2b_2'+\dotsb+a_nb_n'\geqslant a_1b_1+a_2b_2+\dotsb+a_nb_n$. Die andere Ungleichung folgt völlig analog.
+\end{proof}
+
+\subsection*{Beispielaufgaben}
+Ihr sollt nun die Umordnungsungleichung auf zwei Beispielaufgaben anwenden. Unter den Aufgaben findet ihr Tipps und am Ende des Heftes findet ihr Musterlösungen. Wenn ihr bei Aufgabe~\ref{aufgabe:AM-GM-MitUmordnung} nicht weiterkommt, dann benutzt ruhig den Tipp oder lest euch die Lösung durch, denn diese Aufgabe ist wirklich nicht einfach.
+\begin{aufgabe*}\label{aufgabe:EasyUmordnung}
+	Zeige, dass für nichtnegative reelle Zahlen $a,b,c\geqslant 0$ die folgende Ungleichung gilt:
+	\begin{equation*}
+		a^3+b^3+c^3\geqslant a^2b+b^2c+c^2a\,.
+	\end{equation*}
+\end{aufgabe*}
+
+\begin{aufgabe*}[*]\label{aufgabe:AM-GM-MitUmordnung}
+	Benutze die Umordnungs-Ungleichung, um die AM-GM-Ungleichung zu zeigen!
+\end{aufgabe*}
+
+\subsection*{Tipps zu den Beispielaufgaben}
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:EasyUmordnung}.} Die Folgen $(a,b,c)$ und $(a^2,b^2,c^2)$ sind stets auf die gleiche Weise geordnet.
+
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:EasyUmordnung}.} Zeige zuerst die Ungleichung
+\begin{equation*}
+	\frac{a_2}{a_1}+\frac{a_3}{a_2}+\dotsb+\frac{a_n}{a_{n-1}}+\frac{a_1}{a_n}\geqslant n\,.
+\end{equation*}
+Wähle dann geeignete Werte für $a_1,a_2,\dotsc,a_n$.

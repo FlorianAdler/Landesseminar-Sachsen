@@ -1,0 +1,154 @@
+\section{Multiplikative Ordnungen und Primitivwurzeln}\label{kapitel:Ordnung}
+
+In diesem Kapitel werden wir uns mit der Multiplikation auf den ganzen Zahlen modulo einer Zahl~$m$ befassen. Von zentraler Wichtigkeit ist hierbei die folgende Definition:
+\begin{definition}
+	Sei $a$ eine ganze Zahl, die teilerfremd zu $m$ ist. Die \emph{multiplikative Ordnung von $a$ modulo~$m$}, geschrieben $\operatorname{ord}_m(a)$, ist die kleinste positive ganze Zahl mit der Eigenschaft
+	\begin{equation*}
+		a^{\operatorname{ord}_m(a)}\equiv 1\mod m\,.
+	\end{equation*}
+\end{definition}
+Aus dem Satz von Euler-Fermat (siehe das Kapitel \emph{Teiler und Teilerfremdheit} im Heft für die Klasse~9) folgt sofort, dass $\operatorname{ord}_m(a)\leqslant\varphi(m)$. Tatsächlich können wir sogar noch mehr sagen:
+\begin{satzmitnamen}[Lemma]
+	Sei $a$ teilerfremd zu $m$. Für eine ganze Zahl $n$ gilt genau dann $a^n\equiv 1\mod m$, wenn $\operatorname{ord}_m(a)$ ein Teiler von $n$ ist. Insbesondere ist $\operatorname{ord}_m(a)$ stets ein Teiler von $\varphi(m)$.
+\end{satzmitnamen}
+Beachte, dass in diesem Lemma~$n$ auch negativ sein darf. Weil $a$ zu $m$ teilerfremd ist, besitzt $a$ nämlich ein \emph{multiplikatives Inverses modulo $m$}, es gibt also ein $b$ mit $ab\equiv 1\mod m$ (zum Beispiel können wir $b=a^{\operatorname{ord}_m(a)-1}$ wählen). Division durch $a$ modulo~$m$ können wir dann als Multiplikation mit $b$ interpretieren. Mehr dazu findet ihr im Kapitel \emph{Teiler und Teilerfremdheit} im Heft für Klasse~9.
+
+\begin{proof}
+	Wenn $n$ durch $\operatorname{ord}_m(a)$ teilbar ist, können wir $n=\operatorname{ord}_m(a)k$ schreiben. Dann folgt sofort $a^n\equiv (a^{\operatorname{ord}_m(a)})^k\equiv 1^k\equiv 1\mod m$.
+	
+	Umgekehrt bemerken wir, dass ganz allgemein aus $a^r\equiv 1\mod m$ und $a^s\equiv 1\mod m$ auch $a^{\operatorname{ggT}(r,s)}\equiv 1\mod m$ folgt. Denn nach dem Lemma von Bezout gibt es ganze Zahlen~$u$ und~$v$ mit $ru+sv=\operatorname{ggT}(r,s)$ und es folgt, wie gewünscht, $a^{\operatorname{ggT}(r,s)}\equiv (a^r)^u\cdot (a^s)^v\equiv 1^u\cdot 1^v\equiv 1\mod m$. Wenn nun $a^n\equiv 1\mod m$ ist, dann muss $n$ durch $\operatorname{ord}_m(a)$ sein, denn ansonsten hätten wir $\operatorname{ggT}(n,\operatorname{ord}_m(a))<\operatorname{ord}_m(a)$, was die Minimalität von $\operatorname{ord}_m(a)$ verletzen würde.
+\end{proof}
+
+\subsection*{Primitivwurzeln}
+Das obige Lemma führt zu folgender naheliegender Frage: \emph{Ist es möglich, dass ein $a$ existiert, sodass $\operatorname{ord}_m(a)=\varphi(m)$ gilt?}
+
+\begin{definition}
+	Wenn ein solches $a$ existiert, dann nennen wir es eine \emph{Primitivwurzel modulo $m$}.
+\end{definition}
+Es ist klar, dass die Existenz einer Primitivwurzel enorme Folgen für die Struktur der Multiplikation modulo~$m$ hätte. Wenn $g$ eine Primitivwurzel modulo~$m$ ist, dann durchlaufen die Potenzen $g^0,g^1,g^2,\dotsc,g^{\varphi(m)-1}$ alle zu~$m$ teilerfremden Restklassen modulo~$m$. Denn ihre Restklassen sind allesamt teilerfremd zu $m$ und außerdem paarweise verschieden: Aus $g^i\equiv g^j\mod m$ folgt $g^{i-j}\equiv 1\mod m$, weil wir durch die zu~$m$ teilerfremde Restklasse~$g$ dividieren dürfen. Nach dem Lemma ist also $i-j$ durch $\varphi(m)=\operatorname{ord}_m(a)$ teilbar und wegen $0\leqslant i,j<\varphi(m)$ kommt nur $i=j$ in Frage. Weil es insgesamt nur $\varphi(m)$ zu~$m$ teilerfremde Restklassen modulo~$m$ gibt, müssen die Potenzen $g^0,g^1,g^2,\dotsc,g^{\varphi(m)-1}$ sie alle durchlaufen, wie behauptet.
+
+Im Spezialfall, dass $m=p$ eine Primzahl ist, sind alle Restklassen außer $0$ zu $p$ teilerfremd und wir würden erhalten, dass die Potenzen $g^0,g^1,g^2,\dotsc,g^{p-1}$ einer Primitivwurzel alle Restklassen $1,2,\dotsc,p-1$ durchlaufen (wenn auch nicht notwendigerweise in dieser Reihenfolge).
+
+Wir sehen also, dass es sehr praktisch ist, wenn eine Primitivwurzel existiert. Der folgende Satz verrät uns, wann das der Fall ist.
+\begin{satzmitnamen}[Satz von der Primitivwurzel]
+	Eine Primitivwurzel modulo~$m$ existiert genau in den folgenden drei Fällen:
+	\begin{enumerate}[label={$(\alph*)$},ref={$(\alph*)$}]
+		\item $m=2$ oder $m=4$.
+		\item $m=p^r$, wobei $p\geqslant 3$ eine ungerade Primzahl ist.\label{fall:Primpotenz}
+		\item $m=2p^r$, wobei $p\geqslant 3$ eine ungerade Primzahl ist.\label{fall:DoppeltePrimpotenz}
+	\end{enumerate}
+\end{satzmitnamen}
+\begin{proof}
+	Wir überlegen uns zunächst, dass die Bedingung notwendig ist. Der Fall $m=8$ lässt sich unmittelbar überprüfen.\footnote{Dass für $m=8$ keine Primitivwurzel existiert, sorgt unter anderem dafür, dass Quadratzahlen modulo~$8$ nur die Reste $0$, $1$ und $4$ lassen. Dieser Fakt hilft uns in vielen Olympiade-Aufgaben. Es ist also gar nicht so schlimm, dass es keine Primitivwurzel modulo~$8$ gibt.} Es folgt sofort, dass auch modulo $2^r$ für $r\geqslant 4$ keine Primitivwurzel existieren kann. Denn wäre $g$ so eine Primitivwurzel, dann würden die Potenzen von $g$ alle zu $2^r$ teilerfremden Restklassen modulo $2^r$, also auch alle zu $8$ teilerfremden Restklassen modulo~$8$, sodass $g$ auch eine Primitivwurzel modulo~$8$ wäre.
+	
+	Wenn nun $m$ nicht von der Form $m=2^r$, $m=p^r$ oder $m=2p^r$ für eine ungerade Primzahl $p$ ist, dann finden wir immer eine Zerlegung $m=uv$ in zwei teilerfremde Faktoren $u,v\geqslant 3$. Nach dem Chinesischen Restsatz gilt die Bedingung $a^n\equiv 1\mod uv$ genau dann, wenn sowohl die Bedingung $a^n\equiv 1\mod u$ als auch die Bedingung $a^n\equiv 1\mod v$ gilt. Hieraus folgt sofort, dass $\operatorname{ord}_m(a)$ das kleinste gemeinsame Vielfache von $\operatorname{ord}_u(a)$ und $\operatorname{ord}_v(a)$ ist. Weil sich die Eulersche $\varphi$-Funktion für teilerfremde Faktoren multiplikativ verhält, gilt $\varphi(m)=\varphi(u)\varphi(v)$. Für $u,v\geqslant 3$ sind aber $\varphi(u)$ und $\varphi(v)$ beide durch $2$ teilbar (das folgt zum Beispiel aus der expliziten Formel für $\varphi$; siehe das Kapitel \emph{Teiler und Teilerfremdheit} im Heft für Klasse~9). Also ist $\varphi(u)\varphi(v)$ strikt größer als das kleinste gemeinsame Vielfache von $\varphi(u)$ und $\varphi(v)$. Damit kann es modulo $m=uv$ keine Primitivwurzel geben.
+	
+	Es bleibt zu zeigen, dass in den Fällen~\ref{fall:Primpotenz} und~\ref{fall:DoppeltePrimpotenz} stets eine Primitivwurzel existiert.
+	
+	\textbf{Schritt~1: Wir zeigen den Fall $\boldsymbol{m=p}$.} Das ist der schwierigste Fall und wir benötigen zwei Lemmata, die auch allgemein gut zu wissen sind.
+	\begin{satzmitnamen}[Lemma~1]
+		Sei $P(X)$ ein Polynom vom Grad~$n$ mit ganzzahligen Koeffizienten, sodass nicht alle Koeffizienten durch $p$ teilbar sind. Dann hat $P(X)$ höchstens $n$ Nullstellen modulo~$p$.
+	\end{satzmitnamen}
+	\begin{proof}
+		Wir benutzen Induktion nach $n$. Der Fall $n=0$ ist klar: In diesem Fall ist $P(X)$ ein konstantes Polynom und diese Konstante kann nach Annahme nicht durch $p$ teilbar sein. Also hat $P(X)$ keine Nullstellen modulo $P$.
+		
+		Für den Induktionsschritt nehmen wir an, dass $n\geqslant 1$ gilt und die Aussage für Polynome vom Grad $\leqslant n-1$ bereits bewiesen ist. Sei $x_0$ eine Nullstelle von $P(X)$ modulo $p$. Via Polynomdivision dividieren wir $P(X)$ durch $X-x_0$ modulo $p$. Beachte, dass Polynomdivision auch modulo~$p$ möglich ist. Denn um Polynomdivision wie üblich durchführen zu können, müssen wir nur durch den Leitkoeffizienten des Divisors teilen können. Der Leitkoeffizient von $X-x_0$ ist aber $1$ und durch $1$ können wir immer teilen.
+		
+		Durch Polynomdivision mit Rest finden wir also Polynome $P_1(X)$ und $R_1(X)$ mit
+		\begin{equation*}
+			P(X)\equiv (X-x_0)P_1(X)+R_1(X)\mod p\,.
+		\end{equation*}
+		Ferner muss der Rest $R_1(X)$ kleineren Grad als $X-x_0$ haben (sonst könnten wir weiter polynomdividieren). Also muss $R_1(X)\equiv r\mod p$ eine Konstante sein. Aus $P(x_0)\equiv 0\mod p$ folgt nun aber
+		\begin{equation*}
+			0\equiv P(x_0)\equiv (x_0-x_0)P_1(x_0)+r\equiv r\mod p\,.
+		\end{equation*}
+		Also ist $P(X)\equiv (X-x_0)P_1(X)\mod p$.
+		
+		Bis hierhin haben wir nicht gebraucht, dass~$n$ eine Primzahl ist, aber jetzt brauchen wir es: Wenn $x\not\equiv x_0\mod p$, dann ist $x-x_0$ eine teilerfremde Restklasse modulo~$p$ und wir können durch $x-x_0$ teilen. Folglich kann $P(x)\equiv 0\mod p$ nur gelten, wenn schon $P_1(x)\equiv 0\mod p$ gilt. Alle von $x_0$ verschiedene Nullstellen von $P(X)$ sind also auch Nullstellen von $P_1(X)$. Es kann nicht sein, dass alle Koeffizienten von $P_1$ durch $p$ teilbar sind, denn dann wäre selbiges auch für $P(X)=(X-x_1)P_1(X)$ erfüllt. Also können wir die Induktionsvoraussetzung auf $P_1(X)$ anwenden und finden heraus, dass $P_1(X)$ höchstens $n-1$ Nullstellen hat. Zusammen mit $x_0$ kann $P(X)$ also höchstens $n$ Nullstellen haben, wie gewünscht.
+	\end{proof}	
+	
+	\begin{satzmitnamen}[Lemma~2]
+		Für alle positiven ganzen Zahlen $n$ gilt
+		\begin{equation*}
+			n=\sum_{d\mid n}\varphi(d)\,,
+		\end{equation*}
+		wobei die Summe einmal durch alle positiven Teiler von $n$ läuft.
+	\end{satzmitnamen}
+	\textbf{Beweis.} Für jeden Teiler $d\mid n$ gibt es genau $\varphi(n/d)$ positive ganze Zahlen $1\leqslant k\leqslant n$ mit $\operatorname{ggT}(k,n)=d$. Denn damit $k$ durch $d$ teilbar ist, muss $k=id$ für ein $1\leqslant i\leqslant n/d$ gelten und damit $k$ und $n$ keinen größeren gemeinsamen Teiler haben, muss $i$ zu $n/d$ teilerfremd sein. Folglich gilt $n=\sum_{d\mid n}\varphi(n/d)$. Wenn $d$ einmal durch alle positiven Teiler von $n$ läuft, dann läuft auch $n/d$ einmal durch alle positiven Teiler von $n$. Also gilt $\sum_{d\mid n}\varphi(n/d)=\sum_{d\mid n}\varphi(d)$ und die Behauptung folgt.\qed
+	
+	Wenden wir uns nun wieder dem Problem zu, die Existenz einer Primitivwurzel modulo $p$ nachzuweisen. Wir zeigen per Induktion, dass es für jeden Teiler $d\mid p-1$ genau $\varphi(d)$ Restklassen von Ordnung $d$ modulo $p$ gibt. Im Falle $d=p-1$ erhalten wir dann, dass es genau $\varphi(p-1)$ Primitivwurzeln modulo $p$ gibt. Insbesondere existiert mindestens eine.
+	
+	Der Induktionsanfang $d=1$ ist trivial, denn nur die Restklasse $1$ hat Ordnung $1$. Für den Induktionsschritt nehmen wir an, dass die Behauptung für alle echten Teiler $e\mid d$ bereits bewiesen ist. Es gilt
+	\begin{equation*}
+		X^{p-1}-1= \parens*{X^d-1}\parens*{1+X^d+(X^d)^2+\dotsb+(X^d)^{(p-1)/d-1}}\,.
+	\end{equation*}
+	Nach Lemma~1 hat der erste Faktor $X^d-1$ höchstens $d$ Nullstellen und der zweite Faktor höchstens $(p-1)-d$ Nullstellen. Nach dem kleinen Satz von Fermat hat das Polynom $X^{p-1}-1$ jedoch genau $p-1$ Nullstellen modulo~$p$, nämlich $1,2,\dotsc,p-1$. Somit muss auch $X^d-1$ genau $d$ Nullstellen besitzen. Für jeden Teiler $e\mid d$ sind die Restklassen von Ordnung~$e$ allesamt Nullstellen von $X^d-1$. Nach Induktionsannahme gibt es für jeden echten Teiler $e\mid d$ genau $\varphi(e)$ Restklassen von Ordnung~$e$. Damit haben wir $\sum_{e\mid d,e\neq d}\varphi(e)$ Nullstellen von $X^d-1$ identifiziert. Nach Lemma~2 bleiben genau $\varphi(d)$ Nullstellen übrig. Jede solche Nullstelle $x$ erfüllt einerseits $x^d\equiv 1\mod p$, kann aber andererseits nicht Ordnung $e$ für irgendeinen echten Teiler $e\mid d$ haben. Also muss $\operatorname{ord}_p(x)=d$ gelten. Damit haben wir gezeigt, dass genau $\varphi(d)$ Restklassen mit dieser Eigenschaft existieren. Das beendet den Induktionsschritt, die Induktion sowie den Beweis im Fall $m=p$.
+	
+	\textbf{Schritt~2: Wir zeigen den Fall~$\boldsymbol{m=p^2}$.} Sei~$g$ eine Primitivwurzel modulo~$p$. Wir wollen die Ordnung von $g$ modulo $p^2$ untersuchen. Es ist klar, dass $\operatorname{ord}_{p^2}(g)$ durch $\operatorname{ord}_p(g)=p-1$ teilbar ist, denn aus $g^{\operatorname{ord}_{p^2}(g)}\equiv 1\mod p^2$ folgt auch $g^{\operatorname{ord}_{p^2}(g)}\equiv 1\mod p$. Andererseits muss $\operatorname{ord}_{p^2}(g)$ ein Teiler von $\varphi(p^2)=(p-1)p$ sein. Also kommen nur die Möglichkeiten $\operatorname{ord}_{p^2}(g)=p-1$ und $\operatorname{ord}_{p^2}(g)=(p-1)p$ in Frage. Im zweiten Fall ist $g$ eine Primitivwurzel modulo $p^2$ und wir sind fertig. Im ersten Fall behaupten wir, dass $g+p$ eine Primitivwurzel modulo~$p^2$ ist. Wegen $g+p\equiv g\mod p$ muss $g+p$ auf jeden Fall eine Primitivwurzel modulo~$p$ sein. Nach dem gleichen Argument wie oben müssen wir also nur den Fall $\operatorname{ord}_{p^2}(g+p)=p-1$ ausschließen. Dazu rechnen wir
+	\begin{equation*}
+		(g+p)^{p-1}\equiv \sum_{k=0}^{p-1}\binom{p-1}{k}p^kg^{p-1-k}\equiv g^{p-1}+(p-1)pg^{p-2}\mod p^2\,.
+	\end{equation*}
+	Hier haben wir benutzt, dass für $k\geqslant 2$ alle Terme in der Summe durch $p^2$ teilbar sind. Nach Annahme ist $g^{p-1}\equiv 1\mod p^2$, aber $(p-1)pg^{p-2}$ kann nicht durch $p^2$ teilbar sein. Folglich ist $(g+p)^{p-1}\not\equiv 1\mod p^2$, wie gewünscht.
+	
+	\textbf{Schritt~3: Wir zeigen den allgemeinen Fall $\boldsymbol{m=p^r}$.} Sei $g$ eine Primitivwurzel modulo~$p^2$. Wir zeigen nun per Induktion nach~$r$, dass $g$ auch eine Primitivwurzel modulo~$p^r$ für alle $r\geqslant 2$ ist. Der Induktionsanfang $r=2$ ist unsere Annahme an $g$. Nun sei $r\geqslant 3$ und wir nehmen an, dass wir bereits bewiesen haben, dass $g$ eine Primitivwurzel modulo $p^{r-1}$ ist. Analog zum Fall $m=p^2$ sehen wir, dass $\operatorname{ord}_{p^r}(g)$ durch $\operatorname{ord}_{p^{r-1}}(g)=\varphi(p^{r-1})(p-1)p^{r-2}$ teilbar sein muss. Andererseits ist $\operatorname{ord}_{p^r}(g)$ ein Teiler von $\varphi(p^r)=(p-1)p^{r-1}$. Es kommen also nur die Möglichkeiten $\operatorname{ord}_{p^r}(g)=(p-1)p^{r-2}$ oder $\operatorname{ord}_{p^r}(g)=(p-1)p^{r-1}$ in Frage. Im zweiten Fall sind wir fertig, also müssen wir nur den ersten Fall ausschließen. Nach dem Satz von Euler-Fermat gilt $g^{(p-1)p^{r-3}}\equiv 1\mod p^{r-2}$, jedoch ist $g^{(p-1)p^{r-3}}\not\equiv1\mod p^{r-1}$, denn $g$ ist Primitivwurzel modulo $p^{r-1}$. Somit können wir $g^{(p-1)p^{r-3}}=1+ap^{r-2}$ schreiben, wobei $a$ nicht durch $p$ teilbar ist. Wir rechnen nun
+	\begin{equation*}
+		g^{(p-1)p^{r-2}}\equiv \parens*{g^{(p-1)p^{r-3}}}^p\equiv \parens*{1+ap^{r-2}}^{p}\equiv\sum_{k=0}^{p}\binom{p}{k}a^kp^{k(r-2)}\equiv 1+\binom{p}{1}ap^{r-2}\mod p^r\,.
+	\end{equation*}
+	Hier haben wir folgendes benutzt: Für $k\geqslant 3$ sind alle Terme in der Summe durch $p^r$ teilbar, denn $k(r-2)\geqslant r$ ist äquivalent zu $(k-1)(r-2)\geqslant 2$, was für $r,k\geqslant 3$ erfüllt ist. Für $k=2$ ist der Binomialkoeffizient $\binom{p}{2}=\frac{(p-1)p}{2}$ durch $p$ teilbar, denn $p$ ist eine ungerade Primzahl.\footnote{Das ist das erste und einzige Mal, dass wir diese Voraussetzung benutzen. Im Fall $p=2$, $r=3$ geht der Beweis genau an dieser Stelle schief.} Folglich ist $\binom{p}{2}a^2p^{2(r-2)}$ mindestens durch $p^{2r-3}$ teilbar, also auch durch $p^r$, denn $r\geqslant3$. Wir bemerken nun, dass $1+\binom{p}{1}ap^{r-2}\equiv 1+ap^{r-1}\not\equiv 1\mod p^r$, denn $a$ ist nach Annahme nicht durch~$p$ teilbar.
+	
+	\textbf{Schritt~4: Wir zeigen den Fall $\boldsymbol{m=2p^r}$.} Dieser Fall ist einfach: Weil $p$ eine ungerade Primzahl ist und $g$ eine Primitivwurzel modulo $p^r$, muss genau eine der beiden zahlen $g$ oder $g+p^r$ ungerade sein. Genau eine dieser beiden Zahlen ist also teilerfremd zu $2p^r$. Ihre Ordnung modulo $2p^r$ kann nicht kleiner als ihre Ordnung modulo $p^r$ sein. Andererseits ist  $\varphi(2p^r)=\varphi(2)\varphi(p^r)=\varphi(p^r)$. Die betrachtete Zahl ist also automatisch auch eine Primitivwurzel modulo~$2p^r$.
+	
+	Das beendet den Beweis des Satzes von der Primitivwurzel.
+\end{proof}
+
+\subsection*{Ordnungen in Olympiade-Aufgaben}
+
+Der Satz von der Primitivwurzel ist gelegentlich in Olympiade-Aufgaben hilfreich. Die Überlegungen, die in den Beweis geflossen sind -- insbesondere die beiden Lemmata in Schritt~1 sowie die Betrachtungen in Schritt~2 und~3 -- sind sogar richtig nützlich und kommen häufig unabhängig von Primitivwurzeln zur Anwendung. Das Allernützlichste in diesem Kapitel ist aber das Prinzip der Ordnung selbst: Erstaunlich viele Zahlentheorie-Aufgaben lassen sich lösen, indem ihr euch die richtigen Ordnungen anschaut!
+
+Ein häufiger Trick bei solchen Aufgaben ist, dass ihr euch den kleinsten Primfaktor eines der auftretenden Exponenten anschaut. Denn wenn $p$ der kleinste Primfaktor von $n$ ist, dann sind $p-1$ und $n$ teilerfremd -- also kann eine Ordnung, die $n$ und $p-1$ teilt, nur gleich $1$ sein.
+
+Ihr sollt nun einige solche Aufgaben selbstständig lösen, um euch mit der Methode vertraut zu machen. Am Ende dieses Kapitels findet ihr Tipps zu den Aufgaben und am Ende dieses Heftes findet ihr Lösungen.
+
+\begin{aufgabe*}\label{aufgabe:nTeiltPhi}
+	Gegeben seien positive ganze Zahlen $a$ und $n$, wobei $a\geqslant 2$. Zeige, dass $n$ ein Teiler von $\varphi(a^n-1)$ ist.
+\end{aufgabe*}
+\begin{aufgabe*}\label{aufgabe:Primzahlen1modp}\leavevmode
+	\begin{enumerate}[label={$(\alph*)$},ref={$(\alph*)$}]
+		\item Sei $n\geqslant 2$ eine positive ganze Zahl, sei $p$ eine Primzahl und sei $q$ ein Primteiler von $\frac{n^p-1}{n-1}$. Zeige, dass stets $q=p$ oder $q\equiv 1\mod p$ gilt.\label{teilaufgabe:Trick17}
+		\item Zeige, dass es unendlich viele Primzahlen $q$ mit $q\equiv 1\mod p$ gibt.\label{teilaufgabe:Primzahlen1modp}
+	\end{enumerate}
+\end{aufgabe*}
+Aufgabe~\ref{aufgabe:Primzahlen1modp}\ref{teilaufgabe:Primzahlen1modp} ist offensichtlich ein Spezialfall des berühmten \emph{Primzahlsatzes von Dirichlet:}
+\begin{satzmitnamen}[Primzahlsatz von Dirichlet]
+	Gegeben seien teilerfremde positive ganze Zahlen $a$ und $m$. Dann gibt es unendlich viele Primzahlen $q$ mit $q\equiv a\mod m$.
+\end{satzmitnamen}
+Der Beweis dieses Satzes benutzt komplexe Analysis und geht damit weit über unsere Methoden hinaus. Demzufolge wird es nicht gern gesehen, wenn ihr den Primzahlsatz von Dirichlet in einer Olympiade verwendet (aber wenn ihr so eine Lösung findet, schreibt sie natürlich trotzdem auf). Es ist also nützlich, einige Spezialfälle zu kennen, die sich auch mit elementaren Methoden zeigen lassen. Aufgabe~\ref{aufgabe:Primzahlen1modp}\ref{teilaufgabe:Primzahlen1modp} ist einer davon; in Kapitel~\ref{kapitel:QuadratischeReste}: \emph{Quadratische Reste} werdet ihr einen weiteren Spezialfall sehen.
+\begin{aufgabe*}[*]\label{aufgabe:IMO1999}
+	Finde alle Paare $(n,p)$, wobei $p$ eine Primzahl ist und $n\leqslant 2p$ eine positive ganze Zahl, sodass $n^{p-1}$ ein Teiler von $(p-1)^n+1$ ist.
+\end{aufgabe*}
+\begin{aufgabe*}[*]\label{aufgabe:5pq}
+	Finde alle Paare $(p,q)$ von Primzahlen, sodass $pq$ ein Teiler von $5^p+5^q$ ist.
+\end{aufgabe*}
+
+\begin{aufgabe*}[**]\label{aufgabe:2HochpUnd2Hochq}
+	Beweise, dass es unendlich viele Paare $(p,q)$ von Primzahlen mit $p\neq q$ gibt, sodass $p$ ein Teiler von $2^{q-1}-1$ und $q$ ein Teiler von $2^{p-1}-1$ ist.
+\end{aufgabe*}
+
+\subsection*{Tipps zu den Beispielaufgaben}
+
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:nTeiltPhi}.} Schreibe $n$ als die Ordnung einer geeigneten Zahl modulo~$a^n-1$.
+
+\textbf{Tipps zu Aufgabe~\ref{aufgabe:Primzahlen1modp}.} Für~\ref{teilaufgabe:Trick17}, betrachte die Ordnung von $n$ modulo~$q$. Was kannst du über diese Ordnung aussagen?
+
+Für~\ref{teilaufgabe:Primzahlen1modp}, benutze~\ref{teilaufgabe:Trick17} und argumentiere analog zu dem üblichen Beweis, dass es unendlich viele Primzahlen gibt.
+
+\textbf{Tipps zu Aufgabe~\ref{aufgabe:IMO1999}.} Betrachte den kleinsten Primfaktor $q$ von $n$ sowie die Ordnung von $p-1$ modulo~$q$.
+
+Um den Fall $n=p$ zu lösen, betrachte alles modulo $p^3$.
+
+\textbf{Tipps zu Aufgabe~\ref{aufgabe:5pq}.} Benutze den kleinen Satz von Fermat und betrachte die Ordnung von $5$ modulo~$p$ und modulo~$q$.
+
+Um den Fall $p,q\neq 5$ zum Widerspruch zu führen, untersuche genau, wie oft $p-1$, $q-1$ sowie $\operatorname{ord}_p(5)$ und $\operatorname{ord}_q(5)$ durch $2$ teilbar sein müssen.
+
+
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:2HochpUnd2Hochq}.} Betrachte Primfaktoren von $2^{2r}-1$, wobei $r$ eine Primzahl ist.

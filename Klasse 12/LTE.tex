@@ -1,0 +1,94 @@
+\section{Das Lifting-The-Exponent-Lemma}\label{kapitel:LTE}
+Das folgende Lemma kann unglaublich nützlich sein.
+\begin{satzmitnamen}[Lifting-The-Exponent-Lemma (LTE)]
+	Für jede Primzahl~$p$ und jede ganze Zahl $n\neq 0$ notieren wir mit $v_p(n)$ den Exponenten von~$p$ in der Primfaktorzerlegung von~$n$.
+	\begin{enumerate}
+		\item Gegeben sei ein ungerade Primzahl $p\geqslant 3$ sowie ganze Zahlen $a$, $b$ mit $a\equiv b\not\equiv 0\mod p$. Dann gilt folgende Gleichung für alle positiven ganzen Zahlen $n\geqslant 1$:\label{behauptung:LTEpUngerade}
+		\begin{equation*}
+			v_p\parens*{a^n-b^n}=v_p(a-b)+v_p(n)\,.
+		\end{equation*}
+		\item Gegeben seien ganze Zahlen $a$, $b$ mit $a\equiv 0\mod 4$, aber $a,b\not\equiv 0\mod 2$. Dann gilt folgende Gleichung für alle positiven ganzen Zahlen $n\geqslant 1$:\label{behauptung:LTEp=2}
+		\begin{equation*}
+			v_2\parens*{a^n-b^n}=v_2(a-b)+v_2(n)\,.
+		\end{equation*}
+	\end{enumerate}
+\end{satzmitnamen}
+Es ist ein wenig schade, dass Aussage für $p=2$ ein wenig schwächer ist, aber in der Olympiade-Praxis sorgt das meistens nicht für Probleme. Wir können nämlich auch für $a\equiv b\mod 2$ konkrete Aussagen treffen. Wenn $n$ gerade ist, benutzen wir, dass aus $a\equiv b\mod 2$ auch $a^2\equiv b^2\mod 4$ folgt. Also können wir das LTE-Lemma auf $a^n-b^n=(a^2)^{n/2}-(b^2)^{n/2}$ anwenden und erhalten
+\begin{equation*}
+	v_2\parens*{a^n-b^n}=v_2\parens*{a^2-b^2}+v_2\parens*{\frac n2}=v_2(a-b)+v_2(a+b)+v_2(n)-1\,.
+\end{equation*}
+Wenn~$n$ ungerade ist, erhalten wir hingegen $v_2(a^n-b^n)=v_2(a-b)$ nach dem nun folgenden Hilfslemma. Dieses Hilfslemma ist auch der erste Schritt im Beweis des LTE-Lemmas.
+\begin{satzmitnamen}[Lemma]
+	Gegeben sei eine Primzahl~$p$ \embrace{der Fall~$p=2$ ist erlaubt} sowie ganze Zahlen $a$, $b$ mit $a\equiv b\not\equiv 0\mod p$. Sei ferner $n\geqslant 1$ eine positive ganze Zahl mit $n\not\equiv 0\mod p$. Dann gilt
+	\begin{equation*}
+		v_p\parens*{a^n-b^n}=v_p(a-b)\,.
+	\end{equation*}
+\end{satzmitnamen}
+\begin{proof}
+	Wir benutzen die Faktorisierung $a^n-b^n=(a-b)(a^{n-1}+a^{n-2}b+\dotsb+ab^{n-2}+b^{n-1})$. Wegen $a\equiv b\mod p$ und $a,n\not\equiv 0\mod p$ gilt
+	\begin{equation*}
+		a^{n-1}+a^{n-2}b+\dotsb+ab^{n-2}+b^{n-1}\equiv na^{n-1}\not\equiv 0\mod p\,.
+	\end{equation*}
+	Also ist der zweite Faktor in der Faktorisierung nicht durch~$p$ teilbar und die Behauptung $v_p(a^n-b^n)=v_p(a-b)$ folgt sofort.
+\end{proof}
+
+\begin{proof}[Beweis des LTE-Lemmas]
+	Wir zeigen zuerst~\ref{behauptung:LTEpUngerade}. Es genügt, den Fall zu betrachten, dass $n=p^r$ eine Potenz von $p$ ist, denn der allgemeine Fall lässt sich mithilfe des vorherigen Lemmas auf diesen Spezialfall zurückführen. Indem wir Induktion nach~$r$ verwenden und $a$, $b$ durch $a^{p^{r-1}}$, $b^{p^{r-1}}$ ersetzen, können wir außerdem den Fall $n=p^r$ auf den Fall $n=p$ reduzieren. Betrachten wir also diesen Fall. Wegen $a^p-b^p=(a-b)(a^{p-1}+a^{p-2}b+\dotsb+ab^{p-2}+b^{p-1})$ sagt das LTE-Lemma im Fall $n=p$, dass der Faktor $a^{p-1}+a^{p-2}b+\dotsb+ab^{p-2}+b^{p-1}$ genau einmal durch~$p$ teilbar ist. Dazu schreiben wir $b=a+pm$ und betrachten den Ausdruck modulo~$p^2$: Wir erhalten zunächst
+	\begin{equation*}
+		b^i\equiv \parens*{a+pm}^i\equiv \sum_{k=0}^i\binom{i}{k}(pm)^ka^{i-k}\equiv a^i+ipm a^{i-1}\mod p^2\,,
+	\end{equation*}
+	denn für $k\geqslant 2$ sind alle Terme in der Summe durch~$p^2$ teilbar. Also ist
+	\begin{alignat*}{2}
+		a^{p-1}+a^{p-2}b+\dotsb+ab^{p-2}+b^{p-1}&\equiv \sum_{i=0}^{p-1}a^{p-1-i}\parens*{a^i+ipma^{i-1}} && \mod p^2\\
+		&\equiv pa^{p-1}+\frac{(p-1)p}{2}pma^{p-1} &&  \mod p^2\\
+		&\equiv pa^{p-1} && \mod p^2\,.
+	\end{alignat*}
+	Hier haben wir die Voraussetzung $p\geqslant 3$ benutzt, sodass $\frac{(p-1)p}{2}$ durch~$p$ teilbar ist. Aus der Rechnung folgt, dass $a^{p-1}+a^{p-2}b+\dotsb+ab^{p-2}+b^{p-1}$ durch~$p$, aber nicht durch $p^2$ teilbar ist. Das wollten wir zeigen.
+	
+	Die Behauptung in~\ref{behauptung:LTEp=2} lässt sich analog zu~\ref{behauptung:LTEpUngerade} auf den Fall $n=2$ reduzieren. Nach Voraussetzung gilt $a\equiv b\mod 4$, aber $a,b\not\equiv 0\mod 2$, sodass $a+b\equiv 2a\equiv 2\mod 4$. Es folgt $v_2(a+b)=1$ und damit $v_2(a^2-b^2)=v_2(a-b)+v_2(a+b)=v_2(a-b)+1$, wie behauptet.
+\end{proof}
+
+\subsection*{Beispielaufgaben}
+Es ist klar, dass sich das LTE-Lemma in vielen Diophantischen Gleichungen und ähnlichen Zahlentheorie-Aufgaben anwenden lässt. Ein häufiger Trick ist folgender: Wenn wir zeigen können, dass $a^n-b^n$ \enquote{wesentlich öfter} als $a-b$ durch~$p$ teilbar ist, dann muss $v_p(n)$ \enquote{groß} sein. Andererseits gilt aber auch $n\geqslant p^{v_p(n)}$, also muss $v_p(n)$ \enquote{wesentlich kleiner} als~$n$ sein. Konkret: $v_p(n)\leqslant \ln(n)/\ln(p)$. Oft genug lassen sich diese Beobachtungen formalisieren und wir erhalten einen Widerspruch.
+
+Ihr sollt nun die folgenden Olympiade-Aufgaben selbstständig mit dem LTE-Lemma lösen. Am Ende dieses Kapitels findet ihr Tipps zu den Aufgaben und am Ende dieses Heftes könnt ihr die Lösungen nachlesen.
+
+\begin{aufgabe*}\label{aufgabe:NieQuadratfrei}
+	Zeige: Für positive ganze Zahlen $a\geqslant 3$ ist $a^{a-1}-1$ nie quadratfrei.
+\end{aufgabe*}
+\begin{aufgabe*}\label{aufgabe:2p3pan}
+	Gegeben sei die Diophantische Gleichung $2^p+3^p=a^n$, wobei $p$ eine Primzahl ist und $a,n\geqslant 1$ positive ganze Zahlen sind. Zeige, dass diese Gleichung nur die trivialen Lösungen mit $n=1$ besitzt.
+\end{aufgabe*}
+%	\begin{aufgabe*}\label{aufgabe:EndlicheMengeVonPrimzahlen}
+	%		Sei $\Sigma$ eine endliche Menge von Primzahlen und sei $a>1$ eine positive ganze Zahl. Zeige, dass es nur endlich viele positive ganze Zahlen $n\geqslant 1$ gibt, für die alle Primfaktoren von $a^n-1$ in $\Sigma$ liegen.
+	%	\end{aufgabe*}
+\begin{aufgabe*}[**]\leavevmode\label{aufgabe:xn-yn}
+	\begin{enumerate}[label={$(\alph*)$},ref={$(\alph*)$}]
+		\item[$(a^*)$] Gegeben seien rationale Zahlen $x,y\in\mathbb Q$ mit $x>y>0$. Angenommen, für alle positiven ganzen Zahlen $n\geqslant 1$ ist $x^n-y^n$ eine positive ganze Zahl. Zeige, dass $x$ und $y$ selber positive ganze Zahlen sein müssen.\label{teilaufgabe:xn-yn}
+		\item[$(b^{**})$] Zeige, dass die Schlussfolgerung aus~\ref{teilaufgabe:xn-yn} immer noch wahr ist, wenn wir nur wissen, dass $x^n-y^n$ für unendlich viele $n\geqslant 1$ eine positive ganze Zahl ist.\label{teilaufgabe:xn-ynEndlichViele}
+	\end{enumerate}
+\end{aufgabe*}
+\begin{aufgabe*}[**]\label{aufgabe:IMOSL2014N5}
+	Finde alle Tripel $(p,x,y)$, wobei~$p$ eine Primzahl ist und $x,y\geqslant 1$ positive ganze Zahlen sind, sodass $x^{p-1}+y$ und $x+y^{p-1}$ Potenzen von~$p$ sind.
+\end{aufgabe*}
+
+\subsection*{Tipps zu den Beispielaufgaben}
+
+
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:NieQuadratfrei}.} Betrachte einen Primfaktor von $a-1$.
+
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:2p3pan}.} Untersuche, wie oft beide Seiten durch~$5$ teilbar sind.
+
+%\textbf{Tipp zu Aufgabe~\ref{aufgabe:EndlicheMengeVonPrimzahlen}.} Betrachte die multiplikative Ordnung von~$a$ modulo jeder Primzahl $p\in\Sigma$. Schätze dann $v_p(a^n-1)$ in Abhängigkeit von $v_p(a^{\operatorname{ord}_p(a)}-1)$ ab.
+
+\textbf{Tipps zu Aufgabe~\ref{aufgabe:xn-yn}.} Zeige zuerst, dass wir $x$ und $y$ als vollständig gekürzte Brüche $x=a/c$ und $y=b/c$ mit dem gleichen Nenner $c$ darstellen können.
+
+Um~$(a)$ zu zeigen, nimm an, dass~$c$ einen Primteiler~$p$ besitzt und führe dies zum Widerspruch, indem du untersuchst, wie oft $a^n-b^n$ durch $p$ teilbar sein kann und wie oft es durch~$p$ teilbar sein müsste.
+
+Für~$(b)$ wende das gleiche Argument auf $a^{\operatorname{ord}_p(a/b)}-b^{\operatorname{ord}_p(a/b)}$ statt $a-b$ an, wobei $a/b$ die Restklasse modulo~$p$ ist, die sich als Produkt von~$a$ mit dem multiplikativen Inversen von~$b$ modulo~$p$ ergibt.
+
+\textbf{Tipps zu Aufgabe~\ref{aufgabe:IMOSL2014N5}.} Die Lösung besteht aus vielen kleinen Schritten und es sind zahlreiche Fälle zu unterscheiden. Aber es lohnt sich, eine Weile an dieser Aufgabe zu knobeln. Sei geduldig, schau, wie weit du kommst, und versuche, nicht den Überblick zu verlieren.
+
+Behandle erst die trivialen Fälle $p=2$, $x=y$ und $x\equiv 0\mod p$. Zeige, dass in allen anderen Fällen $x\equiv y\mod p$ gilt. Betrachte sodann den Ausdruck $x(x^{p-1}+y)-y(x+y^{p-1})$.
+
+Um die Bedingung, die das LTE-Lemma liefert, verwerten zu können, setze sie geschickt ein und betrachte die multiplikative Ordnung von $-y$ modulo~$p$.

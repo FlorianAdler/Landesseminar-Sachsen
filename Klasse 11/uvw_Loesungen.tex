@@ -1,0 +1,43 @@
+
+\subsection*{Lösungen zu Kapitel~\ref{kapitel:uvw}: \emph{Die \texorpdfstring{$uvw$}{uvw}-Methode}}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:DEMO2015Ungleichung}]
+	Durch Ausprobieren finden wir heraus, dass Gleichheit für $x=y=4z$ sowie Permutationen davon angenommen wird. Weil die Ungleichung homogen in $x$, $y$ und $z$ ist, dürfen wir ohne Einschränkung $w=16$ annehmen (diese Wahl ist von den Gleichheitsfällen inspiriert). Mit dieser Wahl lässt sich die Ungleichung als
+	\begin{equation*}
+		\frac{u}{3}+\frac{3w}{v}\geqslant 5
+	\end{equation*}
+	schreiben. Fixiere $v$ und $w=16$. Die linke Seite nimmt ihr Minimum an, wenn $u$ minimal ist. Nach dem $uvw$-Theorem müssen dann zwei der Variablen gleich sein. Wir dürfen also $x=y$ und somit $z=\frac{16}{x^2}$ annehmen und erhalten die Ungleichung
+	\begin{equation*}
+		\frac{2x+\frac{16}{x^2}}{3}+\frac{3}{\frac2x+\frac{x^2}{16}}\geqslant 5\,.
+	\end{equation*}
+	Indem wir Ausmultiplizieren und den Gleichheitsfall $x=y=4$ ausklammern, erhalten wir nach kurzer Rechnung die äquivalente Ungleichung
+	\begin{equation*}
+		(x-4)^2\parens*{2x^4+x^3-24x^2+16x+32}\geqslant 0\,.
+	\end{equation*}
+	Der zweite Faktor lässt sich als $x(x-4)^2+2(x^2-4)^2$ schreiben. Mindestens eines der Quadrate ist stets positiv, also ist der zweite Faktor für $x>0$ stets positiv. Somit gilt die Ungleichung.
+\end{proof}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:UngleichungInvertieren}]
+	Wir bemerken zuerst, dass in der Nebenbedingung $u^2-2v+2w=1$ alle Variablen enthält und die $uvw$-Methode damit nicht anwendbar ist. Deshalb führen wir zuerst einen Trick durch, den ihr euch merken solltet: Wir \emph{invertieren} die Ungleichung! Das geht folgendermaßen: Angenommen, wir haben $xy+yz+zx>\frac12+2xyz$. Dann müssen wir zeigen, dass die Nebenbedingung verletzt ist, dass also $x^2+y^2+z^2+2xyz\neq 1$ gilt. Tatsächlich werden wir zeigen, dass sogar $x^2+y^2+z^2+2xyz>1$ gilt.\footnote{Allgemein können wir in solchen Situationen erwarten, dass die Nebenbedingung \enquote{nur in eine Richtung} verletzt ist, dass also entweder immer \enquote{$>$} oder immer \enquote{$<$} erfüllt ist. Durch Ausprobieren finden wir dann heraus, welche von beiden Möglichkeiten gilt.} Wenn wir $x$, $y$ und $z$ durch $\lambda x$, $\lambda y$ und $\lambda z$ für ein $\lambda <1$ ersetzen, wird $x^2+y^2+z^2+2xyz$ strikt kleiner (der Fall $x=y=z=0$ kann nicht eintreten, weil wir $xy+yz+zx>\frac12+2xyz$ annehmen). Wenn indem wir ein geeignetes $\lambda<1$ wählen, können wir erreichen, dass die Ungleichung $xy+yz+zx>\frac12+2xyz$ zu einer Gleichheit wird. Wenn wir in diesem Fall $x^2+y^2+z^2+2xyz\geqslant 1$ zeigen können, sind wir fertig, denn bei der Ersetzung wurde der Term $x^2+y^2+z^2+2xyz$ strikt kleiner.
+	
+	Insgesamt erhalten wir also die folgende, modifizierte Aufgabenstellung, in der Nebenbedingung und Behauptung vertauscht wurden:\addtocounter{caufgabe}{-1}
+	\begin{aufgabe*}[$'$]
+		Gegeben seien nichtnegative reelle Zahlen $x,y,z\geqslant 0$ mit $xy+yz+zx=\frac12+2xyz$. Zeige, dass
+		\begin{equation*}
+			x^2+y^2+z^2+2xyz\geqslant 1\,.
+		\end{equation*}
+	\end{aufgabe*}
+	Die Nebenbedingung hat nun die Form $v=\frac12+2w$ und die zu zeigende Ungleichung die Form $u^2-2v+2w\geqslant 1$. Wir können also $v$ und $w$ fixieren und müssen $u$ minimieren. Im Fall $w=0$ muss eine der Variablen verschwinden, sagen wir, $z=0$. Die Nebenbedingung wird dann zu $xy=\frac12$ und die Ungleichung zu $x^2+y^2\geqslant 1$, was sofort aus AM-GM folgt.
+	
+	Für $w>0$ können wir das $uvw$-Theorem anwenden und finden heraus, dass das Minimum nur dann angenommen wird, wenn zwei der Variablen gleich sind. Wir dürfen also $x=y$ annehmen. Die Nebenbedingung wird dann zu $x^2+2xz=\frac12+2x^2z$ und die Behauptung zu $2x^2+z^2+2x^2z\geqslant 1$. Aus der Nebenbedingung folgt
+	\begin{equation*}
+		z=\frac{1-2x^2}{4x(1-x)}
+	\end{equation*}
+	für $x\neq 0,1$; für $x=0$ ist die Nebenbedingung nie erfüllt, während für $x=1$ die Nebenbedingung immer erfüllt ist, aber auch die gewünschte Ungleichung aus trivialen Gründen gilt.
+	
+	Wenn wir die Gleichung für $z$ in die Behauptung einsetzen, haben wir die Ungleichung auf eine Variable reduziert, allerdings wird sie ziemlich hässlich (es treten Terme 6.\ Grades auf). Wir sollten uns also gut überlegen, was wir ausklammern können. Für $x=y=z=\frac12$ tritt offensichtlich Gleichheit ein, also erwarten wir, dass wir $(2x-1)^2$ ausklammern können. Für $x=y=\frac{\sqrt{2}}{2}$ und $z=0$ tritt ebenfalls Gleichheit ein. Bei diesem Gleichheitsfall können wir nicht erwarten, ihn quadratisch ausklammern zu können, denn er liegt ja wegen $z=0$ am \enquote{Rand} des Definitionsbereiches. Andererseits hat jedes Polynom mit rationalen Koeffizienten, das $\frac{\sqrt{2}}{2}$ als Nullstelle hat, auch $-\frac{\sqrt{2}}{2}$ als Nullstelle. Wir können also erwarten, dass wir zwar nicht $\parens[\big]{x-\frac{\sqrt{2}}{2}}^2$ ausklammern können, dafür aber $2x^2-1$. Tatsächlich ergibt sich nach etwas umständlicher Rechnung die Ungleichung
+	\begin{equation*}
+		\frac{(2x-1)^2\parens*{2x^2-1}\parens*{6x^2-4x+1}}{16x^2(1-x)^2}\geqslant 0\,.
+	\end{equation*}
+	Der Term $6x^2-4x+1=6\parens[\big]{x-\frac13}^2+\frac13$ ist für alle reellen Zahlen $x$ positiv. Der Term $2x^2-1$ ist nichtnegativ, weil sich für $x>\frac{\sqrt{2}}{2}$ ein negativer Wert für $z$ ergäbe. Somit gilt diese Ungleichung und wir sind fertig.
+\end{proof}

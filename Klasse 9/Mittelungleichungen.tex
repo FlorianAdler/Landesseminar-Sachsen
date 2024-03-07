@@ -1,0 +1,164 @@
+\section{Mittelungleichungen}\label{kapitel:AM-GM}
+Ungleichungen sind ein beliebtes Thema in Olympiadeaufgaben und gleichzeitig eines der Themen mit der meisten Theorie (vermutlich nur übertroffen von Geometrie). Erstaunlich oft lässt sich diese Theorie auch tatsächlich anwenden. Je mehr Theorie ihr also beherrscht, desto höher sind eure Chancen bei schweren Aufgaben und desto größer ist euer Vorteil gegenüber der Konkurrenz.
+
+In diesen Heften werden wir euch Stück für Stück an Ungleichungstheorie heranführen. In diesem Kapitel beginnen wir mit den Grundlagen, die ihr auf jeden Fall beherrschen solltet.
+
+\subsection*{Die Ungleichung vom Arithmetischen und Geometrischen Mittel}
+Die Ungleichung vom Arithmetischen und Geometrischen Mittel, kurz \emph{AM-GM}, ist die wichtigste Ungleichung, die ihr kennen solltet. Selbst auf IMO-Niveau lassen sich viele Ungleichungen mit AM-GM lösen, wenn ihr euch nur geschickt genug anstellt.
+\begin{satzmitnamen}[Ungleichung vom Arithmetischen und Geometrischen Mittel (AM-GM)]
+	Gegeben seien nichtnegative reelle Zahlen $a_1,a_2,\dotsc,a_n\geqslant 0$. Dann gilt stets
+	\begin{equation*}
+		\frac{a_1+a_2+\dotsb+a_n}{n}\geqslant \sqrt[n]{a_1a_2\dotsm a_n}\,.
+	\end{equation*}
+	Gleichheit gilt genau dann, wenn alle Variablen gleich sind, also genau für $a_1=a_2=\dotsb=a_n$.
+\end{satzmitnamen}
+\begin{proof}
+	Betrachten wir zuerst den Fall $n=2$. In diesem Fall müssen wir $\frac12(a_1+a_2)\geqslant \sqrt{a_1a_2}$ beweisen. Nach der zweiten binomischen Formel gilt aber
+	\begin{equation*}
+		\frac{a_1+a_2}2-\sqrt{a_1a_2}=\frac{\sqrt{a_1}^2+\sqrt{a_2}^2-2\sqrt{a_1} \sqrt{a_2}}2=\frac{\parens*{\sqrt{a_1}-\sqrt{a_2}}^2}{2}
+	\end{equation*}
+	Da Quadrate stets nichtnegativ sind, ist die rechte Seite $\geqslant 0$, was die gewünschte Ungleichung ist. Gleichheit gilt genau für $\sqrt{a_1}=\sqrt{a_2}$, was zu $a_1=a_2$ äquivalent ist.
+	
+	Den allgemeinen Fall beweisen wir per Induktion nach $n$. Den Induktionsanfang $n=2$ haben wir soeben erledigt. Im Induktionsschritt ergibt sich eine Besonderheit: Statt wie üblich von $n$ auf $n+1$ zu induzieren, was in diesem Fall sehr kompliziert wäre, induzieren wir einmal von $n$ auf $2n$ und einmal von $n$ auf $n-1$. Diese Variante der Induktion wird \emph{Vorwärts-Rückwärts-Induktion} genannt und wurde zum ersten Mal von dem französischen Mathematiker Augustin-Louis Cauchy (1789--1857) verwendet.
+	
+	\emph{Induktionsschritt, $n\rightarrow 2n$.} Gegeben seien nichtnegative reelle $a_1,a_2,\dotsc,a_{2n}\geqslant 0$. Dann gilt
+	\begin{align*}
+		\frac{a_1+a_2+\dotsb+a_{2n}}{2n}&=\frac12\parens*{\frac{a_1+a_2+\dotsb+a_n}{n}+\frac{a_{n+1}+a_{n+2}+\dotsb+a_{2n}}{n}}\\
+		&\geqslant \frac12\parens[\big]{\sqrt[n]{a_1a_2\dotsm a_n}+\sqrt[n]{a_{n+1}a_{n+2}\dotsm a_{2n}}}\\
+		&\geqslant \sqrt{\sqrt[n]{a_1a_2\dotsm a_n}\cdot \sqrt[n]{a_{n+1}a_{n+2}\dotsm a_{2n}}}\\
+		&=\sqrt[2n]{a_1a_2\dotsm a_{2n}}\,.
+	\end{align*}
+	In der ersten Abschätzung haben wir die Induktionsannahme benutzt, also die AM-GM-Un-gleichung für $a_1,a_2,\dotsc,a_n$ und für $a_{n+1},a_{n+2},\dotsc,a_{2n}$. In der zweiten Abschätzung haben wir den Induktionsanfang benutzt. Gleichheit gilt genau dann, wenn in beiden Abschätzungen Gleichheit eintritt. Nach der Induktionsannahme gilt in der ersten Abschätzung genau dann Gleichheit, wenn $a_1=a_2=\dotsb=a_n$ sowie $a_{n+1}=a_{n+2}=\dotsb=a_{2n}$ gilt. In der zweiten Abschätzung gilt Gleichheit genau dann, wenn $\sqrt[n]{a_1a_2\dotsm a_n}=\sqrt[n]{a_{n+1}a_{n+2}\dotsm a_{2n}}$. Für $a_1=a_2=\dotsb=a_n$ gilt aber $\sqrt[n]{a_1a_2\dotsm a_n}=a_1$ und für $a_{n+1}=a_{n+2}=\dotsb=a_{2n}$ gilt $\sqrt[n]{a_{n+1}a_{n+2}\dotsm a_{2n}}=a_{n+1}$. Wir sehen also, dass Gleichheit genau für $a_1=a_2=\dotsb=a_{2n}$ eintritt, wie gewünscht.
+	
+	\emph{Induktionsschritt, $n\rightarrow n-1$.} Gegeben seien nichtnegative reelle Zahlen $a_1,a_2,\dotsc,a_{n-1}\geqslant 0$. Betrachte außerdem $A=\frac1{n-1}(a_1+a_2+\dotsb+a_{n-1})$ und $G=\sqrt[n-1]{a_1a_2\dotsm a_{n-1}}$. Wir wollen also $A\geqslant G$ zeigen. Nun gilt
+	\begin{equation*}
+		\frac{(n-1)A}{n}+\frac{G}{n}=\frac{a_1+a_2+\dotsb+a_{n-1}+G}{n}\geqslant \sqrt[n]{a_1a_2\dotsm a_{n-1}G}=\sqrt[n]{G^{n-1}\cdot G}=G\,,
+	\end{equation*}
+	wobei wir die Induktionsannahme für $a_1,a_2,\dotsc,a_{n-1},G$ benutzt haben. Durch äquivalentes Umformen erhalten wir dann $(n-1)A/n\geqslant G-G/n=(n-1)G/n$ und nach Multiplikation mit $n/(n-1)$ folgt $A\geqslant G$, wie gewünscht. Gleichheit gilt genau dann, wenn in der obigen Abschätzung Gleichheit eintritt, also genau für $a_1=a_2=\dotsb=a_{n-1}=G$. Insbesondere kann Gleichheit nur für $a_1=a_2=\dotsb=a_{n-1}$ eintreten. In diesem Fall ist aber automatisch $A=a_1=G$, sodass tatsächlich Gleichheit eintritt. Das beendet die Induktion und den Beweis.
+\end{proof}
+
+\subsection*{Gewichtetes AM-GM}
+Die folgende Variante der AM-GM-Ungleichung ist ebenfalls häufig nützlich:
+\begin{satzmitnamen}[Gewichtete AM-GM-Ungleichung]
+	Gegeben seien reelle Zahlen $a_1,a_2,\dotsc,a_n\geqslant 0$ sowie Gewichte $\lambda_1,\lambda_2,\dotsc,\lambda_n> 0$ mit $\lambda_1+\lambda_2+\dotsb+\lambda_n=1$. Dann gilt stets
+	\begin{equation*}
+		\lambda_1a_1+\lambda_2a_2+\dotsb+\lambda_na_n\geqslant a_1^{\lambda_1}a_2^{\lambda_2}\dotsm a_n^{\lambda_n}\,.
+	\end{equation*}
+	Gleichheit gilt genau dann, wenn alle Variablen gleich sind, also genau für $a_1=a_2=\dotsb=a_n$.
+\end{satzmitnamen}
+Die gewichtete AM-GM-Ungleichung ist eine Verallgemeinerung der AM-GM-Ungleichung, denn im Fall $\lambda_1=\lambda_2=\dotsb=\lambda_n=\frac1n$ erhalten wir genau die AM-GM-Ungleichung zurück. Umgekehrt lässt sich die gewichtete AM-GM-Ungleichung aber auch aus der normalen AM-GM-Ungleichung herleiten, wie wir sogleich sehen werden.
+
+\begin{proof}
+	Betrachte zuerst den Fall, dass alle Gewichte $\lambda_i$ rationale Zahlen sind. In diesem Fall können wir sie auf einen Hauptnenner bringen und somit $\lambda_i=m_i/N$ für gewisse positive ganze Zahlen $m_i$ und $N$ annehmen. Die Bedingung $\lambda_1+\lambda_2+\dotsb+\lambda_n=1$ impliziert dann $m_1+m_2+\dotsb+m_n=N$. Aus der normalen AM-GM-Ungleichung folgt nun
+	\begin{align*}
+		\lambda_1 a_1+\lambda_2 a_2+\dotsb+\lambda_na_n&=\frac{\overbrace{a_1+\dotsb+a_1}^{m_1\text{ mal}}+\overbrace{a_2+\dotsb+a_2}^{m_2\text{ mal}}+\dotsb+\overbrace{a_n+\dotsb+a_n}^{m_n\text{ mal}}}{N}\\
+		&\geqslant \sqrt[N]{a_1^{m_1}a_2^{m_2}\dotsm a_n^{m_n}}\\
+		&=a_1^{\lambda_1}a_2^{\lambda_2}\dotsm a_n^{\lambda_n}\,.
+	\end{align*}
+	%wie gewünscht.Gleichheit gilt genau dann, wenn in der AM-GM-Abschätzung Gleichheit eintritt, also genau für $a_1=a_2=\dotsb=a_n$.
+	
+	Der allgemeine Fall lässt sich auf den rationalen Fall mithilfe eines Stetigkeitsargumentes zurückführen. Dieses Argument wird euch vermutlich seltsam und ungewohnt vorkommen. Aber wenn ihr später einmal Analysis gelernt habt, werdet ihr merken, dass es sich bei diesem Argument in Wirklichkeit um ein Standardargument handelt. Das Argument funktioniert folgendermaßen: Angenommen, die Ungleichung wäre falsch. Dann gilt also
+	\begin{equation*}
+		\lambda_1 a_1+\lambda_2 a_2+\dotsb+\lambda_na_n=a_1^{\lambda_1}a_2^{\lambda_2}\dotsm a_n^{\lambda_n}-\varepsilon
+	\end{equation*}
+	für ein $\varepsilon>0$. Wir können $\lambda_1,\lambda_2,\dotsc,\lambda_n$ beliebig genau durch rationale Zahlen $\lambda_1',\lambda_2',\dotsc,\lambda_n'$ approximieren. Wenn wir das tun, dann wird auch $\lambda_1 a_1+\lambda_2 a_2+\dotsb+\lambda_na_n$ beliebig genau durch $\lambda_1' a_1+\lambda_2' a_2+\dotsb+\lambda_n'a_n$ approximiert und $a_1^{\lambda_1}a_2^{\lambda_2}\dotsm a_n^{\lambda_n}$  wird beliebig genau durch $a_1^{\lambda_1'}a_2^{\lambda_2'}\dotsm a_n^{\lambda_n'}$ approximiert.\footnote{Wir sagen auch, die beiden Ausdrücke $\lambda_1 a_1+\lambda_2 a_2+\dotsb+\lambda_na_n$ und $a_1^{\lambda_1}a_2^{\lambda_2}\dotsm a_n^{\lambda_n}$ sind \emph{folgenstetig in den Variablen $(\lambda_1,\lambda_2,\dotsc,\lambda_n)$}} Indem wir genau genug approximieren, können wir rationale Gewichte $\lambda_1',\lambda_2',\dotsc,\lambda_n'$ mit $\lambda_1'+\lambda_2'+\dotsb+\lambda_n'=1$ finden, sodass Folgendes gilt:
+	\begin{align*}
+		\abs[\big]{\parens[\big]{\lambda_1 a_1+\lambda_2 a_2+\dotsb+\lambda_na_n}-\parens[\big]{\lambda_1' a_1+\lambda_2' a_2+\dotsb+\lambda_n'a_n}}&<\frac{\varepsilon}{2}\\
+		\abs[\big]{a_1^{\lambda_1}a_2^{\lambda_2}\dotsm a_n^{\lambda_n}-a_1^{\lambda_1'}a_2^{\lambda_2'}\dotsm a_n^{\lambda_n'}}&<\frac{\varepsilon}{2}\,.
+	\end{align*}
+	Da wir die gewichtete AM-GM-Ungleichung für die Gewichte $\lambda_1',\lambda_2',\dotsc,\lambda_n'$ bereits bewiesen haben, folgt nun aber
+	\begin{equation*}
+		\lambda_1 a_1+\lambda_2 a_2+\dotsb+\lambda_na_n-a_1^{\lambda_1}a_2^{\lambda_2}\dotsm a_n^{\lambda_n}>\lambda_1' a_1+\lambda_2' a_2+\dotsb+\lambda_n'a_n-\frac{\varepsilon}{2}-a_1^{\lambda_1'}a_2^{\lambda_2'}\dotsm a_n^{\lambda_n'}-\frac{\varepsilon}{2}\,.
+	\end{equation*}
+	Daraus folgt $\lambda_1 a_1+\lambda_2 a_2+\dotsb+\lambda_na_n-a_1^{\lambda_1}a_2^{\lambda_2}\dotsm a_n^{\lambda_n}>-\varepsilon$, im Widerspruch zu unserer Wahl von $\varepsilon$. Unsere Annahme, dass die gewichtete AM-GM-Ungleichung falsch wäre, muss also selber falsch gewesen sein.
+	
+	Leider können wir auf diese Weise nicht den Gleichheitsfall untersuchen. Zwar folgt aus dem Argument für den rationalen Fall sofort, dass für rationale Gewichte $\lambda_1,\dotsc,\lambda_n$ Gleichheit nur eintreten kann, falls $a_1,a_2,\dotsc,a_n$ alle gleich sind. Aber es ist überhaupt nicht klar, dass durch das Approximationsargument nicht neue Gleichheitsfälle hinzukommen können. Die Untersuchung des Gleichheitsfalles verlangt also ein neues Argument, das ihr euch in der folgenden Übungsaufgabe selbst überlegen sollt.
+\end{proof}
+\begin{aufgabe*}\leavevmode
+	\begin{enumerate}[label={$(\alph*)$},ref={$(\alph*)$}]
+		\item Zeige per Induktion nach~$k$, $k\geqslant 1$, dass sich im Fall $n=2^k$ die normale AM-GM-Ungleichung wie folgt verschärfen lässt:
+		\begin{equation*}
+			\frac{a_1+a_2+\dotsb+a_{2^k}}{2^k}\geqslant \sqrt[2^k]{a_1a_2\dotsm a_{2^k}}+\frac{R}{2^{k+1}}\,,
+		\end{equation*}
+		wobei $R\coloneqq \parens{\sqrt{a_1}-\sqrt{a_2}}^2+\parens{\sqrt{a_3}-\sqrt{a_4}}^2+\dotsb+\parens{\sqrt{a_{2^k-1}}-\sqrt{a_{2^k}}}^2$.\label{aufgabe:AMGMSchaerfer}
+		\item Gegeben seien $a_1,\dotsc,a_n\geqslant 0$ sowie Gewichte $\lambda_1,\lambda_2,\dotsc,\lambda_n>0$ mit $\lambda_1+\lambda_2+\dotsb+\lambda_n=1$. Angenommen, alle $\lambda_i$ sind rationale Zahlen mit Zweierpotenzen als Nenner. Folgere aus~\ref{aufgabe:AMGMSchaerfer}, dass sich die gewichtete AM-GM-Ungleichung wie folgt verschärfen lässt:\label{aufgabe:GewichtetAMGMSchaerferRational}
+		\begin{equation*}
+			\lambda_1 a_1+\lambda_2 a_2+\dotsb+\lambda_na_n\geqslant a_1^{\lambda_1}a_2^{\lambda_2}\dotsm a_n^{\lambda_n}+\frac{\min\{\lambda_1,\lambda_2\}\parens*{\sqrt{a_1}-\sqrt{a_2}}^2}{2}\,.
+		\end{equation*}
+		Hierbei bezeichnet $\min\{\lambda_1,\lambda_2\}$ das Minimum von $\lambda_1$ und $\lambda_2$.
+		\item Zeige, dass die Aussage aus~\ref{aufgabe:GewichtetAMGMSchaerferRational} immer noch wahr ist, wenn $\lambda_1,\lambda_2,\dotsc,\lambda_n$ beliebige positive reelle Zahlen mit $\lambda_1+\lambda_2+\dotsb+\lambda_n=1$ sind. (\emph{Tipp: Benutze ein Stetigkeitsargument wie oben und approximiere $\lambda_i$ durch rationale Zahlen $\lambda_i'$, deren Nenner Zweierpotenzen sind.})\label{aufgabe:GewichtetAMGMSchaerfer}
+		\item Folgere aus~\ref{aufgabe:GewichtetAMGMSchaerfer}, dass Gleichheit in der gewichteten AM-GM-Ungleichung genau für $a_1=a_2=\dotsb=a_n$ eintritt.
+	\end{enumerate}
+\end{aufgabe*}
+
+\subsection*{Die allgemeine Potenzmittel-Ungleichung}
+\begin{definition}
+	Gegeben sei eine reelle Zahl $p\neq 0$ sowie $a_1,a_2,\dotsc,a_n\geqslant 0$ (im Fall $p<0$ müssen wir $a_i>0$ annehmen). Das \emph{$p$-te Potenzmittel von $a_1,a_2,\dotsc,a_n$} ist definiert als
+	\begin{equation*}
+		\parens*{\frac{a_1^p+a_2^p+\dotsb+a_n^p}{n}}^{1/p}\,.
+	\end{equation*}
+	Im Fall $p=1$ erhalten wir das arithmetische Mittel der Zahlen $a_1,a_2,\dotsc,a_n$. Die Potenzmittel für $p=2$ und $p=3$ werden üblicherweise \emph{quadratisches Mittel} und \emph{kubisches Mittel von $a_1,a_2,\dotsc,a_n$} genannt. Im Fall $p=-1$ erhalten wir das \emph{harmonische Mittel}
+	\begin{equation*}
+		\frac{n}{\frac1{a_1}+\frac1{a_2}+\dotsb+\frac1{a_n}}\,.
+	\end{equation*}
+\end{definition}
+Potenzmittel finden auch außerhalb der Mathematik vielfach Anwendung (das könnt ihr zum Beispiel im Spam-Ordner manch eines e-Mail-Postfaches sehen). Sie erfüllen die folgende allgemeine Ungleichung:
+\begin{satzmitnamen}[Allgemeine Potenzmittel-Ungleichung]\leavevmode
+	\begin{enumerate}
+		\item Gegeben seien positive reelle Zahlen $p>q>0$ sowie $a_1,a_2,\dotsc,a_n\geqslant 0$. Dann gilt stets
+		\begin{equation*}
+			\parens*{\frac{a_1^p+a_2^p+\dotsb+a_n^p}{n}}^{1/p}\geqslant \parens*{\frac{a_1^q+a_2^q+\dotsb+a_n^q}{n}}^{1/q}\geqslant \sqrt[n]{a_1a_2\dotsm a_n}\,.
+		\end{equation*}
+		An jeder Stelle gilt Gleichheit genau dann, wenn $a_1=a_2=\dotsb=a_n$.
+		\item Gegeben seien negative reelle Zahlen $p<q<0$ sowie $a_1,a_2,\dotsc,a_n> 0$. Dann gilt stets
+		\begin{equation*}
+			\sqrt[n]{a_1a_2\dotsm a_n}\geqslant \parens*{\frac{a_1^q+a_2^q+\dotsb+a_n^q}{n}}^{1/q}\geqslant  \parens*{\frac{a_1^p+a_2^p+\dotsb+a_n^p}{n}}^{1/p}\,.
+		\end{equation*}
+		An jeder Stelle gilt Gleichheit genau dann, wenn $a_1=a_2=\dotsb=a_n$.
+	\end{enumerate}
+\end{satzmitnamen}
+In den nun folgenden Übungsaufgaben sollt ihr euch selbstständig einen Beweis der allgemeinen Potenzmittel-Ungleichung erarbeiten.
+\begin{aufgabe*}\label{aufgabe:PotenzmittelGroesserGM}
+	Zeige, dass für $a_1,a_2,\dotsc,a_n\geqslant 0$ und $p>0$ stets die Ungleichung
+	\begin{equation*}
+		\parens*{\frac{a_1^p+a_2^p+\dotsb+a_n^p}{n}}^{1/p}\geqslant \sqrt[n]{a_1a_2\dotsm a_n}
+	\end{equation*}
+	gilt, mit Gleichheit genau für $a_1=a_2=\dotsb=a_n$ (\emph{Tipp: Substituiere $b_i\coloneqq a_i^p$}).
+\end{aufgabe*}
+\begin{aufgabe*}\label{aufgabe:PotenzmittelPositiverFall}
+	Ziel dieser Aufgabe ist, die allgemeine Potenzmittelungleichung für $p>q>0$ zu zeigen. Im folgenden sind $a_1,a_2,\dotsc,a_n\geqslant 0$ stets nichtnegative reelle Zahlen und $m\geqslant 1$ ist eine positive ganze Zahl.
+	\begin{enumerate}[label={$(\alph*)$},ref={$(\alph*)$}]
+		\item Zeige, dass Binomialkoeffizienten die folgende Gleichung für alle $0\leqslant i\leqslant m-1$ erfüllen:\label{aufgabe:PotenzmittelPositiverFallA}
+		\begin{equation*}
+			(m+1)i\binom{m}{i}+(m+1)(i+1)\binom{m}{i+1}=m(i+1)\binom{m+1}{i+1}\,.
+		\end{equation*}
+		\item Zeige, dass für $i$, $j$ mit $i+j=m$ und $0\leqslant i\leqslant m-1$ die folgende Ungleichung gilt:\label{aufgabe:PotenzmittelPositiverFallB}
+		\begin{equation*}
+			\binom{m}{i}a_1^{(m+1)i}a_2^{(m+1)j}+\binom{m}{i+1}a_1^{(m+1)(i+1)}a_2^{(m+1)(j-1)}\geqslant \binom{m+1}{i+1}a_1^{m(i+1)}a_2^{mj}
+		\end{equation*}
+		(\emph{Tipp: Verwende gewichtetes AM-GM}).
+		\item Zeige, dass
+		\begin{equation*}
+			\parens*{\frac{a_1^{m+1}+a_2^{m+1}}{2}}^{1/(m+1)}\geqslant \parens*{\frac{a_1^{m}+a_2^{m}}{2}}^{1/m}\,,
+		\end{equation*}
+		mit Gleichheit genau für $a_1=a_2$ (\emph{Tipp: Verwende~\ref{aufgabe:PotenzmittelPositiverFallB} und den binomischen Lehrsatz}).
+		\item Zeige, dass
+		\begin{equation*}
+			\parens*{\frac{a_1^{m+1}+a_2^{m+1}+\dotsb+a_n^{m+1}}{n}}^{1/(m+1)}\geqslant \parens*{\frac{a_1^{m}+a_2^{m}+\dotsb+a_n^m}{n}}^{1/m}\,,
+		\end{equation*}
+		wobei Gleichheit genau für $a_1=a_2=\dotsb=a_n$ eintritt (\emph{Tipp: Verwende die Cauchysche Vorwärts-Rückwärts-Induktion}).\label{aufgabe:PotenzmittelPositiverFallC}
+		\item Seien $p>q>0$ reelle Zahlen. Zeige, dass\label{aufgabe:PotenzmittelPositiverFallD}
+		\begin{equation*}
+			\parens*{\frac{a_1^{p}+a_2^{p}+\dotsb+a_n^{p}}{n}}^{1/p}\geqslant \parens*{\frac{a_1^{q}+a_2^{q}+\dotsb+a_n^q}{n}}^{1/q}
+		\end{equation*}
+		(\emph{Tipp: Zeige zuerst den Fall, dass $p$ und $q$ rational sind, indem du die Aussage auf~\ref{aufgabe:PotenzmittelPositiverFallD} zurückführst. Zeige dann den allgemeinen Fall mit einem Stetigkeitsargument}).\label{aufgabe:PotenzmittelPositiverFallE}
+	\end{enumerate}
+\end{aufgabe*}
+Um zu zeigen, dass in Aufgabe~\ref{aufgabe:PotenzmittelPositiverFall}\ref{aufgabe:PotenzmittelPositiverFallE} Gleichheit genau für $a_1=a_2=\dotsb=a_n$ gilt, müssen wir uns zum Glück nicht so verrenken, wie bei der gewichteten AM-GM-Ungleichung. Stattdessen bemerken wir einfach, dass Gleichheit für zwei reelle Zahlen $p>q>0$ auch Gleichheit für alle rationalen Zahlen $p'>q'$ mit $p>p'>q'>q$ impliziert. Aus dem rationalen Fall folgt dann $a_1=a_2=\dotsb=a_n$, wie gewünscht.
+\begin{aufgabe*}
+	Zeige, dass für alle negativen reellen Zahlen $p<q<0$ und alle $a_1,a_2,\dotsc,a_n>0$ stets
+	\begin{equation*}
+		\sqrt[n]{a_1a_2\dotsm a_n}\geqslant \parens*{\frac{a_1^q+a_2^q+\dotsb+a_n^q}{n}}^{1/q}\geqslant  \parens*{\frac{a_1^p+a_2^p+\dotsb+a_n^p}{n}}^{1/p}
+	\end{equation*}
+	gilt, mit Gleichheit genau für $a_1=a_2=\dotsb=a_n$ (\emph{Tipp: Substituiere $b_i\coloneqq 1/a_i$}).
+\end{aufgabe*}

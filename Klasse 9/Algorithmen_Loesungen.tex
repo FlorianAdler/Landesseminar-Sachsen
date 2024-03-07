@@ -1,0 +1,57 @@
+\subsection*{Lösungen zu den Kapitel~\ref{kapitel:Algorithmen}: \emph{Algorithmen in der Kombinatorik}}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:510846}]
+	Im Folgenden bezeichnen wir das Feld in der $i$-ten Zeile und $j$-ten Spalte mit $(i,j)$. Um die Aufgabe zu lösen, werden wir schrittweise Zahlen in die Tabelle eintragen. Dazu durchlaufen wir der Reihe nach alle Felder (die Reihenfolge ist egal, es kommt nur darauf an, dass jedes Feld genau einmal durchlaufen wird). Wenn das Feld $(i,j)$ an der Reihe ist, tragen wir dort die größtmögliche Zahl ein. Das bedeutet: Wenn $z_i'$ und $s_j'$ die Summen der Zahlen sind, die zu diesem Zeitpunkt schon in der $i$-ten Zeile und in der $j$-ten Spalte eingetragen wurden, tragen wir die Zahl $\min\{z_i-z_i',s_j-s_j'\}$ ins Feld $(i,j)$ ein.
+	
+	Offensichtlich ist jeder dieser Schritte durchführbar und der Algorithmus endet, nachdem alle $mn$ Felder durchlaufen wurden.
+	
+	Wir werden nun beweisen, dass wir am Ende eine korrekt ausgefüllte Tabelle erhalten. Zuerst zeigen wir, dass alle Einträge nichtnegativ sind. Dazu bemerken wir:
+	\begin{enumerate}[label={$(\arabic*)$},ref={$(\arabic*)$}]\itshape
+		\item Nach jedem Schritt gilt: Wenn $z_k'$ die Summe der Einträge in der $k$-ten Zeile und $s_\ell'$ die Summe der Einträge in der $\ell$-ten Spalte bezeichnet, dann ist $z_k'\leqslant z_k$ und $s_\ell'\leqslant s_\ell$ für alle  $k=1,2,\dotsc,m$ und alle $\ell=1,2,\dotsc,n$.\label{eigenschaft:NichtnegativeEintraege}
+	\end{enumerate}
+	Zu Beginn ist das offensichtlich erfüllt. In dem Schritt, in dem das Feld~$(i,j)$ durchlaufen wird, ändern sich nur potentiell $z_i'$ und $s_j'$. Aber unsere Konstruktion ist genau so beschaffen, dass auch nach diesem Schritt noch $z_i'\leqslant z_i$ und $s_j'\leqslant s_j$ gilt (und in mindestens einer der Ungleichungen gilt dann sogar Gleichheit). Damit ist~\ref{eigenschaft:NichtnegativeEintraege} gezeigt. Aus~\ref{eigenschaft:NichtnegativeEintraege} folgt sofort, dass wir in jedem Schritt eine nichtnegative Zahl in die Tabelle eintragen.
+	
+	Als nächstes behaupten wir, dass zum Schluss alle Zeilen- und Spaltensummen stimmen:
+	\begin{enumerate}[resume,label={$(\arabic*)$},ref={$(\arabic*)$}]\itshape
+		\item Zum Schluss gilt $z_k'=z_k$ und $s_\ell'=s_\ell$ für alle $k=1,2,\dotsc,m$ und alle $\ell=1,2,\dotsc,n$.\label{eigenschaft:RichtigeZeilenSpaltenSummen}
+	\end{enumerate}
+	Betrachte die $k$-te Zeile. Aus unserer Konstruktion folgt: Nachdem das Feld~$(k,j)$ durchlaufen wurde, muss in mindestens einer der Ungleichungen $z_k'\leqslant z_k$ und $s_j'\leqslant s_j$ Gleichheit gelten. Wenn ersteres für irgendein $j=1,2,\dotsc,n$ der Fall ist, dann muss auch am Ende $z_k'=z_k$ gelten. Wenn nicht, dann gilt am Ende $s_j'=s_j$ für alle $j$. Mit~\ref{eigenschaft:NichtnegativeEintraege} folgt, dass am Ende 
+	\begin{equation*}
+		z_1'+z_2'+\dotsb+z_m'\leqslant z_1+z_2+\dotsb+z_m=s_1+s_2+\dotsb+s_n=s_1'+s_2'+\dotsb+s_n'
+	\end{equation*}
+	gilt. Am Ende gilt aber auch $z_1'+z_2'+\dotsb+z_m'=s_1'+s_2'+\dotsb+s_n'$, denn beide Seiten sind genau die Summe aller Einträge in der Tabelle. Also muss auch in diesem Fall in der Ungleichung $z_k'\leqslant z_k$ Gleichheit gelten. Damit ist gezeigt, dass am Ende $z_k'=z_k$ -- mit anderen Worten, alle Zeilensummen stimmen. Ein analoges Argument kann für die Spalten durchgeführt werden.
+	
+	Es bleibt zu zeigen:
+	\begin{enumerate}[resume,label={$(\arabic*)$},ref={$(\arabic*)$}]\itshape
+		\item In maximal $m+n-1$ Schritten wurde eine positive Zahl in die Tabelle eingetragen.\label{eigenschaft:PositiveEintraege}
+	\end{enumerate}
+	Wenn unser Algorithmus in das Feld~$(i,j)$ eine positive Zahl eingetragen hat, dann muss vor diesem Schritt $z_i'<z_i$ und $s_j'<s_j$ gewesen sein. Nach dem Schrit gilt hingegen mindestens eine der Gleichheiten $z_i'=z_i$ oder $s_j'=s_j$. Nach $m+n-1$ Schritten von dieser Sorte muss nach Schubfachprinzip $z_i'=z_i$ für alle $i=1,2,\dotsc,m$ oder $s_j'=s_j$ für alle $j=1,2,\dotsc,n$ gelten. Die Summe aller Zahlen, die zu diesem Zeitpunkt in der Tabelle eingetragen sind, ist dann aber genauso groß wie am Schluss. Also können keine weiteren positiven Zahlen eingetragen werden.
+\end{proof}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:520945}]
+	Wenn es zwei Zettel $Z_1$ und $Z_2$ gibt, sodass alle Zahlen von~$Z_1$ auch auf~$Z_2$ stehen, dann kann Basti den Zettel~$Z_2$ getrost schreddern. Denn egal, welche Zahl von~$Z_1$ er auf seinen eigenen Zettel schreibt, diese Zahl wird auch auf~$Z_2$ stehen. Dadurch bleibt Bedingung~\ref{bedingung:EineZahlVonJedemZettel} auf jeden Fall erhalten. Ferner genügt es offensichtlich, wenn~\ref{bedingung:KleinsteZahlVonEinemZettel} für einen anderen Zettel außer~$Z_2$ erfüllt ist.
+	
+	Basti schreddert nun so lange Zettel, bis kein schredderbarer Zettel mehr übrig ist. Dann wählt er einen Zettel~$Z$, auf dem das Minimum~$x$ aller verbleibenden Zettel steht, und schreibt dieses Minimum auf seinen Zettel. Für jeden verbleibenden Zettel löscht Basti alle Zahlen, die auch auf~$Z$ stehen. Dabei kann es nicht passieren, dass alle Zahlen gelöscht werden, denn sonst hätte der Zettel~$Z$ geschreddert werden können. Nun schreibt Basti von jedem verbleibenden Zettel eine beliebige verbleibende Zahl auf seinen Zettel. Diese Zahlen sind nicht in~$Z$ enthalten, also auf jeden Fall größer als~$x$. Damit ist~\ref{bedingung:KleinsteZahlVonEinemZettel} erfüllt. Nach Konstruktion gilt~\ref{bedingung:EineZahlVonJedemZettel} ebenfalls, also hat Basti seine Aufgabe gelöst.
+\end{proof}
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:531046}]
+	Wir zeigen, dass eine solche Zerlegung stets möglich ist, indem wir sie schrittweise konstruieren. In jedem Schritt betrachten wir die kleinste Zahl $n$, die noch nicht in einer $ab$-normalen Teilmenge enthalten ist. Dann fügen wir, wenn möglich, die $ab$-normale Teilmenge $\{n,n+a,n+a+b\}$ hinzu. Wenn das nicht möglich ist, fügen wir stattdessen die $ab$-normale Teilmenge $\{n,n+b,n+a+b\}$ hinzu.
+	
+	Zeigen wir zunächst, dass diese Schritte stets durchführbar sind (bei den bisherigen Aufgaben war das quasi trivial, hier ist es der schwierigste Teil der Lösung). Angenommen, das wäre nicht so. Betrachte den ersten Schritt, der schief geht. Dann kann $n+a+b$ zu diesem Zeitpunkt noch in keiner $ab$-normalen Teilmenge enthalten sein, der Schritt kann also nur scheitern, indem sowohl $n+a$ als auch $n+b$ schon in einer $ab$-normalen Teilmenge enthalten sind. Denn angenommen, $n+a+b$ wäre zu diesem Zeitpunkt schon abgedeckt. Dann müsste $n+a+b$ in einem vorherigen Schritt von einer $ab$-normalen Teilmenge $A$ abgedeckt worden sein. Es ist klar, dass $n+a+b$ nicht die größte Zahl in $A$ sein kann, denn sonst wäre $n$ zwangsläufig die kleinste Zahl in $A$, aber $n$ ist noch nicht abgedeckt. Wenn aber $n+a+b$ nicht die größte Zahl in $A$ ist, dann muss $\min A> n$ sein. Das widerspricht aber unserer Vorgehensweise, nach der wir in jedem Schritt die kleinste nicht-abgedeckte Zahl auswählen.
+	
+	Somit muss es zum Zeitpunkt des Scheiterns zwei $ab$-normale Teilmengen $B$ und $C$ geben, die $n+a$ und $n+b$ abdecken (der Fall $B=C$ kann eintreten, wirkt sich aber nicht auf unser Argument aus). Dann muss $n+b$ die größte Zahl in $C$ sein. Denn wäre $n+b$ die zweitgrößte oder gar die kleinste Zahl in $C$, dann müsste $\min C>n$ sein, was wiederum unserer Vorgehensweise widerspricht. Aus $n+b=\max C$ folgt nun $C=\{n-a,n-a+b,n+b\}$. Zum Zeitpunkt des Scheiterns ist $n$ noch nicht abgedeckt, also war $n$ auch noch nicht abgedeckt, als $C$ hinzugefügt wurde. Gemäß unserer Vorgehensweise hätten wir dann aber statt $C$ die $ab$-normale Teilmenge $C'=\{n-a,n,n+b\}$ hinzugefügt, Widerspruch! Es folgt, dass alle Schritte durchführbar sind.
+	
+	In diesem Fall terminiert unser Algorithmus nicht nach endlicher Zeit (denn wir wollen ja $\mathbb Z_{>0}$ in unendlich viele $ab$-normale Teilmengen zerlegen). Aus der Vorgehensweise ist aber trotzdem klar, dass jede positive ganze Zahl irgendwann abgedeckt wird und dass der Algorithmus schrittweise eine Zerlegung mit den gewünschten Eigenschaften konstruiert.
+\end{proof}
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:541143}]
+	Wir beginnen mit einer beliebigen Verteilung auf die beiden Busse. Dann führen wir eine Reihe von Schritten durch, um die Verteilung unseren Wünschen entsprechend umzubauen. In jedem Schritt wählen wir eine Person, die in ihrem jetzigen Bus mehr Bekanntschaften hat als in dem anderen Bus, und setzen diese Person stattdessen in den anderen Bus. Sobald keine solche Person mehr existiert, hören wir auf.
+	
+	Offensichtlich sind diese Schritte durchführbar. Weil in jedem Schritt die Summe der Bekanntschaften innerhalb der beiden Busse kleiner wird, können nur endlich viele Schritte durchgeführt werden. Danach sind wir in einer Situation, in der jede Person in ihrem Bus höchstens so viele Bekanntschaften hat wie in dem anderen Bus.
+	
+	Statt mit einem Algorithmus hätten wir auch eleganter mit dem Extremalprinzip argumentieren können: Wir betrachten einfach eine Situation, in der die Summe der Bekanntschaften innerhalb der beiden Busse minimal ist. Dann ist ebenfalls klar, dass jede Person in ihrem Bus höchstens so viele Bekanntschaften hat wie in dem anderen Bus, sonst könnte sie einfach den Bus wechseln.
+	
+	Es bleibt zu zeigen, dass in der beschriebenen Situation die gewünschte Bedingung erfüllt ist. Dazu stellen wir uns die Bekanntschaften als Graph $G=(V,E)$ vor, wobei $V$ die Menge aller Teilnehmenden ist und $E$ die Menge aller paarweisen Bekanntschaften. Nach Annahme gilt dann $k=\abs{E}$. Die Verteilung auf die Busse definiert eine disjunkte Zerlegung $V=A\cup B$ der Teilnehmenden sowie eine disjunkte Zerlegung $E=E_A\cup E_B\cup E_{AB}$, wobei $E_A$ die Menge der Bekanntschaften innerhalb von $A$, $E_B$ die Menge der Bekanntschaften innerhalb von $B$ und $E_{AB}$ die Menge der Bekanntschaften zwischen $A$ und $B$ bezeichnet. Wie üblich bezeiche $d(v)$ den Grad von $v\in V$, also die Anzahl der Bekanntschaften der Person. Ferner bezeichnen wir mit $d_A(v)$ und $d_B(v)$ die Anzahl der Bekanntschaften von $v$ innerhalb von $A$ bzw.\ $B$. Nach Konstruktion gilt dann $d_A(a)\leqslant d_B(a)$ für alle $a\in A$. Es folgt
+	\begin{equation*}
+		\sum_{a\in A}d_A(a)\leqslant \sum_{a\in A}d_B(a)\,.
+	\end{equation*}
+	Nach dem Handschlagslemma (siehe Aufgabe~\ref{aufgabe:Handschlagslemma} im Kapitel zu Graphentheorie) ist die Summe auf der linken Seite genau $2\abs{E_A}$, weil jede Kante innerhalb von $A$ doppelt gezählt wird. Die Summe auf der rechten Seite ist genau $\abs{E_{AB}}$, weil jede Kante zwischen $A$ und $B$ genau einmal gezählt wird. Also erhalten wir die Ungleichung $2\abs{E_A}\leqslant \abs{E_{AB}}$ Zusammen mit der Ungleichung $\abs{E_A}+\abs{E_{AB}}\leqslant \abs{E_A}+\abs{E_{AB}}+\abs{E_B}=\abs{E}=k$ folgt daraus $\abs{E_A}\leqslant \frac k3$, wie gewünscht. Mit einem analogen Argument können wir $\abs{E_B}\leqslant \frac k3$ zeigen.
+\end{proof}

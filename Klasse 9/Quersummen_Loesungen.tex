@@ -1,0 +1,27 @@
+\subsection*{Lösungen zu Kapitel~\ref{kapitel:Quersummen}: \emph{Quersummen}}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:441244}]
+	Wegen $2005^{2005}<10000^{2005}=10^{8020}$ hat $2005^{2005}$ höchstens $8020$ Stellen. Folglich ist $Q(2005^{2005})\leqslant 9\cdot 8020=72180$. Die Zahl in $\{1,2,\dotsc,72180\}$ mit der größten Quersumme ist $69999$. Also ist $Q(Q(2005^{2005}))\leqslant Q(69999)=42$. Die Zahl in $\{1,2,\dotsc,42\}$ mit der größten Quersumme ist $39$. Also ist
+	\begin{equation*}
+		Q\parens*{Q\parens*{Q\parens*{2005^{2005}}}}\leqslant Q(39)=12\,.
+	\end{equation*}
+	
+	Andererseits $2005\equiv -2\mod 9$ und somit
+	\begin{equation*}
+		2005^{2005}\equiv (-2)^{3\cdot 668+1}\equiv (-8)^{668}\cdot (-2)\equiv 1^{668}\cdot 7\equiv 7\mod 9\,.
+	\end{equation*}
+	Es folgt $Q(Q(Q(2005^{2005})))\equiv 2005^{2005}\equiv 7\mod 9$. Weil $7$ die einzige Zahl in $\{1,2,\dotsc,12\}$ ist, die modulo $9$ den Rest $7$ lässt, folgt $Q(Q(Q(2005^{2005})))=7$.
+\end{proof}
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:531042}]
+	Die Folge $(a_i)_{i\geqslant 0}$ ist offenbar monoton steigend. Wenn es einen Index~$i$ mit $a_{i+1}=R(a_i)=a_i$ gibt, dann ist auch $a_{i+2}=R(a_{i+1})=R(a_i)=a_i$ und so weiter. Ab diesem Punkt muss die Folge also konstant sein.
+	
+	Angenommen, es gibt keinen solchen Index. Dann muss die Folge $(a_i)_{i\geqslant 0}$ streng monoton steigend sein. Weil Exponentialfunktionen schneller steigen als lineare Funktionen, gibt es eine positive ganze Zahl $k$, sodass folgendes gilt:
+	\begin{equation*}
+		\parens*{\frac{10}{9}}^k>90k\,,\quad \text{oder äquivalent}\quad 10^{k-1}>9^k\cdot 9k\,.
+	\end{equation*}
+	Wenn die Folge $(a_i)_{i\geqslant 0}$ streng monoton steigend ist, muss es einen Index $i$ geben, sodass $a_i<10^k$ und $a_{i+1}\geqslant 10^k$. Weil $a_i$ höchstens $k$-stellig ist, gilt $P(a_i)\leqslant 9^k$ und $Q(a_i)\leqslant 9k$. Somit ist
+	\begin{equation*}
+		a_{i+1}=a_i+P(a_i)Q(a_i)\leqslant a_i+9^k\cdot 9k<10^{k}+10^{k-1}\,.
+	\end{equation*}
+	Also ist $a_{i+1}$ eine Zahl zwischen $10^k$ und $10^k+10^{k-1}$. Somit ist die von links gelesen zweite Dezimalstelle von $a_{i+1}$ eine Null. Folglich ist das Querprodukt $P(a_{i+1})=0$. Daraus folgt nun $a_{i+2}=a_{i+1}+P(a_{i+1})Q(a_{i+1})=a_{i+1}$, was unserer Annahme widerspricht, dass $(a_i)_{i\geqslant 0}$ streng monoton steigend ist.
+\end{proof}

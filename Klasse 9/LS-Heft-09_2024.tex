@@ -1,0 +1,212 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{../landesseminarheader}
+% ************************************************************************************
+% Alternativ kann auch die bisherige Makro-Datei verwendet werden. Dann müssen die folgenden Zeilen entkommentiert werden.
+%\input{../makro.tex}
+%\usepackage{mathtools} % für DeclarePairedDelimiter
+%\usepackage{wasysym} % für das Winkel-Symbol
+%\usepackage{tikz} % für die Skizzen
+%\usetikzlibrary{positioning,calc,arrows.meta,shapes,decorations.pathmorphing,decorations.markings,hobby}
+%\tikzset{every picture/.style={line width=0.6, line cap=round,line join=round}}
+%\usepackage{csquotes} % für bessere Anführungszeichen
+%\usepackage[shortlabels]{enumitem} % um Aufzählungen automatisch in der Form (a), (b), ... zu setzen
+%\setlist[enumerate]{label={$(\alph*)$}, ref={$(\alph*)$},topsep=0pt}
+%\setlist[itemize]{topsep=0pt,itemsep=0pt,parsep=\parskip}
+%\usepackage{booktabs} % schönere Tabellen
+%\usepackage{tabularx} % Ich benutze tabularx, um mehrere Bilder so nebeneinander anzuordnen, dass die Abstände alle gleich groß sind
+%\usepackage{wrapfig} % für Bilder, die von Text umflossen werden sollen
+%\usepackage{microtype} % typographische Mikrooptimierungen (verhindert overfull hboxes)
+%\usepackage{xurl} % damit URLs automatisch umgebrochen werden (verhindert over/underfull hboxes).
+% ************************************************************************************
+
+% ************************* Kosmetik fürs Inhaltsverzeichnis *************************
+% Ich finde es optisch ansprechend und inhaltlich sinnvoll, wenn die Beiträge im Inhaltsverzeichnis nach Theme sortiert auftauchen. Dazu wird das Erscheinungsbild des Inhaltsverzeichnisses ein wenig umgebaut. Wird das nicht gewünscht, dann können die folgenden Zeilen sowie alle \cftaddtitleline-Befehle im Dokument entfernt werden.
+\usepackage{tocloft}
+
+% passe Abstände und Erscheinungsbild für Sections an
+\cftsetindents{section}{1.5em}{2.3em} % Einrückung
+\setlength{\cftbeforesecskip}{0.25em} % Zeilenabstand
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % Punkte zwischen Section-Titel und Seitenzahl
+\renewcommand{\cftsecfont}{} % Section-Titel nicht fett
+\renewcommand{\cftsecpagefont}{} % Seitenzahl nicht fett
+
+% passe Abstände und Erscheinungsbild für Parts an
+\setlength{\cftbeforepartskip}{1.0em} % Zeilenabstand
+\renewcommand{\cftpartfont}{\bfseries} % Part-Titel nur fett, aber nicht größer
+\renewcommand{\cftpartpagefont}{\bfseries} % Seitenzahl nur fett, aber nicht größer
+% ************************************************************************************
+
+
+% **************************** Eine praktische Umgebungen ****************************
+% Die amsthm-Umgebungen erlauben es nicht, Bilder in Form von Floats einzufügen. Deswegen wird hier die proof-Umgebungen neu definiert. Außerdem definieren wir neue Umgebungen für Aufgaben, Definitionen und Sätze mit Namen.
+
+% Die proof-Umgebung wird neu definiert
+\RenewDocumentEnvironment{proof}{ O{\proofname} }{
+	\par\pushQED{\qed}
+	\noindent\textbf{#1.}\ \ignorespaces
+}{%
+	\popQED\par
+}
+
+% Aufgaben-Umgebung. Das optionale Argument wird meistens benutzt, um schwere Aufgaben durch Asteriske zu kennzeichnen.
+\newcounter{caufgabe}[section]
+\NewDocumentEnvironment{aufgabe*}{ O{} }{
+	\par\refstepcounter{caufgabe}
+	\noindent\textbf{Aufgabe~\thecaufgabe#1.}\ \ignorespaces
+}{
+	\par
+}
+
+% Eine Umgebung für benannte Sätze. Der Name kommt in das optionale Argument. Zum Beispiel liefert "\begin{satzmitnamen}[Satz von Euler-Fermat] ..." im Text "Satz von Euler-Fermat. ..."
+\NewDocumentEnvironment{satzmitnamen}{ O{Satz} }{
+	\par\begingroup
+	\noindent\textbf{#1.}\ \ignorespaces\itshape
+}{
+	\endgroup\par
+}
+
+% Eine Umgebung für Definitionen
+\NewDocumentEnvironment{definition}{ O{Definition}}{
+	\par
+	\noindent\textbf{#1.}\ \ignorespaces
+}{
+	\par
+}
+% ************************************************************************************
+
+% ****************************** Eine praktische Makros ******************************
+% bessere Klammern in kursiven Umgebungen
+\newcommand{\embrace}[1]{\textup{(}#1\textup{)}}
+
+% Das \varangle-Symbol wird in \itshape-Umgebungen kursiv dargestellt; dieses Kommando behebt das Problem.
+\newcommand{\winkel}{\textup{\varangle}}
+
+% Ein Verkehrszeichen
+\DeclareRobustCommand{\Warnung}{\smash{\tikz[baseline, anchor=center]\node[draw, regular polygon, regular polygon sides=3, rounded corners=2, thick, inner sep=-0.25pt] at (0,0) {\textbf{!}};}}
+
+% Gepaarte Klammern
+\DeclarePairedDelimiter{\parens}{\lparen}{\rparen}
+\DeclarePairedDelimiter{\braces}{\lbrace}{\rbrace}
+\DeclarePairedDelimiter{\brackets}{[}{]}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+% ************************************************************************************
+
+% Wenn $\boldsymbol{...}$ in einem Titel verwendet wird, kommt es manchmal zu einer Warnung (aber alles sieht ok aus). Dieser Befehl unterdrückt die Warnung.
+\SetSymbolFont{wasy}{bold}{U}{wasy}{m}{n}
+
+\begin{document}
+	\sffamily
+	\title{\Huge \textbf{Sächsisches Landesseminar} \\ \textbf{Mathematik 2024}\\ in Sayda}
+	\author{}
+	\date{11.\,03. -- 15.\,03.\,2024}
+	\maketitle
+	
+	\renewcommand{\baselinestretch}{1.5} \LARGE
+	%zur Vorbereitung auf die Bundesrunde der
+	
+	%52. Mathematik-Olympiade
+	
+	%in Hamburg (5. bis 8. Mai 2013)
+	
+	\vspace{3cm}
+	
+	\begin{center}\Huge
+		\textbf{Begleitmaterial zum Seminarprogramm \\ der Klassenstufe 9}
+	\end{center}
+	
+	\thispagestyle{empty}
+	
+	\renewcommand{\baselinestretch}{1.0}\normalsize\rmfamily
+	
+	\vfill
+	
+	\author{Herausgegeben im Auftrag des Sächsischen Landeskomitees zur Förderung\\ mathematisch-naturwissenschaftlich begabter und interessierter Schüler}
+	%:\\ Sebastian Banert, Ingolf Busch, Pierre Landrock, Jens Reinhold, Lisa Sauermann
+	
+	\newpage
+	
+	\section*{Vorwort}
+	
+	Liebe Schülerinnen,\\
+	liebe Schüler,
+	
+	ich freue mich, Euch im Sächsischen Landesseminar Mathematik begrüßen zu können.
+	
+	In den nächsten drei Tagen werdet Ihr zehn mathematische Seminare haben. Ich hoffe, dass Ihr während dieser Seminare nicht nur neue Lösungsmethoden oder mathematische Sachverhalte kennen lernt, sondern dass Ihr dabei auch Freude an der Mathematik und am Lösen von Aufgaben haben werdet.
+	
+	Am Donnerstag wird dann die Auswahlklausur geschrieben, für die ich Euch jetzt schon alles Gute und viel Erfolg wünsche. Während Ihr am vorbereiteten Freizeitprogramm teilnehmt, werden die Klausuren korrigiert. Am Freitag wird dann die Mannschaft, die Sachsen auf der Bundesrunde der Mathematik-Olympiade vertreten darf, feierlich bekannt gegeben.
+	
+	Ich hoffe, dass Ihr es in den nächsten Tagen neben der Mathematik auch genießen könnt, Euch mit Gleichgesinnten zu unterhalten, Euch auszutauschen und um Lösungsansätze gemeinsam zu ringen. Dazu soll insbesondere auch der MatBoj beitragen. Aber natürlich denke ich dabei auch an die vielen Spiele, die eine lange Tradition im Landesseminar haben.
+	
+	Ich wünsche Euch viel Erfolg und eine gute Woche.
+	
+	Joachim Lippert
+	
+	\section*{Über dieses Heft}
+	Dieses Heft behandelt einige der wichtigsten Themen für die Mathematik-Olympiade in der Klassenstufe~9. Einige dieser Themen werden auch in den Seminaren besprochen, einige werdet ihr bestimmt schon kennen und andere werden euch neu sein. Es wird empfohlen, dass ihr das Heft zur Vorbereitung auf die Bundesrunde oder die nächste Olympiade durcharbeitet.
+	
+	In diesem Heft gibt es zwei Typen von Aufgaben: \emph{Beispielaufgaben} und \emph{Übungsaufgaben}. An Beispielaufgaben lassen sich die vorgestellten Methoden besonders gut vorführen. Manchmal lösen wir Beispielaufgaben direkt auf, aber meistens findet ihr am Ende des jeweiligen Kapitels Tipps und erst ganz am Ende des Heftes die Lösungen für die Beispielaufgaben. Die Beispielaufgaben solltet ihr zuerst bearbeiten, wenn ihr euch mit einer neuen Methode vertraut machen wollt. Bei den Übungsaufgaben hingegen seid ihr auf euch allein gestellt. Sie dienen zur weiteren Vertiefung der Inhalte.
+	
+	Schwere Aufgaben sind mit einem (*) bis drei (***) Sternen gekennzeichnet. Ein Stern bedeutet dabei, dass die Aufgabe schwerer als die durchschnittliche Bundesrunden-Aufgabe ist. Besonders bei solchen Aufgaben gilt: Wenn ihr nicht weiterkommt, dann holt euch einen Tipp und wenn ihr dann immer noch feststeckt, dann lest euch auch gern die Lösung durch -- dafür sind die Tipps und die Lösungen schließlich da.
+	
+	
+	\vfill
+	
+	\scriptsize
+	
+	\emph{Texte:} Ferdinand Wagner. Mit tatkräftiger Unterstützung von Sebastian Bürger, Leo Gitin, Cara Hobohm, Tien Nguyen und Arne Wolf. Aufbauend auf früheren Texten von Ingolf Busch, Frank Göhring, Maximilian Keitel, Eric Müller, Jens Reinhold und Lisa Sauermann. Herzlichen Dank auch an alle weiteren, die in früheren Ausgaben dieses Begleitheftes Beiträge erstellt haben.
+	
+	\emph{Textsatz:} Joachim Lippert, Tien Nguyen, Ferdinand Wagner.
+	
+	\emph{Redaktion}: Joachim Lippert (\href{mailto:lippert@landesseminar-sachsen.de}{\texttt{lippert@landesseminar-sachsen.de}}).
+	\normalsize
+	
+	\newpage
+	\renewcommand{\baselinestretch}{1}\normalsize
+	\tableofcontents
+	
+	\vspace{1cm}
+	
+	
+	
+	%\addcontentsline{toc}{part}{Geometrie}
+	
+	
+	
+	\newpage\cftaddtitleline{toc}{part}{Gleichungen und Ungleichungen}{\thepage}
+	\input{Gleichungssysteme}\newpage
+	\input{Mittelungleichungen}\newpage
+	\input{Umordnung}\newpage
+	\input{Schieben}\newpage
+	
+	\cftaddtitleline{toc}{part}{Geometrie}{\thepage}	
+	\input{CevaMenelaos}\newpage
+	\input{Inversion}\newpage
+	
+	\cftaddtitleline{toc}{part}{Kombinatorik}{\thepage}	
+	\input{Graphentheorie}\newpage
+	\input{Algorithmen}\newpage
+	
+	\cftaddtitleline{toc}{part}{Zahlentheorie}{\thepage}
+	\input{Teilerfremdheit}\newpage
+	\input{Diophantisch}\newpage
+	\input{Quersummen}\newpage
+	
+	\cftaddtitleline{toc}{part}{Lösungen zu den Beispielaufgaben}{\thepage}
+	\section*{Lösungen zu den Beispielaufgaben}
+	Die Lösungen sind nicht immer so formuliert, wie ihr das in der Olympiade tun solltet. Zum Teil sind sie sehr knapp -- zum Beispiel überspringen wir triviale Umformungsschritte oder lassen die Probe weg. In der Olympiade solltet ihr etwas ausführlicher sein und immer die Probe machen. Umgekehrt erklären wir gelegentlich (vor allem bei besonders schweren Aufgaben), wie wir auf die Lösung gekommen sind. In der Olympiade müsst ihr solche Überlegungen natürlich nicht aufschreiben, sondern könnt eure ausgefuchste Lösung einfach vom Himmel fallen lassen.
+	\input{Gleichungssysteme_Loesungen}
+	\input{Umordnung_Loesungen}
+	\input{Inversion_Loesungen}
+	\input{Graphentheorie_Loesungen}
+	\input{Algorithmen_Loesungen}
+	\input{Diophantisch_Loesungen}
+	\input{Quersummen_Loesungen}
+	
+	\newpage
+	\cftaddtitleline{toc}{part}{MatBoj-Regeln}{\thepage}
+	\input{../matbojregeln}\newpage
+	
+	\section*{Notizen:}
+\end{document}
