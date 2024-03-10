@@ -15,8 +15,8 @@
 
 Wir befolgen den Ratschlag und lösen die reine Zahlentheorie-Aufgabe~\ref{aufgabe:PolynomPrimfaktor}, bevor wir uns Aufgabe~\ref{aufgabe:VerschiedenePrimfaktoren} zuwenden.
 
-\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:PolynomPrimfaktor}]
-	Sei $d=\max\{d_1,d_2,\dotsc,d_9\}$ und wähle $N=d^8+1$. Angenommen, für irgendein $n\geqslant N$ hat $P(n)$ nur Primfaktoren $\leqslant 20$. Sei $p_i^{e_i}$ die größte Primpotenz, die $n+d_i$ teilt. Weil $n+d_i$ nur durch die acht verschiedenen Primzahlen $2$, $3$, $5$, $7$, $11$, $13$, $17$ oder $19$ teilbar sein kann, muss $n+d_i$ ein Produkt von höchstens acht Primpotenzen sein. Folglich gilt
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:PolynomPrimfaktor} \textmd{(\href{https://artofproblemsolving.com/community/c3962_2011_imo_shortlist}{IMO-Shortlist 2011/N2})}]
+	Betrachte $d\coloneqq\max\{d_1,d_2,\dotsc,d_9\}$ und wähle $N\coloneqq d^8+1$. Angenommen, für irgendein $n\geqslant N$ hat $P(n)$ nur Primfaktoren $\leqslant 20$. Sei $p_i^{e_i}$ die größte Primpotenz, die $n+d_i$ teilt. Weil $n+d_i$ nur durch die acht verschiedenen Primzahlen $2$, $3$, $5$, $7$, $11$, $13$, $17$ oder $19$ teilbar sein kann, muss $n+d_i$ ein Produkt von höchstens acht Primpotenzen sein. Folglich gilt
 	\begin{equation*}
 		p_i^{e_i}\geqslant \sqrt[8]{n+d_i}\geqslant \sqrt[8]{d^8+1}>d\,.
 	\end{equation*}
@@ -33,7 +33,7 @@ Wir befolgen den Ratschlag und lösen die reine Zahlentheorie-Aufgabe~\ref{aufga
 	Andererseits gibt es höchstens $k-1$ verschiedene Primzahlen, die überhaupt irgendeine der Zahlen $N+i_1,N+i_2,\dotsc,N+i_k$ teilen. Nach dem Schubfachprinzip muss es also Indizes $j\neq \ell$ geben, für die $q_j=q_\ell$ gilt. Sei $q\coloneqq q_j=q_\ell$. Dann sind sowohl $N+i_j$ als auch $N+i_\ell$ durch $q^{\min\{e_j,e_\ell\}}$ teilbar. Folglich ist $\abs{i_j-i_\ell}$ ebenfalls durch $q^{\min\{e_j,e_\ell\}}$ teilbar. Nun gilt aber auch $\abs{i_j-i_\ell}<n<q^{\min\{e_j,e_\ell\}}$, also kommt nur $i_j=i_\ell$ in Frage. Das widerspricht jedoch unserer Annahme $j\neq \ell$.
 \end{proof}
 
-\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:AzurBordeauxCitrin}]
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:AzurBordeauxCitrin} \textmd{(\href{https://artofproblemsolving.com/community/c3963_2012_imo_shortlist}{IMO-Shortlist 2012/C5})}]
 	Wir konstruieren einen bipartiten Graphen $G=(A\cup A',E)$ wie folgt: $A$ ist die Menge aller Azur-farbenen Spielsteine und $A'$ ist die Menge aller Azur-farbenen Felder. Zwischen $a\in A$ und $a'\in A'$ verläuft genau dann eine Kante, wenn der Abstand zwischen dem Feld, auf dem~$a$ steht, und dem Feld~$a'$ maximal $d+2$ beträgt. Wenn wir in $G$ ein Matching $M$ konstruieren können, das alle Knoten aus $A$ überdeckt (und damit auch alle aus $A'$, denn $\abs{A}=3n^2=\abs{A'}$), dann haben gezeigt, dass alle Azur-farbenen Spielsteine wie gewünscht verschoben werden können. Mit einem analogen Argument für die Farben Bordeaux und Citrin haben wir dann die Aufgabe gelöst.
 	
 	Betrachte eine Menge $S\subseteq A$ von Azur-farbenen Spielsteinen. Für alle positiven reellen Zahlen $r$ sei $S_r$ die Menge aller Felder, die höchstens Abstand $r$ von einem Feld haben, auf dem ein Spielstein aus $S$ steht. Um die Bedingung des Heiratssatzes zu überprüfen, müssen wir zeigen, dass es in $S_{d+2}$ mindestens $\abs{S}$ Azur-farbene Felder gibt. Intuitiv ist das sehr plausibel: Einerseits ist ein insgesamt Drittel aller Felder Azur-farben, also können wir annehmen, dass $\approx\frac13\abs{S_{d+2}}$ Felder in $S_{d+2}$ Azur-farben sind. Andererseits muss es in $S_d$ mindestens $\abs{S}$ Bordeaux- und mindestens $\abs{S}$ Citrin-farbene Felder geben, denn nach Annahme existiert eine Permutation der Spielsteine, die jeden Spielstein maximal im Abstand $d$ bewegt und Azur auf Bordeaux, Bordeaux auf Citrin und Citrin auf Azur schickt. Somit ist $3\abs{S}\leqslant \abs{S_d}$. Wegen $S_d\subseteq S_{d+2}$ erhalten wir also $\abs{S}\lessapprox \frac13\abs{S_{d+2}}$.

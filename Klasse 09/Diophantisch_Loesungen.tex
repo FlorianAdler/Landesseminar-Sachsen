@@ -1,7 +1,7 @@
 \subsection*{Lösungen zu Kapitel~\ref{kapitel:Diophantastisch}}
 
 
-\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:521235}]
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:521235} \textmd{(\href{https://www.mathematik-olympiaden.de/moev/index.php?option=com_download&thema=a&format=raw&datei=A52123b.pdf}{MO 521235})}]
 	Wir betrachten die Gleichung modulo~$9$. Weil Kubikzahlen modulo~$9$ nur die Reste $-1$, $0$ und $1$ annehmen, kann $19x^3-17y^3\equiv x^3+y^3\mod 9$ nur die Reste $-2$, $-1$, $0$, $1$ oder $2$ annehmen. Es gilt jedoch $50\equiv 5\mod 9$. Also hat die Gleichung keine Lösungen.
 \end{proof}
 
@@ -10,7 +10,7 @@
 \end{proof}
 
 \begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:UnendlicherAbstieg}]
-	Wir lösen die Gleichung mit unendlichem Abstieg. Angenommen, $(a,b,c,d)$ ist eine ganzzahlige Lösung der Gleichung. Dann muss $a^4$ gerade sein, denn alle anderen Terme sind gerade. Dann ist auch $a$ gerade. Schreibe also $a=2a_1$. Dann folgt $16a_1^4+2b^4+4c^4=8d^4$. Nach Division durch~$2$ erhalten wir $8a_1^4+b^4+2c^4=4d^4$. Dann muss $b^4$, also auch $b$, gerade sein, denn wiederum sind alle anderen Terme gerade. Indem wir $b=2b_1$ einsetzen und durch~$2$ dividieren, erhalten wir $4a_1^4+8b_1^4+c^4=2d^4$. Nach dem gleichen Argument muss nun $c$ gerade sein. Indem wir $c=2c_1$ einsetzen und durch~$2$ dividieren, erhalten wir $2a_1^4+4b_1^4+8c_1^4=d^4$. Nun muss also $d$ gerade sein. Indem wir $d=2d_1$ einsetzen und ein letztes Mal durch~$2$ dividieren, erhalten wir $a_1^4+2b_1^4+4c_1^4=8d_1^4$.
+	Wir lösen die Gleichung mit unendlichem Abstieg. Angenommen, $(a,b,c,d)$ ist eine ganzzahlige Lösung der Gleichung. Dann muss $a^4$ gerade sein, denn alle anderen Terme sind gerade. Also ist auch $a$ gerade. Wir können folglich $a=2a_1$ schreiben. Dann folgt $16a_1^4+2b^4+4c^4=8d^4$. Nach Division durch~$2$ erhalten wir $8a_1^4+b^4+2c^4=4d^4$. Dann muss $b^4$, also auch $b$, gerade sein, denn wiederum sind alle anderen Terme gerade. Indem wir $b=2b_1$ einsetzen und durch~$2$ dividieren, erhalten wir $4a_1^4+8b_1^4+c^4=2d^4$. Nach dem gleichen Argument muss nun $c$ gerade sein. Indem wir $c=2c_1$ einsetzen und durch~$2$ dividieren, erhalten wir $2a_1^4+4b_1^4+8c_1^4=d^4$. Nun muss also $d$ gerade sein. Indem wir $d=2d_1$ einsetzen und ein letztes Mal durch~$2$ dividieren, erhalten wir $a_1^4+2b_1^4+4c_1^4=8d_1^4$.
 	
 	Somit ist auch $(a_1,b_1,c_1,d_1)$ eine ganzzahlige Lösung der Gleichung. Indem wir das Argument iterieren, erhalten wir eine unendliche Folge $(a_i,b_i,c_i,d_i)_{i\geqslant 1}$ von ganzzahligen Lösungen der Gleichung, wobei $a_{i+1}=\frac{a_i}{2}$, $b_{i+1}=\frac{b_i}{2}$, $c_{i+1}=\frac{c_i}{2}$ und $d_{i+1}=\frac{d_i}{2}$. Da jede ganze Zahl $\neq 0$ nur endlich oft durch~$2$ teilbar sein kann, kommt somit nur $(a,b,c,d)=(0,0,0,0)$ als Lösung in Frage. Eine Probe bestätigt, dass dies tatsächlich eine Lösung und damit zwangsläufig die einzige Lösung der Gleichung ist.
 \end{proof}
@@ -22,12 +22,12 @@
 	\begin{equation*}
 		3^b=n^2-2^{2a_1}=\parens*{n-2^{a_1}}\parens*{n+2^{a_1}}\,.
 	\end{equation*}
-	Beide Faktoren auf der rechten Seite müssen Dreierpotenzen sein. Schreibe also $n-2^{a_1}=3^{b_1}$ und $n+2^{a_1}=3^{b_2}$; dabei gilt zwangsläufig $b_1<b_2$ und $b_1+b_2=b$. Für $b_1\geqslant 1$ wäre $3^{b_2}-3^{b_1}=(n+2^{a_1})-(n-2^{a_1})=2\cdot 2^{a_1}$ durch $3$ teilbar, das kann aber offensichtlich nicht sein. Also muss $b_1=0$ gelten, sodass $n=2^{a_1}+1$ folgt. Somit ist $3^{b_2}=n+2^{a_1}=2^{a_1+1}+1$. Der Fall $a_1=0$ führt auf $3^{b_2}=2+1=3$, also $b_2=1$ und somit $b=b_1+b_2=0+1=1$. Tatsächlich gilt $2^0+3^1=2^2$, sodass $(a,b,n)=(0,1,2)$ eine Lösung ist.
+	Beide Faktoren auf der rechten Seite müssen Dreierpotenzen sein. Wir können also $n-2^{a_1}=3^{b_1}$ und $n+2^{a_1}=3^{b_2}$ schreiben; dabei gilt zwangsläufig $b_1<b_2$ und $b_1+b_2=b$. Für $b_1\geqslant 1$ wäre $3^{b_2}-3^{b_1}=(n+2^{a_1})-(n-2^{a_1})=2\cdot 2^{a_1}$ durch $3$ teilbar, das kann aber offensichtlich nicht sein. Also muss $b_1=0$ gelten, sodass $n=2^{a_1}+1$ folgt. Somit ist $3^{b_2}=n+2^{a_1}=2^{a_1+1}+1$. Der Fall $a_1=0$ führt auf $3^{b_2}=2+1=3$, also $b_2=1$ und somit $b=b_1+b_2=0+1=1$. Tatsächlich gilt $2^0+3^1=2^2$, sodass $(a,b,n)=(0,1,2)$ eine Lösung ist.
 	
-	Von nun an dürfen wir $a_1\geqslant 1$ annehmen. Dann ist $2^{a_1+1}$ durch~$4$ teilbar und wir erhalten $(-1)^{b_2}\equiv 3^{b_2}\equiv 2^{a_1+1}+1\equiv 1\mod 4$. Damit muss $b_2$ gerade sein und $3^{b_2}=m^2$ muss eine Quadratzahl sein. Dann gilt $2^{a_1+1}=m^2-1$. Eine Gleichung dieser Form haben wir aber im ersten Absatz bereits betrachtet und herausgefunden, dass $(a_1+1,m)=(3,3)$ die einzige Lösung ist. Das führt auf $a_1=2$, also $a=4$ und ferner auf $3^{b_2}=m^2=9$, also $b_2=2$, also $b=b_1+b_2=0+2=2$. Tatsächlich gilt $2^4+3^2=5^2$, also ist $(a,b,n)=(4,3,5)$ eine Lösung. Da unsere Fallunterscheidung vollständig ist, haben wir somit alle Lösungen gefunden.
+	Von nun an dürfen wir $a_1\geqslant 1$ annehmen. Dann ist $2^{a_1+1}$ durch~$4$ teilbar und wir erhalten $(-1)^{b_2}\equiv 3^{b_2}\equiv 2^{a_1+1}+1\equiv 1\mod 4$. Damit muss $b_2$ gerade sein und $3^{b_2}=m^2$ muss eine Quadratzahl sein. Dann gilt $2^{a_1+1}=m^2-1$. Eine Gleichung dieser Form haben wir aber im ersten Absatz bereits betrachtet und herausgefunden, dass $(a_1+1,m)=(3,3)$ die einzige Lösung ist. Das führt auf $a_1=2$, also $a=4$ und ferner auf $3^{b_2}=m^2=9$, also $b_2=2$ und damit $b=b_1+b_2=0+2=2$. Tatsächlich gilt $2^4+3^2=5^2$, also ist $(a,b,n)=(4,3,5)$ eine Lösung. Da unsere Fallunterscheidung vollständig ist, haben wir somit alle Lösungen gefunden.
 \end{proof}
 
-\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:471046}]
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:471046} \textmd{(\href{https://www.mathematik-olympiaden.de/moev/index.php?option=com_download&thema=a&format=raw&datei=A47104b.pdf}{MO 471046})}]
 	Schreibe $4x^3-7=A^2$ und $4x^5-7=B^2$. Wir bemerken zuerst, dass $x$ eine rationale Zahl sein muss, denn
 	\begin{equation*}
 		x=\frac{x^6}{x^5}=\frac{\parens*{\frac14\parens*{A^2+7}}^2}{\frac14\parens*{B^2+7}}\,.
@@ -37,9 +37,9 @@
 	Es ist klar, dass $x=0$ und $x=1$ keine Lösungen sind. Für $x\geqslant 2$ gilt $x^2-1>0$ und somit einerseits $4x^5-7=A^2x^2+7(x^2-1)>(Ax)^2$. Andererseits ist $(Ax+1)^2=(Ax)^2+2Ax+1$. Wenn also $7(x^2-1)<2Ax+1$ gilt, dann haben wir $4x^5-7$ zwischen zwei aufeinanderfolgenden Quadratzahlen eingeschachtelt und erhalten einen Widerspruch. Die fragliche Ungleichung ist zu $7x^2-8<2Ax$ äquivalent. Für $x\geqslant 2$ sind beide Seiten positiv, also ist Quadrieren eine Äquivalenzumformung. Wir erhalten somit $49x^4-102x^2+64<4A^2x^2=16x^5-28x^2$. Für $x\geqslant 4$ ist $49x^4<16\cdot 4x^4\leqslant 16x^5$ und außerdem $64<(102-28)x^2=74x^2$, somit gilt die Ungleichung in diesem Fall und es kann keine Lösung geben. Es verbleiben die Fälle $x=2$ und $x=3$. Für $x=2$ erhalten wir die Quadratzahlen $4\cdot 2^3-7=5^2$ und $4\cdot 2^5-7=11^2$, also ist $x=2$ eine Lösung. Für $x=3$ gilt hingegen $4\cdot 3^3-7=101$, was keine Quadratzahl ist.
 \end{proof}
 
-Nun kommen wir zur schwersten der sechs Beispielaufgaben. Wir werden nicht nur die Lösung erklären, sondern auch die Überlegungen, die in diese Lösung geflossen sind.
+%Nun kommen wir zur schwersten der sechs Beispielaufgaben. Wir werden nicht nur die Lösung erklären, sondern auch die Überlegungen, die in diese Lösung geflossen sind.
 
-\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:VAIMO2010}]
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:VAIMO2010} \textmd{(\href{https://www.mathe-wettbewerbe.de/fileadmin/Mathe-Wettbewerbe/AIMO/Aufgaben_und_Loesungen_AIMO/aufgaben_awb_10.pdf}{IMO-Vorauswahl 2010})}]
 	Durch Ausprobieren kleiner Fälle finden wir zuerst die beiden Lösungspaare $(m,n)=(1,0)$ und $(m,n)=(2,1)$ und es scheint, dass das die einzigen sind. Das wollen wir nun beweisen.
 	
 	Nachdem wir alle kleineren Fälle durchprobiert haben, dürfen wir $m\geqslant 3$ und $n\geqslant 2$ annehmen. Wir wollen die Gleichung modulo geeigneten Zahlen betrachten. Als erstes kommen uns hier natürlich die Zahlen~$3$ und~$7$ in den Sinn, aber dadurch können wir unmöglich einen Widerspruch bekommen, denn die Gleichung besitzt ja Lösungen. Um die gefundenen Lösungen auszuschließen, müssen wir die Gleichung statt modulo~$3$ mindestens modulo $3^3=27$ und statt modulo~$7$ mindestens modulo $7^2=49$ betrachten. Das werden wir nun nacheinander tun.

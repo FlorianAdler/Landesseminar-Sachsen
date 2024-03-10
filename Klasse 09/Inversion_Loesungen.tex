@@ -67,11 +67,11 @@
 	\end{tabularx}
 \end{figure}
 
-\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:450943}]
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:450943} \textmd{(\href{https://www.mathematik-olympiaden.de/moev/index.php?option=com_download&thema=a&format=raw&datei=A45094a.pdf}{MO 450943})}]
 	Wir invertieren an~$H$. Die Bildpunkte werden wie üblich mit $A'$,~$B'$,~\ldots\ bezeichnet. Wegen $\winkel APH=90^\circ=\winkel HPC$ gilt $\winkel HA'P'=90^\circ= \winkel P'C'H$ nach Eigenschaft~\ref{itm:Winkel}. Weil die Geraden $CH$ und~$AB$ durch~$H$ gehen, werden sie auf sich selbst abgebildet. Also steht $C'H$ immer noch senkrecht auf~$A'B'$. Folglich ist $A'HC'P'$ ein Rechteck. Analog ist $HB'Q'C'$ ein Rechteck. Also ist auch $A'B'Q'P'$ ein Rechteck. Weil $S$ auf dem Umkreis $\odot AHP$ liegt, muss $S'$ auf der Geraden~$A'P'$ liegen. Analog liegt $T'$ auf~$B'Q'$. Weil schließlich $S$~und~$T$ auf~$PQ$ liegen, müssen $S'$~und~$T'$ auf dem Umkreis $\odot P'HQ'$ liegen. Nach Satz vom Sehnenviereck gilt dann $\winkel P'S'T'=180^\circ-\winkel T'Q'P'=180^\circ-90^\circ=90^\circ$. Also ist auch $P'Q'T'S'$ ein Rechteck. Folglich ist $S'T'$ parallel zu~$A'B'$. Das bedeutet aber genau, dass vor der Inversion der Umkreis $\odot HTS$ die Gerade~$AB$ in~$H$ berührt haben muss.
 \end{proof}
 
-\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:IMO1996}]
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:IMO1996} \textmd{(\href{https://artofproblemsolving.com/community/c3823_1996_imo}{IMO 1996/2})}]
 	Seien $X$~und~$Y$ die Schnittpunkte der Winkelhalbierenden von $\winkel PBA$ und $\winkel ACP$ mit~$AP$.
 	% Tien: Vielleicht ein "bzw.\" oder "respektive".
 	Wir wollen $X=Y$ zeigen. Dazu invertieren wir an~$A$. Wie üblich werden die Bildpunkte unter der Inversion mit $B'$,~$C'$,~\ldots\ bezeichnet. Aus Eigenschaft~\ref{itm:Winkel} folgt dann $\winkel P'B'C'=\winkel P'B'A'-\winkel C'B'A'=\winkel APB-\winkel ACB$ und analog $\winkel B'C'P=\winkel CPA-\winkel CBA$. Die seltsame Winkelbedingung aus der Aufgabenstellung sagt uns also genau, dass das Dreieck $C'B'P'$ gleichschenklig ist.
@@ -126,7 +126,7 @@
 	Als nächstes untersuchen wir, wohin $X$ unter der Inversion geschickt wird. Weil $X$ auf~$AP$ liegt, liegt $X'$ auf der Geraden~$AP'$. Wir können sogar genauer sagen, dass $P'$ zwischen $A$~und~$X'$ liegt, weil vor der Inversion $X$ zwischen $A$~und~$P$ lag. Vor der Inversion galt $\winkel XBA=\frac12\winkel PBA$. Aus Eigenschaft~\ref{itm:Winkel} folgt also $\winkel AX'B'=\frac 12\winkel AP'B'$. Nach dem Außenwinkelsatz im Dreieck $P'B'X'$ gilt zudem $\winkel AP'B'=\winkel AX'B'+\winkel X'B'P'$. Also muss auch $\winkel X'B'P'=\frac 12\winkel AP'B'$ gelten. Folglich ist auch das Dreieck $P'B'X'$ gleichschenklig und wir erhalten $\abs{X'P'}=\abs{B'P'}=\abs{C'P'}$. Mit der gleichen Argumentation folgt auch $\abs{Y'P'}=\abs{B'P'}=\abs{C'P'}$, also $\abs{X'P'}=\abs{Y'P'}$. Wie wir bereits gesehen haben, liegen $X'$~und~$Y'$ auf der gleichen Seite von~$P'$. Also muss $X'=Y'$ sein. Es folgt $X=Y$, wie gewünscht.
 \end{proof}
 
-\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:521243}]
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:521243} \textmd{(\href{https://www.mathematik-olympiaden.de/moev/index.php?option=com_download&thema=a&format=raw&datei=A52124a.pdf}{MO 521243})}]
 	Bei dieser Aufgabe bringt es wenig, am gewünschten Berührpunkt zu invertieren, denn wir wissen ja (noch) gar nicht, wo der liegt. Stattdessen invertieren wir an~$X$. Überlegt euch zunächst selbst, wie die Skizze nach der Inversion aussieht (bzw.\ warum sie so wie unten aussieht)~-- ihr werdet feststellen, dass sich durch die Inversion eigentlich nichts geändert hat. Auf den ersten Blick wirkt es also, als hätten wir nichts erreicht. Auf den zweiten Blick haben wir jedoch durch diese Feststellung die Aufgabe schon fast gelöst!
 	\begin{figure}[ht]
 		\centering
@@ -175,7 +175,7 @@
 				\draw [line width=0.3,shorten <=-4ex,shorten >=-4ex] (X) to (P);
 				\draw [line width=0.3,shorten <=-4em,shorten >=-4em] (X) to node [pos=-0.42,sloped] {$\scriptscriptstyle/\!/$} (B);
 				\draw [line width=0.3,shorten <=-5ex,shorten >=-10em] (P) to node [pos=3.14,sloped] {$\scriptscriptstyle/\!/$} (D);
-				\draw[fill=black] (A) circle (2pt) node[shift={(50:2.25ex)}] {$B'$};
+				\draw[fill=black] (A) circle (2pt) node[shift={(40:2.25ex)}] {$B'$};
 				\draw[fill=black] (B) circle (2pt) node[shift={(112:2.25ex)}] {$A'$};
 				\draw[fill=black] (P) circle (2pt) node[shift={(50:2.5ex)}] {$Q'$};
 				\draw[fill=black] (Q) circle (2pt) node[shift={(160:2.5ex)}] {$P'$};

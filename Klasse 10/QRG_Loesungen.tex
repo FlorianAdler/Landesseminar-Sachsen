@@ -6,7 +6,7 @@
 	Der Beweis für~\ref{teilaufgabe:1Mod4} geht analog, nur dass wir hier $N\coloneqq (2p_1p_2\dotsm p_m)^2+1$ betrachten. Dann ist $N$ ungerade und zu $p_1,p_2,\dotsc,p_m$ teilerfremd. Ferner muss $-1$ für jeden Primteiler $p\mid N$ ein quadratischer Rest modulo~$p$ sein. Nach dem ersten Ergänzungssatz zum QRG muss dafür $p\equiv 1\mod 4$ gelten. Damit haben wir eine weitere Primzahl mit der gewünschten Eigenschaft konstruiert.
 \end{proof}
 
-\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:IMO1996_4}]
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:IMO1996_4} \textmd{(\href{https://artofproblemsolving.com/community/c3823_1996_imo}{IMO 1996/4})}]
 	Schreibe $15a+16b=m^2$ und $16a-15b=n^2$. Dann gilt
 	\begin{align*}
 		16m^2-15n^2=16\cdot 15a+16^2b-15\cdot 16a+15^2b&=481b\\
@@ -47,7 +47,7 @@
 	schreiben. Dann muss $-2$ ein quadratischer Rest modulo jedem Primteiler~$p$ von $b^2+b+1$ sein. Weil~$b$ ungerade ist, muss auch $b^2+b+1$ ungerade sein. Aus den beiden Ergänzungssätzen zum QRG folgt: Für eine ungerade Primzahl~$p\geqslant 3$ ist $-2$ genau dann ein quadratischer Rest, wenn $p\equiv 1\mod 8$ oder $p\equiv 3\mod 8$. Als Produkt solcher Primfaktoren muss auch $b^2+b+1$ den Rest~$1$ oder~$3$ modulo~$8$ lassen. Wegen $b\equiv 1\mod 4$ gilt aber auch $b^2+b+1\equiv 3\mod 4$, sodass $b^2+b+1\equiv 3\mod 8$ sein muss. Durch Ausprobieren aller Reste modulo~$8$ folgt nun $b\equiv 1\mod 8$. Indem wir die ursprüngliche Gleichung modulo~$8$ betrachten, erhalten wir jetzt jedoch $a^2+3\equiv b^3\equiv 1\mod 8$, also $a^2\equiv 6\mod 8$, was unmöglich ist.
 \end{proof}
 
-\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:Polen2019}]
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:Polen2019} \textmd{(\href{https://artofproblemsolving.com/community/c904216_2019_polish_mo_finals}{Polnische MO 2019/2})}]
 	Der Fall~$p=2$ ist trivial, denn alle Reste modulo~$2$ sind quadratische Reste. Im Folgenden nehmen wir an, dass~$p$ eine ungerade Primzahl ist.
 	
 	Die Bedingung $r^7\equiv 1\mod p$ impliziert $\operatorname{ord}_p(r)=1$ oder $\operatorname{ord}_p(r)=7$. Der erste Fall führt auf $r\equiv 1\mod p$. Folglich ist $r+1\equiv r^2+1\equiv r^3+1\mod p$ und die Behauptung gilt offensichtlich. Von nun an nehmen wir $\operatorname{ord}_p(r)=7$ an. Insbesondere muss $p\equiv 1\mod 7$ sein. Wegen

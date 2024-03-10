@@ -1,6 +1,6 @@
 \subsection*{Lösungen zu den Kapitel~\ref{kapitel:Algorithmen}: \emph{Algorithmen in der Kombinatorik}}
 
-\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:510846}]
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:510846} \textmd{(\href{https://www.mathematik-olympiaden.de/moev/index.php?option=com_download&thema=a&format=raw&datei=A51084b.pdf}{MO 510846})}]
 	Im Folgenden bezeichnen wir das Feld in der $i$-ten Zeile und $j$-ten Spalte mit $(i,j)$. Um die Aufgabe zu lösen, werden wir schrittweise Zahlen in die Tabelle eintragen. Dazu durchlaufen wir der Reihe nach alle Felder (die Reihenfolge ist egal, es kommt nur darauf an, dass jedes Feld genau einmal durchlaufen wird). Wenn das Feld $(i,j)$ an der Reihe ist, tragen wir dort die größtmögliche Zahl ein. Das bedeutet: Wenn $z_i'$ und $s_j'$ die Summen der Zahlen sind, die zu diesem Zeitpunkt schon in der $i$-ten Zeile und in der $j$-ten Spalte eingetragen wurden, tragen wir die Zahl $\min\{z_i-z_i',s_j-s_j'\}$ ins Feld $(i,j)$ ein.
 	
 	Offensichtlich ist jeder dieser Schritte durchführbar und der Algorithmus endet, nachdem alle $mn$ Felder durchlaufen wurden.
@@ -28,12 +28,12 @@
 	Wenn unser Algorithmus in das Feld~$(i,j)$ eine positive Zahl eingetragen hat, dann muss vor diesem Schritt $z_i'<z_i$ und $s_j'<s_j$ gewesen sein. Nach dem Schrit gilt hingegen mindestens eine der Gleichheiten $z_i'=z_i$ oder $s_j'=s_j$. Nach $m+n-1$ Schritten von dieser Sorte muss nach Schubfachprinzip $z_i'=z_i$ für alle $i=1,2,\dotsc,m$ oder $s_j'=s_j$ für alle $j=1,2,\dotsc,n$ gelten. Die Summe aller Zahlen, die zu diesem Zeitpunkt in der Tabelle eingetragen sind, ist dann aber genauso groß wie am Schluss. Also können keine weiteren positiven Zahlen eingetragen werden.
 \end{proof}
 
-\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:520945}]
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:520945} \textmd{(\href{https://www.mathematik-olympiaden.de/moev/index.php?option=com_download&thema=a&format=raw&datei=A52094b.pdf}{MO 520945})}]
 	Wenn es zwei Zettel $Z_1$ und $Z_2$ gibt, sodass alle Zahlen von~$Z_1$ auch auf~$Z_2$ stehen, dann kann Basti den Zettel~$Z_2$ getrost schreddern. Denn egal, welche Zahl von~$Z_1$ er auf seinen eigenen Zettel schreibt, diese Zahl wird auch auf~$Z_2$ stehen. Dadurch bleibt Bedingung~\ref{bedingung:EineZahlVonJedemZettel} auf jeden Fall erhalten. Ferner genügt es offensichtlich, wenn~\ref{bedingung:KleinsteZahlVonEinemZettel} für einen anderen Zettel außer~$Z_2$ erfüllt ist.
 	
 	Basti schreddert nun so lange Zettel, bis kein schredderbarer Zettel mehr übrig ist. Dann wählt er einen Zettel~$Z$, auf dem das Minimum~$x$ aller verbleibenden Zettel steht, und schreibt dieses Minimum auf seinen Zettel. Für jeden verbleibenden Zettel löscht Basti alle Zahlen, die auch auf~$Z$ stehen. Dabei kann es nicht passieren, dass alle Zahlen gelöscht werden, denn sonst hätte der Zettel~$Z$ geschreddert werden können. Nun schreibt Basti von jedem verbleibenden Zettel eine beliebige verbleibende Zahl auf seinen Zettel. Diese Zahlen sind nicht in~$Z$ enthalten, also auf jeden Fall größer als~$x$. Damit ist~\ref{bedingung:KleinsteZahlVonEinemZettel} erfüllt. Nach Konstruktion gilt~\ref{bedingung:EineZahlVonJedemZettel} ebenfalls, also hat Basti seine Aufgabe gelöst.
 \end{proof}
-\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:531046}]
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:531046} \textmd{(\href{https://www.mathematik-olympiaden.de/moev/index.php?option=com_download&thema=a&format=raw&datei=A53104b.pdf}{MO 531046})}]
 	Wir zeigen, dass eine solche Zerlegung stets möglich ist, indem wir sie schrittweise konstruieren. In jedem Schritt betrachten wir die kleinste Zahl $n$, die noch nicht in einer $ab$-normalen Teilmenge enthalten ist. Dann fügen wir, wenn möglich, die $ab$-normale Teilmenge $\{n,n+a,n+a+b\}$ hinzu. Wenn das nicht möglich ist, fügen wir stattdessen die $ab$-normale Teilmenge $\{n,n+b,n+a+b\}$ hinzu.
 	
 	Zeigen wir zunächst, dass diese Schritte stets durchführbar sind (bei den bisherigen Aufgaben war das quasi trivial, hier ist es der schwierigste Teil der Lösung). Angenommen, das wäre nicht so. Betrachte den ersten Schritt, der schief geht. Dann kann $n+a+b$ zu diesem Zeitpunkt noch in keiner $ab$-normalen Teilmenge enthalten sein, der Schritt kann also nur scheitern, indem sowohl $n+a$ als auch $n+b$ schon in einer $ab$-normalen Teilmenge enthalten sind. Denn angenommen, $n+a+b$ wäre zu diesem Zeitpunkt schon abgedeckt. Dann müsste $n+a+b$ in einem vorherigen Schritt von einer $ab$-normalen Teilmenge $A$ abgedeckt worden sein. Es ist klar, dass $n+a+b$ nicht die größte Zahl in $A$ sein kann, denn sonst wäre $n$ zwangsläufig die kleinste Zahl in $A$, aber $n$ ist noch nicht abgedeckt. Wenn aber $n+a+b$ nicht die größte Zahl in $A$ ist, dann muss $\min A> n$ sein. Das widerspricht aber unserer Vorgehensweise, nach der wir in jedem Schritt die kleinste nicht-abgedeckte Zahl auswählen.
@@ -42,7 +42,7 @@
 	
 	In diesem Fall terminiert unser Algorithmus nicht nach endlicher Zeit (denn wir wollen ja $\mathbb Z_{>0}$ in unendlich viele $ab$-normale Teilmengen zerlegen). Aus der Vorgehensweise ist aber trotzdem klar, dass jede positive ganze Zahl irgendwann abgedeckt wird und dass der Algorithmus schrittweise eine Zerlegung mit den gewünschten Eigenschaften konstruiert.
 \end{proof}
-\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:541143}]
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:541143} \textmd{(\href{https://www.mathematik-olympiaden.de/moev/index.php?option=com_download&thema=a&format=raw&datei=A54114a.pdf}{MO 541143})}]
 	Wir beginnen mit einer beliebigen Verteilung auf die beiden Busse. Dann führen wir eine Reihe von Schritten durch, um die Verteilung unseren Wünschen entsprechend umzubauen. In jedem Schritt wählen wir eine Person, die in ihrem jetzigen Bus mehr Bekanntschaften hat als in dem anderen Bus, und setzen diese Person stattdessen in den anderen Bus. Sobald keine solche Person mehr existiert, hören wir auf.
 	
 	Offensichtlich sind diese Schritte durchführbar. Weil in jedem Schritt die Summe der Bekanntschaften innerhalb der beiden Busse kleiner wird, können nur endlich viele Schritte durchgeführt werden. Danach sind wir in einer Situation, in der jede Person in ihrem Bus höchstens so viele Bekanntschaften hat wie in dem anderen Bus.

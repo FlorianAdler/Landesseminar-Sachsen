@@ -49,9 +49,10 @@
 	\begin{equation*}
 		\frac1{51+x^2}+\frac1{51+y^2}+\frac1{51+z^2}\leqslant\frac{13-x}{600}+\frac{13-y}{600}+\frac{13-z}{600}=\frac{39-(x+y+z)}{600}=\frac1{20}
 	\end{equation*}
-	abschätzen und sind fertig. Falls eine der Variablen größer als 7 ist, können wir sogar deutlich unschärfer abschätzen, und zwar $\sum\frac1{51+x^2}<\frac1{51+7^2}+\frac1{50}+\frac1{50}= \frac1{100}+\frac1{25}=\frac1{20}$. Auch hier sind wir fertig.\qed
-	
-	\textbf{Lösung zu Aufgabe~\ref{aufgabe:b+c-aUngleichung}.} Weil die Ungleichung homogen ist, dürfen wir $a+b+c=1$ annehmen. Dann gilt
+	abschätzen und sind fertig. Falls eine der Variablen größer als 7 ist, können wir sogar deutlich unschärfer abschätzen, und zwar $\sum\frac1{51+x^2}<\frac1{51+7^2}+\frac1{50}+\frac1{50}= \frac1{100}+\frac1{25}=\frac1{20}$. Auch hier sind wir fertig.
+\end{proof}
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:b+c-aUngleichung} \textmd{(\href{https://artofproblemsolving.com/community/c5082_1997_japan_mo_finals}{Japanische MO 1997/2})}]
+	Weil die Ungleichung homogen ist, dürfen wir $a+b+c=1$ annehmen. Dann gilt
 	\begin{equation*}
 		\frac{(b+c-a)^2}{(b+c)^2+a^2}=\frac{(1-2a)^2}{(1-a)^2+a^2}=2-\frac{1}{1-2a+2a^2}\,.
 	\end{equation*}
@@ -65,10 +66,11 @@
 	\end{equation*}
 	Es folgt
 	\begin{equation*}
-		\frac{1}{1-2a+2a^2}+\frac{1}{1-2b+2b^2}+\frac{1}{1-2c+2c^2}\leqslant \frac{54(x+y+z)+3\cdot 27}{25}=\frac{105}{25}=\frac{27}{5}\,.\tag*{\qed}
+		\frac{1}{1-2a+2a^2}+\frac{1}{1-2b+2b^2}+\frac{1}{1-2c+2c^2}\leqslant \frac{54(x+y+z)+3\cdot 27}{25}=\frac{105}{25}=\frac{27}{5}\,.\qedhere
 	\end{equation*}
-	
-	\textbf{Lösung zu Aufgabe~\ref{aufgabe:USAMO2017}.} Sei $T$ der betrachtete Ausdruck. Durch geschicktes Raten vermuten wir, dass das Minimum von $T$ nicht bei $a=b=c=d=1$ angenommen wird, was auf den Wert $T=\frac45$ führt, sondern bei $a=2$, $b=2$, $c=0$ und $d=0$ (sowie zyklischen Vertauschungen davon), was auf den Wert $T=\frac23$ führt. Das inspiriert uns dazu, die Tangente an $f(x)=\frac{1}{x^3+4}$ in $x=2$ zu betrachten. Wir behaupten dann, dass stets $ \frac{1}{x^3+4}\geqslant \frac14-\frac{x}{12}$ gilt, was aus
+\end{proof}
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:USAMO2017} \textmd{(\href{https://artofproblemsolving.com/community/c439884_2017_usamo}{USAMO 2017/6})}]
+	Sei $T$ der betrachtete Ausdruck. Durch geschicktes Raten vermuten wir, dass das Minimum von $T$ nicht bei $a=b=c=d=1$ angenommen wird, was auf den Wert $T=\frac45$ führt, sondern bei $a=2$, $b=2$, $c=0$ und $d=0$ (sowie zyklischen Vertauschungen davon), was auf den Wert $T=\frac23$ führt. Das inspiriert uns dazu, die Tangente an $f(x)=\frac{1}{x^3+4}$ in $x=2$ zu betrachten. Wir behaupten dann, dass stets $ \frac{1}{x^3+4}\geqslant \frac14-\frac{x}{12}$ gilt, was aus
 	\begin{equation*}
 		\frac1{x^3+4}-\frac14-\frac{x}{12}=\frac {12-(3-b)(b^3+4)}{12(b^3+4)}=\frac{b(b+1)(b-2)^2}{12\parens*{b^3+4}}\geqslant 0
 	\end{equation*}
@@ -76,15 +78,17 @@
 	\begin{equation*}
 		T\geqslant \frac{a+b+c+d}4-\frac{ab+bc+cd+da}{12}=1-\frac{(a+c)(b+d)}{12}
 	\end{equation*}
-	Nach AM-GM ist $(a+c)(b+d)\leqslant \frac14(a+b+c+d)^2=4$ und nach Einsetzen sind wir fertig.\qed
-	
-	\textbf{Lösung zu Aufgabe~\ref{aufgabe:MatBoj2015}.} Um die Nenner zu linearisieren, schätzen wir nach AM-GM wie folgt ab: $a^2+2=a^2+1+1\geqslant 2a+1$. Folglich genügt es, die Ungleichung
+	Nach AM-GM ist $(a+c)(b+d)\leqslant \frac14(a+b+c+d)^2=4$ und nach Einsetzen sind wir fertig.
+\end{proof}
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:MatBoj2015}]
+	Um die Nenner zu linearisieren, schätzen wir nach AM-GM wie folgt ab: $a^2+2=a^2+1+1\geqslant 2a+1$. Folglich genügt es, die Ungleichung
 	\begin{equation*}
 		\frac{a}{2a+1}+\frac{b}{2b+1}+\frac{c}{2c+1}\leqslant 1
 	\end{equation*}
-	zu beweisen. Nach Ausmultiplizieren, Vereinfachen und Einsetzen von $abc=1$ wird diese Ungleichung zu $3\leqslant a+b+c$, was direkt aus AM-GM folgt.\qed
-	
-	\textbf{Lösung zu Aufgabe~\ref{aufgabe:DEMO2013}.} Der Einfachheit halber schreiben wir $\beta\coloneqq \frac 1\alpha$, sodass $\beta<1$. Wir wollen die Wurzeln durch lineare Terme ersetzen. Dazu schätzen wir die Funktion $f(x)=\sqrt[\alpha]{x}=x^\beta$ durch ihre Tangente in $x=1$ ab und erhalten $x^\beta\leqslant 1+\beta(x-1)$. Diese Ungleichung ist für alle $x\geqslant 0$ gültig, denn $f$ ist konkav: Wegen $\beta<1$ gilt $f''(x)=\beta(\beta-1)x^{\beta-2}<0$ für alle $x>0$.
+	zu beweisen. Nach Ausmultiplizieren, Vereinfachen und Einsetzen von $abc=1$ wird diese Ungleichung zu $3\leqslant a+b+c$, was direkt aus AM-GM folgt.
+\end{proof}
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:DEMO2013} \textmd{(\href{https://www.mathematik-olympiaden.de/moev/index.php?option=com_download&thema=a&format=raw&datei=A52124a.pdf}{MO 521242})}]
+	Der Einfachheit halber schreiben wir $\beta\coloneqq \frac 1\alpha$, sodass $\beta<1$. Wir wollen die Wurzeln durch lineare Terme ersetzen. Dazu schätzen wir die Funktion $f(x)=\sqrt[\alpha]{x}=x^\beta$ durch ihre Tangente in $x=1$ ab und erhalten $x^\beta\leqslant 1+\beta(x-1)$. Diese Ungleichung ist für alle $x\geqslant 0$ gültig, denn $f$ ist konkav: Wegen $\beta<1$ gilt $f''(x)=\beta(\beta-1)x^{\beta-2}<0$ für alle $x>0$.
 	
 	Mit dieser Abschätzung folgt
 	\begin{align*}

@@ -1,7 +1,7 @@
 
 \subsection*{Lösungen zu den Kapitel~\ref{kapitel:GraphenInCombo}: \emph{Kombinatorikaufgaben mit Graphentheorie lösen}}
 
-\begin{proof}
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:Feldwege} \textmd{(\href{https://www.mathematik-olympiaden.de/moev/index.php?option=com_download&thema=a&datei=A59123a.pdf&format=raw}{MO 591233})}]
 	Wir betrachten den Graphen $G$, dessen Knoten die Orte und dessen Kanten die Feldwege sind. Wir dürfen ohne Einschränkung annehmen, dass $G$ zusammenhängend ist (ansonsten führen wir das folgende Argument in jeder Zusammenhangskomponente durch). Dann hat jeder Knoten von $G$ Grad $3$. Weil die Anzahl der Knoten ungeraden Grades stets gerade ist, muss $G$ gerade viele Knoten haben. Wir teilen die Knoten von $G$ beliebig in Paare auf und fügen für jedes Paar eine Kante hinzu (wenn dadurch parallele Kanten entstehen, ist das kein Problem). Nun hat jeder Knoten Grad $4$, also gibt es nach dem Satz von Euler-Hierholzer einen geschlossenen Weg, der jede Kante genau einmal durchläuft. Entlang dieses Weges färben wir die Kanten abwechselnd rot und grün. Dann hat jeder Knoten zwei rote und zwei grüne ausgehende Kanten. Das gilt insbesondere auch für den ersten (und letzten) Knoten des Weges, denn nach dem Handschlagslemma ist $4\abs{V}=\sum_{v\in V}d(v)=2\abs{E}$, also ist $\abs{E}$ gerade. Nun entfernen wir die hinzugefügten Kanten wieder. Dann hat jeder Knoten immer noch mindestens eine rote und mindestens eine grüne ausgehende Kante. Wenn wir alle roten Kanten zu Radwegen ausbauen, haben wir also die Aufgabe gelöst.
 \end{proof}
 

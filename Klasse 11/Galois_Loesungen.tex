@@ -1,6 +1,6 @@
 \subsection*{Lösungen zu Kapitel~\ref{kapitel:Galois}: \emph{Nullstellen von Polynomen in der Zahlentheorie}}
 
-\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:621246}]
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:621246} \textmd{(\href{https://www.mathematik-olympiaden.de/moev/index.php?option=com_download&thema=a&datei=A62124b.pdf&format=raw}{MO 621246} und \href{https://artofproblemsolving.com/community/c3939_1988_imo_shortlist}{IMO-Shortlist 1988/7})}]
 	Durch Ausprobieren finden wir heraus, dass
 	\begin{equation*}
 		-0{,}6<\alpha<-0{,}5\,,\quad 0{,}6<\beta<0{,}7\quad\text{und}\quad 2<\gamma <3
@@ -18,7 +18,7 @@
 	Für~\ref{teilaufgabe:IMOSL1988} können wir die obige Rekursion modulo~$17$ betrachten. Alternativ können wir benutzen, dass $x^3-3x^2+1\equiv (x-4)(x-5)(x+6)\mod 17$ gilt. Diese Faktorisierung legt die Vermutung $u_n\equiv 4^n+5^n+(-6)^n\mod 17$ nahe. Und tatsächlich: Wenn $u_n'\coloneqq 4^n+5^n+(-6)^n$, dann lässt sich sofort nachprüfen, dass $u_n\equiv u_n'\mod 17$ für $n=0,1,2$ gilt. Ferner erfüllt $u_n'$ ebenfalls die Rekursion $u_{n+3}'\equiv 3u_{n+2}-u_n\mod 17$. Somit gilt in der Tat $u_n\equiv u_n'\mod 17$ für alle $n\geqslant 0$. Nach dem kleinen Satz von Fermat ist $4^{16}\equiv 5^n\equiv (-6)^n\mod 17$. Also ist $(u_n)_{n\geqslant 0}$ periodisch modulo~$17$ mit Periodenlänge~$16$. Wegen $2020\equiv 4\mod 17$ und $2220\equiv -4\mod 16$ müssen wir nur zeigen, dass $u_4\equiv u_{-4}\equiv 1\mod 17$ gilt (wobei $u_n$ für $n<0$ rekursiv durch $u_n=3u_{n+2}-u_{n+3}$ definiert ist). Aus der Rekursionsgleichung erhalten wir $u_3=24$ und $u_4=69$ sowie $u_{-1}=0$, $u_{-2}=6$, $u_{-3}=-3$ und $u_{-4}=18$. Und tatsächlich ist $69\equiv 18\equiv 1\mod 17$.
 \end{proof}
 
-\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:VAIMO2011_2}]
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:VAIMO2011_2} \textmd{(\href{https://www.mathe-wettbewerbe.de/fileadmin/Mathe-Wettbewerbe/AIMO/Aufgaben_und_Loesungen_AIMO/aufgaben_awb_11.pdf}{IMO-Vorauswahl 2011})}]
 	Wir bemerken zunächst, dass $\sqrt[3]{28}-3$ eine Nullstelle des kubischen Polynoms $(X+3)^3-28=X^3+9X^2+27X-1$ ist. Die anderen beiden Nullstellen sind durch $\sqrt[3]{28}\zeta-3$ und $\sqrt[3]{28}\zeta^2-3$ gegeben, wobei $\zeta\coloneqq \mathrm{e}^{2\pi\mathrm{i}/3}=\frac{1+\sqrt{3}\mathrm{i}}{2}$ eine dritte Einheitswurzel ist.
 	
 	Betrachte nun die Folge $(u_m)_{m\in\mathbb Z}$, die durch

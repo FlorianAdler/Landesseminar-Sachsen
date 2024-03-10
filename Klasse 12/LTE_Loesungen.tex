@@ -4,7 +4,7 @@
 	Für $a\geqslant 3$ besitzt $a-1$ mindestens einen Primfaktor $p$. Falls~$p$ ungerade ist, dann gilt $v_p(a^{a-1}-1)=v_p(a-1)+v_p(a-1)\geqslant 2$ nach dem LTE-Lemma. Also kann $a^{a-1}-1$ nicht quadratfrei sein. Es verbleibt der Fall, dass $a-1$ nur den Primfaktor $p=2$ besitzt, also eine Zweierpotenz ist. Für $a-1=2$ erhalten wir $a^{a-1}-1=8$, was nicht quadratfrei ist. Ansonsten muss $a\equiv 1\mod 4$ sein und es folgt wiederum $v_2(a^{a-1}-1)=v_2(a-1)+v_2(a-1)\geqslant 2$ nach dem LTE-Lemma. Auch in diesem Fall kann~$a$ nicht quadratfrei sein.
 \end{proof}
 
-\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:2p3pan}]
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:2p3pan} \textmd{(\href{https://artofproblemsolving.com/community/c583198_1996_irish_math_olympiad}{Irische MO 1996/8})}]
 	Für $p=2$ erhalten wir $2^2+3^2=13$, was keine echte Potenz ist. In diesem Fall ist also nur $n=1$ möglich. Für ungerade Primzahlen $p\geqslant 3$ schreiben wir $2^p+3^p=2^p-(-3)^p$ und wenden das LTE-Lemma an:
 	\begin{equation*}
 		v_5\parens*{2^p-(-3)^p}=v_5\parens[\big]{2-(-3)}+v_5(p)=1+v_5(p)\,.
@@ -61,7 +61,7 @@
 	Diese Ungleichung kann nur für endlich viele~$n$ gelten, denn links steht ein linearer Term in~$n$ (mit $v_p(c)>0$ nach Annahme), während der Term rechts logarithmisch in~$n$ ist. Das widerspricht der Annahme, dass $x^n-y^n$ für unendlich viele~$n$ ganzzahlig ist.
 \end{proof}
 
-\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:IMOSL2014N5}]
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:IMOSL2014N5} \textmd{(\href{https://artofproblemsolving.com/community/c107000_2014_imo_shortlist}{IMO-Shortlist 2014/N5})}]
 	Der Fall $p=2$ führt auf die Bedingung, dass $x+y$ eine Zweierpotenz ist. Also erhalten wir die Lösungen $(p,x,y)=(2,x,2^n-x)$ für alle positiven ganzen Zahlen $n\geqslant 1$ und alle positiven ganzen Zahlen $1<x<2^n$.
 	
 	Von nun an nehmen wir an, dass $p\geqslant 3$ eine ungerade Primzahl ist. Im Fall $x=y$ müsste $x^{p-1}+x=x(1+x^{p-2})$ eine Potenz von $p$ sein. Da beide Faktoren teilerfremd sind, ist das nur für $x=1$ möglich. Aber für $p\geqslant 3$ ist $x=y=1$ keine Lösung. Von nun an nehmen wir ohne Einschränkung $x>y$ an. Dann gilt auch $x^{p-1}+y>x+y^{p-1}$. Wenn wir also $x^{p-1}+y=p^\alpha$ und $x+y^{p-1}=p^\beta$ schreiben, dann gilt $\alpha>\beta$.

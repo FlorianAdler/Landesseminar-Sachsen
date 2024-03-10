@@ -3,9 +3,9 @@
 \begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:MittelungleichungenJensen}]
 	Falls ein Index $i$ mit $a_i=0$ existiert, ist $\sqrt[n]{a_1a_2\dotsm a_n}=0$ und die AM-GM-Ungleichung ist trivial. Also dürfen wir annehmen, dass alle $a_i$ positiv sind. Dann gibt es reelle Zahlen $x_1,x_2,\dotsc,x_n$ mit $a_i=\mathrm{e}^{x_i}$. Die Exponentialfunktion $f(x)=\mathrm{e}^x$ ist konvex, denn es gilt $f''(x)=\mathrm{e}^x>0$. Aus der Jensenschen Ungleichung folgt also
 	\begin{equation*}
-		\frac{\mathrm{e}^{x_1}+\mathrm{e}^{x_2}+\dotsb+\mathrm{e}^{x_n}}{n}\geqslant \mathrm{e}^{(x_1+x_2+\dotsb+x_n)/n}=\sqrt[n]{\mathrm{e}^{x_1}\mathrm{e}^{x_2}\dotsm \mathrm{e}^{x_n}}
+		\frac{\mathrm{e}^{x_1}+\mathrm{e}^{x_2}+\dotsb+\mathrm{e}^{x_n}}{n}\geqslant \mathrm{e}^{(x_1+x_2+\dotsb+x_n)/n}=\sqrt[n]{\mathrm{e}^{x_1}\mathrm{e}^{x_2}\dotsm \mathrm{e}^{x_n}}\,.
 	\end{equation*}
-	und das ist genau die AM-GM-Ungleichung.
+	Indem wir $a_i=\mathrm{e}^{x_i}$ einsetzen, erhalten wir genau die AM-GM-Ungleichung. Damit haben wir Teilaufgabe~\ref{aufgabe:AM-GM-MitJensen} gelöst.
 	
 	Für~\ref{aufgabe:PotenzmittelMitJensen} substituieren wir $y_i=a_i^q$, sodass $a_i^p=y_i^{p/q}$. Die Funktion $g(x)=x^{p/q}$ ist konvex, denn
 	\begin{equation*}
@@ -18,7 +18,7 @@
 	Nachdem wir beide Seiten zur $1/p$-ten Potenz erheben und $y_i=a_i^q$ einsetzen, erhalten wir genau die allgemeine Potenzmittelungleichung.
 \end{proof}
 
-\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:VAIMO2012}]
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:VAIMO2012} \textmd{(\href{https://www.mathe-wettbewerbe.de/fileadmin/Mathe-Wettbewerbe/AIMO/Aufgaben_und_Loesungen_AIMO/aufgaben_awb_12.pdf}{IMO-Vorauswahl 2012})}]
 	Betrachte die Funktion $f\colon \mathbb R_{>0}\rightarrow \mathbb R$ gegeben durch
 	\begin{equation*}
 		f(x)=\frac{x+2}{(x+1)(x+5)}\,.

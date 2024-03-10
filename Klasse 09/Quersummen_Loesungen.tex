@@ -1,6 +1,6 @@
 \subsection*{Lösungen zu Kapitel~\ref{kapitel:Quersummen}: \emph{Quersummen}}
 
-\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:441244}]
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:441244} \textmd{(\href{https://www.mathematik-olympiaden.de/moev/index.php?option=com_download&thema=a&format=raw&datei=A44134b.pdf}{MO 441344})}]
 	Wegen $2005^{2005}<10000^{2005}=10^{8020}$ hat $2005^{2005}$ höchstens $8020$ Stellen. Folglich ist $Q(2005^{2005})\leqslant 9\cdot 8020=72180$. Die Zahl in $\{1,2,\dotsc,72180\}$ mit der größten Quersumme ist $69999$. Also ist $Q(Q(2005^{2005}))\leqslant Q(69999)=42$. Die Zahl in $\{1,2,\dotsc,42\}$ mit der größten Quersumme ist $39$. Also ist
 	\begin{equation*}
 		Q\parens*{Q\parens*{Q\parens*{2005^{2005}}}}\leqslant Q(39)=12\,.
@@ -12,7 +12,7 @@
 	\end{equation*}
 	Es folgt $Q(Q(Q(2005^{2005})))\equiv 2005^{2005}\equiv 7\mod 9$. Weil $7$ die einzige Zahl in $\{1,2,\dotsc,12\}$ ist, die modulo $9$ den Rest $7$ lässt, folgt $Q(Q(Q(2005^{2005})))=7$.
 \end{proof}
-\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:531042}]
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:531042} \textmd{(\href{https://www.mathematik-olympiaden.de/moev/index.php?option=com_download&thema=a&format=raw&datei=A53104a.pdf}{MO 531042})}]
 	Die Folge $(a_i)_{i\geqslant 0}$ ist offenbar monoton steigend. Wenn es einen Index~$i$ mit $a_{i+1}=R(a_i)=a_i$ gibt, dann ist auch $a_{i+2}=R(a_{i+1})=R(a_i)=a_i$ und so weiter. Ab diesem Punkt muss die Folge also konstant sein.
 	
 	Angenommen, es gibt keinen solchen Index. Dann muss die Folge $(a_i)_{i\geqslant 0}$ streng monoton steigend sein. Weil Exponentialfunktionen schneller steigen als lineare Funktionen, gibt es eine positive ganze Zahl $k$, sodass folgendes gilt:
