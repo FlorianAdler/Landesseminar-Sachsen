@@ -181,7 +181,8 @@
 	\input{Quersummen}\newpage
 	
 	\phantomsection
-	\cftaddtitleline{toc}{part}{Lösungen zu den Beispielaufgaben}{\thepage}
+	\cftaddtitleline{toc}{part}{Lösungen zu den Beispielaufgaben}{\thepage}% Damit in der PDF-Navigationsleiste auch der Abschnitt "Lösungen" auftaucht, muss ein zusätzliches Bookmark gesetzt werden. Irrelevant für die Druckversion.
+	\pdfbookmark{Lösungen zu den Beispielaufgaben}{Loesungen}
 	\section*{Lösungen zu den Beispielaufgaben}
 	Die Lösungen sind nicht immer so formuliert, wie ihr das in der Olympiade tun solltet. Zum Teil sind sie sehr knapp -- zum Beispiel überspringen wir triviale Umformungsschritte oder lassen die Probe weg. In der Olympiade solltet ihr etwas ausführlicher sein und immer die Probe machen. Umgekehrt erklären wir gelegentlich (vor allem bei besonders schweren Aufgaben), wie wir auf die Lösung gekommen sind. In der Olympiade müsst ihr solche Überlegungen natürlich nicht aufschreiben, sondern könnt eure ausgefuchste Lösung einfach vom Himmel fallen lassen.
 	
@@ -196,6 +197,8 @@
 	
 	\newpage\phantomsection
 	\cftaddtitleline{toc}{part}{MatBoj-Regeln}{\thepage}
+	% Damit in der PDF-Navigationsleiste auch der Abschnitt "MatBoj-Regeln" auftaucht, muss ein zusätzliches Bookmark gesetzt werden. Irrelevant für die Druckversion.
+	\pdfbookmark{MatBoj-Regeln}{MatBoj}
 	\input{../matbojregeln}\newpage
 	
 	\section*{Notizen:}

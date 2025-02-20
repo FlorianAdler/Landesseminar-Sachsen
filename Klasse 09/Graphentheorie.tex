@@ -51,7 +51,7 @@ In einem \emph{gerichteten Graphen} ist jede Kante außerdem mit einer Richtung 
 
 Wenn wir im Folgenden einfach nur \emph{Graph} schreiben, dann ist damit stets ein ungerichteter Graph gemeint. Außerdem beschränken wir uns auf \emph{endliche} Graphen, also solche bei denen die Mengen der Knoten $V$ und Kanten $E$ beide endlich sind.
 
-Weiterhin gelten folgende Definitionen:
+In der Graphentheorie gibt es viele Fachbegriffe, die wir nun nacheinander einführen wollen:
 
 \textbf{Teilgraphen.} Ein \emph{Teilgraph} $G'=(V',E')$ eines Graphen $G=(V,E)$ ist ein Graph, dessen Knoten und Kanten in $G$ enthalten sind. Es muss also $V' \subseteq V$ und $E'\subseteq E$ gelten.
 
@@ -60,7 +60,7 @@ Weiterhin gelten folgende Definitionen:
 \textbf{Wege, Pfade und Kreise.} Ein \emph{Weg} $W_n=v_1v_2\ldots v_n$ mit $n$ Knoten ist ein Graph mit den Knoten $v_1,v_2,\dotsc,v_n$ und den Kanten $v_iv_{i+1}$ für $i=1,2,\dotsc,n-1$. Ein \emph{Pfad} $P_n$ mit $n$ Knoten ist ein Weg, in dem kein Knoten doppelt vorkommt. Ein \emph{Kreis} $C_n$ der Länge $n$ ist ein Pfad $P_{n}$ zusammen mit der Kante $v_nv_1$. Ebenso lassen sich \emph{gerichtete Wege}, \emph{gerichtete Pfade} und \emph{gerichtete Kreise} definieren.
 Wenn für einen Graphen $G=(V,E)$ von einem \emph{Weg/Pfad/Kreis in $G$} die Rede ist, so ist damit stets ein Teilgraph von~$G$ gemeint, der ein Weg/Pfad/Kreis ist.
 	
-\textbf{Zusammenhang.} Ein Graph heißt \emph{zusammenhängend}, wenn es zu je zwei Knoten immer einen Weg gibt, der diese beiden miteinander verbindet. Ein Graph heißt \emph{kreisfrei}, wenn er keinen Kreis als Teilgraph besitzt (der oben abgebildete ungerichtete Graph $G_1$ ist weder zusammenhängend noch kreisfrei).
+\textbf{Zusammenhang.} Ein Graph heißt \emph{zusammenhängend}, wenn es zu je zwei Knoten immer einen Weg gibt, der diese beiden miteinander verbindet. Ein Graph heißt \emph{kreisfrei}, wenn er keinen Kreis als Teilgraph besitzt. Der oben abgebildete ungerichtete Graph $G_1$ ist weder zusammenhängend noch kreisfrei.
 
 Jeder Graph~$G$ lässt sich in zusammenhängende Teilgraphen zerlegen. Diese werden \emph{Zusammenhangskomponenten von~$G$} genannt. In vielen Aufgaben könnt ihr jede Zusammenhangskomponente einzeln behandeln und die Aufgabe so auf den Fall reduzieren, dass der betrachtete Graph zusammenhängend ist.
 	
@@ -249,7 +249,7 @@ Jeder Graph~$G$ lässt sich in zusammenhängende Teilgraphen zerlegen. Diese wer
 	\end{tabularx} 
 \end{figure}	
 	
-Wie man in diesem Beispielbild seht, ist der Graph $G_1$ planar, obwohl er oben mit einer Überschneidung gezeichnet wurde.
+Wie ihr in diesem Beispielbild seht, ist der Graph $G_1$ planar, obwohl er oben mit einer Überschneidung gezeichnet wurde.
 
 \subsection*{Beispielaufgaben zur Graphentheorie}
 Hier sind einige sehr interessante Resultate aus der Graphentheorie, die auch in Olympiade-Aufgaben weiterhelfen können. In Graphentheorie-Aufgaben kommt es sehr häufig vor, dass mit Induktion über die Menge der Knoten oder Kanten argumentiert wird. Auch Algorithmen kommen sehr prominent zum Einsatz; in Kapitel~\ref{kapitel:Algorithmen}: \emph{Algorithmen in der Kombinatorik} wird auf dieses Thema für allgemeine Aufgaben im Detail eingegangen. Ansonsten braucht ihr natürlich auch die Standardmethoden\footnote{Wenn ihr eine schnelle Wiederholung zu diesen Themen wollt, dann sei euch das Buch \emph{Geometria -- Scientiae Atlantis~1} von Eckard Specht und Robert Strich ans Herz gelegt. Dieses Buch enthält nicht nur, wie der Name nahelegt, jede Menge interessante Geometrie, sondern auch sehr praktische Zusammenfassungen zu anderen olympiaderelevanten Themen. Ihr könnt es relativ kostengünstig hier bestellen: \url{http://hydra.nat.uni-magdeburg.de/math4u/fix/bestellung.html}.} in der Kombinatorik, wie das Schubfachprinzip, das Extremalprinzip und das Invarianzprinzip.
@@ -305,7 +305,7 @@ Ein solcher Weg wird auch als \emph{Eulerweg} bezeichnet. Die Frage, ob für ein
 		Sei $G=(V,E)$ ein schlichter Graph mit $n=\abs*{V}$ Knoten. Wenn jeder Knoten $v\in V$ einen Grad $d(v)\geqslant n/2$ hat, dann gibt es in $G$ einen Kreis, der durch jeden Knoten genau einmal geht.
 	\end{satzmitnamen}
 \end{aufgabe*}
-Ein solcher Kreis wird auch~\emph{Hamiltonkreis genannt}. Im Gegensatz zu Eulerwegen, für deren Existenz es ein sehr einfaches hinreichendes und notwendiges Kriterium gibt (wie wir in Aufgabe~\ref{aufgabe:Euler-Hierholzer} gesehen haben), ist es im Allgemeinen sehr kompliziert zu entscheiden, ob ein gegebener Graph~$G$ einen Hamiltonkreis enthält.
+Ein solcher Kreis wird auch~\emph{Hamiltonkreis genannt}. Im Gegensatz zu Eulerwegen, für deren Existenz es ein sehr einfaches hinreichendes und notwendiges Kriterium gibt (siehe Aufgabe~\ref{aufgabe:Euler-Hierholzer}), ist es im Allgemeinen sehr kompliziert zu entscheiden, ob ein gegebener Graph~$G$ einen Hamiltonkreis enthält.
 
 \vfill\hrule\vspace{-1em}
 

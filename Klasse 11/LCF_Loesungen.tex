@@ -45,7 +45,7 @@
 	Wir zeigen zuerst die Ungleichung $\frac{13-t}{600}\geqslant\frac1{51+t^2}$ für alle $0\leqslant t\leqslant7$ (die rechte Seite ist genau die Tangente an den Graphen von $f(t)=\frac{1}{51+t^2}$ in $t=3$). Diese Abschätzung folgt aus
 	\begin{equation*}
 		\frac{13-t}{600}-\frac1{51+t^2}=\frac{663-51t+13t^2-t^3-600}{600(51+t^2)}=\frac{(t-3)^2(7-t)}{600(51+t^2)}\geqslant0
-	\end{equation*}für $0\leqslant t\leqslant7$. Wenn $x,y,z\leqslant7$ gilt, können wir also
+	\end{equation*}für $0\leqslant t\leqslant7$ (dass wir $(t-3)^2$ ausklammern können, war klar, denn wir haben ja die Tangente in $t=3$ betrachtet). Wenn $x,y,z\leqslant7$ gilt, können wir also
 	\begin{equation*}
 		\frac1{51+x^2}+\frac1{51+y^2}+\frac1{51+z^2}\leqslant\frac{13-x}{600}+\frac{13-y}{600}+\frac{13-z}{600}=\frac{39-(x+y+z)}{600}=\frac1{20}
 	\end{equation*}
@@ -62,9 +62,9 @@
 	\end{equation*}
 	Nun behaupten wir, dass $\frac{1}{1-2x+2x^2}\leqslant \frac{54}{27}x+\frac{27}{25}$ für alle $0\leqslant x\leqslant 1$ gilt (die rechte Seite ist genau die Tangente an den Graphen von $f(x)=\frac{1}{1-2x+2x^2}$ in $x=\frac13$). Diese Abschätzung folgt aus
 	\begin{equation*}
-		\frac{54x+27}{25}-\frac{1}{1-2x+2x^2}=\frac{108x^3-54x^2+2}{25\parens*{1-2x+2x^2}}=\frac{2(3x-1)^2(6x+1)}{25(1-2x+2x^2)}\geqslant 0\,.
+		\frac{54x+27}{25}-\frac{1}{1-2x+2x^2}=\frac{108x^3-54x^2+2}{25\parens*{1-2x+2x^2}}=\frac{2(3x-1)^2(6x+1)}{25(1-2x+2x^2)}\geqslant 0
 	\end{equation*}
-	Es folgt
+	(wiederum war klar, dass wir $(3x-1)^2$ ausklammern können, denn wir haben die Tangente in $x=\frac13$ betrachtet). Es folgt
 	\begin{equation*}
 		\frac{1}{1-2a+2a^2}+\frac{1}{1-2b+2b^2}+\frac{1}{1-2c+2c^2}\leqslant \frac{54(x+y+z)+3\cdot 27}{25}=\frac{105}{25}=\frac{27}{5}\,.\qedhere
 	\end{equation*}
@@ -72,7 +72,7 @@
 \begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:USAMO2017} \textmd{(\href{https://artofproblemsolving.com/community/c439884_2017_usamo}{USAMO 2017/6})}]
 	Sei $T$ der betrachtete Ausdruck. Durch geschicktes Raten vermuten wir, dass das Minimum von $T$ nicht bei $a=b=c=d=1$ angenommen wird, was auf den Wert $T=\frac45$ führt, sondern bei $a=2$, $b=2$, $c=0$ und $d=0$ (sowie zyklischen Vertauschungen davon), was auf den Wert $T=\frac23$ führt. Das inspiriert uns dazu, die Tangente an $f(x)=\frac{1}{x^3+4}$ in $x=2$ zu betrachten. Wir behaupten dann, dass stets $ \frac{1}{x^3+4}\geqslant \frac14-\frac{x}{12}$ gilt, was aus
 	\begin{equation*}
-		\frac1{x^3+4}-\frac14-\frac{x}{12}=\frac {12-(3-b)(b^3+4)}{12(b^3+4)}=\frac{b(b+1)(b-2)^2}{12\parens*{b^3+4}}\geqslant 0
+		\frac1{x^3+4}-\frac14-\frac{x}{12}=\frac {12-(3-x)(x^3+4)}{12(x^3+4)}=\frac{x(x+1)(x-2)^2}{12\parens*{x^3+4}}\geqslant 0
 	\end{equation*}
 	folgt. Mit dieser Abschätzung erhalten wir
 	\begin{equation*}

@@ -54,7 +54,7 @@ drei nichtnegative reelle Nullstellen hat, denn wir fordern ja, dass $a,b,c\geqs
 	\end{equation*}
 	Daraus folgt, dass $f_u$ für $u>u_0+\Delta^+$ oder $u<u_0+\Delta^-$ nur eine reelle Nullstelle haben kann. Für diese Werte von $u$ hat also auch $p_u$ nur eine reelle Nullstelle. Im Fall $u=u_0+\Delta^+$ berührt hingegen der Graph von $f_{u_0+\Delta^+}$ die $x$-Achse irgendwo auf dem Intervall $[\alpha,\beta]$ (denn $\Delta^+$ war als Extremwert der differenzierbaren Funktion $f_{u_0}$ gewählt, deren Verschiebung um $-\Delta^+$ genau $f_{u+\Delta^+}$ ist), und schneidet sie ein weiteres Mal im Intervall $[\gamma,\infty)$. Selbiges muss also auch für $p_u$ gelten! Folglich hat $p_u$ drei positive reelle Nullstellen, wobei die ersten beiden zu einer Doppelnullstelle zusammenfallen.
 	
-	Das zeigt, dass $u=u_0+\Delta^+$ der maximale Wert ist, für den $p_u$ drei nichtnegative reelle Nullstellen hat, und wie wir gerade gesehen haben, hat $p_u$ dann sogar eine Doppelnullstelle, wie behauptet. Analog ist $u=u_0+\Delta^-$ der minimale Wert, für den $p_u$ drei nichtnegative reelle Nullstellen hat, und in genau der gleichen Weise erhalten wir, dass $p_u$ dann sogar eine Doppelnullstelle hat. Das zeigt die Behauptung.
+	Das zeigt, dass $u=u_0+\Delta^+$ der maximale Wert ist, für den $p_u$ drei nichtnegative reelle Nullstellen hat, und wie wir gerade gesehen haben, hat $p_u$ dann sogar eine Doppelnullstelle, wie behauptet. Analog ist $u=u_0+\Delta^-$ der minimale Wert, für den $p_u$ drei nichtnegative reelle Nullstellen hat, und $p_u$ hat dann sogar eine Doppelnullstelle. Das zeigt die Behauptung.
 \end{proof}
 
 
@@ -70,11 +70,13 @@ Wir werden die Methode nun an einer Aufgabe demonstrieren und euch zwei weitere 
 	\begin{equation*}
 		x+y+z-\sum x^2y+xyz\parens*{x^2+y^2+z^2}\leqslant \frac 98\parens*{1-\sum xy+xyz(x+y+z)-x^2y^2z^2}\,.
 	\end{equation*}
-	Wegen $x+y+z=1$ ist $\sum x^2y=(x+y+z)\sum xy-3xyz=\sum xy-3xyz=v-3w$ und $x^2+y^2+z^2=(x+y+z)^2-2\sum xy=1-2v$. Somit wird die obige Ungleichung zu
+	Wegen $x+y+z=1$ ist $\sum x^2y=(x+y+z)\sum xy-3xyz=\sum xy-3xyz=v-3w$ und außerdem $x^2+y^2+z^2=(x+y+z)^2-2\sum xy=1-2v$. Somit wird die obige Ungleichung zu
 	\begin{equation*}
 		0\leqslant \frac 98\parens*{1-v+w-w^2}-\parens*{1+3w-v+w-2wv}\,.
 	\end{equation*}
-	Und die rechte Seite ist linear in $v$! Wenn wir also $u=1$ und $w$ festhalten, nimmt die rechte Seite ihren minimalen Wert auf dem \enquote{Rand} an, sprich, wenn $v$ maximal oder minimal ist. Nach dem $uvw$-Theorem hat das Polynom $X^3-uX^2+vX-w=(X-x)(X-y)(X-z)$ in diesem Fall eine Doppelnullstelle. Das heißt, wir dürfen ohne Einschränkung $x=y$ annehmen. Wegen $x+y+z=1$ ist dann außerdem $z=1-2x$. Indem wir all das einsetzen, ausmultiplizieren und den offensichtlichen Gleichheitsfall $x=y=z=1$ ausklammern, erhalten wir die Ungleichung
+	Und die rechte Seite ist linear in $v$! Wenn wir also $u=1$ und $w$ festhalten, nimmt die rechte Seite ihren minimalen Wert auf dem \enquote{Rand} an, sprich, wenn $v$ maximal oder minimal ist. Nach dem $uvw$-Theorem hat das Polynom $X^3-uX^2+vX-w=(X-x)(X-y)(X-z)$ in diesem Fall eine Doppelnullstelle. Das heißt, wir dürfen ohne Einschränkung $x=y$ annehmen. Wegen $x+y+z=1$ ist dann außerdem $z=1-2x$. Damit haben wir die Ungleichung auf eine Variable reduziert.
+	
+	Der Rest ist eine etwas hässliche, aber nicht mehr schwere Rechnung. Wir setzen $x=y$ und $z=1-2x$ ein und multiplizieren alles aus. Damit erhalten wir ein Polynom sechsten Grades in $x$, das wir gegen $0$ abschätzen müssen. Weil $x=y=z=\frac13$ offensichtlich ein Gleichheitsfall der ursprünglichen Ungleichung ist, muss das Polynom eine Nullstelle bei $x=\frac13$ haben. Tatsächlich muss es sogar eine Doppelnullstelle dort haben, sonst würde es sein Vorzeichen wechseln und die Ungleichung wäre falsch. Wir können also einen Faktor $(x-\frac13)^2$ (oder $(3x-1)^2$) ausklammern. Wenn wir das tun, erhalten wir die zu beweisende Ungleichung
 	\begin{equation*}
 		0\leqslant \frac18(3x-1)^2\parens*{-4x^4+12x^3-5x^2+4x+1}\,.
 	\end{equation*}

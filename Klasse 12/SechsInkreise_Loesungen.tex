@@ -21,7 +21,7 @@
 			\draw (A) to (B) to (C) to (D) to cycle;
 			\draw (A) to (P) to (B);
 			%\draw [line width=0.3] (B) to (I) to (D);
-			\draw [shorten <=-8em,shorten >=-6em, dashed] (E) to (F);
+			\draw [shorten <=-8em,shorten >=-6.25em, dashed] (E) to (F);
 			\draw [line width=0.3] (P) to (I) to (J) to (K) to cycle;
 			\draw[fill=black] (A) circle (2pt) node[shift={(230:2ex)}] {$A$};
 			\draw[fill=black] (B) circle (2pt) node[shift={(310:2ex)}] {$B$};
@@ -37,7 +37,7 @@
 		\end{tikzpicture}
 	\end{figure}
 	
-	Seien $E$ und $F$ die Schnittpunkte von $t$ mit $AP$ und $BP$ (in der Notation des Sechs-Inkreise-Lemmas wären das die Punkte $B_D$ und $A_C$). Nachdem $t$ nun auch eine Tangente an den Inkreis von $ABP$ ist, liegen $I$, $J$ und $E$ auf der Winkelhalbierenden von $\winkel(AP,t)$. Analog liegen $J$, $K$ und $F$ auf der Winkelhalbierenden von $\winkel(t,BP)$. Also erhalten wir die Gleichung $\winkel KJI=180^\circ-\winkel EFJ-\winkel JEF=180^\circ-\winkel PEI-\winkel KFP$. Andererseits gilt aber auch $\winkel IPK=180^\circ-\winkel DPI-\winkel KPC=180^\circ-\winkel IPE-\winkel FPK$. Nach den obigen Gleichungen und wegen der Innenwinkelsumme in $EPI$ und $FKP$ gilt nun
+	Seien $E$ und $F$ die Schnittpunkte von $t$ mit $AP$ und $BP$ (in der Notation des Sechs-Inkreise-Lemmas wären das die Punkte $B_D$ und $A_C$). Nachdem $t$ nun auch eine Tangente an den Inkreis von $ABP$ ist, liegen $I$, $J$ und $E$ auf der Winkelhalbierenden von $\winkel(AP,t)$. Analog liegen $J$, $K$ und~$F$ auf der Winkelhalbierenden von $\winkel(t,BP)$. Also erhalten wir die folgende Gleichung: $\winkel KJI=180^\circ-\winkel EFJ-\winkel JEF=180^\circ-\winkel PEI-\winkel KFP$. Andererseits sehen wir aber auch $\winkel IPK=180^\circ-\winkel DPI-\winkel KPC=180^\circ-\winkel IPE-\winkel FPK$. Nach diesen beiden Gleichungen und wegen der Innenwinkelsumme in $EPI$ und $FKP$ gilt nun
 	\begin{align*}
 		\winkel KJI+\winkel IPK&=360^\circ-\winkel PEI-\winkel IPE-\winkel KFP-\winkel FPK\,,\\
 		\winkel JIP+\winkel PKJ&=360^\circ-\winkel PEI-\winkel IPE-\winkel KFP-\winkel FPK\,.

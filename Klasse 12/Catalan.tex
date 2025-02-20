@@ -1,20 +1,14 @@
-\section{Die Catalan-Zahlen}
+\section{Die Catalan-Zahlen}\label{kapitel:Catalan}
 Betrachte die folgenden Abzählprobleme:
 
 \begin{aufgabe*}\label{aufgabe:CatalanRandomWalk}
-	Sei $n\geqslant 0$ eine nichtnegative ganze Zahl. Ein Frosch hüpft auf den ganzen Zahlen umher. Dabei startet er in $0$ und jeder Sprung hat Länge $1$ (d.h.\ jeder Sprung geht von einer ganzen Zahl $i$ entweder nach $i+1$ oder nach $i-1$).
-	
-	Wieviele Möglichkeiten gibt es, dass der Frosch nach $2n$ Sprüngen wieder in $0$ ankommt und dabei zu keinem Zeitpunkt auf einer negativen ganzen Zahl gelandet ist?
+	Sei $n\geqslant 0$ eine nichtnegative ganze Zahl. Ein Frosch hüpft auf den ganzen Zahlen umher. Dabei startet er in $0$ und jeder Sprung hat Länge $1$ (d.h.\ jeder Sprung geht von einer ganzen Zahl $i$ entweder nach $i+1$ oder nach $i-1$). Wieviele Möglichkeiten gibt es, dass der Frosch nach $2n$ Sprüngen wieder in $0$ ankommt und dabei zu keinem Zeitpunkt auf einer negativen ganzen Zahl gelandet ist?
 \end{aufgabe*}
 \begin{aufgabe*}\label{aufgabe:CatalanGridWalk}
-	Sei $n\geqslant 0$ eine nichtnegative ganze Zahl. In einem quadratischen $n\times n$-Gitter betrachten wir Wege der Länge $2n$, die entlang der Gitterlinien von $(0,0)$ nach $(n,n)$ führen und dabei stets unterhalb oder auf der Diagonalen von $(0,0)$ nach $(n,n)$ verlaufen, aber niemals oberhalb dieser Diagonalen.
-	
-	Wieviele solcher Wege gibt es?
+	Sei $n\geqslant 0$ eine nichtnegative ganze Zahl. In einem quadratischen $n\times n$-Gitter betrachten wir Wege der Länge $2n$, die entlang der Gitterlinien von $(0,0)$ nach $(n,n)$ führen und dabei stets unterhalb oder auf der Diagonalen von $(0,0)$ nach $(n,n)$ verlaufen, aber niemals oberhalb dieser Diagonalen. Wieviele solcher Wege gibt es?
 \end{aufgabe*}
 \begin{aufgabe*}\label{aufgabe:CatalanKreissehnen}
-	Sei $n\geqslant 0$ eine nichtnegative ganze Zahl. Auf einem Kreis sind $2n$ verschiedene Punkte markiert. Wir wollen diese $2n$ Punkte in $n$ Paare aufteilen und jedes Paar von Punkten durch eine Kreissehne verbinden. Dabei sollen keine zwei Sehnen einen Punkt gemeinsam haben.
-	
-	Wieviele Möglichkeiten gibt es dafür?
+	Sei $n\geqslant 0$ eine nichtnegative ganze Zahl. Auf einem Kreis sind $2n$ verschiedene Punkte markiert. Wir wollen diese $2n$ Punkte in $n$ Paare aufteilen und jedes Paar von Punkten durch eine Kreissehne verbinden. Dabei sollen keine zwei Sehnen einen Punkt gemeinsam haben. Wieviele Möglichkeiten gibt es dafür?
 \end{aufgabe*}
 
 Es stellt sich heraus, diese drei Abzählprobleme alle auf die gleiche Zahlenfolge $(C_n)_{n\geqslant 0}$ führen: die sogenannten \emph{Catalan-Zahlen}. Für Aufgabe~\ref{aufgabe:CatalanRandomWalk} und~\ref{aufgabe:CatalanGridWalk} ist es nicht schwer zu sehen, dass die gleiche Zahlenfolge herauskommt, denn die beiden Abzählprobleme lassen sich leicht ineinander überführen. Könnt ihr auch das Problem aus Aufgabe~\ref{aufgabe:CatalanKreissehnen} in die anderen beiden überführen?
@@ -30,7 +24,7 @@ In diesem Kapitel werden wir zeigen, dass sich die Catalan-Zahlen auf die folgen
 		C_n=\binom{2n}{n}-\binom{2n}{n+1}=\frac{1}{n+1}\binom{2n}{n}\,.
 	\end{equation*}
 \end{satzmitnamen}
-Die explizite Darstellung der Catalan-Zahlen zu kennen, kann in Olympiadeaufgaben sehr nützlich sein, denn die Herleitung ist alles andere als offensichtlich. Deshalb werden wir in diesem Kapitel gleich drei Beweise für die explizite Formel vorstellen. Noch wichtiger ist aber, dass ihr die Ideen dieser Beweise verinnerlicht und zu eurer Sammlung von kombinatorischen Tricks hinzufügt.
+Die explizite Darstellung der Catalan-Zahlen zu kennen, kann in Olympiadeaufgaben sehr nützlich sein, denn die Herleitung ist alles andere als offensichtlich. Deshalb werden wir in diesem Kapitel gleich vier Beweise für die explizite Formel vorstellen. Noch wichtiger ist aber, dass ihr die Ideen dieser Beweise verinnerlicht und zu eurer Sammlung von kombinatorischen Tricks hinzufügt.
 
 Bevor wir uns der expliziten Darstellung widmen, wollen wir die rekursive Formel beweisen. Das ist wesentlich einfacher und ihr solltet zuerst versuchen, selbst auf den Beweis zu kommen.
 
@@ -92,7 +86,7 @@ Wir werden nun die explizite Darstellung herleiten. Die erste Idee wäre, die ex
 
 Die ersten beiden Beweise benutzen kombinatorische Tricks, um die Abzählprobleme aus den Aufgaben~\ref{aufgabe:CatalanRandomWalk}--\ref{aufgabe:CatalanKreissehnen} auf einfachere Probleme zurückzuführen. Im dritten Beweis lernen wir eine Methode kennen, mit der ihr allgemeine Abzählprobleme für Gitterwege wie in Aufgabe~\ref{aufgabe:CatalanGridWalk} durch geschicktes Raten lösen könnt. Der vierte Beweis benutzt die Methode der \emph{erzeugenden Funktionen}, die in den richtigen Händen ein mächtiges Werkzeug sein kann und auch in der mathematischen Forschung eine wichtige Rolle spielt.
 
-\begin{proof}[Erster Beweis \textmd{(zyklische Verschiebung)}]
+\begin{proof}[Erster Beweis \textmd{(\emph{zyklische Verschiebung})}]
 	Wir führen den Beweis im Kontext von Aufgabe~\ref{aufgabe:CatalanRandomWalk}. Die Folge von Sprüngen des Frosches lässt sich als Folge $\epsilon=(\epsilon_1,\epsilon_2,\dotsc,\epsilon_{2n})$ mit $\epsilon_i\in\{-1,+1\}$ darstellen, wobei $-1$ und $+1$ jeweils genau $n$-mal vorkommen. Damit der Frosch stets auf nichtnegativen Zahlen bleibt, muss jede Teilfolge $(\epsilon_1,\epsilon_2,\dotsc,\epsilon_i)$ mindestens so viele $+1$ wie $-1$ enthalten. 
 	
 	Aus Gründen, die gleich klar werden, fügen wir am Anfang ein $+1$ hinzu: $\epsilon_0=+1$. Jetzt zählen wir also die Anzahl aller Folgen $\epsilon=(\epsilon_0,\epsilon_1,\dotsc,\epsilon_{2n})$, welche die folgenden Bedingungen erfüllen:
@@ -116,7 +110,7 @@ Die ersten beiden Beweise benutzen kombinatorische Tricks, um die Abzählproblem
 	\end{equation*}
 	wie gewünscht. Um zu zeigen, dass unter $\epsilon,\sigma(\epsilon),\sigma^2(\epsilon),\dotsc,\sigma^{2n}(\epsilon)$ tatsächlich genau eine die Bedingung~\ref{bedingung:Teilfolge} erfüllt, machen wir die folgende Beobachtung: Angenommen, in der Folge $\epsilon$ gibt es einen Eintrag $-1$, der direkt nach einem Eintrag $+1$ steht. Wenn wir diese beiden Einträge löschen, erhalten wir eine Folge $\epsilon'$ der Länge $2n-1$.  Unter den zyklischen Verschiebungen $\epsilon,\sigma(\epsilon),\sigma^2(\epsilon),\dotsc,\sigma^{2n}(\epsilon)$ erfüllen dann genauso viele die Bedingung~\ref{bedingung:Teilfolge} wie unter den zyklischen Verschiebungen $\epsilon',\sigma(\epsilon'),\sigma^2(\epsilon'),\dotsc,\sigma^{2n-2}(\epsilon')$, denn eine Teilfolge der Form $(+1,-1)$ hat keinen Einfluss darauf, ob~\ref{bedingung:Teilfolge} gilt oder nicht. Auf diese Weise löschen wir Schritt für Schritt Teilfolgen der Form $(+1,-1)$. Sobald das nicht mehr geht, muss die übrig gebliebene Folge von der Form $(-1,-1,\dotsc,-1,+1,+1,\dotsc,+1)$ sein und die Behauptung ist klar.
 \end{proof}
-\begin{proof}[Zweiter Beweis \textmd{(Spiegelung)}]
+\begin{proof}[Zweiter Beweis \textmd{(\emph{Spiegelung})}]
 	Für diesen Beweis verwenden wir den Kontext von Aufgabe~\ref{aufgabe:CatalanGridWalk} und betrachten allgemein die Anzahl der Gitterwege von $(0,0)$ nach $(i,j)$, die nirgendwo oberhalb der Diagonale verlaufen. Dabei gelte $0< j\leqslant i$, denn für $j>i$ existieren keine solchen Wege. Wenn wir die Diagonal-Bedingung ignorieren, erhalten wir $\binom{i+j}{i}$ Gitterwege der Länge $i+j$ von $(0,0)$ nach $(i,j)$, denn jeder der $i+j$ Schritte muss entweder nach rechts oder nach oben führen und es muss genau $i$ Schritte nach rechts geben.
 	
 	\begin{wrapfigure}{r}{0.45\textwidth}
@@ -130,7 +124,7 @@ Die ersten beiden Beweise benutzen kombinatorische Tricks, um die Abzählproblem
 			\draw[shorten <=-2ex,shorten >=-2ex] (0,1) to node[pos=1.1] {$d$} (12,13);
 			%\draw[] (0,0) to (12,12);
 			\draw[fill=black] (3,4) circle (2pt) node[above left=-0.5ex] {$P$}; 
-			\begin{scope}[decoration={markings, mark=at position 0.5 with {\arrow[shift={(0.5ex,0)}]{to}}},postaction={decorate},line width=1.2]
+			\begin{scope}[decoration={markings, mark=at position 0.5 with {\arrow[shift={(0.5ex,0)}]{to}}},postaction={decorate},line width=1.5]
 				\draw[postaction={decorate}] (0,0) to ++(1,0);
 				\draw[postaction={decorate}] (1,0) to ++(0,1);
 				\draw[postaction={decorate}] (1,1) to ++(2,0);
@@ -144,7 +138,7 @@ Die ersten beiden Beweise benutzen kombinatorische Tricks, um die Abzählproblem
 			\end{scope}
 		\end{tikzpicture}\vspace{-2em}
 	\end{wrapfigure}
-	Betrachte nun die um $1$ nach oben verschobene Diagonale $d$. Wenn ein Gitterweg $w$ der Länge $i+j$ von $(0,0)$ nach $(i,j)$ die Diagonal-Bedingung \emph{nicht} erfüllt, dann müssen $d$ und $w$ mindestens einen Punkt gemeinsam haben. Wir betrachten den ersten solchen Punkt $P$. Sei $w'$ der Gitterweg, der entsteht, indem wir $w$ ab dem Punkt $P$ an der verschobenen Diagonale $d$ spiegeln (siehe Abbildung). Dann ist $w'$ ein Gitterweg der Länge $i+j$ von $(0,0)$ nach $(j-1,i+1)$.
+	Betrachte nun die um $1$ nach oben verschobene Diagonale; diese Gerade nennen wir $d$. Wenn ein Gitterweg $w$ der Länge $i+j$ von $(0,0)$ nach $(i,j)$ die Diagonal-Bedingung \emph{nicht} erfüllt, dann müssen $d$ und $w$ mindestens einen Punkt gemeinsam haben. Wir betrachten den ersten solchen Punkt $P$. Sei $w'$ der Gitterweg, der entsteht, indem wir $w$ ab dem Punkt $P$ an der Gerade~$d$ spiegeln (siehe Abbildung). Dann ist $w'$ ein Gitterweg der Länge $i+j$ von $(0,0)$ nach $(j-1,i+1)$.
 	
 	Mit einem analogen Argument wie oben gibt es $\binom{i+j}{i+1}$ Gitterwege der Länge $i+j$ von $(0,0)$ nach $(j-1,i+1)$. Jeder solche Gitterweg ist von der Form $w'$ für ein eindeutiges $w$. Denn nach Annahme gilt $i+1>j-1$, folglich muss jeder Gitterweg $(0,0)$ nach $(j-1,i+1)$ mindestens einen Punkt mit der verschobene Diagonalen $d$ gemeinsam haben. Anhand des ersten solchen gemeinsamen Punktes können wir nun zuerst $P$ und dann $w$ rekonstruieren.
 	
@@ -152,26 +146,26 @@ Die ersten beiden Beweise benutzen kombinatorische Tricks, um die Abzählproblem
 	\begin{equation*}
 		\binom{i+j}{i}-\binom{i+j}{i+1}
 	\end{equation*}
-	betragen. Im Fall $i=j$ erhalten wir
+	betragen. Im Fall $i=j=n$ erhalten wir
 	\begin{equation*}
 		C_n=\binom{2n}{n}-\binom{2n}{n+1}\,.\qedhere
 	\end{equation*}
 \end{proof}
 
-\begin{proof}[3.\ Beweis \textmd{(zweidimensionale Rekursion \&\ geschicktes Raten)}]
-	Für diesen Beweis verwenden wir wieder den Kontext von Aufgabe~\ref{aufgabe:CatalanGridWalk}. Sei allgemein $w(i,j)$ die Anzahl der Wege von Länge $m+n$, die entlang der Gitterlinien von $(0,0)$ nach $(i,j)$ führen und dabei niemals oberhalb der Diagonalen von $(0,0)$ nach $(n,n)$ verlaufen. Für $i<j$ gilt also insbesondere $w(i,j)=0$. Es gilt nun offensichtlich die Rekursion
+\begin{proof}[Dritter Beweis \textmd{(\emph{zweidimensionale Rekursion \&\ geschicktes Raten})}]
+	Für diesen Beweis verwenden wir wieder den Kontext von Aufgabe~\ref{aufgabe:CatalanGridWalk}. Sei allgemein $w(i,j)$ die Anzahl der Wege von Länge $i+j$, die entlang der Gitterlinien von $(0,0)$ nach $(i,j)$ führen und dabei niemals oberhalb der Diagonalen von $(0,0)$ nach $(n,n)$ verlaufen. Für $i<j$ gilt also insbesondere $w(i,j)=0$. Es gilt nun offensichtlich die Rekursion
 	\begin{equation*}\label{eq:2DRekursion}
 		w(i,j)=w(i-1,j)+w(i,j-1)\,,\tag{$*$}
 	\end{equation*}
 	denn der letzte Schritt eines jeden solchen Weges muss entweder von $(i-1,j)$ oder von $(i,j-1)$ nach $(i,j)$ verlaufen. Wie können wir eine solche Rekursion lösen? Zuerst fällt uns auf, dass \eqref{eq:2DRekursion} so aussieht wie die Bedingung im Pascalschen Dreieck. Folglich sind die Funktionen
 	\begin{equation*}
-		w_{0,0}(i,j)=\binom{i+j}{i}\,,\quad\text{und allgemeiner}\quad w_{s,t}(i,j)=\binom{i+j+s}{i+t}\quad\text{für alle }t\in\mathbb Z\,,
+		\binom{i+j}{i}\,,\quad\text{und allgemeiner}\quad \binom{i+j+s}{i+t}\quad\text{für alle }t\in\mathbb Z\,,
 	\end{equation*}
-	Lösungen der Rekursionsgleichung \eqref{eq:2DRekursion}. Dabei ist der Binomialkoeffizient per Definition $0$ wenn $j+t<0$ oder $j+t>i+j$ gilt. 
+	Lösungen der Rekursionsgleichung \eqref{eq:2DRekursion}. Dabei ist der Binomialkoeffizient per Definition $0$ wenn $i+t<0$ oder $i+t>i+j+s$ gilt. 
 	
-	Wir hoffen nun, dass wir die gesuchte Funktion $w(i,j)$ als Linearkombination der Funktionen $w_{s,t}(i,j)$  für unterschiedliche $s,t\in\mathbb Z$ darstellen können, also als gewichtete Summe
+	Wir hoffen nun, dass wir die gesuchte Funktion $w(i,j)$ als Linearkombination dieser Binomialkoeffizienten für unterschiedliche $s,t\in\mathbb Z$ darstellen können, also als gewichtete Summe
 	\begin{equation*}
-		w(i,j)=\sum_{s,t\in\mathbb Z}\lambda_{s,t}w_{s,t}(i,j)
+		w(i,j)=\sum_{s,t\in\mathbb Z}\lambda_{s,t}\binom{i+j+s}{i+t}
 	\end{equation*}
 	mit gewissen Gewichten $\lambda_{s,t}$. Es genügt, die Gewichte $\lambda_{s,t}$ so zu wählen, dass $w(i,j)$ für $j=0$ und für $j=i+1$ den richtigen Wert hat. Wenn nämlich die \enquote{Randwerte} stimmen, dann folgt aus der Rekursionsformel \eqref{eq:2DRekursion}, dass $w(i,j)$ auch für alle $0<j\leqslant i$ den richtigen Wert liefert -- und das ist genau der Bereich, für den wir uns interessieren.
 	
@@ -181,14 +175,14 @@ Die ersten beiden Beweise benutzen kombinatorische Tricks, um die Abzählproblem
 	\end{equation*}
 	Das inspiriert uns dazu, $\lambda_{0,0}=1$ und $\lambda_{0,1}=-1$ sowie alle anderen $\lambda_{s,t}=0$ zu wählen. Wir raten somit 
 	\begin{equation*}
-		w(i,j)=w_{0,0}(i,j)-w_{0,1}(i,j)=\binom{i+j}{i}-\binom{i+j}{i+1}\,.
+		w(i,j)=\binom{i+j}{i}-\binom{i+j}{i+1}\,.
 	\end{equation*}
 	Im Falle $j=0$ gilt nach Definition $\binom{i}{i+1}=0$, folglich $w(i,0)=\binom{i}{i}=1$. Das ist tatsächlich der richtige Wert, denn es gibt genau einen Gitterweg der Länge $i+0$ von $(0,0)$ nach $(i,0)$. Die geratene Formel für $w(i,j)$ liefert demnach für $j=0$ und $j=i+1$ in der Tat den richtige Wert. Wie wir oben argumentiert haben, müssen somit auch die Werte für alle $0<j\leqslant i$ korrekt sein. Im Fall $i=j=n$ ergibt sich wie gewünscht
 	\begin{equation*}
 		C_n=w(n,n)=\binom{2n}{n}-\binom{2n}{n+1}\,.\qedhere
 	\end{equation*}
 \end{proof}
-\begin{proof}[Vierter Beweis \textmd{(erzeugende Funktionen)}]
+\begin{proof}[Vierter Beweis \textmd{(\emph{erzeugende Funktionen})}]
 	Betrachte die Potenzreihe
 	\begin{equation*}
 		C(x)\coloneqq\sum_{n= 0}^{\infty}C_nx^n\,.
@@ -201,7 +195,7 @@ Die ersten beiden Beweise benutzen kombinatorische Tricks, um die Abzählproblem
 	\begin{equation*}
 		C(x)=\frac{1\pm\sqrt{1-4x}}{2x}\,.
 	\end{equation*}
-	Wegen $\lim_{x\to0}C(x)=1$ kommt in \enquote{$\pm$} nur \enquote{$-$} in Frage und wir erhalten
+	Wegen $\lim_{x\to0}C(x)=C(0)=C_0=1$ kommt in \enquote{$\pm$} nur \enquote{$-$} in Frage und wir erhalten
 	\begin{equation*}
 		C(x)=\frac{1-\sqrt{1-4x}}{2x}\,.
 	\end{equation*}
@@ -218,30 +212,45 @@ Die ersten beiden Beweise benutzen kombinatorische Tricks, um die Abzählproblem
 \end{proof}
 Allgemein kann es sehr nützlich sein, eine Zahlenfolge $(a_n)_{n\geqslant 0}$ durch ihre \emph{erzeugende Funktion} $a(x)\coloneqq \sum_{n=0}^\infty a_nx^n$ zu untersuchen. Das ist insbesondere dann eine gute Idee, wenn wir die Funktion $a(x)$ explizit bestimmen können -- etwa durch Ausnutzen einer Rekursionsformel. Im obigen Beispiel konnten wir $C(x)$ als Lösung einer quadratischen Gleichung explizit beschreiben. Häufig treten auch \emph{Differentialgleichungen} auf, also Gleichungen, die neben der Funktion $a(x)$ auch ihre Ableitungen $a'(x),a''(x),\dotsc$ enthalten. Wenn in einer Rekursion zum Beispiel der Term $na_n$ auftritt, entspricht das einem Term $xa'(x)$ in der Gleichung für $a(x)$.
 
-Hier sind zwei weitere Übungsaufgaben zu erzeugenden Funktionen
-\begin{aufgabe*}
+
+\subsection*{Beispielaufgaben}
+Hier sind drei Beispielaufgaben zu erzeugenden Funktionen und Catalan-Zahlen. Wie üblich findet ihr am Ende des Kapitels Tipps und am Ende des Heftes die Lösungen.
+\begin{aufgabe*}\label{aufgabe:FibonacciErzeugendeFunktion}
 	Betrachte die Fibonacci-Folge $(F_n)_{n\geqslant 0}$, die durch $F_0=0$, $F_1=1$, $F_{n+2}=F_{n+1}+F_n$ gegeben ist, sowie ihre erzeugende Funktion
 	\begin{equation*}
 		F(x)\coloneqq\sum_{n=0}^\infty F_nx^n\,.
 	\end{equation*}
 	\begin{enumerate}[label={$(\alph*)$},ref={$(\alph*)$}]
-		\item Zeige, dass $F(x)$ die folgende explizite Form besitzt:
+		\item \label{teilaufgabe:FibonacciRekursion}Zeige, dass $F(x)$ die folgende explizite Form besitzt:
 		\begin{equation*}
 			F(x)=\frac{x}{1-x-x^2}
 		\end{equation*}
-		\item Folgere, dass $F_n$ die folgende explizite Form besitzt:
+		\item \label{teilaufgabe:FibonacciExplizit}Folgere, dass $F_n$ die folgende explizite Form besitzt:
 		\begin{equation*}
 			F_n=\frac{1}{\sqrt{5}}\left(\phi^n-\overline{\phi}^n\right)\,.
 		\end{equation*}
-		Hier bezeichnen $\phi\coloneqq \frac12+\frac12\sqrt{5}$ und $\overline{\phi}\coloneqq \frac12-\frac12\sqrt{5}$ den goldenen Schnitt und sein Konjugiertes. (\emph{Tipp: Schreibe $F(x)$ als Differenz von zwei einfacheren Brüchen und benutze die geometrische Summenformel}.)
+		Hier bezeichnen $\phi\coloneqq \frac12+\frac12\sqrt{5}$ und $\overline{\phi}\coloneqq \frac12-\frac12\sqrt{5}$ den goldenen Schnitt und sein Konjugiertes.
 	\end{enumerate}
 \end{aufgabe*}
-\begin{aufgabe*}
-	Für eine nichtegative ganze Zahl $n\geqslant 0$ bezeichne $p_n$ die Anzahl der \emph{Partitionen} von $n$, also die Anzahl der Möglichkeiten, $n$ als Summe von nichtnegativen ganzen Zahlen darzustellen. Zwei Darstellungen, die sich nur durch die Reihenfolge der Summanden unterscheiden, gelten dabei als gleich.
-	
-	Sei $p(x)=\sum_{n=0}^\infty p_nx^n$ die zugehörige erzeugende Funktion. Beweise, dass
+\begin{aufgabe*}\label{aufgabe:Partitionszahlen}
+	Für eine nichtegative ganze Zahl $n\geqslant 0$ bezeichne $p_n$ die Anzahl der \emph{Partitionen} von $n$, also die Anzahl der Möglichkeiten, $n$ als Summe von nichtnegativen ganzen Zahlen darzustellen. Zwei Darstellungen, die sich nur durch die Reihenfolge der Summanden unterscheiden, gelten dabei als gleich. Sei $p(x)=\sum_{n=0}^\infty p_nx^n$ die zugehörige erzeugende Funktion. Beweise, dass
 	\begin{equation*}
 		p(x)=\prod_{n=1}^\infty\frac{1}{1-x^n}\,.
 	\end{equation*}
 \end{aufgabe*}
+\begin{aufgabe*}[*]\label{aufgabe:IMC2018}
+	Sei $\Omega=\left\{(x,y,z)\in\mathbb Z^3\ \middle|\ y+1\geqslant x\geqslant y\geqslant z\geqslant 0\right\}$. Ein Frosch hüpft mit Sprüngen der Länge $1$ auf $\Omega$ umher. Bestimme, in Abhängigkeit von $n\geqslant 0$, die Anzahl der Wege, auf denen der Frosch in $3n$ Sprüngen von $(0,0,0)$ nach $(n,n,n)$ hüpfen kann.
+\end{aufgabe*}
+
+
+\vfill\hrule\vspace{-1em}
+
+\subsection*{Tipps zu den Beispielaufgaben}
+\textbf{Tipps zu Aufgabe~\ref{aufgabe:FibonacciErzeugendeFunktion}.} Benutze die Rekursion der Fibonacci-Zahlen, um eine Gleichung für $F(x)$ zu bekommen.
+
+Um die explizite Form der Fibonacci-Zahlen herzuleiten, schreibe $F(x)$ als Differenz von zwei einfacheren Brüchen und benutze die geometrische Summenformel.
+
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:Partitionszahlen}.} Benutze die geometrische Summenformel.
+
+\textbf{Tipps zu Aufgabe~\ref{aufgabe:IMC2018}.} Führe die Aufgabe auf ein zweidimensionales Problem zurück. Lass dich dann vom dritten Beweis für die explizite Darstellung der Catalan-Zahlen inspirieren.
 

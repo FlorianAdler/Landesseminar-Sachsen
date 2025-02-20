@@ -232,7 +232,7 @@ Wenn ihr diese Strategie verinnerlicht habt, dann könnt ihr euch die obigen Äh
 Bearbeitet an dieser Stelle die folgenden beiden Beispielaufgaben. Wie üblich findet ihr am Ende des Kapitels Tipps und am Ende des Heftes Lösungen zu diesen Aufgaben.
 
 \begin{aufgabe*}\label{aufgabe:IMO2005_5}
-	Sei $ABCD$ ein konvexes Viereck mit $\abs{BC}=\abs{DA}$. Auf den Seiten $\overline{BC}$ und~$\overline{DA}$ liegen Punkte $E$~und~$F$ mit $\abs{BE}=\abs{DF}$. Die Geraden $AC$ und~$BD$ schneiden sich in~$P$, die Geraden $AC$ und~$EF$ schneiden sich in~$Q$ und die Geraden $BD$ und~$EF$ schneiden sich in~$R$. Die Umkreise $\odot BCP$ und $\odot DAP$ schneiden sich neben in~\(P\) noch zusätzlich in~$S$.
+	Sei $ABCD$ ein konvexes Viereck mit $\abs{BC}=\abs{DA}$. Auf den Seiten $\overline{BC}$ und~$\overline{DA}$ liegen Punkte $E$~und~$F$ mit $\abs{BE}=\abs{DF}$. Die Geraden $AC$ und~$BD$ schneiden sich in~$P$, die Geraden $AC$ und~$EF$ schneiden sich in~$Q$ und die Geraden $BD$ und~$EF$ schneiden sich in~$R$. Die Umkreise $\odot BCP$ und $\odot DAP$ schneiden sich außer in~\(P\) noch zusätzlich in~$S$.
 	\begin{enumerate}
 		\item \label{teilaufgabe:IMO2005_5a}Zeige, dass $BERS$, $CEQS$, $DFRS$ und $AFQS$ Sehnenvierecke sind.
 		\item \label{teilaufgabe:IMO2005_5b}Zeige, dass $PQRS$ ein Sehnenviereck ist.
@@ -315,7 +315,7 @@ Wir beginnen mit dem Kreisberührungslemma, das euch schon als Übungsaufgabe zu
 \begin{proof}
 	Wir nehmen an, dass sich $\omega$~und~$\Omega$ von innen berühren; der andere Fall geht analog. Sei $\sigma$ die Streckung mit Zentrum~$P$, die $\omega$~auf~$\Omega$ abbildet. Dann ist $\sigma(AB)$ eine Tangente an~$\Omega$. Außerdem ist $\sigma(AB)$ parallel zu~$AB$. Es gibt aber nur zwei Tangenten an~$\Omega$, die parallel zu~$AB$ sind, nämlich die Tangenten in $S$~und~$N$. Es gilt also $\sigma(Q)=S$ oder $\sigma(Q)=N$. Weil $\omega$ den Kreis~$\Omega$ von innen berührt, muss $\sigma$ einen Streckfaktor
 	% Tien: Ich habe mal $>1$ ausgeschrieben
-	größer~$1$ haben. Also liegt $\sigma(Q)$ auf der Verlängerung von~$\overline{PQ}$ über~$Q$ hinaus. Also kommt nur $\sigma(Q)=S$ in Frage und wir erhalten, dass $S$ auf der Geraden~$PQ$ liegt. Damit ist Behauptung~\ref{itm:Kreisberuhrung} gezeigt.
+	größer~$1$ haben. Also liegt $\sigma(Q)$ auf der Verlängerung von~$\overline{PQ}$ über~$Q$ hinaus. Folglich kommt nur $\sigma(Q)=S$ in Frage und wir erhalten, dass $S$ auf der Geraden~$PQ$ liegt. Damit ist Behauptung~\ref{itm:Kreisberuhrung} gezeigt.
 	
 	Die Behauptung~\ref{itm:KreisberuhrungProdukt} lässt sich mithilfe ähnlicher Dreiecke beweisen: Weil $S$ der Bogenmittelpunkt von~$\wideparen{AB}$ ist, muss das Dreieck $ABS$ gleichschenklig sein und es gilt $\winkel SAB=\winkel ABS$. Nach dem Peripheriewinkelsatz gilt $\winkel ABS=APS$. Es folgt also $\winkel SAQ=\winkel APS$. Weil die Dreiecke $ASQ$ und $ASP$ außerdem den Winkel $\winkel QSA=\winkel PSA$ gemeinsam haben, sind sie ähnlich. Es folgt $\abs{SA}/\abs{SQ}=\abs{SP}/\abs{SA}$ bzw.\ nach Umstellen $\abs{SP}\cdot\abs{SQ}=\abs{SA}^2$, wie behauptet.
 \end{proof}
@@ -366,7 +366,7 @@ Auch wenn sich zwei Kreise nicht berühren, kann es sehr nützlich sein, den ein
 	Die analoge Aussage folgt (wenig überraschend) analog, indem wir bemerken, dass es genau eine Streckung mit negativem Streckfaktor gibt, die $\omega_1$ auf $\omega_3$ abbildet, und dass das Zentrum dieser Streckung der Schnittpunkt der gemeinsamen inneren Tangenten von $\omega_1$ und $\omega_3$ ist.
 \end{proof}
 
-Merkt euch nicht (nur) die Aussage des Satzes von Monge, sondern merkt euch vor allem den Beweis! Der Satz von Monge wird häufig in Spezialfällen angewendet, die nicht sofort als solche zu erkennen sind (zum Beispiel, wenn in einer Aufgabe viele Inkreise vorkommen). Es wird euch leichter fallen, wenn ihr euch die konkreten Streckungen in einem Spezialfall anschaut (und damit den Satz von Monge für diesen Spezialfall erneut beweist).
+Merkt euch nicht (nur) die Aussage des Satzes von Monge, sondern merkt euch vor allem den Beweis! Der Satz von Monge wird häufig in Spezialfällen angewendet, die nicht sofort als solche zu erkennen sind (zum Beispiel, wenn in einer Aufgabe viele Inkreise vorkommen). Es wird euch leichter fallen, wenn ihr euch die konkreten Streckungen in einem Spezialfall anschaut und damit den Satz von Monge für diesen Spezialfall erneut beweist.
 
 \subsection*{Weitere Beispielaufgaben}
 \begin{aufgabe*}\label{aufgabe:InAnkreis}
@@ -417,7 +417,7 @@ Merkt euch nicht (nur) die Aussage des Satzes von Monge, sondern merkt euch vor 
 	Gegeben ist ein Halbkreis~$\Omega$ mit Durchmesser~$\overline{AB}$. Auf~$\Omega$ liege ein Punkt~$C$, der von $A$~und~$B$ verschieden ist. Der Lotfußpunkt von~$C$ auf~$AB$ heiße~$D$. Ein Kreis $\omega$ liege außerhalb des Dreiecks $ADC$ und berühre gleichzeitig den Halbkreis~$\Omega$ sowie die Strecken $\overline{AB}$ und~$\overline{CD}$. Der Berührpunkt von~$\omega$ mit~$\overline{AB}$ sei~$E$. Zeige, dass die Strecken $\overline{AC}$ und~$\overline{AE}$ gleich lang sind. 
 \end{aufgabe*}
 
-(Diese Aufgabe habt ihr schon als Übungsaufgabe zur Inversion im Heft für Klasse~9 gesehen. Wenn ihr euch die Inversionslösung noch nicht überlegt habt, solltet ihr das nachholen.)
+(Aufgabe~\ref{aufgabe:551232} habt ihr schon als Übungsaufgabe zur Inversion im Heft für Klasse~9 gesehen. Wenn ihr euch die Inversionslösung noch nicht überlegt habt, solltet ihr das nachholen.)
 
 \begin{aufgabe*}\label{aufgabe:JuMaKlausur2014}
 	Sei $ABCD$ ein konvexes Sehnenviereck mit Umkreis~$\Omega$ und Umkreismittelpunkt~$O$. Wir nehmen an, dass $\abs{AC}\neq \abs{BD}$. Die Diagonalen $AC$ und~$BD$ schneiden sich in~$E$. Eine Gerade~$\ell$ durch~$O$ schneide die Strecken $\overline{BE}$ und~$\overline{CE}$ in Punkten $P$~und~$Q$, sodass $\abs{EP}=\abs{EQ}$ gilt. Ein Kreis~$\omega$ berühre die Strecken $\overline{AE}$ und~$\overline{BE}$ und außerdem den Kreis~$\Omega$; sei $F$ der Berührpunkt mit~$\Omega$.

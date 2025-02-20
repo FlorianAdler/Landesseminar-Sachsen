@@ -43,7 +43,7 @@ Eine weitere, konzeptuell wichtige Beschreibung des $\operatorname{ggT}$ ist fol
 \begin{definition}
 	Wir nennen $a$ und $b$ \emph{teilerfremd}, wenn $\operatorname{ggT}(a,b)=1$.
 \end{definition}
-Das Lemma von Bézout hat eine sehr interessante Konsequenz in dem Fall, dass $a$ und $b$ teilerfremd sind: Wir können modulo $b$ nicht nur addieren, subtrahieren und multiplizieren, sondern auch \emph{durch $a$ dividieren!} Um das einzusehen, wählen wir zunächst ganze Zahlen $m$ und $n$ mit $ma+nb=1$. Insbesondere gilt $ma\equiv 1\mod b$. Wir sagen dann, \emph{die Restklasse von $m$ modulo $b$ ist das multiplikative Inverse der Restklasse von $a$ modulo $b$}. Division durch $a$ modulo $b$ können wir schließlich als Multiplikation mit $m$, dem multiplikativen Inversen von $a$, definieren.
+Nach dem Lemma von Bézout gibt es für teilerfremde $a$ und $b$ stets ganze Zahlen $m$ und $n$ mit $ma+nb=1$. Das hat eine sehr interessante Konsequenz: Wir können modulo $b$ nicht nur addieren, subtrahieren und multiplizieren, sondern auch \emph{durch $a$ dividieren!} Es gilt nämlich $ma\equiv 1\mod b$, also ist die Restklasse von $m$ modulo $b$ das \emph{multiplikative Inverse} der Restklasse von $a$ modulo $b$. Division durch $a$ modulo $b$ können wir folglich als Multiplikation mit $m$, dem multiplikativen Inversen von $a$, definieren.
 
 Ein besonderer Spezialfall ergibt sich, wenn $b=p$ eine Primzahl ist. In diesem Fall ist $a$ genau dann teilerfremd zu $p$, wenn $a$ nicht durch $p$ teilbar ist. Also können wir modulo $p$ durch $a$ dividieren, solange $a\not\equiv 0\mod p$ gilt. Mit anderen Worten: \emph{Wir können modulo $p$ durch jede Restklasse außer durch Null dividieren!} Auf diese Weise verhalten sich die Restklassen modulo $p$ genau wie die rationalen Zahlen oder die reellen Zahlen, in welchen die Division, außer durch Null, ebenfalls immer erlaubt ist.
 
@@ -112,6 +112,7 @@ Durch ähnliche Überlegungen können wir eine allgemeine Formel für $\varphi(n
 	\varphi(n)&=n+\sum_{\ell=1}^r\sum_{1\leqslant i_1<\dotsb<i_\ell\leqslant r}(-1)^\ell\frac{n}{p_{i_1}\dotsm p_{i_\ell}}\\
 	&=n\parens*{1-\frac 1{p_1}}\parens*{1-\frac 1{p_2}}\dotsm \parens*{1-\frac 1{p_r}}\,.
 \end{align*}
+Die erste Gleichheit ist genau unsere obige Überlegung, die zweite Gleichheit folgt durch Ausmultiplizieren des Produktes.
 \begin{satzmitnamen}[Lemma]
 	Wenn $m$ und $n$ teilerfremde positive ganze Zahlen sind, dann ist $\varphi(mn)=\varphi(m)\varphi(n)$.
 \end{satzmitnamen}
@@ -122,7 +123,7 @@ Durch ähnliche Überlegungen können wir eine allgemeine Formel für $\varphi(n
 Umgekehrt lässt sich das Lemma benutzen, um die obige Formel auf den Fall von Primpotenzen zurückzuführen. Damit würden wir einen weiteren Beweis der obigen Formel erhalten, vorausgesetzt, wir könnten das Lemma ohne die Formel beweisen. Einen solchen Beweis werden wir nun vorstellen.
 
 \begin{proof}[Zweiter Beweis]
-	Die Gleichung $\varphi(mn)=\varphi(m)\varphi(n)$ ist trivial wenn $m=1$ oder $n=1$. Für $m>1$ ist $m$ nicht teilerfremd zu $m$. Also ist $\varphi(m)$ auch die Anzahl aller Restklassen modulo $m$, die teilerfremd zu $m$ sind. Selbiges gilt für $\varphi(n)$. Eine Restklasse $r$ modulo $mn$ ist genau dann teilerfremd zu $mn$, wenn $r$ teilerfremd zu $m$ und $n$ ist. Wenn $s$ eine teilerfremde Restklasse modulo $m$ und $t$ eine teilerfremde Restklasse modulo $n$ ist, dann hat das System von Kongruenzen
+	Wir können die Zahlen $1,2,\dotsc,m$ mit den Restklassen modulo~$m$ identifizieren. Also ist $\varphi(m)$ auch die Anzahl aller Restklassen modulo $m$, die teilerfremd zu $m$ sind. Selbiges gilt für $\varphi(n)$. Eine Restklasse $r$ modulo $mn$ ist genau dann teilerfremd zu $mn$, wenn $r$ teilerfremd zu $m$ und $n$ ist. Wenn $s$ eine teilerfremde Restklasse modulo $m$ und $t$ eine teilerfremde Restklasse modulo $n$ ist, dann hat das System von Kongruenzen
 	\begin{equation*}
 		\left\{\begin{alignedat}{2}
 			r&\equiv s&&\mod m\,,\\
@@ -142,7 +143,7 @@ Die wichtigste Anwendung der Eulerschen $\varphi$-Funktion im Kontext von Olympi
 In dem Spezialfall, dass $m=p$ eine Primzahl ist, erhalten wir $a^{p-1}\equiv 1\mod p$ für alle ganzen Zahlen $a$, die nicht durch $p$ teilbar sind. Diese Kongruenz ist auch als der \emph{kleine Satz von Fermat} bekannt.
 
 \begin{proof}
-	Für $m=1$ ist der Satz trivial. Für $m>1$ ist, wie wir weiter oben festgestellt haben, $\varphi(m)$ die Anzahl der Restklassen modulo $m$, die teilerfremd zu $m$ sind. Seien $r_1,r_2,\dotsc,r_{\varphi(m)}$ diese Restklassen. Dann sind auch $ar_1,ar_2,\dotsc,ar_{\varphi(m)}$ zu $m$ teilerfremde Restklassen modulo $m$. Außerdem sind $ar_1,ar_2,\dotsc,ar_{\varphi(m)}$ paarweise verschieden. Aus $ar_i\equiv ar_j\mod m$ folgt nämlich $r_i\equiv r_j\mod m$, denn wenn $a$ teilerfremd zu $m$ ist, dann können modulo $m$ durch $a$ dividieren, wie wir am Anfang des Kapitels gesehen haben. Wenn aber $ar_1,ar_2,\dotsc,ar_{\varphi(m)}$ paarweise verschiedene zu $m$ teilerfremde Restklassen modulo $m$ sind, dann muss $ar_1,ar_2,\dotsc,ar_{\varphi(m)}$ eine Permutation von $r_1,r_2,\dotsc,r_{\varphi(m)}$ sein. Es folgt
+	Wie wir weiter oben festgestellt haben, ist $\varphi(m)$ die Anzahl der Restklassen modulo $m$, die teilerfremd zu $m$ sind. Seien $r_1,r_2,\dotsc,r_{\varphi(m)}$ diese Restklassen. Weil $a$ zu $m$ teilerfremd ist, sind auch $ar_1,ar_2,\dotsc,ar_{\varphi(m)}$ zu $m$ teilerfremde Restklassen modulo $m$. Außerdem sind $ar_1,ar_2,\dotsc,ar_{\varphi(m)}$ paarweise verschieden. Aus $ar_i\equiv ar_j\mod m$ folgt nämlich $r_i\equiv r_j\mod m$, denn wenn $a$ teilerfremd zu $m$ ist, dann können modulo $m$ durch $a$ dividieren, wie wir am Anfang des Kapitels gesehen haben. Wenn aber $ar_1,ar_2,\dotsc,ar_{\varphi(m)}$ paarweise verschiedene zu $m$ teilerfremde Restklassen modulo $m$ sind, dann muss $ar_1,ar_2,\dotsc,ar_{\varphi(m)}$ eine Permutation von $r_1,r_2,\dotsc,r_{\varphi(m)}$ sein. Es folgt
 	\begin{equation*}
 		r_1r_2\dotsb r_{\varphi(m)}\equiv ar_1\cdot ar_2\dotsm ar_{\varphi(m)}\equiv a^{\varphi(m)}r_1r_2\dotsm r_m\mod m\,.
 	\end{equation*}

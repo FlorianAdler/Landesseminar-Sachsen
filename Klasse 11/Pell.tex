@@ -1,5 +1,5 @@
 \section{Pellsche Gleichungen}\label{kapitel:Pell}
-\emph{Pellsche Gleichungen}, fälschlicherweise benannt nach John Pell (1611--1685) sind Diophantische Gleichungen der Form $x^2-dy^2=k$. Hierin ist $k$ eine ganze Zahl und $d$ eine positive ganze Zahl, die keine Quadratzahl ist.\footnote{Wäre $d=a^2$ eine Quadratzahl, ließe sich die Gleichung zu $(x-ay)(x+ay)=k$ faktorisieren und aus der Primfaktorzerlegung von $k$ ließen sich alle Lösungen ablesen. Dieser Fall ist also trivial.} Gesucht sind alle ganzzahligen Lösungspaare $(x,y)$.
+\emph{Pellsche Gleichungen}, fälschlicherweise benannt nach John Pell (1611--1685), sind Diophantische Gleichungen der Form $x^2-dy^2=k$. Hierin ist $k$ eine ganze Zahl und $d$ eine positive ganze Zahl, die keine Quadratzahl ist.\footnote{Wäre $d=a^2$ eine Quadratzahl, ließe sich die Gleichung zu $(x-ay)(x+ay)=k$ faktorisieren und aus der Primfaktorzerlegung von $k$ ließen sich alle Lösungen ablesen. Dieser Fall ist also trivial.} Gesucht sind alle ganzzahligen Lösungspaare $(x,y)$.
 
 Zahlreiche Olympiade-Aufgaben lassen sich, nach geschickter Vereinfachung, auf Pellsche Gleichungen zurückführen. Deswegen ist es wichtig, dass ihr wisst, wie sich solche Gleichungen lösen lassen. Unser Ziel in diesem Kapitel ist, den folgenden, alles andere als offensichtlichen Satz zu beweisen:
 \begin{satzmitnamen}[Lösbarkeit der Pellschen Gleichung]
@@ -9,7 +9,7 @@ Zahlreiche Olympiade-Aufgaben lassen sich, nach geschickter Vereinfachung, auf P
 		\item Wenn die Pellsche Gleichung $x^2-dy^2=k$ eine ganzzahlige Lösung $(x,y)$ hat, dann hat sie unendlich viele ganzzahlige Lösungen.
 	\end{enumerate}
 \end{satzmitnamen}
-Der Beweis bedarf einiger Vorbereitungen.
+Zudem wird uns der Beweis dieses Satzes einiges über die Struktur der Lösungen der Pellschen Gleichung verraten. Der Beweis bedarf allerdings einiger Vorbereitungen.
 
 \subsection*{Die Norm in $\boldsymbol{\mathbb Z[\sqrt{d}]}$}
 Wenn $d$ eine Quadratzahl wäre, könnten wir den Ausdruck $x^2-dy^2$ gemäß der dritten binomischen Formel in zwei ganzzahlige Faktoren zerlegen. Die entscheidende Idee zum Lösen Pellscher Gleichungen besteht darin, die gleiche Faktorisierung auch dann zu betrachten, wenn $d$ keine Quadratzahl ist: Die Gleichungen $x^2-dy^2=1$ und $x^2-dy^2=k$ werden dann zu
@@ -49,7 +49,7 @@ Wir können jetzt eine Verschärfung des gewünschten Satzes formulieren.
 	\end{enumerate}
 \end{satzmitnamen}
 \begin{proof}
-	Der komplizierteste Teil des Beweises besteht darin, zu zeigen, dass eine nichttriviale Lösung $z\neq \pm1$ der Gleichung $N(z)=1$ existiert. Diesen Beweis werden wir im nächsten Unterabschnitt führen. Wir werden einstweilen die übrigen Aussagen beweisen.
+	Der komplizierteste Teil des Beweises besteht darin, zu zeigen, dass eine nichttriviale Lösung $z\neq \pm1$ der Gleichung $N(z)=1$ existiert. Diesen Beweis werden wir im nächsten Unterabschnitt führen und einstweilen die übrigen Aussagen beweisen.
 	
 	Aus dem obigen Argument folgt: Wenn eine Lösung mit $z\neq \pm 1$ existiert, dann existiert auch eine Lösung mit $z>1$. Schreibe $z=x+y\sqrt{d}$ mit $x> 1$, $y> 0$. Wenn $z_0=x_0+y_0\sqrt{d}$ eine weitere Lösung mit $z\geqslant z_0>1$ ist, dann müssen die Ungleichungen $x\geqslant x_0> 1$ und $y\geqslant y_0> 0$ gelten (eine von beiden Ungleichungen muss auf jeden Fall gelten, sonst wäre nicht $z\geqslant z_0$; die andere folgt dann automatisch aus $x^2-dy^2=1=x_0^2-dy_0^2$). Also gibt es nur endlich viele Lösungen $z_0$ mit $z\geqslant z_0>1$. Insbesondere muss tatsächlich eine minimale Lösung $z_0$ existieren.
 	
@@ -62,14 +62,14 @@ Wir können jetzt eine Verschärfung des gewünschten Satzes formulieren.
 	Für~\ref{behauptung:PellscheGleichung=k} benutzen wir, dass die Norm multiplikativ ist, um $N(\pm u\cdot z_0^n)=N(\pm 1)\cdot N(u)\cdot N(z_0)^n=1\cdot k\cdot 1^n=k$, zu rechnen. Im Fall~$k=-1$ gilt $u\cdot \overline{u}=N(u)=-1$. Also können wir in $\mathbb Z[\sqrt{d}]$ durch $u$ dividieren, denn Division durch $u$ ist das Gleiche wie Multiplikation mit $\frac 1u=-\overline{u}$. Wenn~$z$ eine Lösung von $N(z)=-1$ ist, die nicht von der Form $\pm u\cdot z_0^n$ ist, dann wäre $z/u$ nicht von der Form $\pm z_0^n$. Es gilt aber $-1=N(z)=N(z/u\cdot u)=N(z/u)\cdot N(u)=-N(z/u)$, also $N(z/u)=1$. Damit würde $z/u$ der in \ref{behauptung:PellscheGleichung=1} bewiesenen Klassifikation aller Elemente von Norm~$1$ widersprechen.
 \end{proof}
 
-Wenn ihr Lösungen der Gleichung $N(z)=1$ mit $z\in\mathbb Z[\sqrt{d}]$ zurück in Lösungen der Pellschen Gleichung $x^2-dy^2=1$ übersetzen wollt, könnt ihr die Bedingung $z=\pm z_0^n$ folgendermaßen umformulieren: Wenn die Pellsche Gleichung $x^2-dy^2$ die minimale nichttriviale Lösung $(x,y)=(x_0,y_0)$ mit $x_0>1$ und $y_0>0$ besitzt, dann ist jede weitere Lösung $(x,y)$ mit $x>1$ und $y>0$ durch die folgende Rekursion gegeben:
+Wenn ihr Lösungen der Gleichung $N(z)=1$ mit $z\in\mathbb Z[\sqrt{d}]$ zurück in Lösungen der Pellschen Gleichung $x^2-dy^2=1$ übersetzen wollt, könnt ihr die Bedingung $z=\pm z_0^n$ folgendermaßen umformulieren: Wenn die Pellsche Gleichung $x^2-dy^2=1$ die minimale nichttriviale Lösung $(x,y)=(x_0,y_0)$ mit $x_0>1$ und $y_0>0$ besitzt, dann ist jede weitere Lösung $(x,y)$ mit $x>1$ und $y>0$ durch die folgende Rekursion gegeben:
 \begin{equation*}
 	x_{n+1}=x_0x_n+dy_0y_n\quad\text{und}\quad y_{n+1}=x_0y_n+x_ny_0
 \end{equation*}
 (die Gleichungen sind äquivalent zu $x_{n+1}+y_{n+1}\sqrt{d}=(x_0+y_0\sqrt{d})(x_n+y_n\sqrt{d})$). Statt dieser Rekursion solltet ihr euch aber lieber die Gleichung $z=\pm z_0^n$ merken -- das ist wesentlich einfacher und erklärt, woher die Rekursion wirklich kommt.
 
 \subsection*{Existenz einer nichttrivialen Lösung}
-Wir machen uns jetzt daran, den schwierigsten Schritt im Beweis der Lösbarkeit der Pellschen Gleichung durchzuführen und eine nichttriviale Lösung zu konstruieren. Die zentrale Idee ist hierbei folgende: Wenn $(x,y)$ die Pellsche Gleichung $x^2-dy^2=1$ löst und $x>1$, $y>0$ gilt, dann ist $x^2\approx dy^2$, also $x/y\approx \sqrt{d}$. Mit anderen Worten: $x/y$ ist eine \emph{rationale Approximation} der irrationalen Zahl $\sqrt{d}$. Um die Pellsche Gleichung zu lösen, gehen wir umgekehrt vor. Wir konstruieren zuerst sehr genaue rationale Approximationen der irrationalen Zahl $\sqrt{d}$ und beweisen dann, dass wir dadurch (manchmal) Lösungen der Pellschen Gleichung bekommen.
+Wir machen uns jetzt daran, den schwierigsten Schritt im Beweis der Lösbarkeit der Pellschen Gleichung durchzuführen und eine nichttriviale Lösung zu konstruieren. Die zentrale Idee ist hierbei folgende: Wenn $(x,y)$ die Pellsche Gleichung $x^2-dy^2=1$ löst und $x>1$, $y>0$ gilt, dann ist $x^2\approx dy^2$, also $x/y\approx \sqrt{d}$. Mit anderen Worten: \emph{$x/y$ ist eine rationale Approximation der irrationalen Zahl $\sqrt{d}$}. Um die Pellsche Gleichung zu lösen, gehen wir umgekehrt vor. Wir konstruieren zuerst sehr genaue rationale Approximationen der irrationalen Zahl $\sqrt{d}$ und beweisen dann, dass wir dadurch (manchmal) Lösungen der Pellschen Gleichung bekommen.
 
 Um genaue Approximationen von irrationalen Zahlen zu konstruieren, benutzen wir das folgende Lemma, das auf Gustav Lejeune Dirichlet (1805--1859) zurückgeht.
 
@@ -79,7 +79,7 @@ Um genaue Approximationen von irrationalen Zahlen zu konstruieren, benutzen wir 
 		\abs*{\alpha-\frac{p}{q}}<\frac{1}{q^2}\;.
 	\end{equation*}
 \end{satzmitnamen}
-Intuitiv besagt der Dirichletsche Approximationssatz besagt, dass wir $\alpha$ \enquote{effizient} (relativ zum Nenner) durch rationale Zahlen annähern können.
+Intuitiv besagt der Dirichletsche Approximationssatz, dass wir $\alpha$ \enquote{effizient} (relativ zum Nenner) durch rationale Zahlen annähern können.
 
 \begin{wrapfigure}{r}{0.2\textwidth}
 	\centering\vspace{-0.7cm}
@@ -150,14 +150,14 @@ Wenn $(x,y)$ eine Lösung von $x^2-dy^2=1$ ist, dann lässt sich zeigen, dass $x
 	\begin{equation*}
 		\alpha=a_0+\frac{1}{\displaystyle a_1+\frac{1^{\vphantom{t}}}{\displaystyle a_2+\frac{1^{\vphantom{t}}}{a_3+\dotsb}}}\,,
 	\end{equation*}
-	wobei $a_0$ eine ganze Zahl und $a_1,a_2,\dotsc$ eine endliche oder unendliche Folge von positiven ganze Zahlen ist. Diese Darstellung wird \emph{Kettenbruchdarstellung von~$\alpha$} genannt. Wir sagen \emph{$x/y$ taucht in der Kettenbruchdarstellung von~$\alpha$ auf}, wenn ein $n\geqslant 0$ existiert, sodass $x/y$ der Bruch ist, den wir erhalten, wenn wir die Kettenbruchdarstellung nach~$a_n$ abbrechen.} Wenn ihr jemals in die Verlegenheit kommt, einen Computer nach einer Fundamentallösung suchen zu lassen, dann lässt sich die Suche mit dieser Beobachtung wesentlich beschleunigen. Für Olympiade-Zwecke ist das aber Overkill und ihr seid durch Ausprobieren einfach schneller.
+	wobei $a_0$ eine ganze Zahl und $a_1,a_2,\dotsc$ eine endliche oder unendliche Folge von positiven ganze Zahlen ist. Diese Darstellung wird \emph{Kettenbruchdarstellung von~$\alpha$} genannt. Wir sagen \emph{$x/y$ taucht in der Kettenbruchdarstellung von~$\alpha$ auf}, wenn ein $n\geqslant 0$ existiert, sodass $x/y$ der vollständig gekürzte Bruch ist, den wir erhalten, wenn wir die Kettenbruchdarstellung nach~$a_n$ abbrechen.} Wenn ihr jemals in die Verlegenheit kommt, einen Computer nach einer Fundamentallösung suchen zu lassen, dann lässt sich die Suche mit dieser Beobachtung wesentlich beschleunigen. Für Olympiade-Zwecke ist das aber Overkill und ihr seid durch Ausprobieren einfach schneller.
 
 Für allgemeinere Gleichungen der Form $ax^2-by^2=k$ könnt ihr folgendermaßen unendlich viele Lösungen generieren (vorausgesetzt, es gibt mindestens eine Lösung): Ratet zuerst eine Lösung $(x,y)=(x_1,y_1)$ dieser Gleichung. Sei $u\coloneqq x_1\sqrt{a}+y_1\sqrt{b}$ und sei $z_0\coloneqq x_0+y_0\sqrt{ab}\in\mathbb Z[\sqrt{ab}]$ eine Lösung von $N(z_0)=1$. Dann liefert $\pm u\cdot z_0^n$ für $n\in\mathbb Z$ unendlich viele weitere Lösungen der Gleichung $ax^2-by^2=k$. Genauer: Wir können $\pm u\cdot z_0^n$ in der Form $x\sqrt{a}+y\sqrt{b}$ für ganze Zahlen~$x$ und~$y$ schreiben (das gilt allgemein für Produkte der Form $u\cdot z$ mit $z\in\mathbb Z[\sqrt{ab}]$). Dann ist $(x,y)$ eine Lösung von $ax^2-by^2=k$. Denn $\sqrt{a} u$ ist ein Element von $\mathbb Z[\sqrt{ab}]$ und
 \begin{equation*}
 	a\parens*{ax^2-by^2}=(ax)^2-aby^2=N\parens*{\sqrt{a} u\cdot z_0^n}=N\parens*{\sqrt{a}u}\cdot N(z_0)^n=ak\cdot 1^n=ak\,.
 \end{equation*}
 
-Für noch allgemeinere Gleichungen vom Grad 2 gilt: \emph{Substituieren!} Mit einer geschickten Substitution könnt ihr alle gemischten Terme töten und gelangt zu einer Gleichung von bekanntem Typ.
+Für noch allgemeinere Gleichungen vom Grad 2 gilt: \emph{Substituieren!} Mit einer geschickten Substitution könnt ihr alle gemischten Terme töten und gelangt zu einer Gleichung vom bekannten Typ $ax^2-by^2=k$.
 
 \subsection*{Beispielaufgaben}
 Die folgenden ehemaligen Bundesrundenaufgaben lassen sich mithilfe von Pellschen Gleichungen lösen. Am Ende des Kapitels findet ihr Tipps zu den Aufgaben und am Ende des Heftes findet ihr Lösungen.

@@ -5,7 +5,7 @@
 	\begin{equation*}
 		\frac{\tan\alpha_i-\tan\alpha_j}{1-\tan\alpha_i\tan\alpha_j}=\tan\parens*{\alpha_i-\alpha_j}
 	\end{equation*}
-	Es würde also genügen, $\alpha_i$ und $\alpha_j$ mit $\abs{\alpha_i-\alpha_j}\leqslant 30^\circ$ zu finden, denn $\tan(30^\circ)={1}/{\sqrt{3}}$. Das sollte nun aus dem Schubfachprinzip folgen. Dabei müssen wir aber etwas aufpassen: Wenn wir sechs Zahlen gleichmäßig auf ein offenes Intervall der Länge $180^\circ$ verteilen, dann können die Abstände zwischen je zwei aufeinanderfolgenden beliebig nah an $180^\circ/5$ herankommen. Insbesondere können die Abstände durchaus allesamt größer als $30^\circ$ sein. Der Grund, warum die Aufgabe trotzdem funktioniert, ist dass der Tangens periodisch ist, sodass wir auch dann fertig sind, wenn $\alpha_1$ nahe genug an $-90^\circ$ und $\alpha_6$ nahe genug an $90^\circ$ liegt (konkret: Wenn $(\alpha_1-(-90^\circ))+(90^\circ-\alpha_6)\leqslant 30^\circ$).
+	Es würde also genügen, $\alpha_i$ und $\alpha_j$ mit $\abs{\alpha_i-\alpha_j}\leqslant 30^\circ$ zu finden, denn $\tan(30^\circ)={1}/{\sqrt{3}}$. Das sollte nun aus dem Schubfachprinzip folgen. Dabei müssen wir aber etwas aufpassen: Wenn wir sechs Zahlen gleichmäßig auf ein offenes Intervall der Länge $180^\circ$ verteilen, dann können die Abstände zwischen je zwei aufeinanderfolgenden beliebig nah an $180^\circ/5$ herankommen. Insbesondere können die Abstände durchaus allesamt größer als $30^\circ$ sein. Der Grund, warum die Aufgabe trotzdem funktioniert, ist dass der Tangens periodisch ist.% sodass wir auch dann fertig sind, wenn $\alpha_1$ nahe genug an $-90^\circ$ und $\alpha_6$ nahe genug an $90^\circ$ liegt (konkret: Wenn $(\alpha_1-(-90^\circ))+(90^\circ-\alpha_6)\leqslant 30^\circ$).
 	
 	Um diese Überlegung formal sauber durchzuführen, definieren wir $\alpha_7\coloneqq \alpha_1+180^\circ$. Dann sind $\alpha_1,\alpha_2,\dotsc,\alpha_7$ sieben Zahlen in einem Intervall der Länge~$180^\circ$. Somit können wir nun wirklich nach Schubfachprinzip folgern, dass $\alpha_i$ und $\alpha_j$ mit $\abs{\alpha_i-\alpha_j}\leqslant 30^\circ$ existieren. Wenn $\alpha_7$ eine der ausgewählten Zahlen ist, dann ersetzen wir $\alpha_7$ einfach durch $\alpha_1$, was wegen $\tan\alpha_1=\tan(\alpha_1+180^\circ)$ kein Problem darstellt.
 \end{proof}
@@ -19,11 +19,13 @@
 	\begin{equation*}
 		\sin(-15^\circ)=-\sqrt{\frac{1-\cos(30^\circ)}{2}}=-\sqrt{\frac{2-\sqrt{3}}{4}}=-\sqrt{\frac{\parens*{\sqrt{2}-\sqrt{6}}^2}{16}}=\frac{\sqrt{2}-\sqrt{6}}{4}\,.
 	\end{equation*}
-	Wir sehen somit, dass die Substitution $a_i=2\sin\alpha_i$ tatsächlich möglich ist und wir dabei die Schranken $-15^\circ\leqslant \alpha_i\leqslant 75^\circ$ annehmen dürfen. Weil $\alpha_1$, $\alpha_2$, $\alpha_3$ und $\alpha_4$ vier Winkel in einem Intervall der Länge $90^\circ$ sind, gibt es unter diesen nach dem Schubfachprinzip vieren zwei Winkel $\alpha_i$ und $\alpha_j$ mit $\abs{\alpha_i-\alpha_j}\leqslant 30^\circ$. Im Intervall $[-15^\circ,75^\circ]$ ist der Cosinus stets positiv, also gilt $\cos \alpha_i=\sqrt{1-\sin^2\alpha_i}$ und analog $\cos \alpha_j=\sqrt{1-\sin^2\alpha_j}$. Es folgt
-	\begin{equation*}
-		\abs*{a_i\sqrt{4-a_j^2}-a_j\sqrt{4-a_i^2}}=4\abs*{\sin\alpha_i\cos\alpha_j-\sin\alpha_j\cos\alpha_i}=4\abs*{\sin(\alpha_i-\alpha_j)}\leqslant 4\sin(30^\circ)=2\,,
-	\end{equation*}
-	wie gewünscht. Damit sind wir fertig.
+	Wir sehen somit, dass die Substitution $a_i=2\sin\alpha_i$ tatsächlich möglich ist und wir dabei die Schranken $-15^\circ\leqslant \alpha_i\leqslant 75^\circ$ annehmen dürfen. Weil $\alpha_1$, $\alpha_2$, $\alpha_3$ und $\alpha_4$ vier Winkel in einem Intervall der Länge $90^\circ$ sind, gibt es unter diesen nach dem Schubfachprinzip zwei Winkel $\alpha_i$ und $\alpha_j$ mit $\abs{\alpha_i-\alpha_j}\leqslant 30^\circ$. Im Intervall $[-15^\circ,75^\circ]$ ist der Cosinus stets positiv, also gilt $\cos \alpha_i=\sqrt{1-\sin^2\alpha_i}$ und analog $\cos \alpha_j=\sqrt{1-\sin^2\alpha_j}$. Es folgt
+	\begin{align*}
+		\abs*{a_i\sqrt{4-a_j^2}-a_j\sqrt{4-a_i^2}}&=4\abs*{\sin\alpha_i\cos\alpha_j-\sin\alpha_j\cos\alpha_i}\\
+		&=4\abs*{\sin(\alpha_i-\alpha_j)}\\
+		&\leqslant 4\sin(30^\circ)\,.
+	\end{align*}
+	Wegen $4\sin(30^\circ)=2$ sind wir fertig.
 \end{proof}
 
 \begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:SinusVersteckt}]
@@ -34,7 +36,7 @@
 \end{proof}
 
 \begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:521236} \textmd{(\href{https://www.mathematik-olympiaden.de/moev/index.php?option=com_download&thema=a&datei=A52123b.pdf&format=raw}{MO 521236})}]
-	Aus den Gleichungen $3\parens[\big]{x+\frac1x}=4\parens[\big]{y+\frac1y}=5\parens[\big]{z+\frac1z}$ folgt dann, dass $x$, $y$ und $z$ das gleiche Vorzeichen haben müssen. Alle Gleichungen sind auch dann noch erfüllt, wenn wir $(x,y,z)$ durch $(-x,-y,-z)$ ersetzen. Also dürfen wir $x,y,z\geqslant 0$ annehmen. Aus der Bedingung $xy+yz+zx=1$ folgt, dass wir $x=\tan\parens[\big]{\frac{\alpha}2}$, $y=\tan\parens[\big]{\frac{\beta}2}$ und $z=\tan\parens[\big]{\frac{\gamma}2}$ substituieren dürfen, wobei $\alpha$, $\beta$ und $\gamma$ die Innenwinkel eines Dreiecks $ABC$ sind. Nun gilt
+	Aus den Gleichungen $3\parens[\big]{x+\frac1x}=4\parens[\big]{y+\frac1y}=5\parens[\big]{z+\frac1z}$ folgt, dass $x$, $y$ und $z$ das gleiche Vorzeichen haben müssen. Alle Gleichungen sind auch dann noch erfüllt, wenn wir $(x,y,z)$ durch $(-x,-y,-z)$ ersetzen. Also dürfen wir $x,y,z\geqslant 0$ annehmen. Aus der Bedingung $xy+yz+zx=1$ folgt, dass wir $x=\tan\parens[\big]{\frac{\alpha}2}$, $y=\tan\parens[\big]{\frac{\beta}2}$ und $z=\tan\parens[\big]{\frac{\gamma}2}$ substituieren dürfen, wobei $\alpha$, $\beta$ und $\gamma$ die Innenwinkel eines Dreiecks $ABC$ sind. Nun gilt
 	\begin{equation*}
 		x+\frac 1x=\frac{\sin \parens[\big]{\frac{\alpha}2}}{\cos\parens[\big]{\frac{\alpha}2}}+\frac{\cos\parens[\big]{\frac{\alpha}2}}{\sin\parens[\big]{\frac{\alpha}2}}=\frac{\sin^2\parens[\big]{\frac{\alpha}2}+\cos^2\parens[\big]{\frac{\alpha}2}}{\sin \parens[\big]{\frac{\alpha}2}\cos\parens[\big]{\frac{\alpha}2}}=\frac2{\sin\alpha}\,.
 	\end{equation*}

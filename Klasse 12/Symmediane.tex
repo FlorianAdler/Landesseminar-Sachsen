@@ -1,21 +1,15 @@
 \section{Symmediane}\label{kapitel:Symmediane}
-In diesem Kapitel werden wir zwei schwere Geometrieaufgaben besprechen. Wie üblich findet ihr am Ende des Kapitels Tipps und danach Lösungen zu beiden Aufgaben. Angesichts der Schwierigkeit ist es keine Schande, wenn ihr die Tipps verwendet oder euch die Lösungen durchlest.
-\begin{aufgabe*}[**]\label{aufgabe:MEMO2014}
-	Sei $ABC$ ein Dreieck und sei $D$ der Berührpunkt des Inkreises $\omega$ mit der Seite $\overline{BC}$. Sei $I_a$ der Mittelpunkt des Ankreises gegenüber $A$ und sei $L$ der von $D$ verschiedene Schnittpunkt von $AD$ mit $\omega$. Schließlich sei $M$ der Mittelpunkt von $\overline{BC}$ und $N$ der Mittelpunkt von $\overline{I_aM}$. Beweise, dass die Punkte $B$, $C$, $N$ und $L$ auf einem Kreis liegen.
-\end{aufgabe*}
-\begin{aufgabe*}[***]\label{aufgabe:PolenMO2019}
-	Sei $ABC$ ein Dreieck mit Umkreis $\Omega$. Sei $S$ der Mittelpunkt des Bogens $\wideparen{BC}$, der $A$ nicht enthält, und sei $M$ der Mittelpunkt der Seite $\overline{BC}$. Sei $\omega$ ein Kreis mit Mittelpunkt $S$, der $\overline{BC}$ in $M$ berührt. Die Tangenten an $\omega$ durch $A$ schneiden $\overline{BC}$ in den Punkten $D$ und $E$, wobei $D$ zwischen $B$ und $E$ liegt. Sei $\omega_E$ ein Kreis, der die Strecken $\overline{AE}$, $\overline{BE}$ sowie den Kreis $\Omega$ in einem Punkt $P$ berührt. Sei $\omega_D$ ein Kreis, der die Strecken $\overline{AD}$, $\overline{CD}$ sowie den Kreis $\Omega$ in einem Punkt $Q$ berührt. Schließlich sei $R$ der Schnittpunkt von $DQ$ und $EP$. Beweise, dass $\winkel DAM=\winkel RAE$ gilt.
-\end{aufgabe*}
-Um bei diesen Aufgaben überhaupt eine Chance zu haben, müssen wir etwas Theorie einführen, die allgemein sehr nützlich zu wissen ist.	
+
+In schweren Geometrieaufgaben kommt gelegentlich die folgende Konstruktion vor.	
 
 \begin{definition}
 	Sei $ABC$ ein Dreieck. Der \emph{Symmedian durch $A$} ist das Spiegelbild der Seitenhalbierenden von $\overline{BC}$ an der Winkelhalbierenden von $\winkel BAC$. Analog sind die Symmediane durch $B$ und $C$ definiert.
 \end{definition}
 Genauso wie sich die Seitenhalbierenden schneiden sich auch die drei Symmediane eines Dreiecks in einem Punkt (dem \emph{Lemoine-Punkt}). Das ist ein Spezialfall einer allgemeineren Aussage: Wenn sich drei Geraden durch $A$, $B$ und $C$ in einem Punkt $P$ schneiden, dann schneiden sich auch ihre Spiegelbilder an den entsprechenden Winkelhalbierenden in einem Punkt (dem \emph{isogonal konjugierten Punkt zu $P$}). Das folgt zum Beispiel trivial aus dem trigonometrischen Satz von Ceva.
 
-Interessant werden Symmedianen durch das folgende Lemma, das uns in einigen Aufgaben eine ungemein praktische Winkelgleichheit liefert.
+Wenn in einer Aufgabe Symmediane vorkommen, dann tun sie das meistens auf \enquote{versteckte} Art und Weise: nämlich in Form des folgenden Lemmas. Dieses Lemma zu kennen, und damit Symmediane in eurer Skizze zu erkennen, kann in der Olympiade sehr nützlich sein, weil es eine ungemein praktische Winkelgleichheit liefert.
 \begin{satzmitnamen}[Symmedian-Lemma]
-	Sei $ABC$ ein Dreieck mit Umkreis $\Omega$ und sei $T$ der Schnittpunkt der Tangenten in $B$ und $C$ an $\Omega$. Dann ist $AT$ der Symmedian durch $A$. Insbesondere gilt $\winkel BAT=\winkel MAC$, wenn $M$ den Mittelpunkt von $\overline{BC}$ bezeichnet.
+	Sei $ABC$ ein Dreieck mit Umkreis $\Omega$ und sei $T$ der Schnittpunkt der Tangenten in $B$ und $C$ an $\Omega$. Dann ist $AT$ der Symmedian durch $A$. Insbesondere gilt die Winkelgleichheit $\winkel BAT=\winkel MAC$, wobei $M$ den Mittelpunkt von $\overline{BC}$ bezeichnet.
 \end{satzmitnamen}
 \begin{figure}[ht]
 	\centering
@@ -60,7 +54,7 @@ Interessant werden Symmedianen durch das folgende Lemma, das uns in einigen Aufg
 			\draw [fill=black] (B) circle (2pt) node[shift={(240:2.25ex)}] {$B'$};
 			\draw [fill=black] (C) circle (2pt) node[shift={(270:2ex)}] {$C'$};
 			\draw [fill=white] (M) circle (2pt);
-			\draw [fill=black] (T) circle (2pt) node[shift={(-2:2.25ex)}] {$T'$};
+			\draw [fill=black] (T) circle (2pt) node[shift={(-2:1.85ex)}] {$T'$};
 			\node at (-4.4,0.3) {$\Omega'$};
 		\end{tikzpicture} & \\
 		& vor Inversion & & nach Inversion &
@@ -71,6 +65,15 @@ Interessant werden Symmedianen durch das folgende Lemma, das uns in einigen Aufg
 \end{proof}
 
 Im Kapitel \emph{Projektive Geometrie} im Heft für Klasse~11 habt ihr gelernt, dass zwei Punktepaare $(A,B)$ und $(C,D)$ auf einem Kreis $\Omega$ genau dann harmonisch liegen, wenn der Pol von $AB$ auf $CD$ liegt. Aber der Pol von $AB$ ist genau der Schnittpunkt der Tangenten an $\Omega$ in $A$ und $B$. Wir erhalten also auch, dass $(A,B)$ und $(C,D)$ genau dann harmonische Punktepaare sind, wenn $D$ auf dem Symmedian von $ABC$ durch $C$ liegt.
+
+\subsection*{Beispielaufgaben}
+Hier sind zwei Beispielaufgaben zu Symmedianen. Wie üblich findet ihr am Ende des Kapitels Tipps und danach Lösungen zu beiden Aufgaben. Angesichts der Schwierigkeit ist es keine Schande, wenn ihr die Tipps verwendet oder euch die Lösungen durchlest. Versucht aber zumindest, selbstständig Symmediane in eurer Skizze zu finden.
+\begin{aufgabe*}[**]\label{aufgabe:MEMO2014}
+	Sei $ABC$ ein Dreieck und sei $D$ der Berührpunkt des Inkreises $\omega$ mit der Seite $\overline{BC}$. Sei $I_a$ der Mittelpunkt des Ankreises gegenüber $A$ und sei $L$ der von $D$ verschiedene Schnittpunkt von $AD$ mit $\omega$. Schließlich sei $M$ der Mittelpunkt von $\overline{BC}$ und $N$ der Mittelpunkt von $\overline{I_aM}$. Beweise, dass die Punkte $B$, $C$, $N$ und $L$ auf einem Kreis liegen.
+\end{aufgabe*}
+\begin{aufgabe*}[***]\label{aufgabe:PolenMO2019}
+	Sei $ABC$ ein Dreieck mit Umkreis $\Omega$. Sei $S$ der Mittelpunkt des Bogens $\wideparen{BC}$, der $A$ nicht enthält, und sei $M$ der Mittelpunkt der Seite $\overline{BC}$. Sei $\omega$ ein Kreis mit Mittelpunkt $S$, der $\overline{BC}$ in $M$ berührt. Die Tangenten an $\omega$ durch $A$ schneiden $\overline{BC}$ in den Punkten $D$ und $E$, wobei $D$ zwischen $B$ und $E$ liegt. Sei $\omega_E$ ein Kreis, der die Strecken $\overline{AE}$, $\overline{BE}$ sowie den Kreis $\Omega$ in einem Punkt $P$ berührt. Sei $\omega_D$ ein Kreis, der die Strecken $\overline{AD}$, $\overline{CD}$ sowie den Kreis $\Omega$ in einem Punkt $Q$ berührt. Schließlich sei $R$ der Schnittpunkt von $DQ$ und $EP$. Beweise, dass $\winkel DAM=\winkel RAE$ gilt.
+\end{aufgabe*}
 
 \vfill\hrule\vspace{-1em}
 

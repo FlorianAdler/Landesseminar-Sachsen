@@ -52,7 +52,7 @@ Trigonometrische Lösungen enden häufig damit, dass ihr eine trigonometrische I
 	Beweise die Summe-zu-Produkt-Formeln und den erweiterten Sinussatz!
 \end{aufgabe*}
 
-Als nächstes haben wir die folgende Formel, die dem Autoren dieses Textes in seiner eigenen Olympiadezeit gute Dienste geleistet hat:
+Als nächstes haben wir die folgenden Formeln, die dem Autoren dieses Textes in seiner eigenen Olympiadezeit gute Dienste geleistet hat:
 \begin{satzmitnamen}[Halbwinkelformel]
 	Sei $s\coloneqq \frac12(a+b+c)$ der halbe Umfang von $ABC$. Dann gilt
 	% Tien: Dumme Frage: Muss "gilt" nicht in den Plural?
@@ -204,13 +204,13 @@ Um euch eine Idee zu geben, wie das Durchrechnen mit Seitenlängen und Trigonome
 	
 	Spätestens an diesem Punkt ist klar, dass sich die Aufgabe durchrechnen lässt, denn wir haben es geschafft, den Term $\abs{P'L}^2$, der von dem komplizierten Punkt~$T$ abhängt, nur durch die Dreiecksseiten auszudrücken. Der Term $\abs{PL}^2$ sollte einfacher sein, weil er nicht von~$T$ abhängt.
 	
-	Diesen Term nehmen wir uns jetzt vor. Sei~$I_a$ der Ankreismittelpunkt und~$r_a$ der Ankreisradius. Weil $AE$ und $AF$ Tangenten an den Ankreis~$\omega_a$ sind, gilt $\winkel AEI_a=90^\circ=\winkel I_aFA$. Nach Thales ist der Umkreismittelpunkt von $\odot AEF$ also der Mittelpunkt~$N$ von $\overline{AI_a}$. Folglich liegt~$N$ auf der Mittelsenkrechten von $\overline{AE}$. Wegen $\abs{AE}=s$ und $\winkel NAE=\winkel I_aAE=\alpha/2$ erhalten wir $\abs{NA}=s/(2\cos(\alpha/2))$. Weil $P$ auf dem Umkreis $\odot AEF$ liegt, dessen Mittelpunkt~$N$ ist, gilt $\abs{PN}=\abs{AN}$. Aus dem Strahlensatz ist klar, dass $N$ auch auf der Geraden $ML$ liegt, also folgt $\abs{PL}^2=\abs{PN}^2-\abs{NL}^2=\abs{AN}^2-\abs{NL}^2$ nach Pythagoras. Schließlich gilt nach Strahlensatz $\abs{MN}=\frac12\abs{DI_a}=\frac12r_a$, folglich $\abs{NL}=\abs{ML}-\abs{MN}=\frac12(h_a-r_a)$. Indem wir wiederum alles einsetzen, erhalten wir
+	Diesen Term nehmen wir uns jetzt vor. Sei~$I_a$ der Ankreismittelpunkt und~$r_a$ der Ankreisradius. Weil $AE$ und $AF$ Tangenten an den Ankreis~$\omega_a$ sind, gilt $\winkel AEI_a=90^\circ=\winkel I_aFA$. Nach Thales ist der Umkreismittelpunkt von $\odot AEF$ also der Mittelpunkt~$N$ von $\overline{AI_a}$. Folglich liegt~$N$ auf der Mittelsenkrechten von $\overline{AE}$. Wegen $\abs{AE}=s$ und $\winkel NAE=\winkel I_aAE=\alpha/2$ erhalten wir $\abs{NA}=s/(2\cos(\frac\alpha2))$. Weil $P$ auf dem Umkreis $\odot AEF$ liegt, dessen Mittelpunkt~$N$ ist, gilt $\abs{PN}=\abs{AN}$. Aus dem Strahlensatz ist klar, dass $N$ auch auf der Geraden $ML$ liegt, also folgt $\abs{PL}^2=\abs{PN}^2-\abs{NL}^2=\abs{AN}^2-\abs{NL}^2$ nach Pythagoras. Schließlich gilt nach Strahlensatz $\abs{MN}=\frac12\abs{DI_a}=\frac12r_a$, folglich $\abs{NL}=\abs{ML}-\abs{MN}=\frac12(h_a-r_a)$. Indem wir wiederum alles einsetzen, erhalten wir
 	\begin{align*}
 		\abs{PL}^2&=\abs{AN}^2-\abs{NL}^2=\parens*{\frac{s}{2\cos\parens[\big]{\frac\alpha2}}}^2-\frac{h_a^2}{4}-\frac{r_a^2}{4}+\frac{r_ah_a}{2}\\
 		&=\frac{s^2}{4}\cdot\frac{bc}{s(s-a)}-\frac{\mathrm{A}^2}{a^2}-\frac{\mathrm{A}^2}{4(s-a)^2}+\frac{\mathrm{A}^2}{a(s-a)}\\
 		&=\frac{s\parens*{a^2bc-4(s-a)^2(s-b)(s-c)-a^2(s-b)(s-c)+4a(s-a)(s-b)(s-c)}}{4a^2(s-a)}
 	\end{align*}
-	Hier haben wir nacheinander die Halbwinkelformel $\cos(\alpha/2)=(s(s-a))/(bc)$, die Flächeninhaltsformel $h_a=2\mathrm{A}/a$, die Formel $r_a=\mathrm{A}/(s-a)$ sowie den Satz von Heron eingesetzt. Im letzten Schritt haben wir außerdem schon einmal $s-a$ gekürzt. Wegen $a^2bc-a^2(s-b)(s-c)=a^2s(s-a)$ lässt sich der Faktor~$s-a$ ein weiteres mal kürzen und wir erhalten
+	Hier haben wir nacheinander die Halbwinkelformel $\cos(\frac\alpha2)=(s(s-a))/(bc)$, die Flächeninhaltsformel $h_a=2\mathrm{A}/a$, die Formel $r_a=\mathrm{A}/(s-a)$ sowie den Satz von Heron eingesetzt. Im letzten Schritt haben wir außerdem schon einmal $s-a$ gekürzt. Wegen $a^2bc-a^2(s-b)(s-c)=a^2s(s-a)$ lässt sich der Faktor~$s-a$ ein weiteres mal kürzen und wir erhalten
 	\begin{equation*}
 		\abs{PL}^2=\frac{s\parens*{a^2s-4(s-a)(s-b)(s-c)+4a(s-b)(s-c)}}{4a^2(s-a)}
 	\end{equation*}
@@ -218,7 +218,11 @@ Um euch eine Idee zu geben, wie das Durchrechnen mit Seitenlängen und Trigonome
 \end{proof}
 
 \subsection*{Komplex durchrechnen}
-\textbf{Grundbegriffe.} Statt Punkte in der Ebene durch Koordinaten $(x,y)$ zu beschreiben, können wir sie auch als \emph{komplexe Zahlen} $z=x+\mathrm{i} y$ auffassen, wobei $\mathrm{i}$ die \emph{imaginäre Einheit} ist und $\mathrm{i}^2=-1$ erfüllt. Die reellen Zahlen liegen dann auf der $x$-Achse, während die \emph{rein imaginären} Zahlen, also die komplexen Zahlen der Form $0+\mathrm{i} y$, auf der $y$-Achse liegen. Deshalb werden wir im Folgenden stattdessen von der \emph{reellen} und der \emph{imaginären Achse} sprechen.
+\textbf{Grundbegriffe.} Die Menge der \emph{komplexen Zahlen} $\mathbb C$ entsteht, indem wir zu den reellen Zahlen $\mathbb R$ eine \emph{imaginäre Einheit} $\mathrm{i}$ hinzufügen, die $\mathrm{i}^2=-1$ erfüllt. Eine allgemeine komplexe Zahl ist dann durch $z=x+\mathrm{i}y$ gegeben, wobei $x$ und $y$ reelle Zahlen sind.
+
+Die komplexen Zahlen haben eine Reihe von Vorteilen gegenüber den reellen Zahlen. Zum Beispiel ist sofort klar, dass sich alle quadratischen Gleichungen in $\mathbb C$ lösen lassen, denn das Hinzufügen von $\mathrm{i}$ erlaubt uns, auch Wurzeln aus negativen Zahlen zu ziehen. Tatsächlich gilt das nicht nur für quadratische Gleichungen: In $\mathbb C$ lassen sich \emph{alle} polynomiellen Gleichungen lösen, egal von welchem Grad!\footnote{Diesen Fakt haben wir bereits in Kapitel~\ref{kapitel:Rekursionen}: \emph{Lineare Rekursionen} verwendet.} Dieser Fakt wird auch als \emph{Fundamentalsatz der Algebra} bezeichnet. Einen Beweis für die werdet ihr im Studium sehen; er würde hier zu weit führen.
+
+Wir wollen in diesem Kapitel erklären, wie sich komplexe Zahlen in der Geometrie verwenden lassen. Die Grundidee ist folgende: Statt Punkte in der Ebene durch Koordinaten $(x,y)$ zu beschreiben, können wir sie auch als komplexe Zahlen $z=x+\mathrm{i} y$ auffassen. Die reellen Zahlen liegen dann auf der $x$-Achse, während die \emph{rein imaginären} Zahlen, also die komplexen Zahlen der Form $0+\mathrm{i} y$, auf der $y$-Achse liegen. Deshalb werden wir im Folgenden stattdessen von der \emph{reellen} und der \emph{imaginären Achse} sprechen.
 	
 \begin{wrapfigure}{r}{0.25\textwidth}
 	\centering\vspace{-0.44cm}
@@ -238,7 +242,7 @@ Um euch eine Idee zu geben, wie das Durchrechnen mit Seitenlängen und Trigonome
 \end{wrapfigure}
 Der \emph{Betrag von~$z$} ist definiert als $\abs{z}\coloneqq \sqrt{x^2+y^2}$, also als der Abstand zum Ursprung. Wenn $r=\abs{z}$, dann können wir $z$ auch in \enquote{Polarkoordinaten} als $z=r(\cos\varphi+\mathrm{i}\sin\varphi)$ schreiben, wobei $\varphi$ der Winkel ist, den die Strecke von $0$ nach~$z$ mit der reellen Achse einschließt. Wir nennen $\varphi$ auch das \emph{Argument von~$z$}. Die komplexe Zahl $x-\mathrm{i} y$, also das Spiegelbild von~$z$ an der reellen Achse, nennen wir die \emph{zu~$z$ konjugierte komplexe Zahl}, und wir schreiben $\overline{z}\coloneqq x-\mathrm{i} y$.
 
-\textbf{Rechnen mit komplexen Zahlen.} Wir können komplexe Zahlen addieren, subtrahieren und multiplizieren. Nach der dritten binomischen Formel gilt dann 
+\textbf{Rechnen mit komplexen Zahlen.} Wir können komplexe Zahlen wie gewohnt addieren, subtrahieren und multiplizieren. Nach der dritten binomischen Formel gilt dann 
 \begin{equation*}
 	z\overline{z}=(x+\mathrm{i} y)(x-\mathrm{i} y)=x^2-\mathrm{i}^2y^2=x^2+y^2=\abs{z}^2\,.
 \end{equation*}
@@ -246,7 +250,7 @@ Diese Beobachtung erlaubt uns, auch durch komplexe Zahlen zu dividieren (außer 
 \begin{equation*}
 	\frac{z_1}{z_2}=\frac{1}{\abs{z_2}^2}\cdot z_1\overline{z_2}
 \end{equation*}
-schreiben (und $1/\abs{z_2}^2$ ist schon definiert, denn $\abs{z_2}$ ist ja eine reelle Zahl). Man überlegt sich leicht, dass sich die komplexe Konjugation mit Addition, Subtraktion, Multiplikation und Division verträgt,
+schreiben (und $1/\abs{z_2}^2$ ist schon definiert, denn $\abs{z_2}$ ist ja eine reelle Zahl). Ihr könnt euch leicht überlegen, dass sich die komplexe Konjugation mit Addition, Subtraktion, Multiplikation und Division verträgt,
 % Tien: Kommutieren ist das falsche Wort. Viel eher verhält es sich distributiv über den Grundrechenarten.
 das heißt es es gilt
 \begin{equation*}
@@ -254,7 +258,7 @@ das heißt es es gilt
 	\overline{z_1-z_2}=\overline{z_1}-\overline{z_2},\quad
 	\overline{z_1\cdot z_2}=\overline{z_1}\cdot \overline{z_2}\quad
 	\text{und}\quad
-	\overline{z_1/z_2}=\overline{z_1}/\overline{z_2}.
+	\overline{z_1/z_2}=\overline{z_1}/\overline{z_2}\,.
 \end{equation*}
 
 \textbf{Multiplikation als Drehstreckung.}
@@ -266,7 +270,7 @@ Bei der Multiplikation von komplexen Zahlen in Polarkoordinaten ergibt sich nun 
 worin wir die Additionstheoreme für Sinus und Cosinus erkannt haben. Wenn wir also mit einer komplexen Zahl $z=r(\cos\varphi+\mathrm{i}\sin\varphi)$ multiplizieren, dann multiplizieren wir den Betrag mit~$r$ und addieren~$\varphi$ zum Argument. Mit anderen Worten: \emph{Multiplikation mit~$z$ ist eine Drehstreckung um den Punkt~\(0\), mit Streckfaktor~$r$ und Drehwinkel~$\varphi$!}
 
 \textbf{Geometrie mit komplexen Zahlen.}
-Mithilfe dieser Beobachtung können wir effektiv Geometrie mit komplexen Zahlen betreiben. Betrachte zum Beispiel vier Punkte $A$,~$B$, $C$ und~$D$ in der Ebene. Seien $a$,~$b$, $c$ und~$d$ die entsprechenden komplexen Zahlen. Dann stehen die Geraden $AB$ und~$CD$ genau dann senkrecht aufeinander, wenn die Drehstreckung, die durch Multiplikation mit der komplexen Zahl $z\coloneqq (a-b)/(c-d)$ gegeben ist, den Winkel $90^\circ$ oder~$270^\circ$ hat. Also ist $AB\perp CD$ genau dann, wenn das Argument von~$z$ durch $90^\circ$ oder~$270^\circ$ gegeben ist. Das wiederum ist äquivalent dazu, dass $z$ rein imaginär ist, was wir mithilfe der komplexen Konjugation ein weiteres Mal zu $z=-\overline{z}$ äquivalent umformen können. Wir erhalten also, dass $AB$ und $CD$ genau dann senkrecht aufeinander stehen, wenn
+Mithilfe dieser Beobachtung können wir effektiv Geometrie mit komplexen Zahlen betreiben. Betrachte zum Beispiel vier Punkte $A$,~$B$, $C$ und~$D$ in der Ebene. Seien $a$,~$b$, $c$ und~$d$ die entsprechenden komplexen Zahlen. Dann stehen die Geraden $AB$ und~$CD$ genau dann senkrecht aufeinander, wenn die Drehstreckung, die durch Multiplikation mit der komplexen Zahl $z\coloneqq (a-b)/(c-d)$ gegeben ist, den Winkel $90^\circ$ oder~$270^\circ$ hat. Also gilt $AB\perp CD$ genau dann, wenn das Argument von~$z$ durch $90^\circ$ oder~$270^\circ$ gegeben ist. Das wiederum ist äquivalent dazu, dass $z$ rein imaginär ist, was wir mithilfe der komplexen Konjugation ein weiteres Mal zu $z=-\overline{z}$ äquivalent umformen können. Wir erhalten also, dass $AB$ und $CD$ genau dann senkrecht aufeinander stehen, wenn
 \begin{equation*}
 	\frac{a-b}{c-d}=-\frac{\overline{a}-\overline{b}}{\overline{c}-\overline{d}}
 \end{equation*}
@@ -292,7 +296,7 @@ Wir können also Geraden in komplexen Zahlen beschreiben.
 	\end{equation*}
 \end{aufgabe*}
 
-Wir werden nun die Technik an einer Olympiadeaufgabe demonstrieren.
+Wir werden nun an einem Beispiel demonstrieren, wie sich Olympiadeaufgabe mit komplexen Zahlen durchrechnen lassen.
 
 \begin{aufgabe*}
 	Gegeben sei ein konvexes Fünfeck $ABCDE$ mit $\winkel CBA=\winkel AED=90^\circ$. Der Mittelpunkt des Umkreises $\odot ABE$ sei~$M$ und der Mittelpunkt des Umkreises $\odot ACD$ sei~$O$. Beweise: Wenn $M$ der Mittelpunkt der Strecke~$\overline{CD}$ ist, dann verläuft die Gerade~$AO$ durch den Mittelpunkt der Strecke~$\overline{BE}$.

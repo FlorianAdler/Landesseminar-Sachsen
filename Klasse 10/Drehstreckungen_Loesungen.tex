@@ -142,10 +142,12 @@
 \begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:InAnkreis} \textmd{(\href{https://www.mathematik-olympiaden.de/moev/index.php?option=com_download&thema=a&datei=A55123a.pdf&format=raw}{MO 551232})}]
 	Betrachte die Streckung~$\sigma$ mit Zentrum~$A$, die~$\omega$ auf~$\omega_a$ abbildet. Das Bild von $D$ ist ein Punkt~$\sigma(D)$ auf $\omega_a$, sodass die Tangente an~$\omega$ in $\sigma(D)$ parallel zur Tangente an $\omega_a$ in $D$, also parallel zu $BC$ ist. Es gibt aber nur zwei Punkte auf $\omega_a$, für die das der Fall ist, nämlich $E$ (dessen Tangente genau $BC$ selbst ist) und den Punkt~$S$, der $E$ diametral gegenüber liegt. Offensichtlich kann nicht $\sigma(D)=E$ sein, sonst würde $BC$ auf sich selbst abgebildet werden und $\sigma$ wäre die Identitätsabbildung, was absurd ist, weil $\omega$ und $\omega_a$ auf verschiedenen Seiten von~$BC$ liegen. Also kommt nur $\sigma(D)=S$ in Frage und es folgt, dass $A$, $D$ und $S$ kollinear sind. Analog lässt sich zeigen, dass $A$, $N$ und $E$ kollinear sind.
 \end{proof}
-
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:551232}]
+	Sei $P$ der Berührpunkt von $\omega$ mit $\Omega$ und sei $Q$ der Berührpunkt von~$\omega$ mit $\overline{CD}$. Nach dem Kreisberührungslemma sind $P$, $Q$ und $A$ kollinear und es gilt $\abs*{AP}\cdot\abs*{AQ}=\abs*{AC}^2$. Nach dem Sekanten-Tangentensatz gilt aber auch $\abs*{AP}\cdot \abs*{AQ}=\abs*{AE}^2$. Also ist $\abs*{AC}=\abs*{AE}$, wie behauptet.
+\end{proof}
 \begin{figure}[ht]
 	\centering
-	\begin{tikzpicture}[x=1.5cm,y=1.5cm]
+	\begin{tikzpicture}[x=1.45cm,y=1.45cm]
 		\draw (0:2) arc (0:180:2);
 		\draw[line width=0.3] (1.345,0.547) circle (0.547);
 		\coordinate (A) at (-2,0);
@@ -167,54 +169,53 @@
 		\draw[fill=white] (Q) circle (2pt) node[shift={(140:2ex)}] {$Q$};
 	\end{tikzpicture}
 \end{figure}
-\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:551232}]
-	Sei $P$ der Berührpunkt von $\omega$ mit $\Omega$ und sei $Q$ der Berührpunkt von~$\omega$ mit $\overline{CD}$. Nach dem Kreisberührungslemma sind $P$, $Q$ und $A$ kollinear und es gilt $\abs*{AP}\cdot\abs*{AQ}=\abs*{AC}^2$. Nach dem Sekanten-Tangentensatz gilt aber auch $\abs*{AP}\cdot \abs*{AQ}=\abs*{AE}^2$. Also ist $\abs*{AC}=\abs*{AE}$, wie behauptet.
-\end{proof}
-\begin{figure}[ht]
-	\centering
-	\begin{tikzpicture}[x=1.65cm,y=1.65cm]
-		\clip (-2.09,-1.12) rectangle (1.97,3.58);
-		\draw (0.02,1.074) coordinate (O) circle (1.69);
-		\draw (-0.205,-0.164) coordinate (I) circle (0.431);
-		\coordinate (A) at (-0.755,-0.428);
-		\coordinate (B) at (1.083,-0.24);
-		\coordinate (C) at (0.355,2.731);
-		\coordinate (D) at (-1.663,0.92);
-		\coordinate (E) at (-0.46,0.412);
-		\coordinate (F) at (-0.282,-0.589);
-		\coordinate (M) at (-0.978,3.331);
-		\coordinate (P) at (0.491,0.01);
-		\coordinate (Q) at (-0.118,1.386);
-		\coordinate (S) at (-1.574,1.635);
-		\draw (A) to (C);
-		\draw (B) to (D);
-		\draw[line width=0.3,dashed,shorten <=-1ex,shorten >=-0.25em] (E) to (1.915,1.463);
-		\draw[line width=0.3,dashed,shorten <=3.5ex,shorten >=-2em] (E) to (-1.143,0.11);
-		\draw[line width=0.3,shorten <=-2ex,shorten >=-4.25em] (M) to  node[pos=1.25,sloped] {$\scriptscriptstyle /\!/$} (P);
-		\draw[line width=0.3,shorten <=-2ex,shorten >=-6em,dashed] (M) to (S);
-		\draw[line width=0.3,shorten <=-2ex] (M) to (F);
-		\draw[line width=0.3] (F) to (O);
-		\draw[line width=0.3,shorten <=-12em,shorten >=-4em] (E) to  node[pos=2.35,sloped] {$\scriptscriptstyle /\!/$} (I);
-		\draw[line width=0.3,shift={(0.187,0.698)}] (293.866:0.32cm) arc (293.866:383.866:0.32cm);
-		\fill[black,shift={(0.187,0.698)}] (338.866:0.18cm) circle (1pt);
-		\draw[fill=black] (A) circle (2pt) node[shift={(250:2ex)}] {$A$};
-		\draw[fill=black] (B) circle (2pt) node[shift={(330:2ex)}] {$B$};
-		\draw[fill=black] (C) circle (2pt) node[shift={(70:2ex)}] {$C$};
-		\draw[fill=black] (D) circle (2pt) node[shift={(40:2ex)}] {$D$};
-		\draw[fill=black] (E) circle (2pt) node[shift={(200:2ex)}] {$E$};
-		\draw[fill=white] (F) circle (2pt) node[shift={(270:2ex)}] {$F$};
-		\draw[fill=black] (I) circle (2pt) node[shift={(0:1.5ex)}] {$I$};
-		\draw[fill=black] (M) circle (2pt) node[shift={(0:2ex)}] {$M$};
-		\draw[fill=black] (O) circle (2pt) node[shift={(40:2ex)}] {$O$};
-		\draw[fill=black] (P) circle (2pt) node[shift={(50:2ex)}] {$P$};
-		\draw[fill=black] (Q) circle (2pt) node[shift={(180:2ex)}] {$Q$};
-		\draw[fill=white] (S) circle (2pt) node[shift={(160:2ex)}] {$S$};
-	\end{tikzpicture}
-\end{figure}
 \begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:JuMaKlausur2014}]
 	Wir bemerken zuerst, dass die Bedingung $\abs*{EP}=\abs*{EQ}$ dazu äquivalent ist, dass $\ell$ die Senkrechte von $O$ auf die Winkelhalbierende von $\winkel BEC$ ist. Sei~$I$ der Mittelpunkt von~$\omega$. Dann ist $EI$ die Winkelhalbierende von $AEB$. Weil $\winkel AEB$ und $\winkel BEC$ Nebenwinkel sind, steht $EI$ ebenfalls senkrecht auf der Winkelhalbierenden von $\winkel BEC$. Es folgt $EI\parallel \ell$.
+	
+	\begin{figure}[ht]
+		\centering
+		\begin{tikzpicture}[x=1.625cm,y=1.625cm]
+			\clip (-2.09,-1.12) rectangle (1.97,3.58);
+			\draw (0.02,1.074) coordinate (O) circle (1.69);
+			\draw (-0.205,-0.164) coordinate (I) circle (0.431);
+			\coordinate (A) at (-0.755,-0.428);
+			\coordinate (B) at (1.083,-0.24);
+			\coordinate (C) at (0.355,2.731);
+			\coordinate (D) at (-1.663,0.92);
+			\coordinate (E) at (-0.46,0.412);
+			\coordinate (F) at (-0.282,-0.589);
+			\coordinate (M) at (-0.978,3.331);
+			\coordinate (P) at (0.491,0.01);
+			\coordinate (Q) at (-0.118,1.386);
+			\coordinate (S) at (-1.574,1.635);
+			\draw (A) to (C);
+			\draw (B) to (D);
+			\draw[line width=0.3,dashed,shorten <=-1ex,shorten >=-0.25em] (E) to (1.915,1.463);
+			\draw[line width=0.3,dashed,shorten <=3.5ex,shorten >=-2em] (E) to (-1.143,0.11);
+			\draw[line width=0.3,shorten <=-2ex,shorten >=-4.25em] (M) to  node[pos=1.25,sloped] {$\scriptscriptstyle /\!/$} (P);
+			\draw[line width=0.3,shorten <=-2ex,shorten >=-6em,dashed] (M) to (S);
+			\draw[line width=0.3,shorten <=-2ex] (M) to (F);
+			\draw[line width=0.3] (F) to (O);
+			\draw[line width=0.3,shorten <=-12em,shorten >=-4em] (E) to  node[pos=2.35,sloped] {$\scriptscriptstyle /\!/$} (I);
+			\draw[line width=0.3,shift={(0.187,0.698)}] (293.866:0.32cm) arc (293.866:383.866:0.32cm);
+			\fill[black,shift={(0.187,0.698)}] (338.866:0.18cm) circle (1pt);
+			\draw[fill=black] (A) circle (2pt) node[shift={(250:2ex)}] {$A$};
+			\draw[fill=black] (B) circle (2pt) node[shift={(330:2ex)}] {$B$};
+			\draw[fill=black] (C) circle (2pt) node[shift={(70:2ex)}] {$C$};
+			\draw[fill=black] (D) circle (2pt) node[shift={(40:2ex)}] {$D$};
+			\draw[fill=black] (E) circle (2pt) node[shift={(200:2ex)}] {$E$};
+			\draw[fill=white] (F) circle (2pt) node[shift={(270:2ex)}] {$F$};
+			\draw[fill=black] (I) circle (2pt) node[shift={(0:1.5ex)}] {$I$};
+			\draw[fill=black] (M) circle (2pt) node[shift={(0:2ex)}] {$M$};
+			\draw[fill=black] (O) circle (2pt) node[shift={(40:2ex)}] {$O$};
+			\draw[fill=black] (P) circle (2pt) node[shift={(50:2ex)}] {$P$};
+			\draw[fill=black] (Q) circle (2pt) node[shift={(180:2ex)}] {$Q$};
+			\draw[fill=white] (S) circle (2pt) node[shift={(160:2ex)}] {$S$};
+		\end{tikzpicture}
+	\end{figure}
 	
 	Betrachte nun die Streckung~$\sigma$ am Berührpunkt~$F$, die~$\omega$ auf~$\Omega$ abbildet. Dann bildet~$\sigma$ auch die Mittelpunkte dieser Kreise aufeinander ab, sodass $\sigma(I)=O$ sein muss. Also bildet~$\sigma$ die Gerade $EI$ auf die Parallele zu $EI$ durch~$O$ ab. Aus unserer obigen Beobachtung folgt somit $\sigma(EI)=\ell$. Als Schnittpunkt von $EF$ mit~$\ell$ muss $M$ folglich das Bild von~$E$ unter der Streckung~$\sigma$ sein.
 	
 	Das Bild von $AC$ unter~$\sigma$ ist eine Parallele zu $AC$, die den Kreis~$\Omega$ berührt. Weil $E$ auf $AC$ liegt, muss $\sigma(E)=M$ auf $\sigma(AC)$ liegen. Also berührt die Parallele zu $AC$ durch $M$ in der Tat den Kreis~$\Omega$.
 \end{proof}
+

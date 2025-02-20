@@ -1,7 +1,7 @@
 \section{Der Heiratssatz}\label{kapitel:Heiratssatz}
-Lösungen von Kombinatorikaufgaben sind häufig lang und konfus, denn hier ist es viel schwieriger (als zum Beispiel\ in Geometrie), eure Ideen in klare Formeln und Worte zu fassen. Dementsprechend häufig sind unvollständige Lösungen und Punktabzüge. An dieser Stelle kann häufig der \emph{Heiratssatz} aushelfen und aus einem \enquote{Wurschtelargument} eine saubere, wasserfeste Lösung machen, bzw.\ euch überhaupt erst auf eine vernünftige Lösung führen.
+Lösungen von Kombinatorikaufgaben sind häufig lang und konfus, denn hier ist es viel schwieriger als zum Beispiel\ in Geometrie, eure Ideen in klare Formeln und Worte zu fassen. Dementsprechend häufig sind unvollständige Lösungen und Punktabzüge. An dieser Stelle kann häufig der \emph{Heiratssatz} aushelfen und aus einem \enquote{Wurschtelargument} eine saubere, wasserfeste Lösung machen, bzw.\ euch überhaupt erst auf eine vernünftige Lösung führen.
 
-Bevor wir den Satz formulieren und beweisen können, müssen wir ein wenig Terminologie einführen. Erinnert euch (siehe das Kapitel ~\emph{Graphentheorie} im Heft für Klasse~9), dass ein \emph{bipartiter Graph} ein Graph $G=(V,E)$ ist, dessen Knotenmenge $V=A\cup B$ sich in zwei disjunkte Teilmengen $A$ und $B$ zerlegen lässt, sodass Kanten nur zwischen $A$ und $B$ verlaufen, aber nicht innerhalb von $A$ oder $B$. Ein \emph{Matching} in einem bipartiten Graphen $G=(A\cup B, E)$ ist eine Teilmenge $M\subseteq E$ von Kanten, sodass $M$ für jeden Knoten von $G$ höchstens eine ausgehende Kante enthält. Die folgende Abbildung zeigt einen bipartiten Graphen $G$ sowie zwei mögliche Matchings $M_1$ und $M_2$ in $G$.
+Bevor wir den Satz formulieren und beweisen können, müssen wir ein wenig Terminologie einführen. Erinnert euch (siehe das Kapitel~\emph{Graphentheorie} im Heft für Klasse~9), dass ein \emph{bipartiter Graph} ein Graph $G=(V,E)$ ist, dessen Knotenmenge $V=A\cup B$ sich in zwei disjunkte Teilmengen $A$ und $B$ zerlegen lässt, sodass Kanten nur zwischen $A$ und $B$ verlaufen, aber nicht innerhalb von $A$ oder $B$. Ein \emph{Matching} in einem bipartiten Graphen $G=(A\cup B, E)$ ist eine Teilmenge $M\subseteq E$ von Kanten, sodass $M$ für jeden Knoten von $G$ höchstens eine ausgehende Kante enthält. Die folgende Abbildung zeigt einen bipartiten Graphen $G$ sowie zwei mögliche Matchings $M_1$ und $M_2$ in $G$.
 
 \begin{figure}[ht]
 	\centering
@@ -47,7 +47,7 @@ Bevor wir den Satz formulieren und beweisen können, müssen wir ein wenig Termi
 	\end{tabularx} 
 \end{figure}
 
-Die Matchings $M_1$ und $M_2$ sind zugleich \emph{inklusionsmaximale Matchings}: Würden wir nämlich noch irgendeine weitere Kante zu $M_1$ oder $M_2$ hinzufügen, dann würden mindestens zwei Kanten der Matchings von einem der Knoten $b_3$ oder $a_2$ ausgehen und wir hätten kein Matching mehr.
+Die Matchings $M_1$ und $M_2$ sind zugleich \emph{inklusionsmaximale Matchings}: Würden wir nämlich noch irgendeine weitere Kante zu $M_1$ oder $M_2$ hinzufügen, dann würden mindestens zwei Kanten von einem der Knoten $b_3$ oder $a_2$ ausgehen und wir hätten kein Matching mehr.
 
 Der \emph{Heiratssatz}
 geht nun der Frage nach, für welche bipartiten Graphen $G=(A\cup B,E)$ ein Matching $M$ existiert, das alle Knoten von $A$ überdeckt. Für den obigen Graphen ist dies offenbar der Fall, denn $M_2$ ist genau ein solches Matching. Gleichzeitig zeigt das Beispiel, dass \emph{nicht} jedes inklusionsmaximale Matching diese Bedingung erfüllt. Das Problem ist also nicht völlig trivial. Um den Heiratssatz formulieren zu können, müssen wir noch folgende Notation einführen: Für jede Teilmenge $S\subseteq A$ soll $N_G(S)$ die Menge aller Knoten aus $B$ sein, die mit mindestens einem Knoten aus $S$ durch eine Kante verbunden sind. Im obigen Beispiel ist etwa $N(\{a_1\})=\{b_3\}$ und $N(A)=\{b_1,b_2,b_3\}$. Der Heiratssatz besagt nun Folgendes:
@@ -57,7 +57,7 @@ geht nun der Frage nach, für welche bipartiten Graphen $G=(A\cup B,E)$ ein Matc
 		\abs[\big]{N_G(S)}\geqslant \abs{S}\,.
 	\end{equation*}
 \end{satzmitnamen}
-Der Name \emph{Heiratssatz} hat folgenden altväterlichen Ursprung: Klassischerweise stellt mann sich $A$ und $B$ als Mengen von Frauen bzw.\ Männern vor, wobei möglichst alle Frauen verheiratet werden sollen; die Menge $E$ der Kanten gibt dabei die \enquote{akzeptablen} Paarungen vor. Der entstehende Graph ist bipartit, weil \enquote{damals} (also vor 2017 in Deutschland) Hochzeiten zwischen gleichgeschlechtlichen Paaren nicht \enquote{akzeptabel} waren.
+Der Name \emph{Heiratssatz} hat folgenden altväterlichen Ursprung: Klassischerweise stellt mann sich $A$ und $B$ als Mengen von Frauen bzw.\ Männern vor, wobei möglichst alle Frauen verheiratet werden sollen; die Menge $E$ der Kanten gibt dabei die \enquote{akzeptablen} Paarungen vor. Der entstehende Graph ist bipartit, weil \enquote{damals} (in Deutschland vor 2017) Hochzeiten zwischen gleichgeschlechtlichen Paaren nicht \enquote{akzeptabel} waren.
 
 Wir werden gelegentlich davon sprechen, zwei Knoten $a\in A$ und $b\in B$ zu \enquote{verheiraten}, wenn wir ein Matching konstruieren, das die Kante $ab$ enthält.
 

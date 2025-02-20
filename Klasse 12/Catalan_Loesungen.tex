@@ -1,0 +1,45 @@
+\subsection*{Lösungen zu Kapitel~\ref{kapitel:Catalan}: \emph{Die Catalan-Zahlen}}
+
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:FibonacciErzeugendeFunktion}]
+	Aus der Rekursionsgleichung der Fibonacci-Zahlen folgt
+	\begin{equation*}
+		(1-x-x^2)F(x)=F_0+(F_1-F_0)x+\sum_{n=2}^\infty (\underbrace{F_n-F_{n-1}-F_{n-2}}_{0})x^n=0+1\cdot x=x\,.
+	\end{equation*}
+	Daraus folgt bereits~\ref{teilaufgabe:FibonacciRekursion}. Um~\ref{teilaufgabe:FibonacciExplizit} zu zeigen, faktorisieren wir $1-x-x^2=-(1-\phi x)(1-\overline{\phi}x)$. Damit schreiben wir
+	\begin{equation*}
+		F(x)=\frac{x}{1-x-x^2}=-\frac{x}{(1-\phi x)(1-\overline{\phi}x)}=\frac{1}{\sqrt{5}}\left(\frac{1}{1-\phi x}-\frac{1}{1-\overline{\phi}x}\right)\,.
+	\end{equation*}
+	Dieser Trick wird als \emph{Partialbruchzerlegung} bezeichnet und er funktioniert nicht nur für quadratische Polynome, sondern allgemein für Polynome von beliebigem Grad. Partialbruchzerlegung kann immer wieder ziemlich nützlich sein und ihr solltet sie im Hinterkopf behalten.
+	
+	Mit der geometrischen Summenformel können wir weiter umformen:
+	\begin{equation*}
+		\frac{1}{\sqrt{5}}\left(\frac{1}{1-\phi x}-\frac{1}{1-\overline{\phi}x}\right)=\frac{1}{\sqrt{5}}\left(\sum_{n=0}^\infty(\phi x)^n-\sum_{n=0}^\infty (\overline{\phi}x)^n\right)=\sum_{n=0}^\infty \frac{1}{\sqrt{5}}\left(\phi^n-\overline{\phi}^n\right)x^n\,.
+	\end{equation*}
+	Durch Koeffizientenvergleich folgt $F_n=1/\sqrt{5}(\phi^n-\overline{\phi}^n)$, wie gewünscht.
+\end{proof}
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:Partitionszahlen}]
+	Wir benutzen die geometrische Summenformel. Wenn wir das Produkt
+	\begin{equation*}
+		\prod_{n=1}^{\infty}\frac{1}{1-x^n}=\prod_{n=1}^{\infty}\left(1+x^n+x^{2n}+x^{3n}+\dotsb\right)
+	\end{equation*}
+	ausmultiplizieren, tritt der Term $x^m$ genau so oft auf, wie wir $m$ als Summe $m=\sum_{n=1}^\infty a_nn$ mit ganzen Zahlen $a_n\geqslant n$ darstellen können (dabei gilt zwangsläufig $a_n=0$ für alle bis auf endlich viele $n$). So eine Darstellung ist aber genau eine Partition von $m$; die Zahl $a_n$ gibt dabei an, wie oft $n$ in der Partition vorkommt. Also tritt der Term $x^m$ beim Ausmultiplizieren genau $p_m$ mal vor. Das zeigt die Behauptung.
+\end{proof}
+\begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:IMC2018} \textmd{(\href{https://imc-math.org.uk/?year=2018&section=problems&item=prob8q}{IMC 2018/8})}]
+	Betrachte die Abbildung $\pi\colon \mathbb Z^3\rightarrow \mathbb Z^2$, $(x,y,z)\mapsto (x+y,z)$. Diese bildet die Menge $\Omega$ bijektiv auf die Menge $\Omega'=\left\{(i,j)\in \mathbb Z^2\ \middle|\ j\geqslant 0,\,i\geqslant 2j\right\}$ ab, denn für jedes $i\geqslant 0$ gibt es genau ein Paar $(x,y)$ mit $y+1\geqslant x\geqslant y$ und $x+y=i$ (je nachdem, ob $x$ gerade oder ungerade ist, gilt $x=y$ oder $x=y+1$).
+	
+	Für suchen also äquivalent die Anzahl aller Wege der Länge $3n$ von $(0,0)$ nach $(2n,n)$, die zu keinem Zeitpunkt \enquote{oberhalb der Diagonalen} verlaufen, wobei die Diagonale diesmal von $(0,0)$ nach $(2n,n)$ verläuft. Dazu benutzen wir eine zweidimensionale Rekursion wie im dritten Beweis für die expliziten Darstellung der Catalan-Zahlen. Sei allgemein $w(i,j)$ die Anzahl solcher Wege von $(0,0)$ nach $(i,j)$. Wiederum gilt die Rekursion aus dem Pascalschen Dreieck,
+	\begin{equation*}
+		w(i,j)=w(i-1,j)+w(i,j-1)\,,
+	\end{equation*}
+	also liegt es nahe, dass sich $w(i,j)$ als gewichtete Summe $\sum_{s,t\in\mathbb Z}\lambda_{s,t}\binom{i+j+s}{i+t}$ schreiben lässt. Um die richtigen Gewichte $\lambda_{s,t}$ zu raten, betrachten wir wieder die \enquote{Randfälle}. Wenn $i=2j-1$, dann gibt es keinen solchen Weg, denn $(2j-1,j)$ liegt oberhalb der Diagonale. Folglich $w(2j-1,j)=0$. Wenn $j=0$, dann gibt es genau einen solchen Weg. Folglich $w(i,0)=1$.
+	
+	Nach etwas Herumprobieren fällt uns auf, dass $\binom{3j-1}{j}=2\binom{3j-1}{j-1}$ gilt. Davon inspiriert raten wir
+	\begin{equation*}
+		w(i,j)=\binom{i+j}{j}-2\binom{i+j}{j-1}\,.
+	\end{equation*}
+	Im Fall $i=2j-1$ gilt dann $w(2j-1,j)=0$, wie gewünscht. Für $j=0$ gilt ebenfalls wie gewünscht $w(i,j)=\binom{i}{0}-2\binom{i}{-1}=1$, denn der Binomialkoeffizient $\binom{i}{-1}$ verschwindet per Definition. Die obige Formel liefert somit am \enquote{Rand} die richtigen Werte. Weil sie außerdem die richtige Rekursion erfüllt, muss $w(i,j)$ auch für allgemeine $(i,j)$ mit $j\geqslant 0$ und $i\geqslant 2j$ den richtigen Wert liefern. Im Fall $(i,j)=(2n,n)$ erhalten wir
+	\begin{equation*}
+		w(2n,n)=\binom{3n}{n}-2\binom{3n}{n-1}=\frac{1}{2n+1}\binom{3n}{n}\,.
+	\end{equation*}
+	Das war gesucht.
+\end{proof}

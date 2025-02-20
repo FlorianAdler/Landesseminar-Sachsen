@@ -1,10 +1,10 @@
 \section{Die Jensensche Ungleichung für nicht-konvexe Funktionen}\label{kapitel:LCF}
 Wenn euch in der Oberstufe eine Ungleichung der Form $f(x_1)+f(x_2)+\dotsb+f(x_n)\geqslant c$ begegnet, dann ist $f$ fast nie konvex, sodass ihr die Jensensche Ungleichung nicht anwenden könnt -- das wäre ja auch zu einfach. In diesem Kapitel lernt ihr einige Tricks, mit denen ihr bei solchen Aufgaben trotzdem mit der Jensenschen Ungleichung argumentieren könnt.
 
-Am Ende des Kapitels findet ihr Tipps und am Ende des Heftes findet ihr Musterlösungen zu den Beispielaufgaben.
+Über den Text verteilt sind einige Beispielaufgaben, an denen ihr diese neuen Methoden üben könnt. Am Ende des Kapitels findet ihr Tipps und am Ende des Heftes findet ihr Musterlösungen zu den Beispielaufgaben.
 
 \subsection*{Die Karamata-Schiebemethode}
-Angenommen, wir haben es mit einer Ungleichung der Form $f(x_1)+f(x_2)+\dotsb+f(x_n)\geqslant c$ mit der Nebenbedingung $x_1+x_2+\dotsb+x_n=b$ zu tun, wobei $f$ nicht konvex ist. Stattdessen nehmen wir an, dass $f$ konvex für $x\geqslant a$ und konkav für $x\leqslant a$ ist. Analoge Argumente würden in dem Fall funktionieren, dass $f$ konvex für $x\leqslant a$ und konkav für $x\geqslant a$ ist. Wenn ihr dieses Unterkapitel fertig gelesen habt, wird euch auch klar sein, wie ihr die Argumente auf noch allgemeinere Situationen ausdehnen könnt.
+Angenommen, wir haben es mit einer Ungleichung der Form $f(x_1)+f(x_2)+\dotsb+f(x_n)\geqslant c$ mit der Nebenbedingung $x_1+x_2+\dotsb+x_n=b$ zu tun, wobei $f$ nicht konvex ist. Stattdessen nehmen wir an, dass $f$ konvex für $x\geqslant a$ und konkav für $x\leqslant a$ ist. Analoge Argumente würden in dem Fall funktionieren, dass $f$ konvex für $x\leqslant a$ und konkav für $x\geqslant a$ ist. Wenn ihr dieses Unterkapitel fertig gelesen habt, wird euch auch klar sein, wie ihr die Argumente auch auf noch allgemeinere Situationen ausdehnen könnt.
 
 \begin{wrapfigure}{r}{0.43\textwidth}
 	\centering\vspace{-0.6cm}
@@ -29,13 +29,17 @@ Angenommen, wir haben es mit einer Ungleichung der Form $f(x_1)+f(x_2)+\dotsb+f(
 		\node[below,align=center] at (4.518,-0.5) {\glqq Anziehung\grqq\\für $x\geqslant a$};
 	\end{tikzpicture}\vspace{-0.5cm}
 \end{wrapfigure}
-Wir beginnen mit einer beliebigen Wahl der Variablen $x_1,x_2,\dotsc,x_n$ mit $x_1+x_2+\dotsb+x_n=b$. Dann verschieben wir die Variablen schrittweise, sodass $f(x_1)+f(x_2)+\dotsb+f(x_n)$ in jedem Verschiebungsschritt kleiner wird. Zuerst können wir alle Variablen $x_i\geqslant a$ durch ihren Mittelwert ersetzen, denn für $x\geqslant a$ ist $f$ konvex und die Jensensche Ungleichung gilt. Angenommen, es gibt mindestens zwei Variablen $x_j,x_k<a$. Dann schieben wir $x_j$ und $x_k$ auseinander. Das bedeutet: Wenn $x_j\leqslant x_k$ ist, dann ersetzen wir $x_j$ durch $x_j-\delta$ und $x_k$ durch $x_k+\delta$ für passendes $\delta>0$. Aus der Ungleichung von Karamata folgt
+Wir wollen die Summe $f(x_1)+f(x_2)+\dotsb+f(x_n)$ minimieren, um zu zeigen, dass sie stets $\geqslant c$ ist. Dazu beginnen wir mit einer beliebigen Wahl der Variablen $x_1,x_2,\dotsc,x_n$ mit $x_1+x_2+\dotsb+x_n=b$. Dann verschieben wir die Variablen schrittweise, sodass $f(x_1)+f(x_2)+\dotsb+f(x_n)$ in jedem Verschiebungsschritt kleiner wird. Dabei gilt:
+\begin{itemize}\itshape
+	\item[$(*)$] Die $x_i\geqslant a$ werden \enquote{zusammengeschoben}, die $x_i<a$ werden \enquote{auseinandergeschoben}.
+\end{itemize}
+Das bedeutet konkret: Zuerst können wir alle Variablen $x_i\geqslant a$ durch ihren Mittelwert ersetzen (\enquote{zusammenschieben}), denn für $x\geqslant a$ ist $f$ konvex und die Jensensche Ungleichung gilt. Angenommen, es gibt mindestens zwei Variablen $x_j,x_k<a$. Dann können wir $x_j$ und $x_k$ durch $x_j-\delta$ und $x_k+\delta$ für passendes $\delta>0$ ersetzen (\enquote{auseinanderschieben}). Aus der Ungleichung von Karamata folgt nämlich
 \begin{equation*}
-	f(x_j-\delta)+f(x_k+\delta)\geqslant f(x_j)+f(x_k)\,,
+	f(x_j-\delta)+f(x_k+\delta)\leqslant f(x_j)+f(x_k)\,,
 \end{equation*}
-denn $(x_k+\delta,x_j-\delta)$ majorisiert offensichtlich $(x_k,x_j)$. Wir können $x_j$ und $x_k$ so lange auseinanderschieben, bis eine von beiden Variablen an einer Grenze \glqq anstößt\grqq. Denn sobald $x_k=a$ gilt, also sobald $x_k$ den Konkavitätsbereich verlassen hat, können wir Karamata nicht mehr anwenden. Andererseits kann es passieren, dass unsere Funktion $f$ nur für $x\geqslant a_0$ definiert ist, und sobald $x_j=a_0$ erreicht ist, können wir nicht mehr weiter schieben. Wenn $x_k=a$ erreicht ist, liegt $x_k$ im Konvexitätsbereich. Wir können also wieder Jensen anwenden, um $x_k$ sowie alle anderen Variablen im Konvexitätsbereich durch ihren Mittelwert zu ersetzen.
+denn $(x_k+\delta,x_j-\delta)$ majorisiert offensichtlich $(x_k,x_j)$. Wir können $x_j$ und $x_k$ so lange auseinanderschieben, bis eine von beiden Variablen an einer Grenze \glqq anstößt\grqq. Denn sobald $x_k=a$ gilt, also sobald $x_k$ den Konkavitätsbereich verlassen hat, können wir Karamata nicht mehr anwenden. Andererseits kann es passieren, dass unsere Funktion $f$ nur für $x\geqslant a_0$ definiert ist, und sobald $x_j=a_0$ erreicht ist, können wir nicht mehr weiter schieben. Wenn $x_k=a$ erreicht ist, liegt $x_k$ im Konvexitätsbereich. Wir können also wieder Jensen anwenden, um $x_k$ sowie alle anderen Variablen im Konvexitätsbereich durch ihren Mittelwert zu ersetzen (\enquote{zusammenzuschieben}).
 
-Wir wiederholen dieses Verfahren so lange, bis es nicht mehr geht. Dann sind wir in einem Spezialfall von der folgenden Form angekommen:
+Wir schieben die Variablen so lange zusammen und auseinander, bis es nicht mehr geht. Dann sind wir in einem Spezialfall von der folgenden Form angekommen:
 \begin{itemize}
 	\item Einige Variablen sind gleich $a_0$, sagen wir, $x_1=x_2=\dotsb=x_i=a_0$ (möglicherweise ist $i=0$, zum Beispiel dann, wenn $a_0$ gar nicht existiert).
 	\item Im Konkavitätsbereich liegt höchstens eine Variable $a_0<x_{i+1}<a$.
@@ -43,7 +47,9 @@ Wir wiederholen dieses Verfahren so lange, bis es nicht mehr geht. Dann sind wir
 \end{itemize}
 Falls im Konkavitätsbereich keine von $a_0$ verschiedene Variable liegt, folgt aus der Nebenbedingung $x_1+x_2+\dotsb+x_n=b$, dass $x=(b-ia_0)/(n-i)$ gilt, und wir können die Ungleichung $f(x_1)+f(x_2)+\dotsb+f(x_n)\geqslant c$ durch einfaches Einsetzen überprüfen. Falls ein $x_{i+1}$ mit $a_0<x_{i+1}<a$ existiert, können wir aus der Nebenbedingung $x_{i+1}=b-(n-i-1)x-ia_0$ folgern. Damit haben wir die Ungleichung also immerhin auf eine Variable $x$ reduziert.
 
-Und Ungleichungen in einer Variablen lassen sich meistens durch \emph{brute force} lösen: Ihr multipliziert alles aus und erhaltet (meistens) ein Polynom in einer Variablen $x$. Dann versucht ihr, die Gleichheitsfälle der Ungleichung zu erraten. Die Gleichheitsfälle müssen offensichtlich Nullstellen des Polynoms sein. Tatsächlich müssen sie sogar Doppelnullstellen sein, ansonsten würde das Polynom an dieser Stelle sein Vorzeichen ändern und die Ungleichung wäre falsch. Ihr könnt also die Gleichheitsfälle quadratisch ausklammern. Für den übrigbleibenden Faktor gibt es üblicherweise ein einfaches Argument, warum er stets positiv sein muss.
+Und Ungleichungen in einer Variablen lassen sich meistens durch \emph{brute force} lösen: Ihr multipliziert alles aus und erhaltet (meistens) ein Polynom in einer Variablen $x$. Dann versucht ihr, die Gleichheitsfälle der Ungleichung zu erraten. Die Gleichheitsfälle müssen offensichtlich Nullstellen des Polynoms sein. Tatsächlich müssen sie sogar Doppelnullstellen sein, ansonsten würde das Polynom an dieser Stelle sein Vorzeichen ändern und die Ungleichung wäre falsch. Ihr könnt also die Gleichheitsfälle quadratisch ausklammern. Für den übrigbleibenden Faktor gibt es üblicherweise ein einfaches Argument, warum er stets positiv sein muss. Ein Beispiel für so ein Argument seht ihr in Kapitel~\ref{kapitel:uvw}: \emph{Die $uvw$-Methode}.
+
+An den folgenden Beispielaufgaben könnt ihr die Karamata-Schiebemethode trainieren.
 
 \begin{aufgabe*}\label{aufgabe:KaramataSchieben}
 	Gegeben seien positive reelle Zahlen $a,b,c,d,e>0$ mit $a+b+c+d+e=5$. Beweise, dass
@@ -59,7 +65,7 @@ Und Ungleichungen in einer Variablen lassen sich meistens durch \emph{brute forc
 \end{aufgabe*}
 
 \subsection*{Die Jensen-Tangenten-Methode}
-Wenn $f$ eine differenzierbare konvexe Funktion ist, dann verläuft jede Tangente an den Funktionsgraphen von $f$ stets unterhalb des Graphen. 
+Wenn $f$ eine differenzierbare konvexe Funktion ist, dann verläuft jede Tangente an den Funktionsgraphen von $f$ stets unterhalb des Graphen. Mit dieser einfachen Beobachtung lässt sich bereits die Jensensche Ungleichung beweisen.
 
 \begin{wrapfigure}{r}{0.21\textwidth}
 	\centering\vspace{-0.5cm}
@@ -73,17 +79,19 @@ Wenn $f$ eine differenzierbare konvexe Funktion ist, dann verläuft jede Tangent
 	\end{tikzpicture}
 	Tangente an eine konvexe Funktion\vspace{-2cm}
 \end{wrapfigure}
-Betrachte nun $x_1,x_2,\dotsc,x_n$ mit Mittelwert $\overline{x}\coloneqq\frac{x_1+x_2+\dotsb+x_n}{n}$. Wenn die Tangente an den Graphen von $f$ in $\overline{x}$ die Gleichung $y=ax+b$ hat, dann ist also $f(x)\geqslant ax+b$ für alle $x$, mit Gleichheit für $x=\overline{x}$. Nun folgt
+Betrachte nämlich $x_1,x_2,\dotsc,x_n$ mit Mittelwert $\overline{x}\coloneqq\frac{x_1+x_2+\dotsb+x_n}{n}$. Wenn die Tangente an den Graphen von $f$ in $\overline{x}$ die Gleichung $y=ax+b$ hat, dann ist also $f(x)\geqslant ax+b$ für alle $x$, mit Gleichheit für $x=\overline{x}$. Nun folgt
 \begin{align*}
 	\frac{f(x_1)+f(x_2)+\dotsb+f(x_n)}{n}&\geqslant \frac{(ax_1+b)+(ax_2+b)+\dotsb+(ax_n+b)}{n}\\
 	&=a\parens*{\frac{x_1+x_2+\dotsb+x_n}{n}}+b\\
-	&=f\parens*{\frac{x_1+x_2+\dotsb+x_n}{n}}
+	&=f\parens*{\frac{x_1+x_2+\dotsb+x_n}{n}}\,,
 \end{align*}
-und wir haben die Jensensche Ungleichung bewiesen. Auf die gleiche Weise lässt sich die gewichtete Jensen-Ungleichung beweisen. Insbesondere folgt:
+wie gewünscht. Auf die gleiche Weise lässt sich die gewichtete Jensen-Ungleichung beweisen. Insbesondere folgt:
 \begin{itemize}\itshape
-	\item[$(*)$] Um die Jensensche Ungleichung für eine differenzierbare Funktion zu verwenden, benötigen wir nur, dass die Tangente an den Funktionsgraphen im Mittelwert der Variablen stets unterhalb des Funktionsgraphen verläuft.
+	\item[$(*)$] Um die Jensensche Ungleichung für eine differenzierbare Funktion zu verwenden, benötigen wir nicht Konvexität, sondern nur, dass die Tangente an den Funktionsgraphen im Mittelwert der Variablen stets unterhalb des Funktionsgraphen verläuft.
 \end{itemize}
 Diese Bedingung ist häufig nicht nur im Konvexitätsbereich von $f$ erfüllt, sondern noch ein gutes Stück darüber hinaus (im besten Fall überall). Außerhalb dieses Bereiches sind die Werte von $f$ dann hoffentlich so klein, dass die Ungleichung, die ihr zu beweisen versucht, aus trivialen Gründen gilt.
+
+Versucht nun, die Jensen-Tangentenmethode auf die folgenden Beispielaufgaben anzuwenden.
 \begin{aufgabe*}\label{aufgabe:51}
 	Gegeben seien nichtnegative reelle Zahlen $x,y,z\geqslant 0$ mit $x+y+z=9$. Beweise, dass
 	\begin{equation*}
@@ -112,7 +120,7 @@ Im vorherigen Unterkapitel haben wir gesehen, dass es sehr praktisch sein kann, 
 	\end{equation*}
 \end{aufgabe*}
 \begin{proof}
-	Wir versuchen, alle quadratischen und kubischen Terme durch lineare Terme zu ersetzen. Dazu substituieren wir zuerst $x=a^2$, $y=b^2$, $z=c^2$, und $w=d^2$. Dann gilt immer noch $xyzw=1$ und wir sind die quadratischen Terme im Zähler losgeworden. Dafür stehen im Nenner jetzt Terme der Form $x^{3/2}+1$. Um diese Terme zu linearisieren, benutzen wir gewichtetes AM-GM; dabei müssen wir aufpassen, dass bei unserer Abschätzung im Fall $x=1$ Gleichheit eintritt, denn in der ursprünglichen Ungleichung gilt ja auch Gleichheit für $a=b=c=d=1$. Nach etwas Rumprobieren kommen wir auf die Abschätzung
+	Wir versuchen, alle quadratischen und kubischen Terme durch lineare Terme zu ersetzen. Dazu substituieren wir zuerst $x=a^2$, $y=b^2$, $z=c^2$, und $w=d^2$. Dann gilt immer noch $xyzw=1$ und wir sind die quadratischen Terme im Zähler losgeworden. Dafür stehen im Nenner jetzt Terme der Form $x^{3/2}+1$. Um diese Terme zu linearisieren, benutzen wir gewichtetes AM-GM. Dabei müssen wir aufpassen, dass bei unserer Abschätzung im Fall $x=1$ Gleichheit eintritt, denn in der ursprünglichen Ungleichung gilt ja auch Gleichheit für $a=b=c=d=1$. Nach etwas Rumprobieren kommen wir auf die folgende Abschätzung:
 	\begin{equation*}
 		x^{3/2}+1=\frac{x^{3/2}}2+\frac{x^{3/2}}2+\frac12+\frac12\geqslant 3\sqrt[3]{\frac{x^{3/2}}2\cdot \frac{x^{3/2}}2\cdot\frac12}+\frac12=\frac{3x+1}{2}\,.
 	\end{equation*}
@@ -128,8 +136,10 @@ Im vorherigen Unterkapitel haben wir gesehen, dass es sehr praktisch sein kann, 
 	\begin{equation*}
 		27\sum xyz+18\sum xy+9\sum x+4\geqslant 81xyzw+27\sum xyz+9\sum xy+3\sum x+1
 	\end{equation*}
-	äquivalent ist. Durch $xyzw=1$ und Vereinfachen erhalten wir $9\sum xy+6\sum x\geqslant 78$. Aus AM-GM folgt $9\sum xy\geqslant 9\cdot 6\sqrt[6]{(xyzw)^3}=54$ sowie $6\sum x\geqslant 6\cdot 4\sqrt[4]{xyzw}=24$ und die gewünschte Ungleichung folgt sofort.
+	äquivalent ist. Durch $xyzw=1$ und Vereinfachen erhalten wir die äquivalente Ungleichung $9\sum xy+6\sum x\geqslant 78$. Diese Ungleichung ist nun eine einfache Anwendung von AM-GM: Wir sehen $9\sum xy\geqslant 9\cdot 6\sqrt[6]{(xyzw)^3}=54$ sowie $6\sum x\geqslant 6\cdot 4\sqrt[4]{xyzw}=24$ und sind fertig.
 \end{proof}
+
+Die folgenden Beispielaufgaben lassen sich ebenfalls durch geeignete Linearisierung lösen.
 
 \begin{aufgabe*}\label{aufgabe:MatBoj2015}
 	Gegeben seien positive reelle Zahlen $a,b,c>0$ mit $abc=1$. Beweise die Ungleichung

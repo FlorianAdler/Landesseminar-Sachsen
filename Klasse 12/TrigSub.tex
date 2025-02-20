@@ -54,11 +54,11 @@ Auch dieses Additionstheorem lässt sich gelegentlich in Aufgaben entdecken, kan
 \end{satzmitnamen}
 
 \begin{proof}
-	Wir zeigen zuerst~\ref{behauptung:DreieckTangensIdentitaet}. Wähle Winkel $\alpha$, $\beta$ und $\gamma$ mit $x=\tan\alpha$, $y=\tan\beta$ und $z=\tan\gamma$. Indem wir ganzzahlige Vielfache von $180^\circ$ addieren, können wir $0^\circ<\alpha+\beta+\gamma< 360^\circ$ annehmen. Falls $x,y,z\geqslant 0$,  können wir direkt $0^\circ\leqslant \alpha,\beta,\gamma<90^\circ$ annehmen und die Bedingung $0^\circ<\alpha+\beta+\gamma< 360^\circ$ ist automatisch erfüllt. Nun gilt
+	Wir zeigen zuerst Behauptung~\ref{behauptung:DreieckTangensIdentitaet}. Wähle Winkel $\alpha$, $\beta$ und $\gamma$ mit $x=\tan\alpha$, $y=\tan\beta$ und $z=\tan\gamma$. Indem wir ganzzahlige Vielfache von $180^\circ$ addieren, können wir $0^\circ<\alpha+\beta+\gamma< 360^\circ$ annehmen. Falls $x,y,z\geqslant 0$,  können wir direkt $0^\circ\leqslant \alpha,\beta,\gamma<90^\circ$ annehmen und die Bedingung $0^\circ<\alpha+\beta+\gamma< 360^\circ$ ist automatisch erfüllt. Nun gilt
 	\begin{equation*}
 		\tan(\alpha+\beta+\gamma)=\frac{\tan\alpha+\tan\beta+\tan\gamma-\tan\alpha\tan\beta\tan\gamma}{1-\parens*{\tan\alpha\tan\beta+\tan\beta\tan\gamma+\tan\gamma\tan\alpha}}\,.
 	\end{equation*}
-	Der Zähler des Bruches auf der rechten Seite ist genau $x+y+z-xyz$. Folglich gilt $x+y+z=xyz$ genau dann, wenn $\tan(\alpha+\beta+\gamma)=0$. Wegen $0^\circ<\alpha+\beta+\gamma< 360^\circ$ ist das genau für $\alpha+\beta+\gamma=180^\circ$ möglich.
+	Der Zähler des Bruches auf der rechten Seite ist genau $x+y+z-xyz$. Folglich gilt die Gleichung $x+y+z=xyz$ genau dann, wenn $\tan(\alpha+\beta+\gamma)=0$. Wegen $0^\circ<\alpha+\beta+\gamma< 360^\circ$ ist das genau für $\alpha+\beta+\gamma=180^\circ$ möglich.
 	
 	Der Beweis für~\ref{behauptung:DreieckCotangensIdentitaet} ist ähnlich. Analog zu~\ref{behauptung:DreieckTangensIdentitaet} wählen wir Winkel $\alpha$, $\beta$ und $\gamma$ mit $x=\tan\alpha$, $y=\tan\beta$, $z=\tan\gamma$ und außerdem $0^\circ<\alpha+\beta+\gamma< 180^\circ$. Im Fall $x,y,z\geqslant 0$ nehmen wir außerdem $0^\circ <\alpha,\beta,\gamma\leqslant 90^\circ$ an. Nun gilt
 	\begin{multline*}
@@ -91,9 +91,9 @@ Häufig ist eine Variante dieser Substitutionen nützlich. Wenn $\alpha_0$, $\be
 \begin{enumerate}[label={$(\alph*)$},ref={$(\alph*)$}]\itshape
 	\item Wenn $x+y+z=xyz$, dann können wir auch $x=\cot\parens[\big]{\frac{\alpha}2}$, $y=\cot\parens[\big]{\frac{\beta}2}$ und $z=\cot\parens[\big]{\frac{\gamma}2}$ mit $\alpha+\beta+\gamma=180^\circ$ substituieren. Falls $x,y,z\geqslant 0$, dann können $\alpha$, $\beta$ und $\gamma$ als die Innenwinkel eines Dreiecks gewählt werden \embrace{dieses Dreiecks muss aber nicht spitz- oder rechtwinklig sein}.
 	\item Wenn $xy+yz+zx=1$, dann können wir auch $x=\tan\parens[\big]{\frac{\alpha}2}$, $y=\tan\parens[\big]{\frac{\beta}2}$ und $z=\tan\parens[\big]{\frac{\gamma}2}$ mit $\alpha+\beta+\gamma=180^\circ$ substituieren. Falls $x,y,z\geqslant 0$, dann können $\alpha$, $\beta$ und $\gamma$ als die Innenwinkel eines Dreiecks gewählt werden \embrace{dieses Dreiecks muss aber nicht spitz- oder rechtwinklig sein}.
-	\item Wenn $x$, $y$ und $z$ nichtnegative reelle Zahlen mit $x^2+y^2+z^2+2xyz=1$ sind, dann können wir auch $x=\sin\parens[\big]{\frac{\alpha}2}$, $y=\sin\parens[\big]{\frac{\beta}2}$ und $z=\sin\parens[\big]{\frac{\gamma}2}$ substituieren, wobei $\alpha$, $\beta$ und $\gamma$ die Innenwinkel eines Dreiecks sind.
+	\item Wenn $x$, $y$ und $z$ nichtnegative reelle Zahlen mit $x^2+y^2+z^2+2xyz=1$ sind, dann können wir auch $x=\sin\parens[\big]{\frac{\alpha}2}$, $y=\sin\parens[\big]{\frac{\beta}2}$ und $z=\sin\parens[\big]{\frac{\gamma}2}$ substituieren, wobei $\alpha$, $\beta$ und $\gamma$ die Innenwinkel eines Dreiecks sind \embrace{dieses Dreiecks muss aber nicht spitz- oder rechtwinklig sein}.
 \end{enumerate}
-Damit könnt ihr nun die folgenden beiden Aufgaben lösen, die ohne dieses Wissen sehr schwierig wären. Aufgabe~\ref{aufgabe:UngleichungInvertieren2} ist euch bereits im Kapitel \emph{Die $uvw$-Methode} im Heft für Klasse~11 begegnet. Hier seht ihr nun, wie sich diese Aufgabe wesentlich eleganter lösen lässt.
+Damit könnt ihr nun die folgenden beiden Aufgaben lösen, die ohne dieses Wissen sehr schwierig wären.%Aufgabe~\ref{aufgabe:UngleichungInvertieren2} ist euch bereits im Kapitel \emph{Die $uvw$-Methode} im Heft für Klasse~11 begegnet. Die Musterlösung zu dieser Aufgabe war ein ziemlichen Holzhammer-Beweis. Hier seht ihr nun, wie sie sich wesentlich eleganter lösen lässt.
 \begin{aufgabe*}\label{aufgabe:521236}
 	Finde alle Tripel reeller Zahlen $(x,y,z)$ mit $xy+yz+zx=1$ und
 	\begin{equation*}

@@ -1,6 +1,6 @@
 \section{Ungleichungen und die Schiebemethode}\label{kapitel:Schiebemethode}
 
-Die Schiebemethode ist eine sehr naive Methode, aber erstaunlich effektive Methode, an Ungleichungen heranzugehen: Wir wählen uns zuerst zwei der Variablen aus, sagen wir,~$a$ und~$b$. Alle anderen Variablen werden fixiert. Wir verschieben nun~$a$ und~$b$ gegeneinander (und zwar auf solch eine Weise, dass die Nebenbedingung, wenn sie existiert, erfüllt bleibt). Wenn wir Glück haben, können wir sehr einfach ablesen, dass das Minimum oder Maximum nur in speziellen Fällen angenommen werden kann, zum Beispiel nur für $a=0$ oder $b=0$ oder $a=b$. Dann müssen wir die Ungleichung nur in diesen Spezialfällen beweisen, was meistens deutlich einfacher ist.
+Die Schiebemethode ist eine sehr naive, aber erstaunlich effektive Methode, an Ungleichungen heranzugehen: Wir wählen uns zuerst zwei der Variablen aus, sagen wir,~$a$ und~$b$. Alle anderen Variablen werden fixiert. Wir verschieben nun~$a$ und~$b$ gegeneinander (und zwar auf solch eine Weise, dass die Nebenbedingung, wenn sie existiert, erfüllt bleibt). Wenn wir Glück haben, können wir sehr einfach ablesen, dass das Minimum oder Maximum nur in speziellen Fällen angenommen werden kann, zum Beispiel nur für $a=0$ oder $b=0$ oder $a=b$. Dann müssen wir die Ungleichung nur in diesen Spezialfällen beweisen, was meistens deutlich einfacher ist.
 
 Zum Beispiel kommt es häufig vor, dass wir eine Ungleichung in vier Variablen $a,b,c,d\geqslant 0$ mit der Nebenbedingung $a+b+c+d=1$ haben. Wir fixieren $c$ und $d$. Damit die Nebenbedingung erhalten bleibt, fixieren wir außerdem $s\coloneqq a+b$. Nun verschieben wir $a$ und $b$ gegeneinander. Weil wir $s$ fixieren, läuft das darauf hinaus, $b=s-a$ einzusetzen und $a$ zu variieren. Wenn wir Glück haben, ist der erhaltene Ausdruck linear in $a$. Lineare Funktionen nehmen in Minimum und Maximum stets am Rand ihres Definitionsbereiches an. Wegen $a,b\geqslant 0$ und $a+b=s$ ist der Definitionsbereich für $a$ genau das Intervall $[0,s]$. Wir müssen also nur die beiden Randfälle $a=0$ und $a=s$ (was auf $b=0$ führt) betrachten.
 
@@ -52,7 +52,7 @@ Nehmt euch einen Moment, um diese Lösung zu verdauen: Wir haben, ohne uns ernst
 	\end{equation*}
 	erhalten. Also gelten die gewünschten Ungleichungen in diesem Fall.
 	
-	\emph{Fall~2: $x=y$.} In diesem Fall folgt $xy+yz+zx-2xyz=x^2+2xz-2x^2z$. Wegen $x\leqslant 1$ gilt $2xz\geqslant 2x^2z$, also ist $x^2+2xz-2x^2z\geqslant 0$. Andererseits folgt $z=1-(x+y)=1-2x$ aus der Nebenbedingung. Indem wir das einsetzen, erhalten wir $x^2+2xz-2x^2z=4x^3-5x^2+2x$. Nun gilt
+	\emph{Fall~2: $x=y$.} In diesem Fall folgt $xy+yz+zx-2xyz=x^2+2xz-2x^2z$. Wegen $x\leqslant 1$ gilt $2xz\geqslant 2x^2z$, also ist $x^2+2xz-2x^2z\geqslant 0$. Damit ist die erste Hälfte der Ungleichung gezeigt. Für die zweite Hälfte benutzen wir $z=1-(x+y)=1-2x$ laut Nebenbedingung. Indem wir das einsetzen, erhalten wir $x^2+2xz-2x^2z=4x^3-5x^2+2x$. Nun gilt
 	\begin{equation*}
 		4x^3-5x^2+2x-\frac{7}{27}=\parens*{x-\frac13}^2\parens*{4x-\frac{7}{3}}\leqslant 0\,,
 	\end{equation*}

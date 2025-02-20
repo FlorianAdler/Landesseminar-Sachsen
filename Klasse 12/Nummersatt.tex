@@ -27,12 +27,12 @@ Der Lösung, die wir präsentieren werden, liegt eine der wichtigsten Methoden i
 \begin{enumerate}\itshape
 	\item[$(*)$] Wenn es sich als schwierig erweist, ein Objekt mit einer gewünschten Eigenschaft~$E$ direkt zu konstruieren, dann versuche stattdessen zu zeigen, dass ein \enquote{zufällig ausgewähltes Objekt} die Eigenschaft~$E$ \enquote{im Erwartungswert} erfüllt.
 \end{enumerate}
-Natürlich kann das nicht immer klappen. Die probabilistische Methode lohnt sich nur dann, wenn wir ohnehin vermuten, dass die Eigenschaft~$E$ in Wirklichkeit gar nicht so selten vorkommt. Aber wenn die Methode funktioniert, führt sie oftmals zu außerordentlich eleganten Lösungen. Auch in der modernen mathematischen Forschung ist die probabilistische Methode ein fester Bestandteil und es gibt viele phantastische Resultate, die sich nur auf diese Weise beweisen lassen.
+Natürlich kann das nicht immer klappen. Die probabilistische Methode lohnt sich nur dann, wenn wir ohnehin vermuten, dass die Eigenschaft~$E$ in Wirklichkeit gar nicht so selten vorkommt. Aber wenn die Methode funktioniert, führt sie oftmals zu außerordentlich eleganten Lösungen. Auch in der modernen mathematischen Forschung findet die probabilistische Methode vielfach Anwendung und es gibt viele phantastische Resultate, die sich nur auf diese Weise beweisen lassen.
 
 Wir werden nun die probabilistische Methode anhand von Aufgabe~\ref{aufgabe:RaupeNummersatt} demonstrieren. Die Lösung ist so formuliert, dass nachvollziehbar ist, wie wir darauf gekommen sind. In der Olympiade würdet ihr diese Überlegungen natürlich weglassen und nur die relevanten Begründungen aufschreiben.
 
 \begin{proof}[Lösung zu Aufgabe~\ref{aufgabe:RaupeNummersatt}]
-	Wir beginnen mit einigen Bezeichnungen. Wenn $W$ ein Weg ist, dann identifizieren wir $W$ mit der Menge seiner Felder, sodass $f\in W$ bedeutet, $f$ ist ein Feld von $W$. Wenn~$f$ ein Feld ist, dann bezeichnen wir mit $n(f)$ die natürliche Zahl, die auf~$f$ steht. Unser Ziel ist, eine geeignete Menge $\mathcal W$ von nach draußen führenden Wegen sowie nichtnegative Gewichte $p(W)\geqslant 0$ für $W\in\mathcal W$ zu finden, sodass $\sum_{W\in \mathcal W}p(W)=1$ gilt und außerdem die folgende Ungleichung erfüllt ist:
+	Wir beginnen mit einigen Bezeichnungen. Wenn $W$ ein Weg ist, dann identifizieren wir $W$ mit der Menge seiner Felder, sodass $f\in W$ bedeutet, dass $f$ ein Feld von $W$ ist. Wenn~$f$ ein Feld ist, dann bezeichnen wir mit $n(f)$ die natürliche Zahl, die auf~$f$ steht. Unser Ziel ist, eine geeignete Menge $\mathcal W$ von nach draußen führenden Wegen sowie nichtnegative Gewichte $p(W)\geqslant 0$ für $W\in\mathcal W$ zu finden, sodass $\sum_{W\in \mathcal W}p(W)=1$ gilt und außerdem die folgende Ungleichung erfüllt ist:
 	\begin{equation*}
 		\sum_{W\in \mathcal{W}} p(W)\sum_{f\in W} \frac{1}{n(f)}<1\,.
 	\end{equation*}

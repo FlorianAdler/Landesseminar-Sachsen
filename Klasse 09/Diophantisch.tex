@@ -6,11 +6,11 @@ Wir werden nun die wichtigsten dieser Strategien zusammenfassen
 
 \textbf{1.~Errate die Lösungen.} Olympiadegleichungen haben in den allermeisten Fällen keine absurden Lösungen. Wenn ihr alle \enquote{kleinen} Fälle durchprobiert habt, dann habt ihr meistens auch alle Lösungen gefunden.
 
-\enquote{Kleine} Fälle auszuprobieren sollte immer eines der ersten Dinge sein, die ihr versucht. Einerseits bekommt ihr dadurch ein Gefühl für die Aufgabe. Andererseits zielen viele der Methoden, die wir weiter unten besprechen werden, darauf ab, zu zeigen, dass die Gleichung keine (weiteren) Lösungen hat. Das kann natürlich nur klappen, wenn ihr die Lösungen schon kennt. Zum Beispiel kann es vorkommen, dass in einer Diophantischen Gleichung der Term $3^n$ vorkommt. Nachdem ihr die Fälle $n=0$ und $n=1$ durchprobiert habt (und möglicherweise Lösungen gefunden habt), dürft ihr $n\geqslant 2$ annehmen. Ab dann ist $3^n$ durch $9$ teilbar und ihr könnt die Gleichung zum Beispiel modulo~$9$ betrachten.
+\enquote{Kleine} Fälle auszuprobieren sollte immer eines der ersten Dinge sein, die ihr versucht. Einerseits bekommt ihr dadurch ein Gefühl für die Aufgabe. Andererseits zielen viele der Methoden, die wir weiter unten besprechen werden, darauf ab, zu zeigen, dass die Gleichung keine bzw.\ keine weiteren Lösungen hat. Das kann natürlich nur klappen, wenn ihr die Lösungen schon kennt. Zum Beispiel kann es vorkommen, dass in einer Diophantischen Gleichung der Term $3^n$ vorkommt. Nachdem ihr die Fälle $n=0$ und $n=1$ durchprobiert habt (und möglicherweise Lösungen gefunden habt), dürft ihr $n\geqslant 2$ annehmen. Ab dann ist $3^n$ durch $9$ teilbar und ihr könnt die Gleichung zum Beispiel modulo~$9$ betrachten.
 
 Das bringt uns zu unserer nächsten Strategie.
 
-\textbf{2.~Betrachte die Gleichung modulo einer geeigneten Zahl.} Diese Methode ist vor allem dann geeignet, wenn ihr zeigen wollt, dass eine Diophantische Gleichung keine Lösungen hat. Denn dafür reicht es aus, ein~$m$ zu finden, sodass die Gleichung keine Lösungen modulo~$m$ hat. Oft habt ihr nicht ganz so viel Glück, dass die Gleichung keine Lösungen modulo~$m$ hat, aber die Betrachtung modulo~$m$ liefert euch trotzdem Einschränkungen, die ihr nutzen könnt, um weitere Strategien anzuwenden (zum Beispiel Faktorisierung oder unendlicher Abstieg).
+\textbf{2.~Betrachte die Gleichung modulo einer geeigneten Zahl.} Diese Methode ist vor allem dann geeignet, wenn ihr zeigen wollt, dass eine Diophantische Gleichung keine Lösungen hat. Denn dafür reicht es aus, ein~$m$ zu finden, sodass die Gleichung keine Lösungen modulo~$m$ hat. Oft habt ihr nicht ganz so viel Glück, dass die Gleichung keine Lösungen modulo~$m$ hat, aber die Betrachtung modulo~$m$ liefert euch trotzdem Einschränkungen, die ihr nutzen könnt, um weitere Strategien anzuwenden (zum Beispiel Faktorisierungen oder unendlichen Abstieg).
 
 Wie findet ihr heraus, modulo welcher Zahl sich die Gleichung zu betrachten lohnt? Um eine Chance auf einen Widerspruch modulo~$m$ zu haben, sollten die Terme in eurer Gleichung möglichst wenige Reste modulo~$m$ annehmen. Das kann zum Beispiel passieren, indem
 \begin{itemize}
@@ -21,7 +21,7 @@ In vielen Diophantischen Gleichungen kommen polynomielle Terme wie $x^2,x^3,\dot
 \begin{itemize}\itshape
 	\item[$(*)$] Für eine gegebene positive ganze Zahl~$n$ nimmt der Term $x^n$ möglichst wenige verschiedene Werte modulo~$m$ an, wenn~$n$ ein Teiler von $\varphi(m)$ ist.
 \end{itemize}
-Der Grund hierfür ist der Satz von Euler-Fermat (siehe Kapitel~\ref{kapitel:Teilerfremdheit}: \emph{Teiler und Teilerfremdheit}): Wenn $x$ teilerfremd zu $m$ ist, dann ist $x^{\varphi(m)}\equiv 1\mod m$. Im Fall $n=\varphi(m)$ ist also nur der Rest~$1$ möglich. Wenn~$n$ nur ein Teiler von $\varphi(m)$ ist, können wir zumindest hoffen, dass nicht zu viele Reste möglich sind.\footnote{Umgekehrt ist es aussichtslos, auf wenige Reste zu hoffen, wenn $n$ zu $\varphi(m)$ teilerfremd ist. Nach dem Lemma von Bézout gibt es dann positive ganze Zahlen $a$ und $b$ mit $an=b\varphi(m)+1$. Der Term $x^n$ nimmt, solange $x$ teilerfremd zu $m$ ist, modulo~$m$ mindestens so viele Reste an, wie der Term $(x^a)^n\equiv x^{b\varphi(m)+1}\equiv x\mod m$.} Es kann natürlich auch passieren, dass $x$ nicht teilerfremd zu~$m$ ist, aber auch in diesem Fall können wir darauf hoffen, dass nicht zu viele Reste auftreten können (falls $m$ eine Primzahl ist, kann zum Beispiel nur der Rest~$0$ auftreten).
+Der Grund hierfür ist der Satz von Euler-Fermat (siehe Kapitel~\ref{kapitel:Teilerfremdheit}: \emph{Teiler und Teilerfremdheit}): Wenn $x$ teilerfremd zu $m$ ist, dann ist $x^{\varphi(m)}\equiv 1\mod m$. Im Fall $n=\varphi(m)$ ist also nur der Rest~$1$ möglich. Wenn~$n$ nur ein Teiler von $\varphi(m)$ ist, können wir zumindest hoffen, dass nicht zu viele Reste möglich sind.\footnote{Umgekehrt ist es aussichtslos, auf wenige Reste zu hoffen, wenn $n$ zu $\varphi(m)$ teilerfremd ist. Nach dem Lemma von Bézout gibt es dann positive ganze Zahlen $a$ und $b$ mit $an=b\varphi(m)+1$. Der Term $x^n$ nimmt, solange $x$ teilerfremd zu $m$ ist, mindestens so viele Reste an, wie der Term $(x^a)^n\equiv x^{b\varphi(m)+1}\equiv x\mod m$.} Es kann natürlich auch passieren, dass $x$ nicht teilerfremd zu~$m$ ist, aber auch in diesem Fall können wir darauf hoffen, dass nicht zu viele Reste auftreten können (falls $m$ eine Primzahl ist, kann zum Beispiel nur der Rest~$0$ auftreten).
 
 Als konkrete Anwendungen dieser Faustregel erhalten wir die folgenden gereimten Weisheiten:
 \begin{itemize}\itshape
@@ -53,7 +53,7 @@ für ganze Zahlen $x,y\neq 0$ umformen zu $\the\year(x+y)=xy$. Diese Gleichung w
 \begin{equation*}
 	\the\year^2=xy-\the\year(x+y)+\the\year^2=(x-\the\year)(y-\the\year)
 \end{equation*} 
-Um diese Gleichung zu lösen, müssen wir nun nur noch alle Teiler von $\the\year^2$ durchprobieren. Die möglichen Teiler lassen sich anhand der Primfaktorzerlegung von $\the\year$ ablesen. Für solche Zwecke solltet ihr übrigens die Primfaktorzerlegung des aktuellen Jahres auswendig wissen!
+Um diese Gleichung zu lösen, müssen wir nun nur noch alle Teiler von $\the\year^2$ durchprobieren. Die möglichen Teiler lassen sich anhand der Primfaktorzerlegung von $\the\year$ ablesen. Für solche Zwecke solltet ihr übrigens die Primfaktorzerlegung des aktuellen Jahres auswendig wissen, um sie euch in der Olympiade nicht erst mühselig herleiten zu müssen!
 
 \textbf{4.~Benutze unendlichen Abstieg/das Extremalprinzip.} Um zu zeigen, dass eine Diophantische Gleichung keine oder nur triviale Lösungen hat, könnt ihr indirekt argumentieren: Ihr nehmt an, dass eine Lösung existiert und führt diese Annahme zum Widerspruch. Eine Möglichkeit, einen Widerspruch zu erzeugen, ist aus eurer angenommenen Lösung eine kleinere Lösung zu konstruieren. Indem ihr diesen Schritt wiederholt, könnt ihr eine unendliche Folge von immer kleiner werdenden Lösungen konstruieren, was offensichtlich nicht sein kann (diese Art des Widerspruches ist als \emph{unendlicher Abstieg} bekannt). Alternativ könnt ihr mit dem Extremalprinzip argumentieren und eine in geeignetem Sinne minimale Lösung betrachten. Wenn ihr eine kleinere Lösung konstruieren könnt, habt ihr euren Widerspruch erzeugt.
 
@@ -72,7 +72,7 @@ Besonders dann, wenn in einer Aufgabe Potenzen auftreten, kann es vorkommen, das
 
 Quadratschachtelung ist übrigens eine Anwendung der trivialen Beobachtung, dass für ganze Zahlen aus $m>n$ schon $m\geqslant n+1$ folgt!
 
-Und noch ein letzer Hinweis zu Diophantischen Gleichungen: \emph{Macht eine Probe!!!}
+Ansonsten gilt für Diophantische Gleichungen der gleiche Hinweis wie für Gleichungssysteme: \emph{Macht eine Probe!!!} Eine fehlende Probe ist einer der häufigsten Gründe für ärgerliche und vermeidbare Punktabzüge.
 
 \subsection*{Beispielaufgaben}
 Ihr sollt nun die beschriebenen Methoden selbstständig auf einige Beispielaufgaben anwenden. Am Ende dieses Kapitels (nach den weiteren Übungsaufgaben) findet ihr erst Tipps und dann Lösungen zu den Beispielaufgaben. Aufgabe~\ref{aufgabe:VAIMO2010} ist so schwer, dass es fast unmöglich ist, von selbst auf den Trick zu kommen. Dafür ist die Aufgabe aber sehr instruktiv! Wenn ihr nicht weiterkommt, holt euch einen Tipp oder lest euch die Lösung durch.
@@ -104,7 +104,7 @@ Ihr sollt nun die beschriebenen Methoden selbstständig auf einige Beispielaufga
 	Gibt es positive ganze Zahlen $a$ und $b$, sodass sowohl $a^2+4b$ als auch $b^2+4a$ Quadratzahlen sind?
 \end{aufgabe*}
 \begin{aufgabe*}
-	Gibt es ganze Zahlen $x$ und $y$, sodass $x^3+y^4=19^{19}$.
+	Gibt es ganze Zahlen $x$ und $y$, sodass $x^3+y^4=19^{19}$?
 \end{aufgabe*}
 \begin{aufgabe*}
 	Sei $n$ eine ungerade positive ganze Zahl und seien $x$, $y$ rationale Zahlen, sodass $x^n+2y=y^n+2x$ gilt. Zeige, dass $x=y$ sein muss.
@@ -136,7 +136,7 @@ Ihr sollt nun die beschriebenen Methoden selbstständig auf einige Beispielaufga
 Um die faktorisierte Gleichung zu lösen, betrachte die Faktoren modulo $3$ und modulo $4$ und faktorisiere erneut.
 
 
-\textbf{Tipp zu Aufgabe~\ref{aufgabe:471046}.} Zeige zuerst, dass $x$ rational und dann, dass $x$ ganzzahlig ist.
+\textbf{Tipp zu Aufgabe~\ref{aufgabe:471046}.} Zeige zuerst, dass $x$ rational ist und dann, dass $x$ ganzzahlig ist.
 
 Benutze danach Quadratschachtelung.
 

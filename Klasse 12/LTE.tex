@@ -1,7 +1,7 @@
 \section{Das Lifting-The-Exponent-Lemma}\label{kapitel:LTE}
 Das folgende Lemma kann unglaublich nützlich sein.
 \begin{satzmitnamen}[Lifting-The-Exponent-Lemma (LTE)]
-	Für jede Primzahl~$p$ und jede ganze Zahl $n\neq 0$ notieren wir mit $v_p(n)$ den Exponenten von~$p$ in der Primfaktorzerlegung von~$n$.
+	Für jede Primzahl~$p$ und jede ganze Zahl $n\neq 0$ notieren wir den Exponenten von~$p$ in der Primfaktorzerlegung von~$n$ als $v_p(n)$.
 	\begin{enumerate}
 		\item Gegeben sei ein ungerade Primzahl $p\geqslant 3$ sowie ganze Zahlen $a$, $b$ mit $a\equiv b\not\equiv 0\mod p$. Dann gilt folgende Gleichung für alle positiven ganzen Zahlen $n\geqslant 1$:\label{behauptung:LTEpUngerade}
 		\begin{equation*}
@@ -48,13 +48,13 @@ Wenn~$n$ ungerade ist, erhalten wir hingegen $v_2(a^n-b^n)=v_2(a-b)$ nach dem nu
 	Die Behauptung in~\ref{behauptung:LTEp=2} lässt sich analog zu~\ref{behauptung:LTEpUngerade} auf den Fall $n=2$ reduzieren. Nach Voraussetzung gilt $a\equiv b\mod 4$, aber $a,b\not\equiv 0\mod 2$, sodass $a+b\equiv 2a\equiv 2\mod 4$. Es folgt $v_2(a+b)=1$ und damit $v_2(a^2-b^2)=v_2(a-b)+v_2(a+b)=v_2(a-b)+1$, wie behauptet.
 \end{proof}
 
-\subsection*{Beispielaufgaben}
 Es ist klar, dass sich das LTE-Lemma in vielen Diophantischen Gleichungen und ähnlichen Zahlentheorie-Aufgaben anwenden lässt. Ein häufiger Trick ist folgender: Wenn wir zeigen können, dass $a^n-b^n$ \enquote{wesentlich öfter} als $a-b$ durch~$p$ teilbar ist, dann muss $v_p(n)$ \enquote{groß} sein. Andererseits gilt aber auch $n\geqslant p^{v_p(n)}$, also muss $v_p(n)$ \enquote{wesentlich kleiner} als~$n$ sein. Konkret: $v_p(n)\leqslant \ln(n)/\ln(p)$. Oft genug lassen sich diese Beobachtungen formalisieren und wir erhalten einen Widerspruch.
 
+\subsection*{Beispielaufgaben}
 Ihr sollt nun die folgenden Olympiade-Aufgaben selbstständig mit dem LTE-Lemma lösen. Am Ende dieses Kapitels findet ihr Tipps zu den Aufgaben und am Ende dieses Heftes könnt ihr die Lösungen nachlesen.
 
 \begin{aufgabe*}\label{aufgabe:NieQuadratfrei}
-	Zeige: Für positive ganze Zahlen $a\geqslant 3$ ist $a^{a-1}-1$ nie quadratfrei.
+	Zeige: Für positive ganze Zahlen $a\geqslant 3$ ist $a^{a-1}-1$ nie quadratfrei. (\emph{Eine Zahl heißt quadratfrei, wenn sie durch keine Quadratzahl außer $1$ teilbar ist.})
 \end{aufgabe*}
 \begin{aufgabe*}\label{aufgabe:2p3pan}
 	Gegeben sei die Diophantische Gleichung $2^p+3^p=a^n$, wobei $p$ eine Primzahl ist und $a,n\geqslant 1$ positive ganze Zahlen sind. Zeige, dass diese Gleichung nur die trivialen Lösungen mit $n=1$ besitzt.

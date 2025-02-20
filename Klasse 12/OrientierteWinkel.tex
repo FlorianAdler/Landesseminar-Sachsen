@@ -16,7 +16,7 @@ wofür die Bezeichnung \emph{Restklasse modulo $180^\circ$} allemal gerechtferti
 
 Genau wie bei ganzen Zahlen könnt ihr euch überlegen, dass Addition und Subtraktion von Winkeln sowie Multiplikation mit ganzen Zahlen auch modulo $180^\circ$ funktionieren. Solange wir also nur modulo $180^\circ$ rechnen, kommt es nicht darauf an, welchen konkreten Repräsentanten wir für $\winkel (g,h)$ gewählt haben.
 
-Der Vorteil von orientierten Winkeln modulo $180^\circ$ liegt darin, dass sie sich additiv verhalten, wie wir es intuitiv erwarten würden.
+Der Vorteil von orientierten Winkeln modulo $180^\circ$ liegt darin, dass sie sich unter Addition so verhalten, wie wir es intuitiv erwarten würden.
 \begin{satzmitnamen}[Eigenschaften von orientierten Winkeln modulo $\boldsymbol{180^\circ}$]
 	Sei $n\geqslant 2$ und seien $g_1,\dotsc,g_n$ Geraden in der Ebene.
 	\begin{enumerate}
@@ -81,7 +81,7 @@ Mit orientierten Winkeln modulo $180^\circ$ lässt sich ein denkbar einfaches Kr
 \end{satzmitnamen}
 
 \begin{proof}
-	Sei $T$ der von $B$ verschiedene Schnittpunkt der Umkreise $\odot ABC'$ und $\odot BCA'$. Nach dem orientierten Peripheriewinkelsatz liegt $T$ genau dann auf $\odot CAB'$, wenn $\winkel(CT,AT)\equiv\winkel (CB',AB') \mod 180^\circ$. Nun ist aber
+	Sei $T$ der von $B$ verschiedene Schnittpunkt der Umkreise $\odot ABC'$ und $\odot BCA'$. Nach dem orientierten Peripheriewinkelsatz liegt $T$ genau dann auf $\odot CAB'$, wenn die Kongruenz $\winkel(CT,AT)\equiv\winkel (CB',AB') \mod 180^\circ$ gilt. Nun ist aber
 	\begin{alignat*}{2}
 		0^\circ&\equiv \winkel(CT,AT) +\winkel(AT,BT) + \winkel(BT,CT) &&\mod 180^\circ\\
 		&\equiv \winkel(CT,AT) + \winkel(AC',BC') + \winkel(BA',CA') &&\mod 180^\circ\,,

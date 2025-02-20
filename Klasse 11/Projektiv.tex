@@ -1,14 +1,14 @@
 \section{Projektive Geometrie}\label{kapitel:ProjektiveGeometrie}
 In diesem Kapitel werden wir eine Einführung in die projektive Geometrie geben und an vielen Beispielen demonstrieren, wie projektive Geometrie zur Lösung von Olympiadeaufgaben eingesetzt werden können. Naturgemäß werden wir dafür viel Theorie einführen müssen, wovon euch sehr viel wahrscheinlich neu sein wird. Wenn ihr dieses Kapitel aber einmal verdaut und durchgearbeitet habt, werdet ihr ein ganzes Arsenal an neuen Werkzeugen zur Verfügung haben und ihr werdet Aufgaben mit Leichtigkeit lösen können, die euch vorher sehr schwer gefallen wären.
 
-Die Beispielaufgaben in diesem Kapitel werden direkt aufgelöst, statt dass es wie sonst Tipps und die Lösungen erst am Ende des Heftes gibt. Der Grund dafür ist die Fülle an neuen Methoden, die in diesem Kapitel eingeführt werden. Bevor ihr diese Methoden realistisch selbst anwenden könnt, müsst ihr sie einmal in Aktion gesehen haben. Wenn ihr Lust habt, könnt ihr natürlich trotzdem zuerst selbst an den Aufgaben zu knobeln, bevor ihr weiterlest. Außerdem gibt es am Ende jede Menge Übungsaufgaben zum Vertiefen der Methoden.
+Die Beispielaufgaben in diesem Kapitel werden direkt aufgelöst, statt dass es wie sonst Tipps und die Lösungen erst am Ende des Heftes gibt. Der Grund dafür ist die Fülle an neuen Methoden, die in diesem Kapitel eingeführt werden. Bevor ihr diese Methoden realistisch selbst anwenden könnt, müsst ihr sie einmal in Aktion gesehen haben. Wenn ihr Lust habt, könnt ihr natürlich trotzdem zuerst selbst an den Aufgaben knobeln, bevor ihr weiterlest. Außerdem gibt es am Ende eine Menge Übungsaufgaben zum Vertiefen der Methoden.
 
 Zur projektiven Geometrie gibt es auch ein exzellentes Skript von Jens Reinhold,\footnote{Online verfügbar unter \url{https://drive.google.com/uc?id=1aUdgB5zLRj8MPfwy3r1exr6idfGJR65Z}} an welchem sich dieses Kapitel in großen Teilen orientiert.
 
 \subsection*{Die projektive Ebene}
 In vielen geometrischen Konstellationen müssen Spezialfälle betrachtet werden, weil es passieren kann, dass zwei Geraden parallel sind, sodass ein gewünschter Schnittpunkt vielleicht gar nicht existiert. Zum Beispiel gibt es viele Aussagen (und Aufgaben) der Form \enquote{drei Geraden schneiden sich in einem Punkt oder sind paarweise parallel}. Die projektive Ebene ist ein Hilfsmittel, mit dem sich derartige Spezialfälle vermeiden lassen.
 
-Die projektive Ebene entsteht aus der üblichen euklidischen Ebene, indem wir einige \enquote{unendlich weit entfernte Punkte} hinzufügen, sogenannte \emph{Fernpunkte}, die alle auf einer \enquote{unendlich weit entfernten Gerade} liegen, der \emph{Ferngerade}. Konkret stellen wir uns dafür vor, dass jede Gerade~$\ell$ durch einen Fernpunkt~$\infty_\ell$ verläuft. Für zwei Geraden $\ell_1$~und~$\ell_2$ soll genau dann $\infty_{\ell_1}=\infty_{\ell_2}$ gelten, wenn $\ell_1$~und~$\ell_2$ parallel sind. Alle Geraden, die zu einer gegebenen Geraden~$\ell$ parallel sind, schneiden $\ell$ also im Fernpunkt~$\infty_\ell$ (und alle anderen Geraden schneiden~$\ell$ natürlich in einem Nicht-Fernpunkt). Wenn $P$ ein beliebiger Punkt ist, dann definieren wir die \enquote{Gerade~$P\infty_\ell$} als die Parallele zu~$\ell$ durch~$P$. Wenn $\ell_1$ und $\ell_2$ zwei nicht-parallele Geraden sind, das heißt $\infty_{\ell_1}\neq \infty_{\ell_2}$ gilt, dann ist die \enquote{Gerade $\infty_{\ell_1}\infty_{\ell_2}$} genau die Ferngerade.
+Die projektive Ebene entsteht aus der üblichen euklidischen Ebene, indem wir einige \enquote{unendlich weit entfernte Punkte} hinzufügen, sogenannte \emph{Fernpunkte}, die alle auf einer \enquote{unendlich weit entfernten Gerade} liegen, der \emph{Ferngerade}. Konkret stellen wir uns dafür vor, dass jede Gerade~$\ell$ durch einen Fernpunkt~$\infty_\ell$ verläuft. Für zwei Geraden $\ell_1$~und~$\ell_2$ soll genau dann $\infty_{\ell_1}=\infty_{\ell_2}$ gelten, wenn $\ell_1$~und~$\ell_2$ parallel sind. Alle Geraden, die zu einer gegebenen Geraden~$\ell$ parallel sind, schneiden $\ell$ also im Fernpunkt~$\infty_\ell$ (und alle anderen Geraden schneiden~$\ell$ natürlich in einem Nicht-Fernpunkt). Wenn $P$ ein beliebiger Punkt ist, dann definieren wir die \enquote{Gerade~$P\infty_\ell$} als die Parallele zu~$\ell$ durch~$P$. Wenn $\ell_1$ und $\ell_2$ zwei nicht-parallele Geraden sind, sodass $\infty_{\ell_1}\neq \infty_{\ell_2}$ gilt, dann ist die \enquote{Gerade $\infty_{\ell_1}\infty_{\ell_2}$} genau die Ferngerade.
 
 Es gibt einen Weg, sich die projektive Ebene etwas anschaulicher zu machen. Dazu stellen wir uns vor, dass die euklidische Ebene in Wirklichkeit eine Ebene~$\Sigma$ im Raum ist. Sei $Z$ ein Punkt, der nicht auf~$\Sigma$ liegt. Jedem Punkt~$X$ auf~$\Sigma$ ordnen wir die Gerade~$XZ$ zu und jeder Gerade~$\ell$ in~$\Sigma$ ordnen wir die Ebene~$\Pi_\ell$ zu, die von $\ell$~und~$Z$ aufgespannt wird. Dadurch erhalten wir Abbildungen	
 \begin{equation*}
@@ -23,7 +23,7 @@ Es gibt einen Weg, sich die projektive Ebene etwas anschaulicher zu machen. Dazu
 \end{equation*}
 Diese Abbildungen sind injektiv, aber nicht surjektiv. Denn die Geraden durch~$Z$, die zur Ebene~$\Sigma$ parallel sind, können nicht von der Form~$XZ$ für irgendeinen Punkt~$X$ auf~$\Sigma$ sein. Genauso wenig kann die Ebene durch~$Z$, die zu~$\Sigma$ parallel ist, von der Form~$\Pi_\ell$ für irgendeine Gerade~$\ell$ auf~$\Sigma$ sein. Die Fernpunkte und die Ferngerade, die wir in der projektiven Ebene hinzugefügt haben, entsprechen genau den Elementen, die von den obigen Abbildungen nicht getroffen werden.
 
-Die Konvention, Punkte zur Ebene hinzuzufügen, erinnert euch bestimmt an Inversion am Kreis. Allerdings unterscheiden sich die beiden Konstruktionen deutlich: Bei der Inversion haben wir einen einzigen unendlich fernen Punkt~$\infty$ hinzugefügt und Geraden als Kreise durch~$\infty$ betrachtet. Insbesondere schneiden sich beliebige zwei Geraden in~$\infty$. Bei der projektiven Ebene haben wir stattdessen unendlich viele unendlich ferne Punkte hinzugefügt, nämlich einen für jede Klasse von parallelen Geraden. Im Studium werdet ihr erfahren, dass Inversion am Kreis in der \emph{komplex-projektiven Geraden~$\mathbb{CP}^1$} stattfindet (die uns als Ebene erscheint, weil wir uns die komplexen Zahlen~$\mathbb C$ ja selber als Ebene vorstellen), während wir hier mit der \emph{reell-projektiven Ebene~$\mathbb{RP}^2$} arbeiten.
+Die Konvention, Punkte zur Ebene hinzuzufügen, erinnert euch bestimmt an Inversion am Kreis. Allerdings unterscheiden sich die beiden Konstruktionen deutlich: Bei der Inversion haben wir einen einzigen unendlich fernen Punkt~$\infty$ hinzugefügt und Geraden als Kreise durch~$\infty$ betrachtet. Insbesondere schneiden sich beliebige zwei Geraden in~$\infty$. Bei der projektiven Ebene haben wir stattdessen unendlich viele unendlich ferne Punkte hinzugefügt, nämlich einen für jede Klasse von parallelen Geraden. Im Studium werdet ihr lernen, dass Inversion am Kreis in der \emph{komplex-projektiven Geraden~$\mathbb{CP}^1$} stattfindet (die uns als Ebene erscheint, weil wir uns die komplexen Zahlen~$\mathbb C$ ja selber als Ebene vorstellen), während wir hier mit der \emph{reell-projektiven Ebene~$\mathbb{RP}^2$} arbeiten.
 
 \subsection*{Das Doppelverhältnis}
 \begin{definition}
@@ -34,7 +34,7 @@ Die Konvention, Punkte zur Ebene hinzuzufügen, erinnert euch bestimmt an Invers
 	wobei alle Streckenlängen als gerichtet zu verstehen sind.
 \end{definition}
 
-Ihr könnt euch leicht überlegen, dass das Doppelverhältnis unabhängig von der Wahl der Richtung auf~$BC$ ist (so eine Wahl der Richtung findet ja immer implizit statt, wenn wir mit gerichteten Streckenlängen arbeiten). Das Doppelverhältnis ist außerdem unabhängig von der Reihenfolge der Punktepaare: $(A,B;C,D)=(C,D;A,B)$. Es ist allerdings \emph{nicht} unabhängig von der Reihenfolge der Punkte innerhalb der Punktepaare: Wenn $(A,B;C,D)=\lambda$, dann ist $(B,A;C,D)=1/\lambda$.
+Ihr könnt euch leicht überlegen, dass das Doppelverhältnis unabhängig von der Wahl der Richtung auf~$BC$ ist (so eine Wahl der Richtung findet ja immer implizit statt, wenn wir mit gerichteten Streckenlängen arbeiten). Das Doppelverhältnis ist außerdem unabhängig von der Reihenfolge der Punktepaare: $(A,B;C,D)=(C,D;A,B)$. Es ist allerdings \emph{nicht} unabhängig von der Reihenfolge der Punkte innerhalb der Punktepaare: Wenn $(A,B;C,D)=\lambda$, dann ist $(B,A;C,D)=\lambda^{-1}$.
 
 Ein wiederkehrendes Motiv in der projektiven Geometrie ist das \emph{Dualitätsprinzip}: Eine Aussage sollte auch dann noch wahr sein, wenn wir \enquote{die Rollen von Punkten und Geraden vertauschen}, das heißt, wenn jeder Punkt durch eine Gerade und jede Gerade durch einen Punkt ersetzt wird, wobei die Verbindungsgerade zweier Punkte durch den Schnittpunkt der entsprechenden Geraden ersetzt wird und umgekehrt. Im letzten Unterkapitel zu Dualität werdet ihr eine Methode kennenlernen, mit der sich dieses Prinzip konkret verwirklichen lässt. Für den Moment nehmen wir das Dualitätsprinzip als Motivation, das Doppelverhältnis nicht nur für Punkte auf einer Geraden, sondern auch für Geraden durch einen Punkt zu definieren. 
 
@@ -54,37 +54,42 @@ Ein wiederkehrendes Motiv in der projektiven Geometrie ist das \emph{Dualitätsp
 \end{satzmitnamen}
 
 \begin{proof}
-	Es lässt sich leicht nachprüfen, dass $(A,B;C,D)$ und $(PA,PB;PC,PD)$ das gleiche Vorzeichen haben. Wir müssen also nur prüfen, dass auch ihre Beträge übereinstimmen. Die Winkel $\varphi$~und~$\psi$ seien wie in der Skizze definiert. Nach dem Sinussatz in den Dreiecken $ACP$ und $BCP$ gilt $\abs{AC}=\abs{PA}\cdot {\sin\winkel(PA,PC)}/{\sin\varphi}$ und $\abs{CB}=\abs{PB}\cdot {\sin\winkel(PC,PB)}/{\sin\varphi}$. Nach dem Sinussatz in den Dreiecken $ADP$ und $BDP$ gilt $\abs{AD}=\abs{PA}\cdot {\sin\winkel(PA,PD)}/{\sin\psi}$ und $\abs{DB}=\abs{PB}\cdot {\sin\winkel(PD,PB)}/{\sin\psi}$. Durch Einsetzen folgt
-	\begin{equation*}
-		\frac{\abs{AC}}{\abs{CB}}\bigg/\frac{\abs{AD}}{\abs{DB}}=\frac{\abs{PA}\cdot\sin\winkel(a,c)}{\abs{PB}\cdot \sin\winkel(c,b)}\bigg/\frac{\abs{PA}\cdot\sin\winkel(a,d)}{\abs{PB}\cdot \sin\winkel(d,b)}=\frac{\sin\winkel(a,c)}{\sin\winkel(c,b)}\bigg/\frac{\sin\winkel(a,d)}{\sin\winkel(d,b)}\,,
-	\end{equation*}
+	Es lässt sich leicht nachprüfen, dass $(A,B;C,D)$ und $(PA,PB;PC,PD)$ das gleiche Vorzeichen haben. Wir müssen also nur prüfen, dass auch ihre Beträge übereinstimmen.
+	
+	\begin{figure}[ht]
+		\centering
+		\begin{tikzpicture}[x=0.6cm,y=0.6cm]
+			\coordinate (A) at (-1.006,0.404);
+			\coordinate (B) at (0.306,-0.462);
+			\coordinate (C) at (2.406,-1.849);
+			\coordinate (D) at (4.972,-3.543);
+			\coordinate (P) at (7.023,2.358);
+			\draw [line width=0.3,shorten <=-3em,shorten >=-2.25em] (A) to (D);
+			\draw [shorten <=-3ex,shorten >=-1.5em] (P) to (A);
+			\draw [shorten <=-3ex,shorten >=-1.5em] (P) to (B);
+			\draw [shorten <=-3ex,shorten >=-1.5em] (P) to (C);
+			\draw [shorten <=-3ex,shorten >=-1.5em] (P) to (D);
+			\draw [line width=0.3, shift={(C)}] (42.34:3.25ex) arc (42.34:146.567:3.25ex);
+			\draw [line width=0.3, shift={(D)}] (70.836:3.75ex) arc (70.836:146.567:3.75ex);
+			\draw [fill=black] (A) circle (2pt) node[shift={(250:2ex)}] {$A$};
+			\draw [fill=black] (B) circle (2pt) node[shift={(260:2ex)}] {$B$};
+			\draw [fill=black] (C) circle (2pt) node[shift={(270:2ex)}] {$C$};
+			\draw [fill=black] (D) circle (2pt) node[shift={(200:2ex)}] {$D$};
+			\draw [fill=white] (P) circle (2pt) node[shift={(135:2ex)}] {$P$};
+			\node [shift={(92:1.75ex)}] at (C) {$\varphi$};
+			\node [shift={(105:2.25ex)}] at (D) {$\psi$};
+			\node at (-1.85,1.65) {$\ell$};
+		\end{tikzpicture}
+	\end{figure}
+	
+	Die Winkel $\varphi$~und~$\psi$ seien wie in der Skizze definiert. Nach dem Sinussatz in den Dreiecken $ACP$ und $BCP$ gilt $\abs{AC}=\abs{PA}\cdot {\sin\winkel(PA,PC)}/{\sin\varphi}$ und $\abs{CB}=\abs{PB}\cdot {\sin\winkel(PC,PB)}/{\sin\varphi}$. Nach dem Sinussatz in den Dreiecken $ADP$ und $BDP$ gilt $\abs{AD}=\abs{PA}\cdot {\sin\winkel(PA,PD)}/{\sin\psi}$ und $\abs{DB}=\abs{PB}\cdot {\sin\winkel(PD,PB)}/{\sin\psi}$. Durch Einsetzen folgt
+	\begin{align*}
+		\frac{\abs{AC}}{\abs{CB}}\bigg/\frac{\abs{AD}}{\abs{DB}}&=\frac{\abs{PA}\cdot\sin\winkel(PA,PC)}{\abs{PB}\cdot \sin\winkel(PC,PB)}\bigg/\frac{\abs{PA}\cdot\sin\winkel(PA,PD)}{\abs{PB}\cdot \sin\winkel(PD,PB)}\\
+		&=\frac{\sin\winkel(PA,PC)}{\sin\winkel(PC,PB)}\bigg/\frac{\sin\winkel(PA,PD)}{\sin\winkel(PD,PB)}\,,
+	\end{align*}
 	also $\abs{(A,B;C,D)}=\abs{(PA,PB;PC,PD)}$, wie gewünscht.
 \end{proof}
-	\begin{figure}[ht]
-	\centering
-	\begin{tikzpicture}[x=0.6cm,y=0.6cm]
-		\coordinate (A) at (-1.006,0.404);
-		\coordinate (B) at (0.306,-0.462);
-		\coordinate (C) at (2.406,-1.849);
-		\coordinate (D) at (4.972,-3.543);
-		\coordinate (P) at (7.023,2.358);
-		\draw [line width=0.3,shorten <=-3em,shorten >=-2.25em] (A) to (D);
-		\draw [shorten <=-3ex,shorten >=-1.5em] (P) to (A);
-		\draw [shorten <=-3ex,shorten >=-1.5em] (P) to (B);
-		\draw [shorten <=-3ex,shorten >=-1.5em] (P) to (C);
-		\draw [shorten <=-3ex,shorten >=-1.5em] (P) to (D);
-		\draw [line width=0.3, shift={(C)}] (42.34:3.25ex) arc (42.34:146.567:3.25ex);
-		\draw [line width=0.3, shift={(D)}] (70.836:3.75ex) arc (70.836:146.567:3.75ex);
-		\draw [fill=black] (A) circle (2pt) node[shift={(250:2ex)}] {$A$};
-		\draw [fill=black] (B) circle (2pt) node[shift={(260:2ex)}] {$B$};
-		\draw [fill=black] (C) circle (2pt) node[shift={(270:2ex)}] {$C$};
-		\draw [fill=black] (D) circle (2pt) node[shift={(200:2ex)}] {$D$};
-		\draw [fill=white] (P) circle (2pt) node[shift={(135:2ex)}] {$P$};
-		\node [shift={(92:1.75ex)}] at (C) {$\varphi$};
-		\node [shift={(105:2.25ex)}] at (D) {$\psi$};
-		\node at (-1.85,1.65) {$\ell$};
-	\end{tikzpicture}
-\end{figure}
+	
 
 
 
@@ -135,7 +140,7 @@ Nachdem wir Doppelverhältnisse für Punktepaare auf einer Geraden und Geradenpa
 	In den folgenden Fällen ist die Projektion durch einen Punkt eine projektive Abbildung:
 	\begin{enumerate}
 		\item \label{itm:projAbb:GG}
-		Seien $\ell_1$~und~$\ell_2$ zwei Geraden, sei $P$ ein Punkt, der nicht auf~$\ell_1$ liegt, und sei $\pi_1\colon \ell_1\to \ell_2$ die Projektion durch~$P$ von~$\ell_1$ auf~$\ell_2$. Das bedeutet: Für jeden Punkt~$X$ auf~$\ell_1$ ist $\pi_1(X)$ der Schnittpunkt von~$PX$ mit~$\ell_2$; falls $PX$ parallel zu~$\ell_2$ ist definieren wir $\pi_1(X)\coloneqq \infty_{\ell_2}$. Dann ist $\pi_1$ eine projektive Abbildung.
+		Seien $\ell_1$~und~$\ell_2$ zwei Geraden, sei $P$ ein Punkt, der nicht auf~$\ell_1$ oder $\ell_2$ liegt, und sei $\pi_1\colon \ell_1\to \ell_2$ die Projektion durch~$P$ von~$\ell_1$ auf~$\ell_2$. Das bedeutet: Für jeden Punkt~$X$ auf~$\ell_1$ ist $\pi_1(X)$ der Schnittpunkt von~$PX$ mit~$\ell_2$; falls $PX$ parallel zu~$\ell_2$ ist definieren wir $\pi_1(X)\coloneqq \infty_{\ell_2}$. Dann ist $\pi_1$ eine projektive Abbildung.
 		\item \label{itm:projAbb:GK}
 		Sei $\ell$ eine Gerade, sei $\omega$ ein Kreis und sei $P$ ein Punkt auf~$\omega$, der nicht auf~$\ell$ liegt.
 		% Tien: Ich bin mir zu 100% sicher, dass P nicht auf \ell liegen darf; habe das korrigiert.
@@ -162,7 +167,7 @@ Nachdem wir Doppelverhältnisse für Punktepaare auf einer Geraden und Geradenpa
 		\centering
 		\begin{tabularx}{\textwidth}{X c X c X}
 			& \begin{tikzpicture}[x=0.65cm,y=0.65cm]
-				\clip (-0.08,-1.35) rectangle (7.28,4.42);
+				\clip (-0.25,-1.45) rectangle (7.5,4.42);
 				\coordinate (P) at (5.03,3.713);
 				\coordinate (A) at (2.979,1.43);
 				\coordinate (B) at (3.697,1.357);
@@ -190,7 +195,7 @@ Nachdem wir Doppelverhältnisse für Punktepaare auf einer Geraden und Geradenpa
 				\node at (0.9,1.1) {$\ell_1$};
 				\node at (0.3,-0.35) {$\ell_2$};
 			\end{tikzpicture} & & \begin{tikzpicture}[x=0.52cm,y=0.52cm]
-				\clip (-0.09,-1.76) rectangle (9.13,5.5);
+				\clip (-0.25,-1.9) rectangle (9.3,5.65);
 				\draw (2.853,3.042) circle (1.735);
 				\coordinate (P) at (1.945,4.521);
 				\coordinate (A) at (1.644,1.797);
@@ -225,7 +230,7 @@ Nachdem wir Doppelverhältnisse für Punktepaare auf einer Geraden und Geradenpa
 		\centering
 		\begin{tabularx}{\textwidth}{X c X c X}
 			& \begin{tikzpicture}[x=0.6cm,y=0.6cm]
-				\clip (-1.2,-2.02) rectangle (5.12,4.62);
+				\clip (-1.25,-2.1) rectangle (5.18,4.62);
 				\draw (2.671,2.952) circle (1.622);
 				\draw (1.832,0.774) circle (2.23);
 				\coordinate (P) at (3.812,1.8);
@@ -254,7 +259,7 @@ Nachdem wir Doppelverhältnisse für Punktepaare auf einer Geraden und Geradenpa
 				\node at (3.4,3.85) {$\omega_1$};
 				\node at (1.4,-0.90) {$\omega_2$};
 			\end{tikzpicture} & & \begin{tikzpicture}[x=0.55cm,y=0.55cm]
-				\clip (-3.52,-1.62) rectangle (7.93,6.29);
+				\clip (-3.6,-1.7) rectangle (8,6.4);
 				\draw (4.275,2.339) circle (3.134);
 				\coordinate (P) at (-2.574,0.772);
 				\coordinate (A) at (1.441,3.676);
@@ -367,7 +372,7 @@ Außerdem lässt sich der Beweis leicht auf andere Situationen übertragen. Betr
 	Seien $A$,~$C$ und~$E$ drei Punkte auf einer Geraden~$\ell_1$ und $B$,~$D$ und~$F$ drei Punkte auf einer Geraden~$\ell_2$. Sei $P$ der Schnittpunkt von $AB$ und~$DE$, sei $Q$ der Schnittpunkt von $BC$ und~$EF$ und schließlich sei $R$ der Schnittpunkt von $CD$ und~$FA$. Dann liegen $P$,~$Q$ und~$R$ auf einer Geraden.
 \end{satzmitnamen}
 
-Die Sätze von Pascal und Pappos sind häufig nützlich in Olympiadeaufgaben, nicht zuletzt deshalb, weil sie nicht zum Standardrepertoire gehören und euch deshalb einen Vorteil verschaffen können.
+Die Sätze von Pascal und Pappos sind häufig nützlich in Olympiadeaufgaben, nicht zuletzt deshalb, weil sie nicht zum Standardrepertoire gehören und euch deshalb einen Vorteil gegenüber der Konkurrenz verschaffen können.
 
 Wir werden jetzt den Einsatz von Pascal und Pappos an zwei Beispielaufgaben demonstrieren.
 
@@ -484,7 +489,7 @@ Es mag bisher der Eindruck entstanden sein, dass alle projektiven Abbildungen du
 
 Für zwei beliebige Punktepaare hängt das Doppelverhältnis im Allgemeinen von der Reihenfolge der Punkte innerhalb der Punktepaare ab. Für harmonische Punktepaare ist das allerdings nicht der Fall: Wenn $(A,B)$ und $(C,D)$ harmonisch sind, dann sind auch $(B,A)$ und $(C,D)$ harmonisch; es gilt $(A,B;C,D)=-1=(B,A;C,D)$.
 
-Im Unterkapitel zu Polaren werden wir sehen, wie sich harmonische Punktepaare auf einem Kreis charakterisieren lassen. Fürs Erste betrachten wir den Fall, dass die Punkte $A$,~$B$, $C$ und~$D$ auf einer Geraden liegen. Dann gibt es für jede reelle Zahl $\lambda>0$ genau zwei Punkte auf der Geraden~$AB$, die die Strecke~$\overline{AB}$ im (ungerichteten) Verhältnis~$\lambda$ teilen: Nämlich einen Punkt~$X_\lambda$ im Inneren von~$\overline{AB}$, für den (in gerichteten Streckenlängen) $AX_{\lambda}/X_{\lambda}B=\lambda$ gilt, und einen Punkt~$X_{-\lambda}$ außerhalb von~$\overline{AB}$, für den (in gerichteten Streckenlängen) mit $AX_{-\lambda}/X_{-\lambda}B=-\lambda$ gilt. Im Fall $\lambda=1$ gilt $X_{-\lambda}=\infty_{AB}$. Somit sind die Punktepaare $(A,B)$ und $(C,D)$ genau dann harmonisch, wenn es ein $\lambda >0$ gibt, sodass $C=X_\lambda$ und $D=X_{-\lambda}$ oder $C=X_{-\lambda}$ und $D=X_\lambda$ gilt.
+Im Unterkapitel zu Polaren werden wir sehen, wie sich harmonische Punktepaare auf einem Kreis charakterisieren lassen. Fürs Erste betrachten wir nur den Fall, dass die Punkte $A$,~$B$, $C$ und~$D$ auf einer Geraden liegen. Dann gibt es für jede reelle Zahl $\lambda>0$ genau zwei Punkte auf der Geraden~$AB$, die die Strecke~$\overline{AB}$ im (ungerichteten) Verhältnis~$\lambda$ teilen: Nämlich einen Punkt~$X_\lambda$ im Inneren von~$\overline{AB}$, für den (in gerichteten Streckenlängen) $AX_{\lambda}/X_{\lambda}B=\lambda$ gilt, und einen Punkt~$X_{-\lambda}$ außerhalb von~$\overline{AB}$, für den (in gerichteten Streckenlängen) mit $AX_{-\lambda}/X_{-\lambda}B=-\lambda$ gilt. Das stimmt auch für $\lambda=1$: In diesem Fall ist $X_\lambda$ der Mittelpunkt von $\overline{AB}$ und $X_{-\lambda}=\infty_{AB}$. In jedem Fall sehen wir, dass die Punktepaare $(A,B)$ und $(C,D)$ genau dann harmonisch sind, wenn es ein $\lambda >0$ gibt, sodass $(C,D)=(X_\lambda,X_{-\lambda})$ oder $(C,D)=(X_{-\lambda},X_\lambda)$ gilt.
 
 Harmonische Punktepaare werden dadurch interessant, dass sie häufig auf natürliche Weise in euren Skizzen auftauchen. Sei zum Beispiel $ABC$ ein Dreieck und seien $W$,~$W'$ die Schnittpunkte der Innen- bzw.\ Außenwinkelhalbierenden von $\winkel ACB$ mit~$AB$. Dann teilen $W$ und $W'$ die Strecke $\overline{AB}$ bekanntlich im Verhältnis $\abs{CA}/\abs{BC}$. Aus den obigen Überlegungen folgt also, dass $(A,B)$ und $(W,W')$ harmonische Punktepaare sind. Für ein weiteres Beispiel betrachte den Mittelpunkt~$M$ einer Strecke~$\overline{AB}$; dann sind $(A,B)$ und $(M,\infty_{AB})$ harmonische Punktepaare. Ihr werdet in den Beispielaufgaben sehen, wie sich diese triviale Beobachtung auf nicht-triviale Weise ausnutzen lässt.
 
@@ -530,7 +535,7 @@ Die allgemeinste Quelle von harmonischen Punktepaaren ist aber durch den folgend
 \end{figure}
 
 \begin{proof}
-	Der Satz lässt sich leicht durch eine Kombination der Sätze von Ceva und Menelaos beweisen. Mit projektiven Abbildungen ergibt sich aber eine noch kürzere Lösung. Indem wir die Gerade~$PP'$ durch~$R$ auf die Gerade~$QQ'$ projizieren, erhalten wir $(P,P';L,M)=(Q,Q';K,M)$. Indem wir die Gerade~$QQ'$ durch~$R'$ auf die Gerade~$PP'$ projizieren, erhalten wir $(Q,Q';K,M)=(P',P;L,M)$. Also ist $(P,P';L,M)=(P',P;L,M)$. Andererseits gilt ganz allgemein $(P',P;L,M)=1/(P,P';L,M)$. Also muss $(P,P';L,M)^2=1$ gelten. Da Doppelverhältnisse nie den Wert~$1$ annehmen, kommt nur $(P,P';L,M)=-1$ in Frage und es folgt, dass $(P,P')$ und $(L,M)$ in der Tat harmonisch sind. Die anderen beiden Behauptungen folgen völlig analog (oder durch geeignete Projektion).
+	Der Satz lässt sich leicht durch eine Kombination der Sätze von Ceva und Menelaos beweisen. Mit projektiven Abbildungen ergibt sich aber eine noch kürzere Lösung. Indem wir die Gerade~$PP'$ durch~$R$ auf die Gerade~$QQ'$ projizieren, erhalten wir $(P,P';L,M)=(Q,Q';K,M)$. Indem wir die Gerade~$QQ'$ durch~$R'$ auf die Gerade~$PP'$ projizieren, erhalten wir $(Q,Q';K,M)=(P',P;L,M)$. Also ist $(P,P';L,M)=(P',P;L,M)$. Andererseits gilt ganz allgemein $(P',P;L,M)=(P,P';L,M)^{-1}$. Also muss $(P,P';L,M)^2=1$ gelten. Da Doppelverhältnisse nie den Wert~$1$ annehmen, kommt nur $(P,P';L,M)=-1$ in Frage und es folgt, dass $(P,P')$ und $(L,M)$ in der Tat harmonisch sind. Die anderen beiden Behauptungen folgen völlig analog (oder durch geeignete Projektion).
 \end{proof}
 
 Wenn $(A,B)$ und $(C,D)$ harmonische Punktepaare sind, dann erfüllt der Mittelpunkt von $\overline{AB}$ einige sehr nützliche Relationen.
@@ -753,7 +758,7 @@ Der wichtigste Fakt über Pole und Polaren ist der folgende:
 \begin{figure}[ht]
 	\centering
 	\begin{tikzpicture}[x=2.35cm,y=2.35cm]
-		\clip (-0.35,-0.382) rectangle (1.464,1.192);
+		\clip (-0.4,-0.42) rectangle (1.5,1.3);
 		\draw[line width=0.3] (-22:1) arc (-22:110:1);
 		\coordinate (O) at (0,0);
 		\draw[line width=0.3,dashed] (0.978,0.521) circle (0.477);
@@ -762,8 +767,8 @@ Der wichtigste Fakt über Pole und Polaren ist der folgende:
 		\coordinate (Q) at (1.14,0.97);
 		\coordinate (Q1) at (0.509,0.433);
 		\draw [line width=0.3] (P1) to (O) to (Q);
-		\draw[shorten <=-3ex,shorten >=-6.9ex] (Q) to (P1);
-		\draw[shorten <=-13.75ex,shorten >=-8.15ex] (Q1) to (P);
+		\draw[shorten <=-3ex,shorten >=-5.9ex] (Q) to (P1);
+		\draw[shorten <=-13.75ex,shorten >=-7ex] (Q1) to (P);
 		\draw[line width=0.3, shift={(P1)}] (95.1:0.32cm) arc (95.1:185.1:0.32cm);
 		\fill[shift={(P1)}] (140.1:0.18cm) circle (1pt);
 		\draw[line width=0.3, shift={(Q1)}] (310.29:0.32cm) arc (310.29:400.29:0.32cm);
@@ -791,7 +796,7 @@ Wenn zum Beispiel $P$ der Schnittpunkt zweier Geraden $a$~und~$b$ mit den Polen 
 \begin{figure}[ht]
 	\centering
 	\begin{tikzpicture}[x=1.65cm,y=1.65cm]
-		\clip (-2.356,-1.209) rectangle (1.012,1.287);
+		\clip (-2.45,-1.28) rectangle (1.1,1.35);
 		%\draw[line width=0.3] (-22:1) arc (-22:110:1);
 		\draw [line width=0.3] (0,0) circle (1);
 		\coordinate (A) at (-0.387,0.922);
@@ -817,7 +822,7 @@ Der Satz von La~Hire lässt sich verwenden, um Aufgaben umzuformulieren (wie imm
 \begin{figure}[ht]
 	\centering
 	\begin{tikzpicture}[x=1.25cm,y=1.25cm]
-		\clip (-2.97,-1.705) rectangle (3.403,3.391);
+		\clip (-3.01,-1.75) rectangle (3.46,3.4);
 		%\draw[line width=0.3] (-22:1) arc (-22:110:1);
 		\draw [line width=0.3] (-0.206,1.865) coordinate (I) circle (1.031);
 		\coordinate (A) at (-0.748,3.03);
@@ -859,7 +864,7 @@ Der Satz von La~Hire lässt sich verwenden, um Aufgaben umzuformulieren (wie imm
 \end{figure}
 
 \begin{proof}[Lösung]
-	Wir wollen stattdessen zeigen, dass die Pole von $AA'$, $BB'$ und~$CC'$ bezüglich~$\omega$ auf einer Geraden liegen. Was ist also der Pol~$X$ von~$AA'$ bezüglich~$\omega$? Nach dem Satz von La~Hire muss $X$ der Schnittpunkt der Polaren von~$A$ und der Polaren von~$A'$ sein. Wie wir weiter oben gesehen haben, können wir die Polare von~$A$ direkt als die Gerade~$EF$ identifizieren, wobei $E$~und~$F$ die Berührpunkte des Inkreises~$\omega$ mit den Seiten $\overline{CA}$ und~$\overline{AB}$ sind. Wir müssen also nur die Polare von~$A'$ identifizieren. Sei $T$ der Berührpunkt von~$t$ an~$\omega$. Weil $A'$ auf~$t$ liegt, also auf der Polaren von~$T$, muss $T$ auf der Polaren von~$A'$ liegen. Andererseits steht die Polare von~$A'$ senkrecht auf~$A'I$. Die Polare von~$A'$ ist also die Senkrechte von~$T$ auf~$A'I$. Nach Voraussetzung ist $A'I\perp AI$. Andererseits ist aber auch $EF\perp AI$. Die Senkrechte von~$T$ auf~$A'I$ ist also auch die Senkrechte von~$T$ auf~$EF$. Insgesamt folgt, dass der Pol von~$AA'$, also der Schnittpunkt der Polaren von $A$~und~$A'$, durch den Lotfußpunkt von~$T$ auf~$EF$ gegeben ist. Analog sind die Pole von $BB'$ und~$CC'$ die Lotfußpunkte von~$T$ auf $FD$ und~$DE$, wobei $D$ der Berührpunkt von~$\omega$ mit~$\overline{BC}$ ist. Wir müssen somit zeigen, dass diese drei Lotfußpunkte kollinear sind. Das ist aber genau der Satz von der Simson-Geraden, angewendet auf das Dreieck $DEF$ und den Punkt~$T$ auf seinem Umkreis.
+	Wir wollen stattdessen zeigen, dass die Pole von $AA'$, $BB'$ und~$CC'$ bezüglich~$\omega$ auf einer Geraden liegen. Was ist also der Pol~$X$ von~$AA'$ bezüglich~$\omega$? Nach dem Satz von La~Hire muss $X$ der Schnittpunkt der Polaren von~$A$ und der Polaren von~$A'$ sein. Wie wir weiter oben gesehen haben, können wir die Polare von~$A$ direkt als die Gerade~$EF$ identifizieren, wobei $E$~und~$F$ die Berührpunkte des Inkreises~$\omega$ mit den Seiten $\overline{CA}$ und~$\overline{AB}$ sind. Wir müssen also nur herausfinden, was die Polare von~$A'$ ist. Sei $T$ der Berührpunkt von~$t$ an~$\omega$. Weil $A'$ auf~$t$ liegt, also auf der Polaren von~$T$, muss $T$ auf der Polaren von~$A'$ liegen. Andererseits steht die Polare von~$A'$ senkrecht auf~$A'I$. Die Polare von~$A'$ ist also die Senkrechte von~$T$ auf~$A'I$. Nach Voraussetzung ist $A'I\perp AI$. Andererseits ist aber auch $EF\perp AI$. Die Senkrechte von~$T$ auf~$A'I$ ist also auch die Senkrechte von~$T$ auf~$EF$. Insgesamt folgt, dass der Pol von~$AA'$, also der Schnittpunkt der Polaren von $A$~und~$A'$, durch den Lotfußpunkt von~$T$ auf~$EF$ gegeben ist. Analog sind die Pole von $BB'$ und~$CC'$ die Lotfußpunkte von~$T$ auf $FD$ und~$DE$, wobei $D$ der Berührpunkt von~$\omega$ mit~$\overline{BC}$ ist. Wir müssen somit zeigen, dass diese drei Lotfußpunkte kollinear sind. Das ist aber genau der Satz von der Simson-Geraden, angewendet auf das Dreieck $DEF$ und den Punkt~$T$ auf seinem Umkreis.
 \end{proof}
 
 Harmonische Punktepaare auf Kreisen lassen sich sehr elegant durch Polaren charakterisieren.
@@ -871,7 +876,7 @@ Harmonische Punktepaare auf Kreisen lassen sich sehr elegant durch Polaren chara
 \begin{figure}[ht]
 	\centering
 	\begin{tikzpicture}[x=1.65cm,y=1.65cm]
-		\clip (-2.372,-1.11) rectangle (1.012,1.15);
+		\clip (-2.45,-1.2) rectangle (1.1,1.2);
 		%\draw[line width=0.3] (-22:1) arc (-22:110:1);
 		\draw [line width=0.3] (0,0) circle (1);
 		\coordinate (A) at (-0.387,0.922);
@@ -895,7 +900,7 @@ Harmonische Punktepaare auf Kreisen lassen sich sehr elegant durch Polaren chara
 \end{figure}
 
 \begin{proof}
-	Der Pol von~$AB$ ist der Schnittpunkt der Tangenten an~$\omega$ in $A$~und~$B$. Sei $D'$ der von~$C$ verschiedene Schnittpunkt von~$PC$ mit~$\omega$. Wie wir in einem vorherigen Lemma gezeigt haben, ist die Projektion $\pi_P\colon \omega\to \omega$ durch~$P$ eine projektive Abbildung. Offenbar bildet $\pi_P$ die Punkte $A$~und~$B$ auf sich selbst ab und vertauscht $C$~und~$D'$. Also gilt $(A,B;C,D')=(A,B;D',C)$. Ganz allgemein gilt aber auch $(A,B;C,D')=1/(A,B;D',C)$. Also muss $(A,B;C,D')^2=1$ sein. Weil das Doppelverhältnis von vier verschiedenen Punkten nie den Wert~$1$ annimmt, kommt nur $(A,B;C,D)=-1$ in Frage und die Punktepaare $(A,B)$ und $(C,D')$ sind harmonisch. Wenn $P$ auf~$CD$ liegt, sodass $D=D'$ gilt, haben wir damit gezeigt, dass $(A,B)$ und $(C,D)$ harmonisch sind. Wenn umgekehrt $(A,B)$ und $(C,D)$ harmonisch sind, muss $D=D'$ gelten, denn für jede reelle Zahl $\lambda\neq 0,1$ gibt es genau einen Punkt~$Y_\lambda$ auf~$\omega$ mit $(A,B;C,Y_\lambda)=\lambda$. Also liegt $P$ in diesem Fall auf~$CD$. Damit ist gezeigt, dass $(A,B)$ und $(C,D)$ genau dann harmonische Punktepaare sind, wenn der Pol~$P$ von~$AB$ auf~$CD$ liegt.
+	Der Pol von~$AB$ ist der Schnittpunkt der Tangenten an~$\omega$ in $A$~und~$B$. Sei $D'$ der von~$C$ verschiedene Schnittpunkt von~$PC$ mit~$\omega$. Wie wir in einem vorherigen Lemma gezeigt haben, ist die Projektion $\pi_P\colon \omega\to \omega$ durch~$P$ eine projektive Abbildung. Offenbar bildet $\pi_P$ die Punkte $A$~und~$B$ auf sich selbst ab und vertauscht $C$~und~$D'$. Also gilt $(A,B;C,D')=(A,B;D',C)$. Ganz allgemein gilt aber auch $(A,B;C,D')=(A,B;D',C)^{-1}$. Also muss $(A,B;C,D')^2=1$ sein. Weil das Doppelverhältnis von vier verschiedenen Punkten nie den Wert~$1$ annimmt, kommt nur $(A,B;C,D)=-1$ in Frage und die Punktepaare $(A,B)$ und $(C,D')$ sind harmonisch. Wenn $P$ auf~$CD$ liegt, sodass $D=D'$ gilt, haben wir damit gezeigt, dass $(A,B)$ und $(C,D)$ harmonisch sind. Wenn umgekehrt $(A,B)$ und $(C,D)$ harmonisch sind, muss $D=D'$ gelten, denn für jede reelle Zahl $\lambda\neq 0,1$ gibt es genau einen Punkt~$Y_\lambda$ auf~$\omega$ mit $(A,B;C,Y_\lambda)=\lambda$. Also liegt $P$ in diesem Fall auf~$CD$. Damit ist gezeigt, dass $(A,B)$ und $(C,D)$ genau dann harmonische Punktepaare sind, wenn der Pol~$P$ von~$AB$ auf~$CD$ liegt.
 	
 	Wenn dies erfüllt ist, können wir die Projektion $\pi_A\colon \omega\to CD$ durch~$A$ betrachten. Diese Projektion bildet offenbar $C$~und~$D$ auf sich selbst ab und $B$~auf~$Q$. Ferner wird $A$ auf den Schnittpunkt der Tangente an~$\omega$ in~$A$ mit der Geraden~$CD$ abgebildet (denn die \enquote{Gerade~$AA$} interpretieren wir wie üblich als die Tangente an~$\omega$ in~$A$). Also gilt $\pi_A(A)=P$. Somit ist $(P,Q;C,D)=(A,B;C,D)=-1$, wie gewünscht.
 \end{proof}
@@ -911,7 +916,7 @@ Der nun folgende Satz kann sehr nützlich in Olympiadeaufgaben sein. Besonders d
 \begin{satzmitnamen}[Satz von Brocard]
 	Sei $ABCD$ ein Sehnenviereck mit Umkreis~$\omega$. Sei $P$ der Schnittpunkt von $AB$ und~$CD$, sei $Q$ der Schnittpunkt von $AC$ und~$BD$ und sei $R$ der Schnittpunkt von $AD$ und~$BC$. Dann ist $QR$ die Polare von~$P$, $RP$~die Polare von~$Q$ und $PQ$~die Polare von~$R$.
 	
-	Insbesondere folgt: Wenn $O$ der Umkreismittelpunkt ist, dann gilt $OP\perp QR$, $OQ\perp RP$ und $OR\perp PQ$ und somit ist $O$ der Höhenschnittpunkt des Dreiecks $PQR$.
+	Insbesondere folgt: Wenn $O$ der Umkreismittelpunkt ist, dann gilt $OP\perp QR$, $OQ\perp RP$ und $OR\perp PQ$. Also ist $O$ der Höhenschnittpunkt des Dreiecks $PQR$.
 \end{satzmitnamen}
 
 \begin{figure}[ht]
@@ -1120,7 +1125,7 @@ Nachdem wir nun die duale Aussage zum Satz von Pascal ermittelt haben, drängt s
 \begin{figure}[ht]
 	\centering
 	\begin{tikzpicture}[x=0.8cm,y=0.8cm]
-		\clip (-4.315,-0.601) rectangle (7.919,7.585);
+		\clip (-4.8,-0.75) rectangle (8.1,7.6);
 		\draw [line width=0.3] (-0.614,2.35) circle (2.728);
 		\draw [line width=0.3] (3.032,1.573) circle (1.847);
 		\draw [dashed,line width=0.3] (1.616,3.128) circle (2.569);
